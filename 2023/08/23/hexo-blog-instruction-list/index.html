@@ -26,12 +26,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="a list of basic instructions of hexo.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="file:///C:/Users/%E6%A2%81%E4%BA%91%E6%A3%AE/AppData/Roaming/Tencent/TIM/Temp/%W@GJ$ACOF(TYDYECOKVDYB.png">
+<meta property="og:image" content="http://example.com/2023/08/23/_pic/machine_learning.jpg">
 <meta property="article:published_time" content="2023-08-23T07:52:48.000Z">
-<meta property="article:modified_time" content="2023-08-23T10:24:54.522Z">
+<meta property="article:modified_time" content="2023-08-23T10:30:02.387Z">
 <meta property="article:author" content="Miraclys">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="file:///C:/Users/%E6%A2%81%E4%BA%91%E6%A3%AE/AppData/Roaming/Tencent/TIM/Temp/%W@GJ$ACOF(TYDYECOKVDYB.png">
+<meta name="twitter:image" content="http://example.com/2023/08/23/_pic/machine_learning.jpg">
 
 
 <link rel="canonical" href="http://example.com/2023/08/23/hexo-blog-instruction-list/">
@@ -208,7 +208,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-08-23 15:52:48 / Modified: 18:24:54" itemprop="dateCreated datePublished" datetime="2023-08-23T15:52:48+08:00">2023-08-23</time>
+      <time title="Created: 2023-08-23 15:52:48 / Modified: 18:30:02" itemprop="dateCreated datePublished" datetime="2023-08-23T15:52:48+08:00">2023-08-23</time>
     </span>
 
   
@@ -252,18 +252,31 @@
 <h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ol>
 <li>由于我们的博客是要部署在网站上，部署后会生成新的文件目录，所以我们选择使用相对路径的方式。<br>在 hexo 中使用 <strong>文章资源文件夹</strong> 需要在 <code>config.yaml</code> 文件中更改一下配置：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
 当该配置被应用后，使用 hexo new 命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。<br>但是若干原因，需要使用 <code>&#123;%asset_image.jpg这是一张图片%&#125;</code> 来引用。</li>
-<li>另一种方法是，在 <code>source</code> 文件夹下建立一个文件夹 <code>_pic</code> 专门用来存放图片，此时在 md 文件中 <code>![img](../_pic/xxx.jpg)</code> 的格式引用就可以了。<h3 id="搭建参考"><a href="#搭建参考" class="headerlink" title="搭建参考"></a>搭建参考</h3></li>
+<li>另一种方法是，在 <code>source</code> 文件夹下建立一个文件夹 <code>_pic</code> 专门用来存放图片，此时在 md 文件中 <code>![img](../_pic/xxx.jpg)</code> 的格式引用就可以了。</li>
 </ol>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo next 主题进阶设置 1 1. 添加“关于”标签 由于我使用的是 next,... 8 8. 站点地图 站点地图的作用向搜索引擎提供你的网站的概要，给你的网站做 SEO。 ... 更多项目">hexo next 主题进阶设置 - 知乎 (zhihu.com)</a></p>
-<p>hexo 博客搭建教程 <img src="file:///C:\Users\梁云森\AppData\Roaming\Tencent\TIM\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" alt="img"><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/44213627">https://zhuanlan.zhihu.com/p/44213627</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000002632530">https://segmentfault.com/a/1190000002632530</a> hexo 常用命令笔记</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/100138838">https://blog.csdn.net/as480133937/article/details/100138838</a> hexo 博客美化配置</p>
-<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">https://theme-next.js.org/docs/getting-started/</a></p>
-<p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/">https://theme-next.js.org/docs/theme-settings/</a></p>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">https://hexo.io/zh-cn/docs/configuration</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/552639819">https://zhuanlan.zhihu.com/p/552639819</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34243930/article/details/103994419#2_65">https://blog.csdn.net/qq_34243930/article/details/103994419#2_65</a> 关于 hexo 创建文章的讲解</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265077468">https://zhuanlan.zhihu.com/p/265077468</a> hexo 博客插入图片</p>
+<p>例如：<br><img src="../_pic/machine_learning.jpg" alt="img"></p>
+<h3 id="搭建参考"><a href="#搭建参考" class="headerlink" title="搭建参考"></a>搭建参考</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo">https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/44213627">https://zhuanlan.zhihu.com/p/44213627</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000002632530">https://segmentfault.com/a/1190000002632530</a> hexo 常用命令笔记</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/100138838">https://blog.csdn.net/as480133937/article/details/100138838</a> hexo 博客美化配置</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/">https://theme-next.js.org/docs/getting-started/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/theme-settings/">https://theme-next.js.org/docs/theme-settings/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">https://hexo.io/zh-cn/docs/configuration</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/552639819">https://zhuanlan.zhihu.com/p/552639819</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34243930/article/details/103994419#2_65">https://blog.csdn.net/qq_34243930/article/details/103994419#2_65</a> 关于 hexo 创建文章的讲解</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265077468">https://zhuanlan.zhihu.com/p/265077468</a> hexo 博客插入图片</p>
+</li>
+</ol>
 
     </div>
 
