@@ -48,9 +48,9 @@
 <h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ol>
 <li>由于我们的博客是要部署在网站上，部署后会生成新的文件目录，所以我们选择使用相对路径的方式。<br>在 hexo 中使用 <strong>文章资源文件夹</strong> 需要在 <code>config.yaml</code> 文件中更改一下配置：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
 当该配置被应用后，使用 hexo new 命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。<br>但是若干原因，需要使用 <code>&#123;%asset_image.jpg这是一张图片%&#125;</code> 来引用。</li>
-<li>另一种方法是，在 <code>source</code> 文件夹下建立一个文件夹 <code>_pic</code> 专门用来存放图片，此时在 md 文件中 <code>![img](../_pic/xxx.jpg)</code> 的格式引用就可以了。</li>
+<li>另一种方法是，在 <code>source</code> 文件夹下建立一个文件夹 <code>_pic</code> 专门用来存放图片，此时在 md 文件中 <code>![img](/_pic/xxx.jpg)</code> 的格式引用就可以了。</li>
 </ol>
-<p>例如：<br><img src="../_pic/machine_learning.jpg" alt="img"></p>
+<p>例如：<br><img src="/_pic/machine_learning.jpg" alt="img"></p>
 <h3 id="搭建参考"><a href="#搭建参考" class="headerlink" title="搭建参考"></a>搭建参考</h3><ol>
 <li><p><a href="https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo">https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo</a></p>
 </li>
@@ -103,6 +103,12 @@
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/WAMonster/p/10118934.html">莫队算法——从入门到黑题 - WAMonster - 博客园 (cnblogs.com)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/115243708">算法学习笔记(24): 莫队 - 知乎 (zhihu.com)</a></p>
 <p>OIwiki</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2023/08/23/test/</url>
+    <content><![CDATA[<img src="/2023/08/23/test/machine_learning.jpg" class="" title="this is a example image.">
 ]]></content>
   </entry>
 </search>
