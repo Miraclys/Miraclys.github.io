@@ -47,10 +47,9 @@
 </div>
 <h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><ol>
 <li>由于我们的博客是要部署在网站上，部署后会生成新的文件目录，所以我们选择使用相对路径的方式。<br>在 hexo 中使用 <strong>文章资源文件夹</strong> 需要在 <code>config.yaml</code> 文件中更改一下配置：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-当该配置被应用后，使用 hexo new 命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。<br>但是若干原因，需要使用 <code>&#123;%asset_image.jpg这是一张图片%&#125;</code> 来引用。</li>
-<li>另一种方法是，在 <code>source</code> 文件夹下建立一个文件夹 <code>_pic</code> 专门用来存放图片，此时在 md 文件中 <code>![img](/_pic/xxx.jpg)</code> 的格式引用就可以了。</li>
+当该配置被应用后，使用 hexo new 命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。<br>但是若干原因，需要使用 <code>&#123; %asset_image xxx.jpg 这是一张图片% &#125;</code> 来引用。</li>
+<li>另一种方法是，在 <code>source</code> 文件夹下建立一个文件夹 <code>_pic</code> 专门用来存放图片，此时在 md 文件中 <code>![img](/_pic/xxx.jpg)</code> 的格式引用就可以了。<br>(不知道为啥这种没成功)</li>
 </ol>
-<p>例如：<br><img src="/_pic/machine_learning.jpg" alt="img"></p>
 <h3 id="搭建参考"><a href="#搭建参考" class="headerlink" title="搭建参考"></a>搭建参考</h3><ol>
 <li><p><a href="https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo">https://zhuanlan.zhihu.com/p/94038688#:~:text=hexo</a></p>
 </li>
@@ -108,7 +107,444 @@
   <entry>
     <title>test</title>
     <url>/2023/08/23/test/</url>
-    <content><![CDATA[<img src="/2023/08/23/test/machine_learning.jpg" class="" title="this is a example image.">
+    <content><![CDATA[<p>{ %asset_img machine_learning.jpg this is a example image. %}</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>差分方程模型</title>
+    <url>/2023/08/24/%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>在连续系统里，我们用常微分方程表示时域；<br>而在离散系统里，由于输入 | 输出都是离散信号，微分失去了意义，所以用差分计算。</p>
+</blockquote>
+<p>设有未知序列 $\{x_n\}$，称 $F(n;x_n,x_{n + 1}, …, x_{n + k}) = 0$ 为 k 阶差分方程。</p>
+<p>关于差分方程的解，可以参考文章 <a href="https://zhuanlan.zhihu.com/p/385787482">https://zhuanlan.zhihu.com/p/385787482</a> </p>
+<h4 id="金融问题中的差分方程模型"><a href="#金融问题中的差分方程模型" class="headerlink" title="金融问题中的差分方程模型"></a>金融问题中的差分方程模型</h4><p>现在有一笔 p 万元的贷款，贷款期是 n 年，月利率是 r，采用等额还款的方式逐月偿还，计算每月的还款数。<br>设 k 个月后，欠额为 $A_k$，每月还款 m 元，则有 $A_{k + 1} = (1 +r)A_k - m$</p>
+<h4 id="养老保险模型"><a href="#养老保险模型" class="headerlink" title="养老保险模型"></a>养老保险模型</h4><p>设 k 个月后所交资金以及利息总和为 $F_k$，则有 $F_k = (1 + r)F_{k - 1} + p, k &lt;= N$ 和 $F_k = (1 +r)F_{k - 1} - q, N &lt; k &lt;= M$，N 个月后，不再交钱，只拿钱。</p>
+<h4 id="市场经济中的蛛网模型"><a href="#市场经济中的蛛网模型" class="headerlink" title="市场经济中的蛛网模型"></a>市场经济中的蛛网模型</h4><p>在自由竞争的社会中，很多领域会出现 <strong>循环波动</strong> 的现象，比如说自由市场上商品的价格。<br>将时间离散化为时段，一个时期相当于商品的一个生产周期。设 k 时段商品数量为 $x_k$，商品价格为 $y_k$</p>
+<p>同一时段商品的价格取决于该段商品的数量，$y_k = f(x_k)$，称为需求函数，我们自然地认为这个函数是单调下降函数。</p>
+<p>下一段商品的数量取决于上一个时段的商品价格，$x_{k + 1} = g(y_k)$，称为供应函数，假设为单调上升函数。</p>
+<p>在进行市场经济分析中，f 取决于消费者对于某种产品的需求程度以及消费水平，g 取决于生产能力和管理水平。</p>
+<p>两个曲线的交点 $P(x_0, y_0)$ 处，$|f’(x_0)| &lt; |g’(x_0)|$ 时，P 点稳定，反之不稳定。</p>
+<p>设 $|f’(x_0)| = \alpha, |g’(y_0)| = \frac{1}{\beta}$，在 P 点附近取 $y_k - y_0 = -\alpha(x_k - x_0), x_{k + 1} - x_0 = \beta(y_k - y_0)$，消去 $y_k$，得到 $x_k$ 的递推式，可以求出通项，求极限和上面的条件等价。</p>
+<h4 id="简单的种群增长模型"><a href="#简单的种群增长模型" class="headerlink" title="简单的种群增长模型"></a>简单的种群增长模型</h4><p>利用了矩阵的特征方程求解。对角化或者化为若尔当标准型。</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微分方程模型</title>
+    <url>/2023/08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h4 id="微分方程模型"><a href="#微分方程模型" class="headerlink" title="微分方程模型"></a>微分方程模型</h4><p>如果能得到解析解的形式固然便于分析和应用，但是大多数微分方程无法得到解析解，因此研究其稳定性和数值解法就十分重要。</p>
+<ol>
+<li><img src="/2023/08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg" class="" title="流量系数">
+ 容器漏水问题。<br> 好像是 $Q = Sv$ 流量前面一个系数，不是很懂。</li>
+<li>导弹追踪问题<br> 列出关于斜率的微分方程，然后代入初值条件。</li>
+</ol>
+<h5 id="传染病模型"><a href="#传染病模型" class="headerlink" title="传染病模型"></a>传染病模型</h5><p>我们一开始不把所有的因素考虑在内，而是抓住主要因素，把问题简化，建立相应的数学模型。然后与实际比较，再做出修改。</p>
+<ol>
+<li>指数模型<br> 用 $i(t)$ 表示 t 时刻病人的数量，每个病人传染的人数为 k, 则有 $i(t + \Delta t) - i(t) = ki(t)\Delta t$<br> 解得 $i(t) = i_0e^{kt}$，随着时间增长，人数是无穷的，不符合实际，所以我们对于这个模型进行修改。</li>
+<li>SI 模型<br> 设 t 时刻病人为 $i(t)$，健康人数为 $s(t)$，每个病人传染的人数和健康人数呈正比，比例系数为 k，则有 $i(t + \Delta t) - i(t) = i(t)\Delta ks(t) = ki(t)(n - i(t))$，解得 $i(t) = \dfrac{n}{1 + (\frac{n}{i_0} - 1)e^{-kt}}$<br> 医学上一般称这个 $i(t)$ 曲线为传染病曲线。<br> 但是这个模型的缺点是，当 $t \to +\infty$ 的时候，人人都会生病，这是不符合实际的。</li>
+<li>SIS 模型<br> 考虑到人们生病后是恢复的，或者说有人可能会感染多次。<br> 在上一个模型的基础上，添加日治愈率 $\mu$，和病人的数量呈正比。<br> 现在就有 $i(t + \Delta t) - i(t) = (ks(t)i(t) - \mu i(t))\Delta t, i(0) = i_0$。</li>
+</ol>
+<h4 id="捕鱼业的持续收获模型"><a href="#捕鱼业的持续收获模型" class="headerlink" title="捕鱼业的持续收获模型"></a>捕鱼业的持续收获模型</h4><h6 id="阻滞增长模型-Logistic-模型"><a href="#阻滞增长模型-Logistic-模型" class="headerlink" title="阻滞增长模型 (Logistic 模型)"></a>阻滞增长模型 (Logistic 模型)</h6><p>将增长率 r 修正为 r - sx 一个关于 x 的线性函数。自然资源和环境限制所能容纳的最大人数为 $x_m$，也就是 $x = x_m$ 的时候，$r =0$，所以有 $r(x) = r(1 - \dfrac{x}{x_m})$，其实和上面传染病模型中的 SI 模型是差不多的。)</p>
+<ol>
+<li>产量模型<br> 记时刻 t 时渔场中的鱼量为 $x(t)$，由 Logistic 模型则有 $x’(t) = f(x) = rx(1 - \frac{x}{N})$，N 是环境允许的最大鱼量。<br> 设捕鱼强度为 E，也就是单位时间捕鱼量为 $Ex$，记 $F(x) = f(x) - Ex$，则持续捕捞下，平衡的鱼量为 $x_0 = N(1 - \frac{E}{r})$<br> $x_0 \times E$ 求二次函数的最值，就是最大的持续捕捞量了，此时 $E = \dfrac{r}{2}$（好像和高中生物学的一样了）。<br> (其实和人口增长差不多)</li>
+<li>效益模型</li>
+<li>捕捞过度模型</li>
+</ol>
+<h4 id="战争模型"><a href="#战争模型" class="headerlink" title="战争模型"></a>战争模型</h4><p>「兰彻斯特平方定律」：作战部队的实力同投入战斗的士兵人数的平方成正比。</p>
+<ol>
+<li>正规战模型<br> 以 $x(t), y(t)$ 分别表示 t 时刻红军和蓝军的士兵人数，每队士兵的减员率和对方士兵的人数成正比，所以有方程 $\frac{\mathrm{d}x}{\mathrm{d}t} = -ay, \frac{\mathrm{d}y}{\mathrm{d}t} = -bx$，这两个式子相除，积分得到 $ay^2 - bx^2 = ay_0^{2} - bx_0^{2} = c$</li>
+<li>混合战模型<br> 红军游击队，蓝军正规部队，但是游击队伍位于不易发现的有利位置，所以把红军的人员损失方程再乘一个 x，表示损失与自身规模大小有关。<br> $\frac{\mathrm{d}x}{\mathrm{d}t} = -cxy + f(t)$，f(t) 表示红军的增援情况。</li>
+<li>游击战模型<br> 双方都是游击队伍。就都变成上个模型红军的方程形式。</li>
+</ol>
+<p>恩格尔(Engel)将第二次世界大战时美军和日军争夺硫磺岛所进行的战斗资料进行分析，发现与兰彻斯特作战数学模型非常吻合，这说明兰彻斯特作战数学模型是可以来描述实际战争的。</p>
+<h4 id="对药物剂量开处方"><a href="#对药物剂量开处方" class="headerlink" title="对药物剂量开处方"></a>对药物剂量开处方</h4><h4 id="捕食者——食饵模型"><a href="#捕食者——食饵模型" class="headerlink" title="捕食者——食饵模型"></a>捕食者——食饵模型</h4><p>感觉和战争模型比较相似，不过这里的捕食者和被捕食者是会自然增长的（其实等价于战争模型中的援助）。</p>
+<h4 id="微分方程的数值解"><a href="#微分方程的数值解" class="headerlink" title="微分方程的数值解"></a>微分方程的数值解</h4><p>很多方程往往复杂且大多数情况下求不出解析解，因而在实际生产和科研中，常常是求满足精度要求的近似解。</p>
+<ol>
+<li>欧拉方法</li>
+<li>梯形方法</li>
+<li>龙格-库塔方法</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>组合优化与随机性模型</title>
+    <url>/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<p>在有限个可行解集合中找出最优解，这类问题称为组合优化问题。如最短路径问题、最小连接问题、分配问题、运输问题、服务点设置问题、中国邮递员问题、背包问题、装箱问题等等。</p>
+<p>贪心法和分支定界法是组合优化问题中常见的两种有效的方法。</p>
+<h4 id="随机性模型"><a href="#随机性模型" class="headerlink" title="随机性模型"></a>随机性模型</h4><ol>
+<li>报童问题<br> 一个分区间讨论收益的问题（可以抽象为类似的生产或者进货然后销售求最大收益的问题），下面的问题建模对于未出售完的报纸进行退回（可以抽象为低价处理）。<br> 设没份报纸的进价为 b，零售价为 a，退回价格为 c，报童应该如何购进报纸数量以获得最高的收入？ <img src="/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png" class="" title="收入和 n 的函数关系">
+ 假设需求量 r 的分布为 $P\{r = k\} = f(k), k = 0, 1, 2, …$<br> 但是注意到 G 是一个<strong>随机目标函数</strong>，求其最大值没有什么意义，我们转为求解其最大期望。<br> $\overline{G}(n) = \sum\limits_{r = 0}^{n}[(a - b)r - (b - c)(n - r)]f(r) + \sum\limits_{r = n + 1}^{+\infty} (a-b)nf(r)$，<strong>该问题很难求解，可以将上述函数进行连续化</strong>（数列求和和积分之间的转化使问题求解简单），可以得到 $\overline{G}(n) = \int_0^{n}[(a - b)r - (b - c)(n - r)]f(r)\mathrm{d}r + \int_{n + 1}^{+\infty} (a - b)nf(r)\mathrm{d}r$，所求问题变为 $\max \overline{G}(n)$，求导，导数为 0，得到 $\int_0^{n} f(r)\mathrm{d}r = \frac{a- b}{a - c}$ 的时候，期望收益最大。</li>
+<li>轧钢中的浪费问题<br> 由于收到环境技术的影响，得到的钢材的长度是随机的，其数值上大体呈正态分布，均值可以通过调整轧机设定，而均方误差是由设备的精度决定的，不能随意改变。如果粗轧后的钢材长度大于规定长度，精轧时要把多余的部分切除，造成浪费；而如果粗轧后的钢材长度小于规定长度，则造成整根浪费。（一般我们不会利用多余的切除部分再次制作成钢材，因为实际生产中钢材长度 $l &gt;&gt; \sigma$）<br> 这样我们有模型总的平均浪费长度：<br> $W = \int_{l}^{+\infty} (x - l)f(x)\mathrm{d}x + \int_{-\infty}^{l} xf(x) \mathrm{d}x = \int_{-\infty}^{+\infty}xf(x)\mathrm{d}x - l\int_{-\infty}^{+\infty} f(x)\mathrm{d}x $<br> $ = E(X) - lP\{X &gt; l\} = m - lp$<br> 其中，$p = P\{X &gt; l\} = 1 - \Phi(\frac{l - m}{\sigma})$<br> 但是上式中，W 的含义是没轧一根钢材平均浪费的长度，这是从<strong>最终的产量分析浪费量</strong>；但是从实际中一个工厂的发展来看，工厂追求的是效益，可以由生产一根成品钢材浪费的平均长度来衡量，所以目标函数修改为：<br> $J = \frac{W}{P\{X &gt; l\}} = \frac{m - lp}{p}= \dfrac{m}{1 - \Phi(\frac{l - m}{\sigma}) - l}$，决策目标为 $\min J(m)$</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回归分析与时间序列方法</title>
+    <url>/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>统计推断的另一类重要问题是假设检验问题。在总体的分布函数未知或者只知道其形式、但不知其参数的情况，为了推断总体的某些未知特性，提出某些关于总体的假设。我们要根据样本对于所提出的假设做出是接受还是拒绝的决策，<strong>假设检验</strong>就是做出这一决策的过程。</p>
+<p>这种只对于第一种错误的概率进行控制，而不考虑第二种错误的概率的检验，称为显著性检验。对应的还有双边假设检验、右边检验和左边检验。<br><img src="/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C.png" class=""></p>
+<h4 id="一元线性回归方程的检验"><a href="#一元线性回归方程的检验" class="headerlink" title="一元线性回归方程的检验"></a>一元线性回归方程的检验</h4><p>根据样本数据算出的回归可能有一定的抽样误差。为了考察这两个变量在同体内是否是存在线性关系以及回归方程对估计预测因变量的有效性如何，首先进行的就是显著性检验。</p>
+<h5 id="t-检验"><a href="#t-检验" class="headerlink" title="t 检验"></a>t 检验</h5><p>t 检验又称学生 t 检验，是统计推断中一种非常常见的检验方法，<strong>用于统计量服从正态分布</strong>但是方差未知(如果知道方差，我们可以直接 Z 检验，或者叫做 U 检验，就是正态检验)的情况。</p>
+<p>t检验的前提是要求样本服从正态分布或近似正态分布，不然可以利用一些变换（取对数、开根号、倒数等等）试图将其转化为服从正态分布是数据，如若还是不满足正态分布，只能利用非参数检验方法。</p>
+<p>t 检验最常见的四个用途：</p>
+<ol>
+<li>单样本均值检验（One-sample t-test）<br> 用于检验 总体方差未知、正态数据或近似正态的 单样本的均值 是否与 已知的总体均值相等</li>
+<li>两独立样本均值检验（Independent two-sample t-test）<br> 用于检验 两对独立的 正态数据或近似正态的 样本的均值 是否相等，这里可根据总体方差是否相等分类讨论</li>
+<li>配对样本均值检验（Dependent t-test for paired samples）<br> 用于检验 一对配对样本的均值的差 是否等于某一个值</li>
+<li>回归系数的显著性检验（t-test for regression coefficient significance）<br> 用于检验 回归模型的解释变量对被解释变量是否有显著影响</li>
+</ol>
+<p>具体内容见 <a href="https://zhuanlan.zhihu.com/p/138711532">https://zhuanlan.zhihu.com/p/138711532</a></p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>矩阵求导</title>
+    <url>/2023/08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</url>
+    <content><![CDATA[<h4 id="向量变元的实值函数"><a href="#向量变元的实值函数" class="headerlink" title="向量变元的实值函数"></a>向量变元的实值函数</h4><p>单纯的对于<strong>向量</strong>求导和实数的求导大同小异，也是常数为 0，乘法有链式法则，除法的形式也是一样的。<br>其中有行向量形式和列向量形式（也叫做<strong>梯度向量形式</strong>，记作 $\nabla _{x}f(\boldsymbol{x})$）<br>然后就是几个比较重要的常见公式</p>
+<h4 id="几个重要的向量变元求导公式"><a href="#几个重要的向量变元求导公式" class="headerlink" title="几个重要的向量变元求导公式"></a>几个重要的向量变元求导公式</h4><p>符合分子布局或者分母布局的形式</p>
+<img src="/2023/08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC.png" class="" title="矩阵求导公式">
+<h4 id="矩阵变元的实值函数"><a href="#矩阵变元的实值函数" class="headerlink" title="矩阵变元的实值函数"></a>矩阵变元的实值函数</h4><p>实值函数的求导其实还是比较容易理解的。对于矩阵变元无非是对于矩阵中每一个元素求导。<br>和对于向量变元的实值函数求导差不多，也是有着四个求导法则，分别对应常数、线性相加、乘法和商。</p>
+<h4 id="几个重要的矩阵变元的求导公式"><a href="#几个重要的矩阵变元的求导公式" class="headerlink" title="几个重要的矩阵变元的求导公式"></a>几个重要的矩阵变元的求导公式</h4><img src="/2023/08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/%E7%9F%A9%E9%98%B5%E5%8F%98%E5%85%83%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png" class="" title="矩阵变元常用求导公式">
+<h4 id="更详细证明了解链接"><a href="#更详细证明了解链接" class="headerlink" title="更详细证明了解链接"></a>更详细证明了解链接</h4><p>比较懒，贴几个链接，更深的内容可以看 <strong>矩阵分析</strong> 相关的书籍。<br><a href="https://www.zhihu.com/question/352174717/answer/1436808747">https://www.zhihu.com/question/352174717/answer/1436808747</a><br><a href="https://zhuanlan.zhihu.com/p/263777564">https://zhuanlan.zhihu.com/p/263777564</a><br><a href="https://zhuanlan.zhihu.com/p/273729929">https://zhuanlan.zhihu.com/p/273729929</a><br>讲解最小二乘法的高维形式 <a href="https://zhuanlan.zhihu.com/p/38128785">https://zhuanlan.zhihu.com/p/38128785</a></p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>插值与拟合建模</title>
+    <url>/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/</url>
+    <content><![CDATA[<p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数 f(x) 在若干点的函数值或者微商值，即只能给出 f(x) 的一张数据表。如果根据这张数据表构造一个函数 $\varphi(x)$ ，使之满足这张表中的数据，这样的函数 $\varphi(x)$ 就是函数 f(x) 的逼近函数。这种逼近问题称为插值问题。</p>
+<h4 id="插值多项式的存在性和唯一性"><a href="#插值多项式的存在性和唯一性" class="headerlink" title="插值多项式的存在性和唯一性"></a>插值多项式的存在性和唯一性</h4><p>设 $p_n(x) = a_0 + a_1x + a_2x^{2} + … + a_nx^n$，由插值条件可以得到非齐次线性方程组：<br><img src="/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class="" title="插值条件非齐次方程组"><br>可以由 $\text{Vandermonde}$ 行列式，各个点是互异的来得到系数矩阵的行列式 $D \neq 0$。由 $\text{Cramer}$ 法则知道，方程有唯一的解，所以多项式存在且唯一。 </p>
+<p><strong>几何解释：</strong> 一个 n 次的多项式一定可以由 n + 1 个点唯一确定。</p>
+<h4 id="Lagrange-插值公式"><a href="#Lagrange-插值公式" class="headerlink" title="Lagrange 插值公式"></a>Lagrange 插值公式</h4><img src="/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class="" title="拉格朗日插值公式">
+<h4 id="Newton-插值公式"><a href="#Newton-插值公式" class="headerlink" title="Newton 插值公式"></a>Newton 插值公式</h4><p><a href="https://www.zhihu.com/question/22320408/answer/141973314">https://www.zhihu.com/question/22320408/answer/141973314</a> 马同学关于牛顿插值的解释<br>牛顿插值法的特点在于：每增加一个点，不会导致之前的重新计算，只需要算和新增点有关的就可以了（这里不同于拉格朗日插值法）。</p>
+<h4 id="两种插值的比较"><a href="#两种插值的比较" class="headerlink" title="两种插值的比较"></a>两种插值的比较</h4><p>也不是很懂，给出 ChatGPT 的解释</p>
+<ol>
+<li><p>数值稳定性： 牛顿插值通常在数值上更稳定，特别是在高次插值中。高次的拉格朗日插值多项式的系数可能会变得非常大，导致数值计算问题，这在计算机中可能会引发数值溢出或不稳定性。牛顿插值使用分裂差分形式，这种形式在数值计算上通常更可靠。</p>
+</li>
+<li><p>数据更新效率： 如果您需要在运行时动态添加新的数据点并更新插值多项式，牛顿插值更为高效。因为在牛顿插值中，您可以通过添加一个新的数据点来更新插值多项式，而不需要重新计算整个多项式。</p>
+</li>
+<li><p>分布不均匀的数据： 如果您的数据点分布不均匀，拉格朗日插值可能会导致插值多项式的阶数变得非常高，这会增加计算的复杂性和开销。牛顿插值在这种情况下通常更具优势。</p>
+</li>
+</ol>
+<p>然而，需要注意的是，即使在大数据集的情况下，牛顿插值也不是绝对适用的。在一些特定情况下，如数据点的数量非常大或插值多项式的次数非常高，都可能导致数值计算问题。在这种情况下，考虑使用更高级的插值技术，例如分段插值（如样条插值）或基于快速傅里叶变换的方法，以提高数值稳定性和计算效率。选择合适的插值方法需要综合考虑数据的性质、计算需求和数值稳定性。</p>
+<h4 id="三次样条插值函数"><a href="#三次样条插值函数" class="headerlink" title="三次样条插值函数"></a>三次样条插值函数</h4><p>三次样条插值在科学和工程计算中起到重要作用，它只在插值区间的断点比 Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连续。<br>样条一词来源于工程制图。绘图员为了将一些指定点（称作样点）连接成一条光滑的曲线，往往把富有弹性的细长木条（称为样条）固定在样点上，然后画下木条表示的曲线所形成的样条曲线。</p>
+<p>有三种边界条件：</p>
+<ol>
+<li>自然边界(Natural Spline) 指端点处二阶导数为 0.</li>
+<li>固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 $S_0’(x_0) = A, S_{n - 1}^{x_n} = B$</li>
+<li>非扭结边界(Not-A-Knot Spline) 强制第一个插值点的三阶导数等于第二个点的三阶导数，最后一个点的三阶导数等于倒数第二个点的三阶导数。</li>
+</ol>
+<p><a href="https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq">https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq</a> 关于三次样条的具体推导和最终求解矩阵方程。</p>
+<h4 id="最小二乘法拟合"><a href="#最小二乘法拟合" class="headerlink" title="最小二乘法拟合"></a>最小二乘法拟合</h4><p>$r_i = y_i - \varphi(x_i)$ 称为残量，$\boldsymbol{r} = (r_0, r_1, …, r_m)^{T}$ 称为<strong>残向量</strong>。所以用 $\varphi(x)$ 去拟合 $f(x)$ 的问题就变成了残量的大小问题。<br>我们用 $\sum\limits_{i = 0}^{m} r_i^{2} = \boldsymbol{r^{T}}\boldsymbol{r}$ 去度量残量的大小。<br>后面的具体推导可以参考：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/128083562">https://zhuanlan.zhihu.com/p/128083562</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/109986821">https://zhuanlan.zhihu.com/p/109986821</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/38128785">https://zhuanlan.zhihu.com/p/38128785</a></li>
+</ol>
+<p>最终结果就是参数向量 $\widehat{w} = \boldsymbol{(X^{T}X)^{-1}X^{T}Y}$</p>
+<p>内积表示？？？</p>
+<h4 id="最佳平方逼近"><a href="#最佳平方逼近" class="headerlink" title="最佳平方逼近"></a>最佳平方逼近</h4>]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>现代优化算法</title>
+    <url>/2023/08/25/%E7%8E%B0%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>20 世纪 70 年代初期，随着计算复杂性的理论逐步形成，科学工作者发现并证明了大量来源于实际生活中的组合最优化问题是非常难解的，即所谓的 NP 完全问题和 NP 难问题。<br>80 年代一些现代化优化算法，如遗传算法、模拟退火算法、人工神经网络算法等。这些算法可以比较容易的解决一些复杂的、常规算法很难解决的问题。</p>
+<h4 id="遗传算法-Genetic-Algorithm-GA"><a href="#遗传算法-Genetic-Algorithm-GA" class="headerlink" title="遗传算法(Genetic Algorithm, GA)"></a>遗传算法(Genetic Algorithm, GA)</h4>]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>决策分析方法</title>
+    <url>/2023/08/25/%E5%86%B3%E7%AD%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>策略集、状态集和溢损函数是构成一个决策问题的三项最基本要素。</p>
+<h4 id="风险型决策"><a href="#风险型决策" class="headerlink" title="风险型决策"></a>风险型决策</h4><p>风险型决策也称作随机决策，是在状态概率已知的条件下进行的决策。</p>
+<h5 id="最大可能准则"><a href="#最大可能准则" class="headerlink" title="最大可能准则"></a>最大可能准则</h5><p>在若干种自然状态发生的概率相差很大，而相对应的益损值又相差不大时，这种决策准则效果较好。但是如果若干种自然状态发生的概率都很小，而且相互很接近时，使用这种决策准则的效果不会好，甚至会引起很严重的错误。</p>
+<h5 id="期望值准则"><a href="#期望值准则" class="headerlink" title="期望值准则"></a>期望值准则</h5><p>期望值准则就是选择期望益损值最大（或者最小）的方案作为最优方案。</p>
+<h4 id="决策树法"><a href="#决策树法" class="headerlink" title="决策树法"></a>决策树法</h4><p>采用决策树法的步骤：</p>
+<ol>
+<li>画出决策树。一般是从左往右画，先画出决策点，再画出由决策点引起的方案分支。</li>
+<li>计算方案的期望益损值。</li>
+<li>根据期望益损值进行决策，将期望益损值小的舍去，而期望益损值大的方案则保留，这就是最优策略。</li>
+</ol>
+<h4 id="不确定型决策"><a href="#不确定型决策" class="headerlink" title="不确定型决策"></a>不确定型决策</h4><p>不确定型决策是在只有几种自然状态可能发生，但是这些状态发生的概率并不知道时做出的决策。<br>由于不确定型问题不知道状态的概率，所以无法计算每种方案的益损值，于是这类问题在理论上没有一个最优决策准则提供决策者决策，它存在着几种不同的决策分析方法，每种都有合理性。</p>
+<h5 id="乐观准则"><a href="#乐观准则" class="headerlink" title="乐观准则"></a>乐观准则</h5><p>从最乐观状态出发，每种方案都按照最有利状态来考虑。$R^{*} = \max\limits_i \{\max\limits_j r_{ij}\}$</p>
+<h5 id="悲观准则"><a href="#悲观准则" class="headerlink" title="悲观准则"></a>悲观准则</h5><p>从最悲观的观点出发对每个方案按最不利的状态来考虑，然后从中选取最优方案。$R^{*} = \max\limits_{i} \{\min\limits_{j} r_{ij}\}$</p>
+<h5 id="折衷准则"><a href="#折衷准则" class="headerlink" title="折衷准则"></a>折衷准则</h5><p>引入一个表达乐观程度的乐观系数。$R^{*} = \max\limits_i \{\lambda \max\limits_j r_{ij} +(1 - \lambda) \min\limits_{j} r_{ij}\}$</p>
+<h5 id="等可能准则"><a href="#等可能准则" class="headerlink" title="等可能准则"></a>等可能准则</h5><p>假定每种自然状态发生的概率总是相同的。</p>
+<h5 id="后悔值准则"><a href="#后悔值准则" class="headerlink" title="后悔值准则"></a>后悔值准则</h5><p>后悔值准则是从后悔值考虑，希望能找到一个这样的策略，以使在实施这个策略时能产生较少的后悔。所谓后悔就是指每种状态下最大收益值与此状态下其他益损值之差。在所有方案的最大后悔值中选最小者，此时对应的方案为最优策略。 $R^{*}  =\min\limits_{i} \{\max\limits_{j} RV_{ij}\}$，其中 $RV_{ij} = \max\limits_{i} r_{ij} - r_{ij}$</p>
+<h4 id="层次分析法"><a href="#层次分析法" class="headerlink" title="层次分析法"></a>层次分析法</h4><p>层次分析法是对一些较为复杂、模糊的问题做出决策的多准则决策方法，它特别适用于难以完全定量分析的问题。</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>matlab记录</title>
+    <url>/2023/08/26/matlab%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<img src="/2023/08/26/matlab%E8%AE%B0%E5%BD%95/matlab%E7%82%B9%E4%B9%98%E7%82%B9%E9%99%A4.png" class="">
+<p>x:y:z 一般表示 x 初值 y 步长 z 终值</p>
+<p>if - end 和 if - else - end</p>
+<p>x(i) 访问 x 数组中下标为 i 的元素</p>
+<p>meshgrid 函数是MATLAB中用于生成网格采样点数的函数，通常进行2D、3D图形的绘制。<br><img src="/2023/08/26/matlab%E8%AE%B0%E5%BD%95/meshgrid%E7%94%9F%E6%88%90%E7%BD%91%E6%A0%BC.png" class=""><br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">x = -10:0.5:10;</span><br><span class="line">y = -10:0.5:10;</span><br><span class="line">[xx, yy] = meshgrid(x, y);</span><br><span class="line">z = xx .^2 - yy .^2;</span><br><span class="line">mesh(xx, yy, z);</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://blog.csdn.net/qq_54186956/article/details/127274462">https://blog.csdn.net/qq_54186956/article/details/127274462</a> sym syms 函数应用</p>
+<img src="/2023/08/26/matlab%E8%AE%B0%E5%BD%95/subs%E5%87%BD%E6%95%B0.png" class="">
+<p>在命令行输入 <code>format rat</code> 后，输出为分数格式，不再约成小数。</p>
+<p>在命令行输入 <code>doc xxx</code> 可以直接查看官方解释 <code>xxx</code> 函数的文档。</p>
+<p><code>num2str(xxx)</code> 其中 xxx 是一个数，转换一个行向量，每个字符代表向量的一个元素</p>
+<p><code>result = [s1, s2]</code> 进行字符串拼接</p>
+<img src="/2023/08/26/matlab%E8%AE%B0%E5%BD%95/%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C.jpg" class="">
+<p>提取矩阵的行数：$length(A(:,1))$<br>提取矩阵的列数：$length(A(1,:))$</p>
+<p>matlab 中读取图片和显示图片函数 <code>imread</code> 和 <code>imshow</code> <a href="https://blog.csdn.net/dp327264/article/details/105087849">https://blog.csdn.net/dp327264/article/details/105087849</a></p>
+<p><code>subplot</code> 函数是将多个图片画到一个画面上的工具 <code>subplot(m,n,p)</code> 表示 m 行 n 列从左到右 从上到下第 p 个</p>
+<p>灰度图像二值化：图像二值化（ Image Binarization）就是将图像上的像素点的灰度值设置为0或255，也就是将整个图像呈现出明显的黑白效果的过程。<br>在数字图像处理中，二值图像占有非常重要的地位，图像的二值化使图像中数据量大为减少，从而能凸显出目标的轮廓。</p>
+<p>matlab 中关于数字图像处理的工具箱是 IPT(Image Processing Toolbox) </p>
+<img src="/2023/08/26/matlab%E8%AE%B0%E5%BD%95/%E7%81%B0%E5%BA%A6%E5%9B%BE.png" class="">
+<p>对于汉字处理的话，灰度图会引入误差，所我们转化为二值图。</p>
+<p><code>find(xx)</code> 函数可以返回满足 xx 条件的下标组成的行向量。<br>例如 <code>x=[1 2 3 4 5 6 7]; find(x &gt;= 5)</code> 返回的就是：<code>5     6     7</code></p>
+<p><code>max(A)</code> A 可以是矩阵或者向量，就是返回其中最大的元素</p>
+<p>元组是matlab的数据类型之一，其元胞中可存储文本，数值，矩阵等等不同的数据类型，因此应用较为方便。因此，在采用matlab进行数据处理时，对元组的创建、读取、写入、转化函数的掌握尤为重要。<br><code>cell(dim)</code> 是创建 dim$\times$dim维的空元组，下标必须是正整数，不能是 0.</p>
+]]></content>
+      <tags>
+        <tag>matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>规划论模型</title>
+    <url>/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<p>规划论模型也成为运筹与优化模型，在实际问题的建模中应用最为广泛，涉及面较广。</p>
+<h4 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h4><p>通常对于只有两个决策变量的情形，可以使用图解法加以求解。而对于大于两个决策变量的情形，需要借助单纯形方法加以求解。单纯形方法的基本思想是迭代思想的一种体现。首先找到初始可行解，并通过迭代逐步从可行域的一个顶点走向另一个顶点，最终走到最优解。<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png" class=""><br>下面的例题：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg" class=""><br>其中，求 max，所以我们把 z 的系数取反。第二个不等式是大于等于，我们也同样取反。<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-1; -2; 3];</span><br><span class="line">A = [3 2 1; -4 -7 6];</span><br><span class="line">b = [6; -8];</span><br><span class="line">Aeq = [2 1 5];</span><br><span class="line">beq = [4];</span><br><span class="line">vlb = [0; 0; 0];</span><br><span class="line">vub= [];</span><br><span class="line">[x, fval] = linprog(f, A, b, Aeq, beq, vlb, vub)</span><br></pre></td></tr></table></figure></p>
+<h5 id="运输问题"><a href="#运输问题" class="headerlink" title="运输问题"></a>运输问题</h5><p>较为常见的运输模型叙述如下：</p>
+<blockquote>
+<p>某物资有 m 个原产地 $A_i$，产量为 $a_i$；有 n 个销地 $B_j$，销量关系为 $b_j$，从 $A_i$ 到 $B_j$ 之间的单位物资运价为 $d_{ij}$，则产销平衡时有 $\sum\limits_{i = 1}^{m}a_i = \sum\limits_{j = 1}^{n} b_j$</p>
+</blockquote>
+<h5 id="多目标规划问题"><a href="#多目标规划问题" class="headerlink" title="多目标规划问题"></a>多目标规划问题</h5><p>在建立优化模型时有时追求的目标可能是多个，无论忽略其中的哪个因素可能都会降低优化结果的可信度。对于这类问题通常有下面的三种处理方式：</p>
+<ol>
+<li>为每个目标设置重要性权重。<br> 当存在 n 个目标时，首先对目标函数进行归一化处理（就是消除量纲的影响，进行标准统一）后分别设置自己的权重，假设第 i 个目标的权重为 $\alpha_i$，目标取值为 $M_i$，则可以建立下面的优化模型：$\max \alpha_1M_1 + \alpha_2M_2 + … + \alpha_nM_n$</li>
+<li>为各种目标设定优先权，并将模型转化为多个优化模型。</li>
+<li>分别求得个目标的最优值后，将主要目标设定为目标函数，而将次要目标适当调整后修改为约束条件。</li>
+</ol>
+<h4 id="适度指标的线性处理"><a href="#适度指标的线性处理" class="headerlink" title="适度指标的线性处理"></a>适度指标的线性处理</h4><p>适度指标是指该指标的他正是数据大了或者小了均不好，要充分地接近于某一事先给定的标准指标，比如水的 PH 值。<br>求 $\min |x - D|$，D 为数据指标的理想取值。<br>例题：<br>一个富豪准备拿 10 万元买股票。经过他的筛选，有三种候选投资股票。这三种股票的价格、收益率以及风险系数如表所示：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png" class=""><br>这是一个多规划问题，我们如果直接列两个不等式的话，可能存在无解的情况。所以我们可以采取上面所说的方法2，建立如下的两个不等式条件：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png" class=""><br>如果我们优先考虑投资的风险，就可以建立下面的线性规划模型：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png" class=""><br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clear all</span><br><span class="line">Aeq = [1 3 5 1 -1 0 0; 2 5 8 0 0 1 -1; 10 20 30 0 0 0 0];</span><br><span class="line">beq = [15000; 25000; 100000];</span><br><span class="line">f = zeros(7, 1);</span><br><span class="line">f(5) = 1;</span><br><span class="line">vlb = zeros(7, 1);</span><br><span class="line">vub = [];</span><br><span class="line">a = [];</span><br><span class="line">b = [];</span><br><span class="line">[x, y] = linprog(f, a, b, Aeq, beq, vlb, vub);</span><br><span class="line">fx = x(1) + 3 * x(2) + 5 * x(3)</span><br><span class="line">lr = 2 * x(1) + 5 * x(2) + 8 * x(3)</span><br></pre></td></tr></table></figure></p>
+<h4 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h4><p>在线性规划模型中，如果各个决策变量的取值均为整数，则称此类模型为整数规划模型。<br>整数规划的解法主要有穷举法(变量维数较高时不可行)、舍入凑整法、分支定界法(比较可行)、割平面法(比较可行)等。</p>
+<ol>
+<li>舍入凑整法<br> 感觉很是玄学，就是假装没有整数约束，求解出最优解后每个变量往下或者上取整比较一下。</li>
+<li>分支界定法<br> 如果不满足整数条件，任选一个不满足整数条件的变量来构造新的约束，在原可行域中剔除部分非整数解。然后，再在缩小的可行域中求解新构造的线性规划的最优解（好抽象）。<br> 步骤：<ol>
+<li>解没有整数约束的问题。</li>
+<li>定界</li>
+<li>分支</li>
+<li>修改上下界</li>
+<li>比较与剪枝</li>
+</ol>
+</li>
+</ol>
+<h5 id="0-1-型整数规划"><a href="#0-1-型整数规划" class="headerlink" title="0-1 型整数规划"></a>0-1 型整数规划</h5><p>约束条件为 $0 \leq x_i \leq 1,x_i$ 为整数。这样就和一般的整数规划问题统一了。 </p>
+<img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png" class="" title="整数规划求解函数">
+<p>实例：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-3; 2; -5];</span><br><span class="line">intcon = [1, 2, 3]; % 表示哪几个变量为整数</span><br><span class="line">A = [1 2 -1; 1 4 1; 1 1 0; 4 0 1];</span><br><span class="line">b = [2; 4; 3; 6];</span><br><span class="line">Aeq = [];</span><br><span class="line">beq = [];</span><br><span class="line">lb = [0; 0; 0]; % 如果下界为 0 上界为 1，其实就是 0-1 整数规划了。</span><br><span class="line">rb = [1; 1; 1];</span><br><span class="line">[x, val] = intlinprog(f, intcon, A, b, Aeq, beq, lb, rb)</span><br></pre></td></tr></table></figure></p>
+<h5 id="指派问题"><a href="#指派问题" class="headerlink" title="指派问题"></a>指派问题</h5><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png" class="" title="指派问题">
+<p>当人数和任务的个数不同的时候，会出现某些人没有任务可做或者某些任务无人完成的情况。出现这两种情况的时候只需将约束条件中的某一个等于 1 的约束条件修改为小于等于 1 即可。有时也可以一对多（一个人多任务，一个任务多个人）。<br>2013 年碎纸片拼接复原问题 1：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cell&#123;1,1&#125;=imread(&#x27;000.bmp&#x27;);</span><br><span class="line">cell&#123;1,2&#125;=imread(&#x27;001.bmp&#x27;);</span><br><span class="line">cell&#123;1,3&#125;=imread(&#x27;002.bmp&#x27;);</span><br><span class="line">cell&#123;1,4&#125;=imread(&#x27;003.bmp&#x27;);</span><br><span class="line">cell&#123;1,5&#125;=imread(&#x27;004.bmp&#x27;);</span><br><span class="line">cell&#123;1,6&#125;=imread(&#x27;005.bmp&#x27;);</span><br><span class="line">cell&#123;1,7&#125;=imread(&#x27;006.bmp&#x27;);</span><br><span class="line">cell&#123;1,8&#125;=imread(&#x27;007.bmp&#x27;);</span><br><span class="line">cell&#123;1,9&#125;=imread(&#x27;008.bmp&#x27;);</span><br><span class="line">cell&#123;1,10&#125;=imread(&#x27;009.bmp&#x27;);</span><br><span class="line">cell&#123;1,11&#125;=imread(&#x27;010.bmp&#x27;);</span><br><span class="line">cell&#123;1,12&#125;=imread(&#x27;011.bmp&#x27;);</span><br><span class="line">cell&#123;1,13&#125;=imread(&#x27;012.bmp&#x27;);</span><br><span class="line">cell&#123;1,14&#125;=imread(&#x27;013.bmp&#x27;);</span><br><span class="line">cell&#123;1,15&#125;=imread(&#x27;014.bmp&#x27;);</span><br><span class="line">cell&#123;1,16&#125;=imread(&#x27;015.bmp&#x27;);</span><br><span class="line">cell&#123;1,17&#125;=imread(&#x27;016.bmp&#x27;);</span><br><span class="line">cell&#123;1,18&#125;=imread(&#x27;017.bmp&#x27;);</span><br><span class="line">cell&#123;1,19&#125;=imread(&#x27;018.bmp&#x27;);</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">level=graythresh(cell&#123;1,i&#125;);%选择灰度阈值</span><br><span class="line">cell1&#123;1,i&#125;=im2bw(cell&#123;1,i&#125;,level); %将图像二值化</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19                %循环19个图像</span><br><span class="line">    for k=1:19</span><br><span class="line">        xs(i,k)=0;</span><br><span class="line">        for j=1:1980</span><br><span class="line">            if (cell1&#123;1,i&#125;(j,72)==cell1&#123;1,k&#125;(j,1))%判断图像的边缘信息特征，求相似度矩阵</span><br><span class="line">                xs(i,k)=1+xs(i,k);</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">    xs(i,i)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19 </span><br><span class="line">da(i)=max(xs(i,:));</span><br><span class="line">end</span><br><span class="line">wei=find(da==max(da));for i=1:19</span><br><span class="line">    k=find(xs(i,[1:19])==da(i));  %求两两相邻的矩阵</span><br><span class="line">    lian(i,1)=i;                  %前面一个</span><br><span class="line">    lian(i,2)=k;                  %后面一个</span><br><span class="line">end</span><br><span class="line">lian(wei,1)=0;</span><br><span class="line">tou=lian(wei,2);</span><br><span class="line">xu(1)=tou;</span><br><span class="line">for i=1:18</span><br><span class="line">    xu(i+1)=lian(xu(i),2);        %正确的排列顺序</span><br><span class="line">end</span><br><span class="line">%根据排出来顺序xu画图</span><br><span class="line">for i=1:19</span><br><span class="line">I(:,[72*(i-1)+1:72*i])=cell&#123;1,xu(i)&#125;;   %图像的整合</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">imwrite(I,&#x27;hanzi.jpg&#x27;,&#x27;quality&#x27;,100);</span><br><span class="line">imshow(&#x27;hanzi.jpg&#x27;)          %输出图像</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h5 id="选址问题"><a href="#选址问题" class="headerlink" title="选址问题"></a>选址问题</h5><p>集合覆盖选址模型和最大覆盖选址模型。</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python 数学建模与实验</title>
+    <url>/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/</url>
+    <content><![CDATA[<p>虽然列表 list 可以完成数组操作，但不是真正意义上的数组，当数据量很大时，其速度很慢，故提供了 NumPy 扩展库完成数组操作。很多高级扩展库也依赖于它，比如 Scipy, Pandas 和 Matplotlib 等。</p>
+<p>数组创建的几种方式：<br><img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA.png" class=""></p>
+<p>NumPy 中的数组 array 和 list 的区别是：列表中可以是数据类型不同的元素，而 array 数组只允许存储相同数据类型。</p>
+<p>二维数组中的索引 list 为 a[i][j] 而 array 为 a[i, j]</p>
+<p>一般索引：<br>感觉有的地方还是和 matlab 很相似的。<br><img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E4%B8%80%E8%88%AC%E7%B4%A2%E5%BC%95.png" class=""></p>
+<p>文本文件读取：<br><img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%96%87%E6%9C%AC%E8%AF%BB%E5%8F%96.png" class=""><br>二进制文件读取：<br><img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.png" class=""><br>另外，如果我们使用 NumPy 专用的二进制存取函数 <code>load() save() savez()</code> 会自动处理元素的类型和形状等信息。</p>
+<p>open 打开文件的时候，如果打开的文件不在当前的目录，需要指定完整路径。注意，此时文件路径中的 <code>\</code> 要改为 <code>\\</code>，例如 <code>e:\mypython\test.txt</code> 应该改为 <code>e:\\mypython\\test.txt</code>.<br><img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F.png" class=""></p>
+<p>join 函数：<br><img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/join%E5%87%BD%E6%95%B0.png" class=""></p>
+<h4 id="数据处理工具-Pandas"><a href="#数据处理工具-Pandas" class="headerlink" title="数据处理工具 Pandas"></a>数据处理工具 Pandas</h4><p>Pandas(Panel data, 面板数据) 是在 NumPy 的基础上开发的，是 Python 最强大的数据分析和探索工具之一。</p>
+<h4 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h4><p>Matplotib 是 Python 强大的数据可视化工具，类似于 MATLAB 语言。</p>
+<p>pie 绘制饼状图 bar 绘制柱状图 hist 绘制二维直方图 scatter 绘制散点图</p>
+<img src="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E9%A2%9C%E8%89%B2.png" class="">
+<h4 id="scipy"><a href="#scipy" class="headerlink" title="scipy"></a>scipy</h4><p>scipy 包含各种专用于科学计算常见问题的工具箱。其中 scipy.stats 则是统计和随机数的专门的库。<br>NumPy 能生成一定概率分布的随机数，但是如果需要更具体的概率密度、分布函数等，就用到 scipy.stats 模块了。Python 做简单的统计分析也可以用 scipy.stats 模块。</p>
+<h3 id=""><a href="#" class="headerlink" title=" "></a> </h3>]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript基础</title>
+    <url>/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>变量的声明就是 <code>var name = xxx;</code>。其中 <code>var</code> 是 <code>variable</code> 的缩写（虽然和方差 variance 的缩写一样）。</p>
+<p>在 JS 中使用 {} 来分块，同一个 {} 中的语句我们称之为一组语句，它们要么都执行，要么都不执行。</p>
+<p>其实函数也是一个对象，可以如下定义一个函数：<code>f = new Function(&quot;console.log(&#39;this is a function. &#39;)&quot;)</code>。但是一般不这么使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name: &#x27;lys&#x27;,</span><br><span class="line">    age: 19,</span><br><span class="line">    address: &#x27;SDU&#x27;</span><br><span class="line">&#125;</span><br><span class="line">for (var x in obj) &#123;</span><br><span class="line">    console.log(x); // 这样只是枚举的对象中的元素名字</span><br><span class="line">&#125;</span><br><span class="line">for (var x in obj)&#123;</span><br><span class="line">    console.log(obj[x]); // 不能直接 obj.x 来获得具体元素，应用 [] 的引用方式。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数组创建 <code>var arr = new Array()</code> 或者 <code>var arr = []</code>。但是一般不使用 <code>new Array()</code> 的创建方式。并且数组中的元素类型也是不一定的，不一定非要是 Number 类型的。<br>其实数组也是一个对象，只不过索引方式是 []，所以对象有的东西数组也有。</p>
+<p>数组既然是对象，就有方法，在 JS 中数组有一些常用的方法：</p>
+<ol>
+<li><code>push()</code> 向数组末尾添加一个或者多个元素，并且返回新的数组的长度。</li>
+<li><code>pop()</code> 从数组末尾删除一个元素，并且返回删除的元素。</li>
+<li><code>unshift()</code> 向数组的<strong>开头</strong>添加一个或者多个元素，并且返回新的数组的长度。</li>
+<li><code>shift()</code> 从数组开头删除一个元素，并且返回删除的元素。</li>
+<li><code>join()</code> 将所有的元素连接成一个字符串。</li>
+<li><code>slice()</code> 返回数组的一部分，不修改原数组。</li>
+</ol>
+<p>建立函数<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function xxx() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果是构造函数<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br></pre></td></tr></table></figure><br>如果不写前面的 function 直接 new，会出现错误。</p>
+<p>arr.forEach(xx) 中间 xx 都要传递一个函数，如果之前定义了 <code>function fun() &#123;&#125;</code> 就写为 <code>arr.forEach(fun)</code>，但是一般不这样，一般都是用匿名函数。<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var arr = [1, 2, 3];</span><br><span class="line">arr.forEach(function(a, b, c) &#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>上面就是输出 a，遍历的时候会将 arr 中的元素传递给 function。<br>会传递三个参数，第一个是数组当前遍历到元素 value，第二个是当前遍历到的索引 index，第三个是正在遍历的数组。</p>
+<p>函数在调用的时候，浏览器会向里面传递两个隐含的参数</p>
+<ol>
+<li>上下文对象的 this</li>
+<li>封装实参的类数组对象 arguments，在调用函数的时候，我们所传递的实参都会在 arguments 中保存。</li>
+</ol>
+<p>在 JS 中，对象有 3 类<br><img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1.png" class=""><br>DOM Document Object Model<br>JS 通过 DOM 对于 HTML 文档进行操作，只要理解了 DOM，就可以随心所欲操作 WEB 页面。</p>
+<p>节点 Node 是构成 HTML 文档的最基本的单元，常用节点分为四类</p>
+<ul>
+<li>文档节点 整个 HTML 文档</li>
+<li>元素节点 HTML 文档中的 HTML 标签</li>
+<li>属性节点 元素的属性</li>
+<li>文本节点 HTML 标签中的文本<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8A%82%E7%82%B9.png" class="">
+</li>
+</ul>
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8A%82%E7%82%B9%E7%9A%84%E5%B1%9E%E6%80%A7.png" class="">
+<p>上面的三个属性是每一个节点都有的三个属性。</p>
+<p>innerHTML 可以获得到文字</p>
+<p>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。JavaScript 与 HTML 之间的交互是通过事件实现的。比如对于 Web 应用来说，有下面一些有代表性的事件：点击某个元素、将鼠标移动至某个元素上方、按下键盘上某个键等等。</p>
+<p><code>onload</code> 事件会在整个页面加载完成之后发生。<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">window.onload= function() &#123;</span><br><span class="line">    xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这一段代码是页面加载完成之后执行的。</p>
+<p>标签就是元素，元素就是标签。</p>
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9.png" class="">
+<p>innerHTML 对于「自结束标签」没有意义。如：<br><img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%87%AA%E7%BB%93%E6%9D%9F%E6%A0%87%E7%AD%BE.png" class=""><br>如果想读取元素的属性，直接 <code>元素.属性名</code>。但是读取元素的 <code>class</code> 属性的时候不能直接 <code>元素.class</code> 因为 class 是 JS 中的保留字，应该写为 <code>元素.className</code></p>
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E6%9F%A5%E6%89%BE%E5%AD%90%E8%8A%82%E7%82%B9.png" class="">
+<p>但是 <code>childNodes</code> 有个缺陷，此时如果我们使用 <code>children</code> 就不会出现这种问题了，它返回的是当前元素的所有子元素。<br><img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/childnodes%E7%BC%BA%E9%99%B7.png" class=""></p>
+<p><code>innerText</code> 和 <code>innerHTML</code> 类似，但是 <code>innerText</code> 获取的会将 html 标签去除。</p>
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8E%B7%E5%8F%96%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9.png" class="">
+<p><code>getElementsByName()</code> 一般用来操作一些表单项目。 </p>
+<p>获取 <code>body</code> 标签的话有两种方式：</p>
+<ol>
+<li><code>var body = document.getElementsByTagName()[0];</code> 因为 <code>getElementsByTagName()</code> 返回的是一个集合 <code>Collection</code>，但是我们又只有一个 <code>body</code>，所以直接返回索引 0 就可以了。</li>
+<li>其实在 <code>document</code> 中就有一个属性 <code>body</code>，我们直接 <code>var body = document.body;</code> 就可以了。</li>
+</ol>
+<p><code>html</code> 元素是 <code>document.documentElement;</code></p>
+<p><code>document.all</code> 代表的是页面的所有元素。也可以写成 <code>document.getElementsByTagName(&quot;*&quot;)</code></p>
+<p><code>document.getElementsByClassName();</code> 可以根据元素的 <code>class</code> 属性值获取一组节点对象。</p>
+<p><code>document.querySelector();</code> 需要一个选择器字符串作为参数，可以根据一个 CSS 选择器来查询一个元素节点对象。但是使用这个方法只会返回唯一的一个元素，如果满足条件的元素有多个，但是只会返回第一个。如果需要多个就使用 <code>document.querySelectorAll();</code></p>
+<p><code>父节点.insertBefore(新节点, 旧节点)</code> 是在旧节点前面添加新节点。</p>
+<p>超链接点击以后会默认跳转页面，如果我们不希望出现此默认行为，我们可以在超链接的 <code>onclick = function() &#123;&#125;</code> 中写上 <code>return false;</code></p>
+<p><code>confirm()</code> 函数会弹出一个带有确定和取消两个按键的提示框，并且如果我们点击确定，会返回 true，如果点击取消，会返回 false。</p>
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F.png" class="">
+<p>一个比较细节容易忽视的点，直观上我们认为 this 和 allA[i] 是一样的。<br>图中，我们的 <code>onclick = function() &#123;&#125;</code> 可以认为只是函数之间的一个赋值，里面的内容并没有执行。只有我们在点击按钮的时候，<code>function</code> 里面的内容才会执行。如果我们 <code>function</code> 里面使用 <code>allA[i]</code>，等到我们点击的时候 for 循环早就已经执行完毕，此时的 i 必然是 all 的length，所以就会出现错误。我们正确的做法应该是将 function 里面的 allA[i] 改为 this。</p>
+<p>通过 JS 修改元素的样式：<code>元素.style.样式名 = 样式值</code> 其中样式值需要是一个字符串。<br>注意，如果 CSS 样式名称中含有 <code>-</code>，如 <code>background-color</code> 这种命名在 JS 中是不合法的，我们需要将这种命名改为驼峰命名法，去掉 <code>-</code>，然后将 <code>-</code> 的字母大写。</p>
+<p>通过 JS 的 style 修改的往往是内联样式，而内联样式有较高的优先级，所以通过 JS 修改的样式往往会立即显示。</p>
+<p>事件对象：<br>当事件的响应函数被触发的时候，浏览器每次会将一个事件对象作为实参传递进响应函数。在事件对象中封装了当前关于事件的一切信息，比如鼠标的坐标、键盘的哪一个按键被按下、鼠标滚轮的移动方向</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;</span><br><span class="line">            this is a title.</span><br><span class="line">        &lt;/title&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var box1 = document.getElementById(&quot;box1&quot;);</span><br><span class="line">                document.onmousemove = function(event) &#123;</span><br><span class="line">                    var clientX = event.clientX;</span><br><span class="line">                    var clientY = event.clientY;</span><br><span class="line">                    box1.style.left = clientX + &quot;px&quot;;</span><br><span class="line">                    box1.style.top = clientY + &quot;px&quot;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            #box1 &#123;</span><br><span class="line">                width: 100px;</span><br><span class="line">                height: 100px;</span><br><span class="line">                background-color: red;</span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">        &lt;box id=&quot;box1&quot;&gt;&lt;/box&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><code>clientX</code> 和 <code>clientY</code> 是用于我们鼠标在当前可见窗口的坐标，所以对于有滚动条的窗口的话可能会出现一些错误。所以我们这时候使用 <code>pageX</code> 和 <code>pageY</code> 这两和属性是相对于整个页面的。</p>
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/document%E5%92%8Cwindow.png" class="">
+<p>事件的冒泡(bubble)<br>所谓事件的冒泡就是事件的想上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。在开发中，大部分情况冒泡是有用的，如果不希望发生事件冒泡可以通过事件对象来取消冒泡。<br><code>event.cancelBubble = true;</code></p>
+<p>我们希望只绑定一次事件，即可应用到多个元素之上，即使元素是后来添加的。我们可以尝试将元素绑定给其共同的祖先元素。然后通过冒泡来实现事件的发生。这其实就是事件的「委派」。</p>
+<p><code>document.getElementsByTagName();</code> 返回的不是一个数组（一个NodeList对象，指定标签名的集合 collection），虽然我们可以遍历，它也有长度。</p>
+<p>点击超链接时会自动默认跳转，我们把超链接的 <code>href</code> 修改为 <code>javascript:;</code> 就不会发生跳转了。</p>
+<p>事件给谁绑定的，function 中的 this 就是谁。<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> ul.onclick = function() &#123;</span><br><span class="line">    alert(this);</span><br><span class="line">    alert(&quot;我是一个响应函数。&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>像这一个，第一个 <code>alert</code> 输出的就是 <code>[object HTMLUListElement]</code>。<br>但是事件绑定对象不等于事件触发对象，我们如果想要获得事件<strong>触发对象</strong>需要使用 <code>event.target</code> 属性。<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;this is a test.&lt;/title&gt;</span><br><span class="line">    &lt;/title&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var btn1 = document.getElementById(&quot;btn1&quot;);</span><br><span class="line">                var ul = document.getElementsByTagName(&quot;ul&quot;)[0];</span><br><span class="line">                btn1.onclick = function() &#123;</span><br><span class="line">                    var li = document.createElement(&quot;li&quot;);</span><br><span class="line">                    li.innerHTML = &quot;&lt;a href=&#x27;javascript:;&#x27; class=&#x27;link&#x27;&gt;新建的超链接&lt;/a&gt;&quot;</span><br><span class="line">                    ul.appendChild(li);</span><br><span class="line">                &#125;</span><br><span class="line">                ul.onclick = function(event) &#123;</span><br><span class="line">                    if (event.target.className == &#x27;link&#x27;) &#123;</span><br><span class="line">                        alert(&quot;这是一个响应函数&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;button id=&quot;btn1&quot;&gt;我是一个按钮&lt;/button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>对象.事件 = 函数</code> 的形式绑定响应函数，它只能同时为一个事件绑定一个响应函数，不能绑定多个，如果绑定了多个，那么后面的就会覆盖掉前面的。<br>我们可以使用 <code>addEventListener(xxx, xxx, xxx)</code> 为元素绑定响应函数。<br>它的参数：</p>
+<ol>
+<li>事件的字符串，如果是 onclick 不要前面的 on</li>
+<li>回调函数，当事件被触发时，该函数会被调用。</li>
+<li>是否在捕获阶段触发，需要布尔值，一般是 false</li>
+</ol>
+<p>JavaScript中的call()函数是用于调用函数的方法之一，它允许你显式地指定函数内部的this关键字，并传递参数给该函数。call()方法的语法如下：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">functionName.call(thisArg, arg1, arg2, ...);</span><br></pre></td></tr></table></figure><br>总之，call()方法是JavaScript中用于在指定上下文对象上调用函数的强大工具，它允许你更灵活地控制函数的执行环境。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;</span><br><span class="line">        &lt;meta charset=&quot;UFT-8&quot;&gt;</span><br><span class="line">        this is a test.</span><br><span class="line">    &lt;/title&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            #box1 &#123;</span><br><span class="line">                width: 100px;</span><br><span class="line">                height: 100px;</span><br><span class="line">                background-color: red;</span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var box1 = document.getElementById(&quot;box1&quot;);</span><br><span class="line">                box1.onmousedown = function(event) &#123;</span><br><span class="line">                    var offsetX = event.clientX - box1.offsetLeft;</span><br><span class="line">                    var offsetY = event.clientY - box1.offsetTop;</span><br><span class="line">                    document.onmousemove = function(event) &#123;</span><br><span class="line">                        var x = event.clientX;</span><br><span class="line">                        var y = event.clientY;</span><br><span class="line">                        box1.style.left = x - offsetX + &quot;px&quot;;</span><br><span class="line">                        box1.style.top = y - offsetY + &quot;px&quot;;</span><br><span class="line">                    &#125;</span><br><span class="line">                    document.onmouseup = function() &#123;</span><br><span class="line">                        document.onmousemove = null;</span><br><span class="line">                        document.onmouseup = null;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;div id=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>实现一个小方块位置的拖拽。</p>
+<p>键盘事件一般都会绑定给可以获取到焦点的对象或者是 <code>document</code> 对象。对于 <code>onkeydown</code> 事件来说，如果我们一直按着某个按键不松手，则事件就会一直触发。当 <code>onkeydown</code> 连续触发时，第一次和第二次之间的间隔会长一点，其他后面的会非常快，这是为了防止我们误操作。</p>
+<p>我们可以使用 <code>event</code> 的 <code>keyCode</code> 属性可以返回被按下键的 <code>Unicode</code> 编码。或者使用 <code>key</code> 属性直接返回被按键的按键。<br>如果判断 <code>alt</code> 或者 <code>ctrl</code> 或者 <code>shift</code> 和某个键是否同时被按下，可以同时使用 <code>event</code> 的 <code>altKey、shiftKey、ctrlKey</code> 属性和 <code>key</code> 属性。</p>
+<p>BOM browser object model 浏览器对象模型<br>BOM 可以使我们通过 JS 来操作浏览器，DOM 可以使我们通过 JS 来操作网页。<br><img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/bom%E5%AF%B9%E8%B1%A1.png" class=""></p>
+<p><code>uerAgent</code> 用户代理，通常指的是浏览器，其中 <code>navigator</code> 的属性 <code>userAgent</code> 是一个字符串，包含用来描述浏览器的内容，不同的浏览器有着不同的 userAgent</p>
+<p>Gecko CSS 渲染的一个引擎。</p>
+<p><code>history</code> 对象 <code>length</code> 属性，返回浏览器历史列表中 url 数量。<br>方法：<code>back</code> 加载 <code>history</code> 列表中前一个 url，<code>forward</code> 加载 <code>history</code> 列表中下一个 url，<code>go(xx)</code> 加载列表中某一个具体的页面，xx 如果是正，就是前多少个，如果是负，就是加载后面第xx个页面。</p>
+<p><code>location</code> 对象<br>如果直接打印 <code>location</code> 可以获取当前的地址栏，也就是网页的完整路径。如果直接将 <code>location</code> 修改为一个路径，就会直接跳转到那个页面。</p>
+<p><code>window</code> 的 <code>setInterval</code> 方法。(Interval 是 间隔、中场休息、幕间休息、间隙 的意思)</p>
+<ul>
+<li>定时调用</li>
+<li>可以将一个函数，每隔一段时间执行一次</li>
+<li>参数：<ol>
+<li>回调函数</li>
+<li>每次调用的时间间隔，单位是毫秒</li>
+</ol>
+</li>
+<li>返回值：<br>  返回一个 Number 类型的数据<br>  这个数字用来作为定时器的唯一标识(因为一个页面上可能有很多个定时器)<br>  比如我们的 <code>clearInterval(xx)</code> 方法，可以用来关闭一个定时器，其中的 <code>xx</code> 就需要我们的标识作为参数。  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">setInterval(function() &#123;</span><br><span class="line">    xxx.innerHTML = ++count;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>延时调用：一个函数不是马上执行，而是一段时间之后再执行(只会执行一次)。<br>用法和定时调用差不多 <code>setTimeout(xxx);</code><br><code>clearTimeout(xxx);</code> 是关闭延时调用。</p>
+<p>延时调用其实和定时调用是可以互相代替的。</p>
+<p>JSON(JavaScript Object Notation)<br>因为和 JavaScript 中对象的表示方法一样，只不过在 JSON 中属性名字必须加双引号。<br>JSON 分类：</p>
+<ol>
+<li>对象 <code>&#123;&#125;</code></li>
+<li>数组 <code>[]</code></li>
+</ol>
+<p>在 JS 中，为我们提供了一个工具类就叫做 JSON，这个对象可以帮助我们将一个 JSON 转换为 JS 对象，也可以将一个 JS 对象转换为 JSON。<br><code>JSON.parse(xx);</code></p>
+<ul>
+<li>将字符串转换为 JS 对象</li>
+<li>需要一个 JSON 字符串作为参数，返回一个 JS 对象</li>
+</ul>
+<p><code>JSON.stringfy();</code></p>
+<ul>
+<li>将 JS 对象转换为字符串</li>
+<li>需要一个 JS 对象作为参数，但会一个 JSON 字符串。</li>
+</ul>
+<p><code>===</code> 是严格相等的意思，它用于比较两个值是否完全相等，包括值和数据类型。<br>使用严格相等运算符是 JavaScript 编程中的一种良好实践，因为它可以减少潜在的错误和不确定性，确保比较的值具有相同的类型和值。</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript进阶</title>
+    <url>/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/</url>
+    <content><![CDATA[<h4 id="基础回顾"><a href="#基础回顾" class="headerlink" title="基础回顾"></a>基础回顾</h4><p>数据类型：</p>
+<ol>
+<li>基本类型<br> String Number boolean undefined null</li>
+<li>对象(引用)类型<br> Object Function Array</li>
+</ol>
+<p>判断：</p>
+<ol>
+<li><code>typeof</code><br> 返回的数据类型的字符串表达 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a;</span><br><span class="line">console.log(a, typeof(a));</span><br></pre></td></tr></table></figure>
+ 所以第一个输出为 <code>undefined</code> 和 <code>&quot;undefined&quot;</code></li>
+<li><code>instanceof</code></li>
+<li><code>===</code> 和 <code>==</code></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>杂记</title>
+    <url>/2023/08/31/%E6%9D%82%E8%AE%B0/</url>
+    <content><![CDATA[<h4 id="Auto-js"><a href="#Auto-js" class="headerlink" title="Auto.js"></a>Auto.js</h4><p>Auto.js 是一种基于 JavaScript 的自动化工具，它允许你编写和运行 JavaScript 脚本来自动化执行 Android 设备上的各种任务。因此，Auto.js 使用 JavaScript 作为其编程语言。</p>
+<p>关于 Auto.js 和 JavaScript 的关系如下：</p>
+<ol>
+<li><p>Auto.js 使用 JavaScript：Auto.js 的脚本是用 JavaScript 编写的，因此你可以在 Auto.js 中编写标准的 JavaScript 代码。这使得 Auto.js 在编写和运行自动化脚本时非常灵活，因为你可以使用 JavaScript 的语法和功能。</p>
+</li>
+<li><p>Auto.js 扩展了 JavaScript：尽管 Auto.js 使用 JavaScript 作为其编程语言，但它还提供了一组额外的 API 和库，这些 API 和库允许你与 Android 设备的各种功能和资源进行交互，如模拟用户输入、操作屏幕、访问文件系统等。这些功能通常不是标准的 JavaScript 语言特性，而是 Auto.js 为 Android 自动化提供的功能扩展。</p>
+</li>
+<li><p>Auto.js 是 JavaScript 的运行环境：Auto.js 提供了一个运行 JavaScript 脚本的环境，这个环境专门设计用于在 Android 设备上执行脚本。它允许你使用 JavaScript 控制 Android 设备的各种操作，例如自动点击、滑动、截屏等等。</p>
+</li>
+</ol>
+<p>总之，Auto.js 是一个工具，它使用 JavaScript 作为编程语言，并扩展了 JavaScript，以便在 Android 设备上执行自动化任务。这使得开发人员可以使用 JavaScript 的语法和功能，结合 Auto.js 提供的 Android 自动化 API，编写用于自动化控制和操作 Android 应用和设备的脚本。</p>
+]]></content>
+      <tags>
+        <tag>Miscellaneous</tag>
+      </tags>
   </entry>
 </search>
