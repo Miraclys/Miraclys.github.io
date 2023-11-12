@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300italic,400,400italic,700,700italic%7CCinzel+Decorative:300,300italic,400,400italic,700,700italic%7Cfira+code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -27,7 +27,7 @@
 <meta property="og:description" content="The key record of mathematical modeling.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-24T02:37:05.000Z">
-<meta property="article:modified_time" content="2023-08-24T08:41:45.605Z">
+<meta property="article:modified_time" content="2023-08-24T08:41:46.000Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="Mathematic">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2023-08-24 10:37:05 / Modified: 16:41:45" itemprop="dateCreated datePublished" datetime="2023-08-24T10:37:05+08:00">2023-08-24</time>
+      <time title="Created: 2023-08-24 10:37:05 / Modified: 16:41:46" itemprop="dateCreated datePublished" datetime="2023-08-24T10:37:05+08:00">2023-08-24</time>
     </span>
 
   
@@ -227,19 +227,43 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>在连续系统里，我们用常微分方程表示时域；<br>而在离散系统里，由于输入 | 输出都是离散信号，微分失去了意义，所以用差分计算。</p>
+<p>在连续系统里，我们用常微分方程表示时域； 而在离散系统里，由于输入 |
+输出都是离散信号，微分失去了意义，所以用差分计算。</p>
 </blockquote>
-<p>设有未知序列 $\{x_n\}$，称 $F(n;x_n,x_{n + 1}, …, x_{n + k}) = 0$ 为 k 阶差分方程。</p>
-<p>关于差分方程的解，可以参考文章 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/385787482">https://zhuanlan.zhihu.com/p/385787482</a> </p>
-<h4 id="金融问题中的差分方程模型"><a href="#金融问题中的差分方程模型" class="headerlink" title="金融问题中的差分方程模型"></a>金融问题中的差分方程模型</h4><p>现在有一笔 p 万元的贷款，贷款期是 n 年，月利率是 r，采用等额还款的方式逐月偿还，计算每月的还款数。<br>设 k 个月后，欠额为 $A_k$，每月还款 m 元，则有 $A_{k + 1} = (1 +r)A_k - m$</p>
-<h4 id="养老保险模型"><a href="#养老保险模型" class="headerlink" title="养老保险模型"></a>养老保险模型</h4><p>设 k 个月后所交资金以及利息总和为 $F_k$，则有 $F_k = (1 + r)F_{k - 1} + p, k &lt;= N$ 和 $F_k = (1 +r)F_{k - 1} - q, N &lt; k &lt;= M$，N 个月后，不再交钱，只拿钱。</p>
-<h4 id="市场经济中的蛛网模型"><a href="#市场经济中的蛛网模型" class="headerlink" title="市场经济中的蛛网模型"></a>市场经济中的蛛网模型</h4><p>在自由竞争的社会中，很多领域会出现 <strong>循环波动</strong> 的现象，比如说自由市场上商品的价格。<br>将时间离散化为时段，一个时期相当于商品的一个生产周期。设 k 时段商品数量为 $x_k$，商品价格为 $y_k$</p>
-<p>同一时段商品的价格取决于该段商品的数量，$y_k = f(x_k)$，称为需求函数，我们自然地认为这个函数是单调下降函数。</p>
-<p>下一段商品的数量取决于上一个时段的商品价格，$x_{k + 1} = g(y_k)$，称为供应函数，假设为单调上升函数。</p>
-<p>在进行市场经济分析中，f 取决于消费者对于某种产品的需求程度以及消费水平，g 取决于生产能力和管理水平。</p>
-<p>两个曲线的交点 $P(x_0, y_0)$ 处，$|f’(x_0)| &lt; |g’(x_0)|$ 时，P 点稳定，反之不稳定。</p>
-<p>设 $|f’(x_0)| = \alpha, |g’(y_0)| = \frac{1}{\beta}$，在 P 点附近取 $y_k - y_0 = -\alpha(x_k - x_0), x_{k + 1} - x_0 = \beta(y_k - y_0)$，消去 $y_k$，得到 $x_k$ 的递推式，可以求出通项，求极限和上面的条件等价。</p>
-<h4 id="简单的种群增长模型"><a href="#简单的种群增长模型" class="headerlink" title="简单的种群增长模型"></a>简单的种群增长模型</h4><p>利用了矩阵的特征方程求解。对角化或者化为若尔当标准型。</p>
+<p>设有未知序列 <span class="math inline">\(\{x_n\}\)</span>，称 <span class="math inline">\(F(n;x_n,x_{n + 1}, ..., x_{n + k}) = 0\)</span> 为
+k 阶差分方程。</p>
+<p>关于差分方程的解，可以参考文章
+https://zhuanlan.zhihu.com/p/385787482</p>
+<h4 id="金融问题中的差分方程模型">金融问题中的差分方程模型</h4>
+<p>现在有一笔 p 万元的贷款，贷款期是 n 年，月利率是
+r，采用等额还款的方式逐月偿还，计算每月的还款数。 设 k 个月后，欠额为
+<span class="math inline">\(A_k\)</span>，每月还款 m 元，则有 <span class="math inline">\(A_{k + 1} = (1 +r)A_k - m\)</span></p>
+<h4 id="养老保险模型">养老保险模型</h4>
+<p>设 k 个月后所交资金以及利息总和为 <span class="math inline">\(F_k\)</span>，则有 <span class="math inline">\(F_k
+= (1 + r)F_{k - 1} + p, k &lt;= N\)</span> 和 <span class="math inline">\(F_k = (1 +r)F_{k - 1} - q, N &lt; k &lt;=
+M\)</span>，N 个月后，不再交钱，只拿钱。</p>
+<h4 id="市场经济中的蛛网模型">市场经济中的蛛网模型</h4>
+<p>在自由竞争的社会中，很多领域会出现 <strong>循环波动</strong>
+的现象，比如说自由市场上商品的价格。
+将时间离散化为时段，一个时期相当于商品的一个生产周期。设 k
+时段商品数量为 <span class="math inline">\(x_k\)</span>，商品价格为
+<span class="math inline">\(y_k\)</span></p>
+<p>同一时段商品的价格取决于该段商品的数量，<span class="math inline">\(y_k =
+f(x_k)\)</span>，称为需求函数，我们自然地认为这个函数是单调下降函数。</p>
+<p>下一段商品的数量取决于上一个时段的商品价格，<span class="math inline">\(x_{k + 1} =
+g(y_k)\)</span>，称为供应函数，假设为单调上升函数。</p>
+<p>在进行市场经济分析中，f
+取决于消费者对于某种产品的需求程度以及消费水平，g
+取决于生产能力和管理水平。</p>
+<p>两个曲线的交点 <span class="math inline">\(P(x_0, y_0)\)</span>
+处，<span class="math inline">\(|f&#39;(x_0)| &lt;
+|g&#39;(x_0)|\)</span> 时，P 点稳定，反之不稳定。</p>
+<p>设 <span class="math inline">\(|f&#39;(x_0)| = \alpha, |g&#39;(y_0)|
+= \frac{1}{\beta}\)</span>，在 P 点附近取 <span class="math inline">\(y_k - y_0 = -\alpha(x_k - x_0), x_{k + 1} - x_0 =
+\beta(y_k - y_0)\)</span>，消去 <span class="math inline">\(y_k\)</span>，得到 <span class="math inline">\(x_k\)</span>
+的递推式，可以求出通项，求极限和上面的条件等价。</p>
+<h4 id="简单的种群增长模型">简单的种群增长模型</h4>
+<p>利用了矩阵的特征方程求解。对角化或者化为若尔当标准型。</p>
 
     </div>
 
