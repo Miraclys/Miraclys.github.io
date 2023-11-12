@@ -1,7 +1,8 @@
 ---
 title: 跳表(skiplist)
 date: 2023-10-30 14:39:04
-tags:
+tags: Data Structure
+description: the code of SkipList
 ---
 
 #### 代码：

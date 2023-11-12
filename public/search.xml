@@ -996,6 +996,9 @@
 <p>主席树</p>
 <p>是不是都能解决区间乘积 区间 min max gcd？</p>
 ]]></content>
+      <tags>
+        <tag>Data Structure</tag>
+      </tags>
   </entry>
   <entry>
     <title>现代优化算法</title>
@@ -1124,7 +1127,7 @@ D(X) = E(X(X - 1))) + E(X) - E(X)^{2}  = \frac{nM(N - M)(N - n)}{N^{2}(N - 1)}</
 <li>当总物品个数远远大于选的个数，或者总物品个数区域无穷大的时候，超几何分布可以近似为二项分布。</li>
 <li></li>
 </ol>
-<h5 id="应用：-3"><a href="#应用：-3" class="headerlink" title="应用："></a>应用：</h5><h4 id="负二项分布-帕斯卡分布-Negative-Binomial-Distribution-Pascal-Distribution"><a href="#负二项分布-帕斯卡分布-Negative-Binomial-Distribution-Pascal-Distribution" class="headerlink" title="负二项分布(帕斯卡分布, Negative Binomial Distribution, Pascal Distribution)"></a>负二项分布(帕斯卡分布, Negative Binomial Distribution, Pascal Distribution)</h4><h5 id="符号：-X-sim-text-Pascal-n-p"><a href="#符号：-X-sim-text-Pascal-n-p" class="headerlink" title="符号：$X \sim \text{Pascal}(n, p)$"></a>符号：$X \sim \text{Pascal}(n, p)$</h5><h5 id="概率：-P-X-x-begin-pmatrix-x-1-r-1-end-pmatrix-p-r-1-p-x-r"><a href="#概率：-P-X-x-begin-pmatrix-x-1-r-1-end-pmatrix-p-r-1-p-x-r" class="headerlink" title="概率：$P(X = x) = \begin{pmatrix} x - 1\ \\ r - 1\end{pmatrix}p^{r}(1  -p)^{x - r}$"></a>概率：$P(X = x) = \begin{pmatrix} x - 1\ \\ r - 1\end{pmatrix}p^{r}(1  -p)^{x - r}$</h5><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024232853695.png" alt="image-20231024232853695"></p>
+<h5 id="应用：-3"><a href="#应用：-3" class="headerlink" title="应用："></a>应用：</h5><h4 id="负二项分布-帕斯卡分布-Negative-Binomial-Distribution-Pascal-Distribution"><a href="#负二项分布-帕斯卡分布-Negative-Binomial-Distribution-Pascal-Distribution" class="headerlink" title="负二项分布(帕斯卡分布, Negative Binomial Distribution, Pascal Distribution)"></a>负二项分布(帕斯卡分布, Negative Binomial Distribution, Pascal Distribution)</h4><h5 id="符号：-X-sim-text-Pascal-n-p"><a href="#符号：-X-sim-text-Pascal-n-p" class="headerlink" title="符号：$X \sim \text{Pascal}(n, p)$"></a>符号：$X \sim \text{Pascal}(n, p)$</h5><h5 id="概率：-P-X-x-begin-pmatrix-x-1-r-1-end-pmatrix-p-r-1-p-x-r"><a href="#概率：-P-X-x-begin-pmatrix-x-1-r-1-end-pmatrix-p-r-1-p-x-r" class="headerlink" title="概率：$P(X = x) = \begin{pmatrix} x - 1\ \\ r - 1\end{pmatrix}p^{r}(1  -p)^{x - r}$"></a>概率：$P(X = x) = \begin{pmatrix} x - 1\ \\ r - 1\end{pmatrix}p^{r}(1  -p)^{x - r}$</h5><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024232853695.png" alt="image-20231024232853695"></p>
 <h5 id="期望：-5"><a href="#期望：-5" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 \begin{aligned}
 E(X) &= \sum\limits_{x = r}^{+\infty} x f(x) \\
@@ -1145,20 +1148,20 @@ D(X) = E(X^{2}) - E(X)^{2} = \frac{r(1 - p)}{p^{2}}</script><h5 id="性质：-5"
 <p>Negative Binomial关注的是，重复Bernoulli实验成功概率为p，条件为累计出现r次失败，随机变量为成功实验次数k（k∈Z,k∈[0,+∞)），该随机变量的概率分布为Negative Binomial分布。</p>
 <p>Binomial和Negative Binomial分布的随机变量都是成功实验次数，条件不同。从定义上来看，”负“可以理解为站在失败次数的角度看成功。</p>
 <h5 id="应用：-4"><a href="#应用：-4" class="headerlink" title="应用："></a>应用：</h5><h4 id="伽马-泊松分布-Gamma-Poisson-Distribution"><a href="#伽马-泊松分布-Gamma-Poisson-Distribution" class="headerlink" title="伽马-泊松分布(Gamma-Poisson Distribution)"></a>伽马-泊松分布(Gamma-Poisson Distribution)</h4><h5 id="符号：-X-sim-text-gamma-Poisson-alpha-beta"><a href="#符号：-X-sim-text-gamma-Poisson-alpha-beta" class="headerlink" title="符号：$X \sim \text{gamma-Poisson}(\alpha, \beta)$"></a>符号：$X \sim \text{gamma-Poisson}(\alpha, \beta)$</h5><h5 id="概率密度函数："><a href="#概率密度函数：" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{\Gamma(x + \beta) \alpha^{x}}{\Gamma(\beta)(1+\alpha)^{\beta + x}x!}</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024233912306.png" alt="image-20231024233912306"></p>
+f(x) = \dfrac{\Gamma(x + \beta) \alpha^{x}}{\Gamma(\beta)(1+\alpha)^{\beta + x}x!}</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024233912306.png" alt="image-20231024233912306"></p>
 <h5 id="期望：-6"><a href="#期望：-6" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) = \alpha\beta</script><h5 id="方差：-6"><a href="#方差：-6" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
 D(X) = \alpha \beta + \alpha^{2}\beta</script><h5 id="性质：-6"><a href="#性质：-6" class="headerlink" title="性质："></a>性质：</h5><ol>
 <li>做变换：$\alpha = (1 - p) / p, \beta = n$，就得到 Pascal 分布</li>
 </ol>
 <h4 id="Zeta-分布-Zeta-Distribution"><a href="#Zeta-分布-Zeta-Distribution" class="headerlink" title="Zeta 分布(Zeta Distribution)"></a>Zeta 分布(Zeta Distribution)</h4><h5 id="符号：-X-sim-text-Zeta-alpha"><a href="#符号：-X-sim-text-Zeta-alpha" class="headerlink" title="符号：$X \sim \text{Zeta}(\alpha)$"></a>符号：$X \sim \text{Zeta}(\alpha)$</h5><h5 id="概率函数："><a href="#概率函数：" class="headerlink" title="概率函数："></a>概率函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{1}{x^{\alpha}\sum\limits_{i = 1}^{+\infty}(1/i)^{\alpha}} \quad x = 1, 2, 3, ...</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026215915467.png" alt="image-20231026215915467"></p>
+f(x) = \dfrac{1}{x^{\alpha}\sum\limits_{i = 1}^{+\infty}(1/i)^{\alpha}} \quad x = 1, 2, 3, ...</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026215915467.png" alt="image-20231026215915467"></p>
 <h5 id="累计分布函数"><a href="#累计分布函数" class="headerlink" title="累计分布函数"></a>累计分布函数</h5><script type="math/tex; mode=display">
 F(x) = P(X \leq x) = \dfrac{\sum\limits_{i = 1}^{x} (1/i)^{\alpha}}{\zeta(\alpha)} \quad x = 1, 2, ...</script><h5 id="期望：-7"><a href="#期望：-7" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) = \dfrac{\zeta(\alpha - 1)}{\zeta(\alpha)}</script><h5 id="方差：-7"><a href="#方差：-7" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
 D(X) = \dfrac{\zeta(\alpha)\zeta(\alpha - 2) - \zeta(\alpha - 1)^{2}}{\zeta(\alpha)^{2}}</script><h4 id="Zipf-分布-齐夫定律"><a href="#Zipf-分布-齐夫定律" class="headerlink" title="Zipf 分布(齐夫定律)"></a>Zipf 分布(齐夫定律)</h4><h5 id="符号：-X-sim-text-Zipf-alpha-n"><a href="#符号：-X-sim-text-Zipf-alpha-n" class="headerlink" title="符号：$X \sim \text{Zipf}(\alpha, n)$"></a>符号：$X \sim \text{Zipf}(\alpha, n)$</h5><h5 id="概率函数：-1"><a href="#概率函数：-1" class="headerlink" title="概率函数："></a>概率函数：</h5><script type="math/tex; mode=display">
 f(x) = \dfrac{1}{x^{\alpha}\sum\limits_{i = 1}^{n}(1 / i)^{\alpha}} \quad  x = 1, 2, 3, ..., n</script><p>下面是 $\alpha = 1, n = 10$</p>
-<p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026224615881.png" alt="image-20231026224615881"></p>
+<p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026224615881.png" alt="image-20231026224615881"></p>
 <p>我们记 $H_{n, \alpha} = \sum\limits_{i = 1}^{n} \left(\dfrac{1}{i}\right)^{\alpha}$</p>
 <h5 id="期望：-8"><a href="#期望：-8" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) = \dfrac{H_{n, \alpha - 1}}{H_{n, \alpha}}</script><h5 id="方差：-8"><a href="#方差：-8" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
@@ -1273,12 +1276,12 @@ D(X) = E(X^{2}) - E(X)^{2}  = \dfrac{\alpha}{\lambda^{2}}</script><h5 id="性质
 </li>
 <li><p>当 $\alpha = \dfrac{n}{2}, \lambda = \dfrac{1}{2}$ 的时候，伽马分布和卡方分布之间的关系就建立起来了，有 $Ga(\dfrac{n}{2}, \dfrac{1}{2}) = \mathcal{X}^{2}(n)$</p>
 </li>
-<li><p>伽马分布的可加性。<img src="C:\Users\梁云森\AppData\Roaming\Typora\typora-user-images\image-20231024194312138.png" alt="image-20231024194312138"></p>
+<li><p>伽马分布的可加性。<img src="/.com//Users\梁云森\AppData\Roaming\Typora\typora-user-images\image-20231024194312138.png" alt="image-20231024194312138"></p>
 </li>
 <li></li>
 </ol>
 <h5 id="应用：-9"><a href="#应用：-9" class="headerlink" title="应用："></a>应用：</h5><h4 id="对数伽马分布-Log-Gamma-Distribution"><a href="#对数伽马分布-Log-Gamma-Distribution" class="headerlink" title="对数伽马分布(Log-Gamma Distribution)"></a>对数伽马分布(Log-Gamma Distribution)</h4><h5 id="符号：-X-sim-text-log-gamma-alpha-beta"><a href="#符号：-X-sim-text-log-gamma-alpha-beta" class="headerlink" title="符号：$X \sim \text{log-gamma}(\alpha, \beta)$"></a>符号：$X \sim \text{log-gamma}(\alpha, \beta)$</h5><h5 id="概率密度函数：-6"><a href="#概率密度函数：-6" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{e^{\beta x}e^{-e^{x} / a}}{\alpha^{\beta}\Gamma(\beta)} -\infty < x < +\infty</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024233520269.png" alt="image-20231024233520269"></p>
+f(x) = \dfrac{e^{\beta x}e^{-e^{x} / a}}{\alpha^{\beta}\Gamma(\beta)} -\infty < x < +\infty</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024233520269.png" alt="image-20231024233520269"></p>
 <h4 id="贝塔分布-Beta-Distribution"><a href="#贝塔分布-Beta-Distribution" class="headerlink" title="贝塔分布(Beta Distribution)"></a>贝塔分布(Beta Distribution)</h4><h5 id="符号：-X-sim-Beta-alpha-beta"><a href="#符号：-X-sim-Beta-alpha-beta" class="headerlink" title="符号：$X \sim \Beta(\alpha, \beta)$"></a>符号：$X \sim \Beta(\alpha, \beta)$</h5><h5 id="概率密度函数：-7"><a href="#概率密度函数：-7" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
 f(x) = \begin{cases}
 \dfrac{1}{\Beta(\alpha, \beta)} x^{\alpha - 1}(1-x)^{\beta - 1}, 0 < x < 1 \\
@@ -1319,9 +1322,9 @@ D(X) = \lambda^{2}\left[\Gamma(1 + \dfrac{2}{k}) - \Gamma^{2}(1 + \dfrac{1}{k})\
 <h4 id="瑞利分布-Rayleigh-Distribution"><a href="#瑞利分布-Rayleigh-Distribution" class="headerlink" title="瑞利分布(Rayleigh Distribution)"></a>瑞利分布(Rayleigh Distribution)</h4><p>瑞利分布就是两个垂直分量服从独立且均值为0,标准差相同的高斯分布叠加之后的模。<br>换句话说，复高斯分布的模服从瑞利分布。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/573644622">瑞利分布的推导过程 - 知乎 (zhihu.com)</a> 瑞利分布</p>
 <h4 id="柯西分布-柯西-洛伦兹分布，Cauchy-Distribution"><a href="#柯西分布-柯西-洛伦兹分布，Cauchy-Distribution" class="headerlink" title="柯西分布(柯西-洛伦兹分布，Cauchy Distribution)"></a>柯西分布(柯西-洛伦兹分布，Cauchy Distribution)</h4><h5 id="符号：-X-sim-text-Cauthy-a-alpha"><a href="#符号：-X-sim-text-Cauthy-a-alpha" class="headerlink" title="符号：$X \sim \text{Cauthy}(a, \alpha)$"></a>符号：$X \sim \text{Cauthy}(a, \alpha)$</h5><h5 id="概率密度函数：-8"><a href="#概率密度函数：-8" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{1}{\alpha\pi[1 + ((x - a) / \alpha)^{2}]} \quad \quad -\infty < x < +\infty</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025112236557.png" alt="image-20231025112236557"></p>
+f(x) = \dfrac{1}{\alpha\pi[1 + ((x - a) / \alpha)^{2}]} \quad \quad -\infty < x < +\infty</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025112236557.png" alt="image-20231025112236557"></p>
 <h5 id="由来推导："><a href="#由来推导：" class="headerlink" title="由来推导："></a>由来推导：</h5><p>柯西分布描述了以随机角度倾斜的线段切割 x 轴的水平距离分布。</p>
-<p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025113546164.png" alt="image-20231025113546164"></p>
+<p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025113546164.png" alt="image-20231025113546164"></p>
 <script type="math/tex; mode=display">
 \tan(\theta) = \dfrac{x}{b} \\
 \theta = \arctan{\dfrac{x}{b}} \\
@@ -1345,7 +1348,7 @@ f(x) = \begin{cases}
 \end{cases}</script><blockquote>
 <p>The Laplace distribution is an alternative to the normal distribution with heavier tails. The probability density function for three different parameters settings is illustrated below.</p>
 </blockquote>
-<p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024230803046.png" alt="image-20231024230803046"></p>
+<p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024230803046.png" alt="image-20231024230803046"></p>
 <h5 id="分布函数：-5"><a href="#分布函数：-5" class="headerlink" title="分布函数："></a>分布函数：</h5><script type="math/tex; mode=display">
 F(x) = P(X \leq x) = \begin{cases}
 \dfrac{\alpha_1}{\alpha_1 + \alpha_2}e^{-\frac{x}{\alpha_1}} &x < 0 \\
@@ -1362,14 +1365,14 @@ D(X) &= \int_{-\infty}^{0} x^2 \cdot f(x)\mathrm{d}x + \int_0^{+\infty} x^2 \cdo
 <li>可看作两平移指数分布背靠背拼接在一起，因此又称双指数分布 (Double exponential distribution)</li>
 </ol>
 <h5 id="应用：-13"><a href="#应用：-13" class="headerlink" title="应用："></a>应用：</h5><h4 id="玻尔兹曼分布-Boltzmann-Distribution"><a href="#玻尔兹曼分布-Boltzmann-Distribution" class="headerlink" title="玻尔兹曼分布(Boltzmann Distribution)"></a>玻尔兹曼分布(Boltzmann Distribution)</h4><h4 id="幂律分布-Power-Distribution"><a href="#幂律分布-Power-Distribution" class="headerlink" title="幂律分布(Power Distribution)"></a>幂律分布(Power Distribution)</h4><h5 id="符号：-X-sim-text-Power-1-beta"><a href="#符号：-X-sim-text-Power-1-beta" class="headerlink" title="符号：$X\sim \text{Power}(1, \beta)$"></a>符号：$X\sim \text{Power}(1, \beta)$</h5><h5 id="概率密度函数：-10"><a href="#概率密度函数：-10" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \beta x^{\beta - 1} \quad \quad 0 < x < 1</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024235040777.png" alt="image-20231024235040777"></p>
+f(x) = \beta x^{\beta - 1} \quad \quad 0 < x < 1</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231024235040777.png" alt="image-20231024235040777"></p>
 <h5 id="分布函数：-6"><a href="#分布函数：-6" class="headerlink" title="分布函数："></a>分布函数：</h5><script type="math/tex; mode=display">
 F(x) = P(X \leq x) = x^{\beta}</script><h5 id="期望：-17"><a href="#期望：-17" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) =</script><h5 id="方差：-17"><a href="#方差：-17" class="headerlink" title="方差："></a>方差：</h5><h4 id="三角分布-Standard-Triangular-Distribution"><a href="#三角分布-Standard-Triangular-Distribution" class="headerlink" title="三角分布(Standard Triangular Distribution)"></a>三角分布(Standard Triangular Distribution)</h4><h5 id="符号：-X-sim-text-Triangular-1-1-1"><a href="#符号：-X-sim-text-Triangular-1-1-1" class="headerlink" title="符号：$X \sim \text{Triangular}(-1, 1, 1)$"></a>符号：$X \sim \text{Triangular}(-1, 1, 1)$</h5><h5 id="概率密度函数：-11"><a href="#概率密度函数：-11" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
 f(x) = \begin{cases}
 x + 1, &-1 < x < 0 \\
 1 - x, & 0 \leq x < 1
-\end{cases}</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025114540132.png" alt="image-20231025114540132"></p>
+\end{cases}</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025114540132.png" alt="image-20231025114540132"></p>
 <h5 id="分布函数：-7"><a href="#分布函数：-7" class="headerlink" title="分布函数："></a>分布函数：</h5><script type="math/tex; mode=display">
 F(x) = \begin{cases}
 \frac{1}{2}x^{2} + x + \frac{1}{2}, &-1 < x < 0 \\
@@ -1382,9 +1385,9 @@ f(x|a, b, c) = \begin{cases}
 \dfrac{2(x - a)}{(b - a)(c - a)} \quad a \leq x \leq c \\
 \\
 \dfrac{2(b - x)}{(b - a)(b - c)} \quad c \leq x \leq b
-\end{cases}</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025124956772.png" alt="image-20231025124956772"></p>
+\end{cases}</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025124956772.png" alt="image-20231025124956772"></p>
 <h4 id="逻辑斯谛分布-增长分布-Log-Logistic-Distribution"><a href="#逻辑斯谛分布-增长分布-Log-Logistic-Distribution" class="headerlink" title="逻辑斯谛分布(增长分布, Log-Logistic Distribution)"></a>逻辑斯谛分布(增长分布, Log-Logistic Distribution)</h4><h5 id="符号：-X-sim-text-loglogistic-lambda-kappa"><a href="#符号：-X-sim-text-loglogistic-lambda-kappa" class="headerlink" title="符号：$X \sim \text{loglogistic}(\lambda, \kappa)$"></a>符号：$X \sim \text{loglogistic}(\lambda, \kappa)$</h5><h5 id="概率密度函数：-12"><a href="#概率密度函数：-12" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{\lambda\kappa(\lambda\kappa)^{\kappa - 1}}{(1 + (\lambda x)^{\kappa})^{2}} \quad x > 0</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025130217056.png" alt="image-20231025130217056"></p>
+f(x) = \dfrac{\lambda\kappa(\lambda\kappa)^{\kappa - 1}}{(1 + (\lambda x)^{\kappa})^{2}} \quad x > 0</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025130217056.png" alt="image-20231025130217056"></p>
 <h5 id="分布函数：-8"><a href="#分布函数：-8" class="headerlink" title="分布函数："></a>分布函数：</h5><script type="math/tex; mode=display">
 F(x) = P(X <= x) = \dfrac{(\lambda x)^{\kappa}}{1 + (\lambda x)^{\kappa}}  \quad x > 0</script><h5 id="期望：-19"><a href="#期望：-19" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 \begin{aligned}
@@ -1395,7 +1398,7 @@ E(X) &= \int_0^{+\infty} x \cdot f(x) \mathrm{d}x \\
 \end{aligned}</script><p>其中，计算的时候可以使用留数定理。</p>
 <h5 id="方差：-19"><a href="#方差：-19" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
 D(X) = \dfrac{\pi \left(2\kappa(1 - \cos (\frac{\pi}{\kappa})^{2}) + \pi\sin(\frac{\pi(\kappa + 2)}{\kappa}) \right)}{\left(\sin (\frac{\pi(\kappa + 2)}{\kappa}) \right)\left( \cos(\frac{\pi}{\kappa})^{2} - 1\right)(\lambda \kappa)^{2}}</script><h4 id="逻辑分布-Logistic-Distribution"><a href="#逻辑分布-Logistic-Distribution" class="headerlink" title="逻辑分布(Logistic Distribution)"></a>逻辑分布(Logistic Distribution)</h4><h5 id="符号：-X-sim-text-logistic-lambda-kappa"><a href="#符号：-X-sim-text-logistic-lambda-kappa" class="headerlink" title="符号：$X \sim \text{logistic}(\lambda, \kappa)$"></a>符号：$X \sim \text{logistic}(\lambda, \kappa)$</h5><h5 id="概率密度函数：-13"><a href="#概率密度函数：-13" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{\lambda^{\kappa}\kappa e^{\kappa x}}{(1 + (\lambda e^{x})^{\kappa})^{2}} \quad -\infty < x < +\infty</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025134453817.png" alt="image-20231025134453817"></p>
+f(x) = \dfrac{\lambda^{\kappa}\kappa e^{\kappa x}}{(1 + (\lambda e^{x})^{\kappa})^{2}} \quad -\infty < x < +\infty</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231025134453817.png" alt="image-20231025134453817"></p>
 <h5 id="分布函数：-9"><a href="#分布函数：-9" class="headerlink" title="分布函数："></a>分布函数：</h5><script type="math/tex; mode=display">
 F(x) = P(X \leq x) = \dfrac{\lambda^{\kappa}e^{\kappa x}}{1 + \lambda^{\kappa}e^{x}} \quad -\infty < x < +\infty</script><h5 id="期望：-20"><a href="#期望：-20" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) = -\ln \lambda</script><h5 id="方差：-20"><a href="#方差：-20" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
@@ -1475,7 +1478,7 @@ V(X) = \dfrac{2n_2^{2}(n_1+ n_2 - 2)}{n_1}</script><h5 id="性质：-15"><a href
 <h5 id="应用：-15"><a href="#应用：-15" class="headerlink" title="应用："></a>应用：</h5><h4 id="chi-分布-卡方分布-chi-Distribution"><a href="#chi-分布-卡方分布-chi-Distribution" class="headerlink" title="$\chi 分布$(卡方分布, $\chi$ Distribution)"></a>$\chi 分布$(卡方分布, $\chi$ Distribution)</h4><p>$Z_1, Z_2, …, Z_k$ 是独立、标准正态分布的随机变量，把他们的平方和记为 Q，则有 $Q = \sum\limits_{i = 1}^{k} Z_i^{2}$</p>
 <p>这个 Q 是服从自由度为 K 的卡方分布的。通常会被记为 $Q \sim \chi^{2}(k)$</p>
 <h5 id="符号：-Q-sim-chi-2-k"><a href="#符号：-Q-sim-chi-2-k" class="headerlink" title="符号：$Q \sim \chi^{2}(k)$"></a>符号：$Q \sim \chi^{2}(k)$</h5><h5 id="概率密度函数：-16"><a href="#概率密度函数：-16" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{1}{2^{\frac{n}{2}}\Gamma(\dfrac{n}{2})}x^{^{\frac{n}{2}} - 1}e^{-\frac{x^{2}}{2}} \quad z > 0</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026212407458.png" alt="image-20231026212407458"></p>
+f(x) = \dfrac{1}{2^{\frac{n}{2}}\Gamma(\dfrac{n}{2})}x^{^{\frac{n}{2}} - 1}e^{-\frac{x^{2}}{2}} \quad z > 0</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026212407458.png" alt="image-20231026212407458"></p>
 <h5 id="K-阶矩"><a href="#K-阶矩" class="headerlink" title="K 阶矩"></a>K 阶矩</h5><script type="math/tex; mode=display">
 \begin{aligned}
 E(X^{k}) &= \int_0^{+\infty} x^{k} \cdot \dfrac{1}{2^{\frac{n}{2}}\Gamma(\dfrac{n}{2})}x^{^{\frac{n}{2}} - 1}e^{-\frac{x^{2}}{2}} \mathrm{d}x \\
@@ -1501,7 +1504,7 @@ p(x) = \begin{cases}
 
 \end{cases}
 \end{aligned}</script><p>帕累托分布属于连续概率分布。「齐夫定律」也被称为「Zeta 分布」，也可以被认为是在离散概率分布中的帕累托分布。</p>
-<p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026223709526.png" alt="image-20231026223709526"></p>
+<p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026223709526.png" alt="image-20231026223709526"></p>
 <h5 id="期望：-24"><a href="#期望：-24" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) = \int_0^{+\infty} x\cdot f(x) \mathrm{d}x = \dfrac{x_\min k}{k - 1}</script><h5 id="方差：-24"><a href="#方差：-24" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
 D(X) = \dfrac{x_\min}{k - 1}\sqrt{\dfrac{k}{k - 2}}</script><h5 id="应用：-17"><a href="#应用：-17" class="headerlink" title="应用："></a>应用：</h5><ol>
@@ -1515,7 +1518,7 @@ D(X) = \dfrac{x_\min}{k - 1}\sqrt{\dfrac{k}{k - 2}}</script><h5 id="应用：-17
 </ol>
 <h5 id="引申："><a href="#引申：" class="headerlink" title="引申："></a>引申：</h5><p>帕累托法则(Pareto Principle)，或者叫做「二八定律」，「关键少数法则」，「巴莱多定律」。这个定律指出，约仅有 20% 的因素影响了 80% 的结果。也就是说，所有变因中，最重要的仅有 20%，虽然剩余的 80% 占了大多数。</p>
 <h4 id="反正弦分布-Arcsin-Distribution"><a href="#反正弦分布-Arcsin-Distribution" class="headerlink" title="反正弦分布(Arcsin Distribution)"></a>反正弦分布(Arcsin Distribution)</h4><h5 id="符号：-X-sim-text-arcsin-x"><a href="#符号：-X-sim-text-arcsin-x" class="headerlink" title="符号：$X \sim \text{arcsin}(x)$"></a>符号：$X \sim \text{arcsin}(x)$</h5><h5 id="概率密度函数：-17"><a href="#概率密度函数：-17" class="headerlink" title="概率密度函数："></a>概率密度函数：</h5><script type="math/tex; mode=display">
-f(x) = \dfrac{1}{\pi \sqrt{x(1 - x)}} \quad 0 < x < 1</script><p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026220704838.png" alt="image-20231026220704838"></p>
+f(x) = \dfrac{1}{\pi \sqrt{x(1 - x)}} \quad 0 < x < 1</script><p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026220704838.png" alt="image-20231026220704838"></p>
 <h5 id="累计分布函数："><a href="#累计分布函数：" class="headerlink" title="累计分布函数："></a>累计分布函数：</h5><script type="math/tex; mode=display">
 F(x) = P(X \leq x) = \dfrac{\pi + 2\arcsin(2x - 1)}{2\pi}</script><h5 id="期望：-25"><a href="#期望：-25" class="headerlink" title="期望："></a>期望：</h5><script type="math/tex; mode=display">
 E(X) = \dfrac{1}{2}</script><h5 id="方差：-25"><a href="#方差：-25" class="headerlink" title="方差："></a>方差：</h5><script type="math/tex; mode=display">
@@ -1523,9 +1526,9 @@ D(X) = \dfrac{1}{8}</script><h5 id="性质：-17"><a href="#性质：-17" class=
 <p>对于这样类型的积分，我们一般是通过换元进行计算 $x  =a\cos^{2}\theta + b\sin^{2}\theta$，那么原来的积分可以变为一个简单的积分：</p>
 <script type="math/tex; mode=display">
 \int_a^{b}\dfrac{\mathrm{d}x}{\sqrt{(x - a)(b - x)}} = 2\int_0^{\frac{\pi}{2}} \mathrm{d}\theta = \pi</script><p>对于这个式子的含义继续深究</p>
-<p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026221614582.png" alt="image-20231026221614582"></p>
+<p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026221614582.png" alt="image-20231026221614582"></p>
 <p>所以原来的定积分就正好代表了上半圆的弧长，也就是整个圆的半周长。</p>
-<p><img src="C:\Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026221707845.png" alt="image-20231026221707845"></p>
+<p><img src="/.com//Users\24964\AppData\Roaming\Typora\typora-user-images\image-20231026221707845.png" alt="image-20231026221707845"></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://zhuanlan.zhihu.com/p/517424307">https://zhuanlan.zhihu.com/p/517424307</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/164883777">https://zhuanlan.zhihu.com/p/164883777</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/449733211">常见分布的数学期望和方差及相关证明 - 知乎 (zhihu.com)</a></p>
@@ -2105,5 +2108,111 @@ D(X) = \dfrac{1}{8}</script><h5 id="性质：-17"><a href="#性质：-17" class=
       <tags>
         <tag>Miscellaneous</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>杂记2</title>
+    <url>/2023/11/12/%E6%9D%82%E8%AE%B02/</url>
+    <content><![CDATA[<h4 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h4><p>Ubuntu 主要使用 apt(Advanced Package Tool)作为包管理工具。APT 是一套工具集，用于安装、更新、卸载和管理软件包。</p>
+<p>下面是一些常见的 apt 指令：<br>sudo apt update: 用于更新本地包信息的命令，以确保系统知道可用的软件包和更新。<br>sudo apt upgrade: 用于升级已安装软件包的命令。<br>sudo apt install package_name: 用于安装特定软件包的命令。<br>sudo apt remove package_name: 用于卸载已安装的软件包。<br>sudo apt search search_term: 用于在存储库中搜索软件包的命令。<br>sudo apt list: 用于列出可用的软件包。</p>
+<p>Ubuntu的软件存储库包含大量的开源软件包，而APT使得管理和安装这些软件包变得非常方便。APT还支持依赖解决，确保软件包安装时满足其所需的依赖项。</p>
+<p>虽然 Ubuntu 使用 apt，但是我们也可以在 Ubuntu 上面安装其他的包管理工具。</p>
+<h4 id="Arch-Linux"><a href="#Arch-Linux" class="headerlink" title="Arch Linux"></a>Arch Linux</h4><p>Arch Linux是一种面向Linux发烧友和高级用户的Linux发行版，以其<strong>极简的设计和强大的定制性</strong>而闻名。</p>
+<p>Arch Linux采用滚动发布模型，这意味着它不会按照固定的版本发布，而是持续更新软件包以提供最新的功能和安全性修复。</p>
+<p>Arch Linux的包管理系统使用称为”pacman”的工具，它允许用户轻松地安装、更新和删除软件包。用户可以通过Arch User Repository（AUR）来访问大量社区维护的软件包，这些软件包不包含在官方仓库中，从而增加了软件可用性。</p>
+<p>由于Arch Linux的定制性，用户必须亲自配置和设置系统，包括桌面环境、窗口管理器和其他系统组件。这使得Arch Linux适合那些喜欢自定义自己的Linux系统的用户，但也可能对新手来说有一定的学习曲线。</p>
+<h4 id="数据库结构"><a href="#数据库结构" class="headerlink" title="数据库结构"></a>数据库结构</h4><p>一般数据库中有着不同的用户，不同用户下有着不同是数据库，并且不同数据库下有着不同的表格。</p>
+<p>这是数据库管理的一种基本安全和隔离策略，有助于确保数据的完整性、安全性和隔离。</p>
+<p>下面是一些应用情况：</p>
+<ol>
+<li><p><strong>不同用户访问不同的数据库</strong>：不同用户可以被授予访问不同数据库的权限。这意味着用户A可以访问数据库A，而用户B可以访问数据库B，但它们无法相互访问对方的数据库。</p>
+</li>
+<li><p><strong>不同用户访问相同数据库的不同表格</strong>：即使多个用户可以访问相同的数据库，也可以根据其权限来访问和操作不同的表格。例如，用户A可能只能访问表格X，而用户B可以访问表格Y。</p>
+</li>
+<li><p><strong>权限级别不同</strong>：用户的权限级别可以不同，例如只读用户、读写用户、管理员等。这决定了用户可以执行的操作和管理的范围。</p>
+</li>
+</ol>
+<h4 id="GIS-系统"><a href="#GIS-系统" class="headerlink" title="GIS 系统"></a>GIS 系统</h4><h4 id="os-path-join-函数"><a href="#os-path-join-函数" class="headerlink" title="os.path.join 函数"></a>os.path.join 函数</h4><p><code>os.path.join</code> 函数用于构建文件和目录路径。<br>它可以接受任意数量的字符串参数，然后根据操作系统的规则构建有效的路径字符串。<br><strong>这对于创建跨平台的路径非常有用</strong>，因为不同操作系统使用不同的路径分隔符（例如，在Unix和Linux系统上是/，在Windows系统上是\）。</p>
+<h4 id="os-listdir-函数"><a href="#os-listdir-函数" class="headerlink" title="os.listdir() 函数"></a>os.listdir() 函数</h4><p><code>os.listdir()</code> 函数用于列出指定目录中的文件和子目录。</p>
+<h4 id="Dos-命令"><a href="#Dos-命令" class="headerlink" title="Dos 命令"></a>Dos 命令</h4><h4 id="低代码平台"><a href="#低代码平台" class="headerlink" title="低代码平台"></a>低代码平台</h4><p>低代码平台(Low-Code Platform)是一种用于应用程序开发的软件开发工具或平台，它旨在简化和加速应用程序开发过程。这种平台允许开发人员使用图形用户界面、拖放式元素和少量的编程代码来创建应用程序，而不需要从头开始编写大量的传统编程代码。</p>
+<h4 id="JDK-和-JRE"><a href="#JDK-和-JRE" class="headerlink" title="JDK 和 JRE"></a>JDK 和 JRE</h4><ol>
+<li><p>Java开发工具包 (JDK): JDK 是用于开发Java应用程序的核心工具集。它包括Java编译器 (javac)、Java虚拟机 (JVM)、标准类库和各种开发工具。JDK是开发Java应用程序的必备组件，你需要安装它才能开始编写和运行Java代码。</p>
+</li>
+<li><p>Java运行时环境 (JRE): JRE 包含Java应用程序的运行时组件，包括Java虚拟机 (JVM) 和标准类库。如果你只需要运行Java应用程序而不是开发它们，你可以安装JRE而不是完整的JDK。</p>
+</li>
+</ol>
+<p>它们的简写是：<br>JDK: Java Development Kit（Java开发工具包）<br>JRE: Java Runtime Environment（Java运行时环境）</p>
+<p>javac 是 Java 编程语言中的编译器。它用于将 Java 源代码文件（以 .java 为扩展名）转换成 Java 字节码文件（以 .class 为扩展名），这些字节码文件可以由 Java 虚拟机（JVM）执行。编译器负责将源代码翻译成计算机可以理解的字节码，以便在运行时执行。</p>
+<p>使用 javac 命令，你可以编译你的 Java 源代码文件，检查代码中是否有语法错误，以及生成可执行的字节码文件。</p>
+<h4 id="使用-JVM-执行"><a href="#使用-JVM-执行" class="headerlink" title="使用 JVM 执行"></a>使用 JVM 执行</h4><p>使用 JVM 执行编译后的 java 代码，有很多重要作用。</p>
+<ol>
+<li><p>跨平台性：Java程序编译成字节码，而不是与特定操作系统或硬件相关的本地机器代码。这使得Java应用程序具有跨平台性，可以在支持Java的不同操作系统上运行，只要这些系统上安装了相应的JVM。这大大简化了跨平台开发和部署。</p>
+</li>
+<li><p>安全性：JVM提供了各种安全特性，包括字节码验证和安全沙箱，以确保Java应用程序在运行时不会执行危险的操作或访问系统资源。这有助于防止恶意代码的执行和对系统的潜在损害。</p>
+</li>
+<li><p>内存管理：JVM负责Java应用程序的内存管理，包括垃圾回收。这减轻了开发人员的负担，因为他们不必手动分配和释放内存，而是依赖JVM来自动处理内存管理。</p>
+</li>
+<li><p>性能优化：JVM具有即时编译器和其他优化技术，可以在运行时提高Java应用程序的性能。它可以根据应用程序的行为动态进行性能调整，以提供更高的执行效率。</p>
+</li>
+<li><p>多线程支持：JVM提供了多线程支持，允许Java应用程序轻松地创建和管理多个线程，以实现并行执行和并发操作。</p>
+</li>
+<li><p>异常处理：JVM提供了强大的异常处理机制，使开发人员能够更容易地检测和处理错误条件，从而增加应用程序的可靠性。</p>
+</li>
+</ol>
+<h4 id="python-解释器"><a href="#python-解释器" class="headerlink" title="python 解释器"></a>python 解释器</h4><p>Python也使用了虚拟机的概念，具有跨平台性质。Python代码通常由Python解释器执行，这个<strong>解释器充当了Python虚拟机的角色</strong>。Python解释器负责将Python源代码转换为字节码，然后在Python虚拟机上执行这些字节码。</p>
+<h4 id="Java-环境管理"><a href="#Java-环境管理" class="headerlink" title="Java 环境管理"></a>Java 环境管理</h4><p>构建工具(Apache Meaven \ Gradle):</p>
+<ol>
+<li><p><strong>项目构建自动化</strong>。构建工具可以自动化构建过程，包括编译 Java 源代码、打包 JAR 文件、运行单元测试、生成文档等。这大大减少了开发人员手动操作的负担。</p>
+</li>
+<li><p><strong>依赖管理</strong>。构建工具可以管理项目的依赖关系，包括第三方库、框架和插件。</p>
+</li>
+<li><p>多模块项目支持：构建工具允许你将项目分解为多个模块，每个模块可以有自己的构建配置。这有助于组织大型项目并提高代码的模块化性。</p>
+</li>
+</ol>
+<p>依赖管理：</p>
+<ol>
+<li><p>引入第三方库：Java项目通常依赖于各种第三方库和框架，如数据库驱动程序、HTTP客户端库、日志库等。通过在项目配置文件中定义这些依赖关系，你可以告诉构建工具从中央仓库或其他位置下载这些库，然后将它们添加到你的项目中。</p>
+</li>
+<li><p>版本控制：依赖管理工具允许你指定依赖库的版本号，确保你使用的是特定版本，避免不同版本之间的冲突。</p>
+</li>
+<li><p>自动下载和更新：一旦依赖关系被定义，构建工具可以自动下载和更新这些依赖项，从而简化了维护过程。</p>
+</li>
+<li><p>可重用性：依赖管理使你的项目可以更容易地与其他项目共享，因为其他项目可以使用相同的依赖定义。</p>
+</li>
+</ol>
+<h4 id="vector-赋值"><a href="#vector-赋值" class="headerlink" title="vector 赋值"></a>vector 赋值</h4><ol>
+<li>使用赋值操作符</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination;</span><br><span class="line">destination = source; // 使用赋值操作符</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用拷贝构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination(source); // 使用拷贝构造函数</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用 <code>assign</code> 函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination;</span><br><span class="line">destination.assign(source.begin(), source.end()); // 使用 assign 函数</span><br></pre></td></tr></table></figure>
+<ol>
+<li>使用范围初始化 / 范围构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination(source.begin(), source.end()); // 范围初始化</span><br></pre></td></tr></table></figure>
+<h4 id="vector-构造"><a href="#vector-构造" class="headerlink" title="vector 构造"></a>vector 构造</h4><ol>
+<li>默认构造函数<br>其实也就是直接声明</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector; // 创建一个空的整数向量</span><br></pre></td></tr></table></figure>
+<ol>
+<li>指定大小的构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector(5); // 创建一个包含5个默认构造的整数的向量</span><br></pre></td></tr></table></figure>
+<p>默认值为 0</p>
+<ol>
+<li>指定大小和初值的构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector(5, 42); // 创建一个包含5个值为42的整数的向量</span><br></pre></td></tr></table></figure>
+<ol>
+<li>拷贝构造<br>有两种，一种是范围的拷贝构造，另一种是直接写另一个 vector 的拷贝构造</li>
+</ol>
+<p>```<br>std::vector<int> myVector(myIteratorBegin, myIteratorEnd); // 用迭代器范围初始化向量</int></p>
+<p>std::vector<int> myVector(otherVector); // 使用另一个向量初始化新向量<br>```s</int></p>
+]]></content>
   </entry>
 </search>
