@@ -4008,4 +4008,22 @@ m，如果要使得周期达到最大，应该满足： 1. c 和 m 互质 2. m
 <h5 id="硬件随机数生成器">硬件随机数生成器</h5>
 ]]></content>
   </entry>
+  <entry>
+    <title>hexo博客食用指北</title>
+    <url>/2023/11/12/hexo%E5%8D%9A%E5%AE%A2%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8C%97/</url>
+    <content><![CDATA[<h4 id="字体的设置">字体的设置</h4>
+<p>参见
+https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</p>
+<h4 id="数学公式的配置">数学公式的配置</h4>
+<p>使用 mathjax 渲染，卸载掉之前的插件。</p>
+<p>具体参见： 1.
+https://blog.csdn.net/weixin_45073562/article/details/120289648 2.
+https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E9%85%8D%E7%BD%AEMathJax/</p>
+<h4 id="评论系统的配置">评论系统的配置</h4>
+<ol type="1">
+<li><p>https://blog.csdn.net/weixin_48927364/article/details/123321038</p></li>
+<li><p>https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</p></li>
+</ol>
+]]></content>
+  </entry>
 </search>
