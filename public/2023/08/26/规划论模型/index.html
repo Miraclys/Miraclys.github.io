@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="The key record of mathematical modeling.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="规划论模型">
+<meta property="og:url" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Miraclys">
+<meta property="og:description" content="The key record of mathematical modeling.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png">
+<meta property="og:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png">
+<meta property="article:published_time" content="2023-08-26T02:42:15.000Z">
+<meta property="article:modified_time" content="2023-08-27T05:14:54.678Z">
+<meta property="article:author" content="Miraclys">
+<meta property="article:tag" content="Mathematic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png">
+
+
+<link rel="canonical" href="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/","path":"2023/08/26/规划论模型/","title":"规划论模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>规划论模型 | Miraclys</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Miraclys</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">线性规划</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BF%90%E8%BE%93%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">运输问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%9B%AE%E6%A0%87%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">多目标规划问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%82%E5%BA%A6%E6%8C%87%E6%A0%87%E7%9A%84%E7%BA%BF%E6%80%A7%E5%A4%84%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">适度指标的线性处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="nav-number">3.</span> <span class="nav-text">整数规划</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0-1-%E5%9E%8B%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="nav-number">3.1.</span> <span class="nav-text">0-1 型整数规划</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">指派问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%89%E5%9D%80%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">选址问题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Miraclys"
+      src="/../images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Miraclys</p>
+  <div class="site-description" itemprop="description">Live a life you will remember.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="规划论模型 | Miraclys">
+      <meta itemprop="description" content="The key record of mathematical modeling.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          规划论模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-26 10:42:15" itemprop="dateCreated datePublished" datetime="2023-08-26T10:42:15+08:00">2023-08-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-08-27 13:14:54" itemprop="dateModified" datetime="2023-08-27T13:14:54+08:00">2023-08-27</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">The key record of mathematical modeling.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>规划论模型也成为运筹与优化模型，在实际问题的建模中应用最为广泛，涉及面较广。</p>
+<h4 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h4><p>通常对于只有两个决策变量的情形，可以使用图解法加以求解。而对于大于两个决策变量的情形，需要借助单纯形方法加以求解。单纯形方法的基本思想是迭代思想的一种体现。首先找到初始可行解，并通过迭代逐步从可行域的一个顶点走向另一个顶点，最终走到最优解。<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png" class=""><br>下面的例题：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg" class=""><br>其中，求 max，所以我们把 z 的系数取反。第二个不等式是大于等于，我们也同样取反。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f = [-1; -2; 3];</span><br><span class="line">A = [3 2 1; -4 -7 6];</span><br><span class="line">b = [6; -8];</span><br><span class="line">Aeq = [2 1 5];</span><br><span class="line">beq = [4];</span><br><span class="line">vlb = [0; 0; 0];</span><br><span class="line">vub= [];</span><br><span class="line">[x, fval] = linprog(f, A, b, Aeq, beq, vlb, vub)</span><br></pre></td></tr></table></figure></p>
+<h5 id="运输问题"><a href="#运输问题" class="headerlink" title="运输问题"></a>运输问题</h5><p>较为常见的运输模型叙述如下：</p>
+<blockquote>
+<p>某物资有 m 个原产地 $A_i$，产量为 $a_i$；有 n 个销地 $B_j$，销量关系为 $b_j$，从 $A_i$ 到 $B_j$ 之间的单位物资运价为 $d_{ij}$，则产销平衡时有 $\sum\limits_{i = 1}^{m}a_i = \sum\limits_{j = 1}^{n} b_j$</p>
+</blockquote>
+<h5 id="多目标规划问题"><a href="#多目标规划问题" class="headerlink" title="多目标规划问题"></a>多目标规划问题</h5><p>在建立优化模型时有时追求的目标可能是多个，无论忽略其中的哪个因素可能都会降低优化结果的可信度。对于这类问题通常有下面的三种处理方式：</p>
+<ol>
+<li>为每个目标设置重要性权重。<br> 当存在 n 个目标时，首先对目标函数进行归一化处理（就是消除量纲的影响，进行标准统一）后分别设置自己的权重，假设第 i 个目标的权重为 $\alpha_i$，目标取值为 $M_i$，则可以建立下面的优化模型：$\max \alpha_1M_1 + \alpha_2M_2 + … + \alpha_nM_n$</li>
+<li>为各种目标设定优先权，并将模型转化为多个优化模型。</li>
+<li>分别求得个目标的最优值后，将主要目标设定为目标函数，而将次要目标适当调整后修改为约束条件。</li>
+</ol>
+<h4 id="适度指标的线性处理"><a href="#适度指标的线性处理" class="headerlink" title="适度指标的线性处理"></a>适度指标的线性处理</h4><p>适度指标是指该指标的他正是数据大了或者小了均不好，要充分地接近于某一事先给定的标准指标，比如水的 PH 值。<br>求 $\min |x - D|$，D 为数据指标的理想取值。<br>例题：<br>一个富豪准备拿 10 万元买股票。经过他的筛选，有三种候选投资股票。这三种股票的价格、收益率以及风险系数如表所示：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png" class=""><br>这是一个多规划问题，我们如果直接列两个不等式的话，可能存在无解的情况。所以我们可以采取上面所说的方法2，建立如下的两个不等式条件：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png" class=""><br>如果我们优先考虑投资的风险，就可以建立下面的线性规划模型：<br><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png" class=""><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">Aeq = [1 3 5 1 -1 0 0; 2 5 8 0 0 1 -1; 10 20 30 0 0 0 0];</span><br><span class="line">beq = [15000; 25000; 100000];</span><br><span class="line">f = zeros(7, 1);</span><br><span class="line">f(5) = 1;</span><br><span class="line">vlb = zeros(7, 1);</span><br><span class="line">vub = [];</span><br><span class="line">a = [];</span><br><span class="line">b = [];</span><br><span class="line">[x, y] = linprog(f, a, b, Aeq, beq, vlb, vub);</span><br><span class="line">fx = x(1) + 3 * x(2) + 5 * x(3)</span><br><span class="line">lr = 2 * x(1) + 5 * x(2) + 8 * x(3)</span><br></pre></td></tr></table></figure></p>
+<h4 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h4><p>在线性规划模型中，如果各个决策变量的取值均为整数，则称此类模型为整数规划模型。<br>整数规划的解法主要有穷举法(变量维数较高时不可行)、舍入凑整法、分支定界法(比较可行)、割平面法(比较可行)等。</p>
+<ol>
+<li>舍入凑整法<br> 感觉很是玄学，就是假装没有整数约束，求解出最优解后每个变量往下或者上取整比较一下。</li>
+<li>分支界定法<br> 如果不满足整数条件，任选一个不满足整数条件的变量来构造新的约束，在原可行域中剔除部分非整数解。然后，再在缩小的可行域中求解新构造的线性规划的最优解（好抽象）。<br> 步骤：<ol>
+<li>解没有整数约束的问题。</li>
+<li>定界</li>
+<li>分支</li>
+<li>修改上下界</li>
+<li>比较与剪枝</li>
+</ol>
+</li>
+</ol>
+<h5 id="0-1-型整数规划"><a href="#0-1-型整数规划" class="headerlink" title="0-1 型整数规划"></a>0-1 型整数规划</h5><p>约束条件为 $0 \leq x_i \leq 1,x_i$ 为整数。这样就和一般的整数规划问题统一了。 </p>
+<img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png" class="" title="整数规划求解函数">
+<p>实例：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">f = [-3; 2; -5];</span><br><span class="line">intcon = [1, 2, 3]; % 表示哪几个变量为整数</span><br><span class="line">A = [1 2 -1; 1 4 1; 1 1 0; 4 0 1];</span><br><span class="line">b = [2; 4; 3; 6];</span><br><span class="line">Aeq = [];</span><br><span class="line">beq = [];</span><br><span class="line">lb = [0; 0; 0]; % 如果下界为 0 上界为 1，其实就是 0-1 整数规划了。</span><br><span class="line">rb = [1; 1; 1];</span><br><span class="line">[x, val] = intlinprog(f, intcon, A, b, Aeq, beq, lb, rb)</span><br></pre></td></tr></table></figure></p>
+<h5 id="指派问题"><a href="#指派问题" class="headerlink" title="指派问题"></a>指派问题</h5><img src="/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png" class="" title="指派问题">
+<p>当人数和任务的个数不同的时候，会出现某些人没有任务可做或者某些任务无人完成的情况。出现这两种情况的时候只需将约束条件中的某一个等于 1 的约束条件修改为小于等于 1 即可。有时也可以一对多（一个人多任务，一个任务多个人）。<br>2013 年碎纸片拼接复原问题 1：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">cell&#123;1,1&#125;=imread(&#x27;000.bmp&#x27;);</span><br><span class="line">cell&#123;1,2&#125;=imread(&#x27;001.bmp&#x27;);</span><br><span class="line">cell&#123;1,3&#125;=imread(&#x27;002.bmp&#x27;);</span><br><span class="line">cell&#123;1,4&#125;=imread(&#x27;003.bmp&#x27;);</span><br><span class="line">cell&#123;1,5&#125;=imread(&#x27;004.bmp&#x27;);</span><br><span class="line">cell&#123;1,6&#125;=imread(&#x27;005.bmp&#x27;);</span><br><span class="line">cell&#123;1,7&#125;=imread(&#x27;006.bmp&#x27;);</span><br><span class="line">cell&#123;1,8&#125;=imread(&#x27;007.bmp&#x27;);</span><br><span class="line">cell&#123;1,9&#125;=imread(&#x27;008.bmp&#x27;);</span><br><span class="line">cell&#123;1,10&#125;=imread(&#x27;009.bmp&#x27;);</span><br><span class="line">cell&#123;1,11&#125;=imread(&#x27;010.bmp&#x27;);</span><br><span class="line">cell&#123;1,12&#125;=imread(&#x27;011.bmp&#x27;);</span><br><span class="line">cell&#123;1,13&#125;=imread(&#x27;012.bmp&#x27;);</span><br><span class="line">cell&#123;1,14&#125;=imread(&#x27;013.bmp&#x27;);</span><br><span class="line">cell&#123;1,15&#125;=imread(&#x27;014.bmp&#x27;);</span><br><span class="line">cell&#123;1,16&#125;=imread(&#x27;015.bmp&#x27;);</span><br><span class="line">cell&#123;1,17&#125;=imread(&#x27;016.bmp&#x27;);</span><br><span class="line">cell&#123;1,18&#125;=imread(&#x27;017.bmp&#x27;);</span><br><span class="line">cell&#123;1,19&#125;=imread(&#x27;018.bmp&#x27;);</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">level=graythresh(cell&#123;1,i&#125;);%选择灰度阈值</span><br><span class="line">cell1&#123;1,i&#125;=im2bw(cell&#123;1,i&#125;,level); %将图像二值化</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19                %循环19个图像</span><br><span class="line">    for k=1:19</span><br><span class="line">        xs(i,k)=0;</span><br><span class="line">        for j=1:1980</span><br><span class="line">            if (cell1&#123;1,i&#125;(j,72)==cell1&#123;1,k&#125;(j,1))%判断图像的边缘信息特征，求相似度矩阵</span><br><span class="line">                xs(i,k)=1+xs(i,k);</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">    xs(i,i)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19 </span><br><span class="line">da(i)=max(xs(i,:));</span><br><span class="line">end</span><br><span class="line">wei=find(da==max(da));for i=1:19</span><br><span class="line">    k=find(xs(i,[1:19])==da(i));  %求两两相邻的矩阵</span><br><span class="line">    lian(i,1)=i;                  %前面一个</span><br><span class="line">    lian(i,2)=k;                  %后面一个</span><br><span class="line">end</span><br><span class="line">lian(wei,1)=0;</span><br><span class="line">tou=lian(wei,2);</span><br><span class="line">xu(1)=tou;</span><br><span class="line">for i=1:18</span><br><span class="line">    xu(i+1)=lian(xu(i),2);        %正确的排列顺序</span><br><span class="line">end</span><br><span class="line">%根据排出来顺序xu画图</span><br><span class="line">for i=1:19</span><br><span class="line">I(:,[72*(i-1)+1:72*i])=cell&#123;1,xu(i)&#125;;   %图像的整合</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">imwrite(I,&#x27;hanzi.jpg&#x27;,&#x27;quality&#x27;,100);</span><br><span class="line">imshow(&#x27;hanzi.jpg&#x27;)          %输出图像</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h5 id="选址问题"><a href="#选址问题" class="headerlink" title="选址问题"></a>选址问题</h5><p>集合覆盖选址模型和最大覆盖选址模型。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Mathematic/" rel="tag"># Mathematic</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/08/26/matlab%E8%AE%B0%E5%BD%95/" rel="prev" title="matlab记录">
+                  <i class="fa fa-angle-left"></i> matlab记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/" rel="next" title="python 数学建模与实验">
+                  python 数学建模与实验 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Miraclys</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/Miraclys" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
