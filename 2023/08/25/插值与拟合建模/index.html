@@ -139,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7%E5%92%8C%E5%94%AF%E4%B8%80%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">插值多项式的存在性和唯一性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lagrange-%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">Lagrange 插值公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Newton-%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">Newton 插值公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%8F%92%E5%80%BC%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">4.</span> <span class="nav-text">两种插值的比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%A0%B7%E6%9D%A1%E6%8F%92%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">三次样条插值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E6%8B%9F%E5%90%88"><span class="nav-number">6.</span> <span class="nav-text">最小二乘法拟合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%B9%B3%E6%96%B9%E9%80%BC%E8%BF%91"><span class="nav-number">7.</span> <span class="nav-text">最佳平方逼近</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%80%BC%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7%E5%92%8C%E5%94%AF%E4%B8%80%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">插值多项式的存在性和唯一性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lagrange-%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">Lagrange 插值公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#newton-%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">Newton 插值公式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%8F%92%E5%80%BC%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">4.</span> <span class="nav-text">两种插值的比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E6%AC%A1%E6%A0%B7%E6%9D%A1%E6%8F%92%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">三次样条插值函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E6%8B%9F%E5%90%88"><span class="nav-number">6.</span> <span class="nav-text">最小二乘法拟合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%B9%B3%E6%96%B9%E9%80%BC%E8%BF%91"><span class="nav-number">7.</span> <span class="nav-text">最佳平方逼近</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -229,38 +229,60 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数 f(x) 在若干点的函数值或者微商值，即只能给出 f(x) 的一张数据表。如果根据这张数据表构造一个函数 $\varphi(x)$ ，使之满足这张表中的数据，这样的函数 $\varphi(x)$ 就是函数 f(x) 的逼近函数。这种逼近问题称为插值问题。</p>
-<h4 id="插值多项式的存在性和唯一性"><a href="#插值多项式的存在性和唯一性" class="headerlink" title="插值多项式的存在性和唯一性"></a>插值多项式的存在性和唯一性</h4><p>设 $p_n(x) = a_0 + a_1x + a_2x^{2} + … + a_nx^n$，由插值条件可以得到非齐次线性方程组：<br><img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class title="插值条件非齐次方程组"><br>可以由 $\text{Vandermonde}$ 行列式，各个点是互异的来得到系数矩阵的行列式 $D \neq 0$。由 $\text{Cramer}$ 法则知道，方程有唯一的解，所以多项式存在且唯一。 </p>
-<p><strong>几何解释：</strong> 一个 n 次的多项式一定可以由 n + 1 个点唯一确定。</p>
-<h4 id="Lagrange-插值公式"><a href="#Lagrange-插值公式" class="headerlink" title="Lagrange 插值公式"></a>Lagrange 插值公式</h4><img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class title="拉格朗日插值公式">
-<h4 id="Newton-插值公式"><a href="#Newton-插值公式" class="headerlink" title="Newton 插值公式"></a>Newton 插值公式</h4><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22320408/answer/141973314">https://www.zhihu.com/question/22320408/answer/141973314</a> 马同学关于牛顿插值的解释<br>牛顿插值法的特点在于：每增加一个点，不会导致之前的重新计算，只需要算和新增点有关的就可以了（这里不同于拉格朗日插值法）。</p>
-<h4 id="两种插值的比较"><a href="#两种插值的比较" class="headerlink" title="两种插值的比较"></a>两种插值的比较</h4><p>也不是很懂，给出 ChatGPT 的解释</p>
-<ol>
-<li><p>数值稳定性： 牛顿插值通常在数值上更稳定，特别是在高次插值中。高次的拉格朗日插值多项式的系数可能会变得非常大，导致数值计算问题，这在计算机中可能会引发数值溢出或不稳定性。牛顿插值使用分裂差分形式，这种形式在数值计算上通常更可靠。</p>
-</li>
-<li><p>数据更新效率： 如果您需要在运行时动态添加新的数据点并更新插值多项式，牛顿插值更为高效。因为在牛顿插值中，您可以通过添加一个新的数据点来更新插值多项式，而不需要重新计算整个多项式。</p>
-</li>
-<li><p>分布不均匀的数据： 如果您的数据点分布不均匀，拉格朗日插值可能会导致插值多项式的阶数变得非常高，这会增加计算的复杂性和开销。牛顿插值在这种情况下通常更具优势。</p>
-</li>
+    <div class="post-body" itemprop="articleBody"><p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数
+f(x) 在若干点的函数值或者微商值，即只能给出 f(x)
+的一张数据表。如果根据这张数据表构造一个函数 <span class="math inline">\(\varphi(x)\)</span>
+，使之满足这张表中的数据，这样的函数 <span class="math inline">\(\varphi(x)\)</span> 就是函数 f(x)
+的逼近函数。这种逼近问题称为插值问题。</p>
+<h4 id="插值多项式的存在性和唯一性">插值多项式的存在性和唯一性</h4>
+<p>设 <span class="math inline">\(p_n(x) = a_0 + a_1x + a_2x^{2} + ... +
+a_nx^n\)</span>，由插值条件可以得到非齐次线性方程组： <img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class title="插值条件非齐次方程组">
+可以由 <span class="math inline">\(\text{Vandermonde}\)</span>
+行列式，各个点是互异的来得到系数矩阵的行列式 <span class="math inline">\(D \neq 0\)</span>。由 <span class="math inline">\(\text{Cramer}\)</span>
+法则知道，方程有唯一的解，所以多项式存在且唯一。</p>
+<p><strong>几何解释：</strong> 一个 n 次的多项式一定可以由 n + 1
+个点唯一确定。</p>
+<h4 id="lagrange-插值公式">Lagrange 插值公式</h4>
+<img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class title="拉格朗日插值公式">
+<h4 id="newton-插值公式">Newton 插值公式</h4>
+<p>https://www.zhihu.com/question/22320408/answer/141973314
+马同学关于牛顿插值的解释
+牛顿插值法的特点在于：每增加一个点，不会导致之前的重新计算，只需要算和新增点有关的就可以了（这里不同于拉格朗日插值法）。</p>
+<h4 id="两种插值的比较">两种插值的比较</h4>
+<p>也不是很懂，给出 ChatGPT 的解释</p>
+<ol type="1">
+<li><p>数值稳定性：
+牛顿插值通常在数值上更稳定，特别是在高次插值中。高次的拉格朗日插值多项式的系数可能会变得非常大，导致数值计算问题，这在计算机中可能会引发数值溢出或不稳定性。牛顿插值使用分裂差分形式，这种形式在数值计算上通常更可靠。</p></li>
+<li><p>数据更新效率：
+如果您需要在运行时动态添加新的数据点并更新插值多项式，牛顿插值更为高效。因为在牛顿插值中，您可以通过添加一个新的数据点来更新插值多项式，而不需要重新计算整个多项式。</p></li>
+<li><p>分布不均匀的数据：
+如果您的数据点分布不均匀，拉格朗日插值可能会导致插值多项式的阶数变得非常高，这会增加计算的复杂性和开销。牛顿插值在这种情况下通常更具优势。</p></li>
 </ol>
 <p>然而，需要注意的是，即使在大数据集的情况下，牛顿插值也不是绝对适用的。在一些特定情况下，如数据点的数量非常大或插值多项式的次数非常高，都可能导致数值计算问题。在这种情况下，考虑使用更高级的插值技术，例如分段插值（如样条插值）或基于快速傅里叶变换的方法，以提高数值稳定性和计算效率。选择合适的插值方法需要综合考虑数据的性质、计算需求和数值稳定性。</p>
-<h4 id="三次样条插值函数"><a href="#三次样条插值函数" class="headerlink" title="三次样条插值函数"></a>三次样条插值函数</h4><p>三次样条插值在科学和工程计算中起到重要作用，它只在插值区间的断点比 Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连续。<br>样条一词来源于工程制图。绘图员为了将一些指定点（称作样点）连接成一条光滑的曲线，往往把富有弹性的细长木条（称为样条）固定在样点上，然后画下木条表示的曲线所形成的样条曲线。</p>
-<p>有三种边界条件：</p>
-<ol>
-<li>自然边界(Natural Spline) 指端点处二阶导数为 0.</li>
-<li>固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 $S_0’(x_0) = A, S_{n - 1}^{x_n} = B$</li>
-<li>非扭结边界(Not-A-Knot Spline) 强制第一个插值点的三阶导数等于第二个点的三阶导数，最后一个点的三阶导数等于倒数第二个点的三阶导数。</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq">https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq</a> 关于三次样条的具体推导和最终求解矩阵方程。</p>
-<h4 id="最小二乘法拟合"><a href="#最小二乘法拟合" class="headerlink" title="最小二乘法拟合"></a>最小二乘法拟合</h4><p>$r_i = y_i - \varphi(x_i)$ 称为残量，$\boldsymbol{r} = (r_0, r_1, …, r_m)^{T}$ 称为<strong>残向量</strong>。所以用 $\varphi(x)$ 去拟合 $f(x)$ 的问题就变成了残量的大小问题。<br>我们用 $\sum\limits_{i = 0}^{m} r_i^{2} = \boldsymbol{r^{T}}\boldsymbol{r}$ 去度量残量的大小。<br>后面的具体推导可以参考：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/128083562">https://zhuanlan.zhihu.com/p/128083562</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/109986821">https://zhuanlan.zhihu.com/p/109986821</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38128785">https://zhuanlan.zhihu.com/p/38128785</a></li>
-</ol>
-<p>最终结果就是参数向量 $\widehat{w} = \boldsymbol{(X^{T}X)^{-1}X^{T}Y}$</p>
+<h4 id="三次样条插值函数">三次样条插值函数</h4>
+<p>三次样条插值在科学和工程计算中起到重要作用，它只在插值区间的断点比
+Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连续。
+样条一词来源于工程制图。绘图员为了将一些指定点（称作样点）连接成一条光滑的曲线，往往把富有弹性的细长木条（称为样条）固定在样点上，然后画下木条表示的曲线所形成的样条曲线。</p>
+<p>有三种边界条件： 1. 自然边界(Natural Spline) 指端点处二阶导数为 0. 2.
+固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 <span class="math inline">\(S_0&#39;(x_0) = A, S_{n - 1}^{x_n} = B\)</span> 3.
+非扭结边界(Not-A-Knot Spline)
+强制第一个插值点的三阶导数等于第二个点的三阶导数，最后一个点的三阶导数等于倒数第二个点的三阶导数。</p>
+<p>https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq
+关于三次样条的具体推导和最终求解矩阵方程。</p>
+<h4 id="最小二乘法拟合">最小二乘法拟合</h4>
+<p><span class="math inline">\(r_i = y_i - \varphi(x_i)\)</span>
+称为残量，<span class="math inline">\(\boldsymbol{r} = (r_0, r_1, ...,
+r_m)^{T}\)</span> 称为<strong>残向量</strong>。所以用 <span class="math inline">\(\varphi(x)\)</span> 去拟合 <span class="math inline">\(f(x)\)</span> 的问题就变成了残量的大小问题。
+我们用 <span class="math inline">\(\sum\limits_{i = 0}^{m} r_i^{2} =
+\boldsymbol{r^{T}}\boldsymbol{r}\)</span> 去度量残量的大小。
+后面的具体推导可以参考： 1. https://zhuanlan.zhihu.com/p/128083562 2.
+https://zhuanlan.zhihu.com/p/109986821 3.
+https://zhuanlan.zhihu.com/p/38128785</p>
+<p>最终结果就是参数向量 <span class="math inline">\(\widehat{w} =
+\boldsymbol{(X^{T}X)^{-1}X^{T}Y}\)</span></p>
 <p>内积表示？？？</p>
-<h4 id="最佳平方逼近"><a href="#最佳平方逼近" class="headerlink" title="最佳平方逼近"></a>最佳平方逼近</h4>
+<h4 id="最佳平方逼近">最佳平方逼近</h4>
+
     </div>
 
     

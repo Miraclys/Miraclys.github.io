@@ -139,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%93%E5%8C%85-capture-packet"><span class="nav-number">1.</span> <span class="nav-text">抓包 capture packet</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">抓包工具的原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#url-%E7%BC%96%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">url 编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Referer"><span class="nav-number">3.</span> <span class="nav-text">Referer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Network-%E6%A0%8F"><span class="nav-number">4.</span> <span class="nav-text">Network 栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#request-%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">request 具体操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">链接</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%93%E5%8C%85-capture-packet"><span class="nav-number">1.</span> <span class="nav-text">抓包 capture packet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#url-%E7%BC%96%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">url 编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#referer"><span class="nav-number">3.</span> <span class="nav-text">Referer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#network-%E6%A0%8F"><span class="nav-number">4.</span> <span class="nav-text">Network 栏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#request-%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">request 具体操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">链接</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -235,25 +235,64 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>本质上就是模拟一个请求。<br>我们点击选课页面的时候，是将带有特定功能的数据包发送给对方，也就是服务器，然后得到服务器的反馈。</p>
-<blockquote>
-<p>之前 Github 上下载的学长写的选课脚本因为学校系统后台的更新没办法使用了，于是想为何不自己学习一下，自己写一个。</p>
-</blockquote>
-<h4 id="抓包-capture-packet"><a href="#抓包-capture-packet" class="headerlink" title="抓包 capture packet"></a>抓包 capture packet</h4><p>因为Web 表单中会有很多隐藏的字段，这些隐藏字段一般都有一些特殊的用途，比如收集用户的数据，预防 CRSF 攻击，防网络爬虫，以及一些其他用途。这些隐藏字段在界面上都看不到，如果想检测这些字段，就必须要使用抓包工具。<br>使用 F12 开发者工具找了一圈也没找到 Github 上下载的 SDU 抢课脚本的路径，搜索了一下感觉就是运用了抓包。</p>
-<h5 id="抓包工具的原理"><a href="#抓包工具的原理" class="headerlink" title="抓包工具的原理"></a>抓包工具的原理</h5><p>那 Fiddler 举例，Fiddler 相当于一个「代理」，浏览器访问服务器页面时，就会先把 HTTP 请求先发送给 Fiddler，Fiddler 再把请求转发给服务器，当服务器返回数据时，Fiddler 拿到返回数据，再把数据交给浏览器。<br>因此 Fiddler 对于浏览器和服务器之间的交互细节是非常清楚的，进而可以帮助我们完成相应的抓包工作(其实后来感觉浏览器自带的开发者工具中的「网络」就够用了)。<br><img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png" class></p>
-<h4 id="url-编码"><a href="#url-编码" class="headerlink" title="url 编码"></a>url 编码</h4><p>这段文字中，<code>https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/xsxkGgxxkxk</code> 是 URL 基本部分，用于定位服务器上的特定资源或者页面。<br><code>?</code> 表示查询字符串的开始。然后在 <code>?</code> 后面，通常会带有一个或者多个参数，每个参数都有一个名称和一个对应的值，它们之间用等号<code>=</code>连接，并且多个参数之间使用和号<code>&amp;</code>分隔。<br>其中，参数的值是根据 <code>url</code> 编码的，因此需要 <code>url decoding</code> 来将他们还原为原始文本。<br>可以直接使用 python<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from urllib.parse import unquote</span><br><span class="line"></span><br><span class="line">encoded_value = &quot;%E6%96%87%E5%AD%A6&quot;</span><br><span class="line">decoded_value = unquote(encoded_value, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">print(decoded_value)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>在计算机编程领域，特别是在处理字符串时，”quote” 通常表示在文本中添加引号或对特殊字符进行编码，而 “unquote” 则表示将文本中的引号或编码解除，还原为原始的形式。</p>
-</blockquote>
-<h4 id="Referer"><a href="#Referer" class="headerlink" title="Referer"></a>Referer</h4><p>Referer（也写作”referrer”，拼写时不包括第二个 “e”）是一个HTTP头部字段，通常在Web请求中使用。这个字段用于指示请求的来源或引用页面的URL。当您从一个网页点击链接跳转到另一个页面时，浏览器通常会在请求中包含Referer字段，以告知目标页面是从哪个页面链接过来的。<br>Referer字段对于网站分析、统计和跟踪用户流量非常有用，因为它可以帮助网站所有者了解访问者是如何到达其网站的。例如，如果您运营一个电子商务网站，您可以使用Referer字段来确定哪些外部网站或广告渠道为您带来了最多的流量和销售。<br>需要注意的是，虽然Referer字段通常包含有用的信息，但它并不是100%可信的，因为用户可以通过浏览器设置或浏览器插件来修改或禁用Referer字段。因此，在进行任何安全性或敏感性操作时，不应仅依赖于Referer字段来验证请求的来源。</p>
-<h4 id="Network-栏"><a href="#Network-栏" class="headerlink" title="Network 栏"></a>Network 栏</h4><p>这一栏通常会用来监视和分析与当前网页加载和网络请求相关的信息。下面是它的一些常见用途：</p>
-<ol>
-<li>查看网络请求。<code>Network</code> 栏显示了当前页面加载期间发出的所有网络请求，包括HTML、CSS、JavaScript、图像、API请求等。</li>
-<li>查看请求头和响应头。我们可以通过 <code>Network</code> 来查看 <code>RequestHeaders</code> 和 <code>ResponseHeaders</code>，这对于检查服务器返回的信息、设置请求头来模拟不同的客户端环境或者调试跨域问题很有帮助。</li>
-<li>筛选和搜索请求。<code>Network</code> 栏通常提供了筛选和搜索功能，使你可以根据请求类型（XHR、Fetch、Document等）或关键字来查找特定的请求，从而更轻松地定位问题或查找特定资源。</li>
-</ol>
-<h4 id="request-具体操作"><a href="#request-具体操作" class="headerlink" title="request 具体操作"></a>request 具体操作</h4><p>打开 F12，选择 <code>Network</code> 一栏。<br>然后在找到上搜索自己想选择的课程，点击右侧的「选课」按键(即使课程已经被选满了也无所谓，我们需要的是课程数据包的来源信息)，此时观察 <code>Network</code> 栏目，最下方应该会出现一个 <code>ggxxkxk</code> 开头的文件，点击后会出现它的具体信息。<br>如图：<br><img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png" class><br>其中 <code>Request Url</code> 就是我们获得数据包的地址，<code>kcid</code> 和 <code>jx0404id</code> 后面的数字感觉没有什么实际意义，不过可以在 HTML 代码中「选课」按键的属性值中找到，也可以查看 HTML 代码对应一下而不需要点击「选课」按键。<br><code>Cookie</code> 代表的是我们的身份信息，是服务器辨识我们身份的信息，和 <code>User-Agent</code> 还有 <code>referer</code> 一起设置在请求头中。<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def selectCourse():</span><br><span class="line">    cur_num = 0</span><br><span class="line">    url = &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/ggxxkxkOper?kcid=xxxxxx&#x27; \</span><br><span class="line">          &#x27;&amp;cfbs=null&amp;jx0404id=xxxxxxx&amp;xkzy=&amp;trjf=&#x27;</span><br><span class="line">    cookie = &#x27;你的 Cookie&#x27;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &#x27;</span><br><span class="line">                      &#x27;(KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36&#x27;,</span><br><span class="line">        &#x27;cookie&#x27;: cookie,</span><br><span class="line">        &#x27;referer&#x27;: &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/getGgxxk&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    while True:</span><br><span class="line">        response = requests.get(url=url, headers=headers)</span><br><span class="line">        data = json.loads(response.content.decode(response.apparent_encoding))</span><br><span class="line">        cur_num = cur_num + 1</span><br><span class="line">        print(f&quot;&#123;cur_num&#125; &#123;data[&#x27;message&#x27;]&#125;&quot;)</span><br><span class="line">        if data[&#x27;message&#x27;] != &#x27;选课失败：此课堂选课人数已满！&#x27;:</span><br><span class="line">            break</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    selectCourse()</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xubin97/p/10331558.html">https://www.cnblogs.com/xubin97/p/10331558.html</a> 抢课脚本链接<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/shenqueying/article/details/79426884">https://blog.csdn.net/shenqueying/article/details/79426884</a> referer 的作用<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/107095245">https://blog.csdn.net/weixin_43314519/article/details/107095245</a> 讲的挺好，还用到了多线程</p>
+    <div class="post-body" itemprop="articleBody"><p>本质上就是模拟一个请求。
+我们点击选课页面的时候，是将带有特定功能的数据包发送给对方，也就是服务器，然后得到服务器的反馈。
+&gt; 之前 Github
+上下载的学长写的选课脚本因为学校系统后台的更新没办法使用了，于是想为何不自己学习一下，自己写一个。</p>
+<h4 id="抓包-capture-packet">抓包 capture packet</h4>
+<p>因为Web
+表单中会有很多隐藏的字段，这些隐藏字段一般都有一些特殊的用途，比如收集用户的数据，预防
+CRSF
+攻击，防网络爬虫，以及一些其他用途。这些隐藏字段在界面上都看不到，如果想检测这些字段，就必须要使用抓包工具。
+使用 F12 开发者工具找了一圈也没找到 Github 上下载的 SDU
+抢课脚本的路径，搜索了一下感觉就是运用了抓包。 ##### 抓包工具的原理 那
+Fiddler 举例，Fiddler
+相当于一个「代理」，浏览器访问服务器页面时，就会先把 HTTP 请求先发送给
+Fiddler，Fiddler 再把请求转发给服务器，当服务器返回数据时，Fiddler
+拿到返回数据，再把数据交给浏览器。 因此 Fiddler
+对于浏览器和服务器之间的交互细节是非常清楚的，进而可以帮助我们完成相应的抓包工作(其实后来感觉浏览器自带的开发者工具中的「网络」就够用了)。
+<img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png" class></p>
+<h4 id="url-编码">url 编码</h4>
+<p>这段文字中，<code>https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/xsxkGgxxkxk</code>
+是 URL 基本部分，用于定位服务器上的特定资源或者页面。 <code>?</code>
+表示查询字符串的开始。然后在 <code>?</code>
+后面，通常会带有一个或者多个参数，每个参数都有一个名称和一个对应的值，它们之间用等号<code>=</code>连接，并且多个参数之间使用和号<code>&amp;</code>分隔。
+其中，参数的值是根据 <code>url</code> 编码的，因此需要
+<code>url decoding</code> 来将他们还原为原始文本。 可以直接使用 python
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from urllib.parse import unquote</span><br><span class="line"></span><br><span class="line">encoded_value = &quot;%E6%96%87%E5%AD%A6&quot;</span><br><span class="line">decoded_value = unquote(encoded_value, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">print(decoded_value)</span><br></pre></td></tr></table></figure> &gt; 在计算机编程领域，特别是在处理字符串时，"quote"
+通常表示在文本中添加引号或对特殊字符进行编码，而 "unquote"
+则表示将文本中的引号或编码解除，还原为原始的形式。</p>
+<h4 id="referer">Referer</h4>
+<p>Referer（也写作"referrer"，拼写时不包括第二个
+"e"）是一个HTTP头部字段，通常在Web请求中使用。这个字段用于指示请求的来源或引用页面的URL。当您从一个网页点击链接跳转到另一个页面时，浏览器通常会在请求中包含Referer字段，以告知目标页面是从哪个页面链接过来的。
+Referer字段对于网站分析、统计和跟踪用户流量非常有用，因为它可以帮助网站所有者了解访问者是如何到达其网站的。例如，如果您运营一个电子商务网站，您可以使用Referer字段来确定哪些外部网站或广告渠道为您带来了最多的流量和销售。
+需要注意的是，虽然Referer字段通常包含有用的信息，但它并不是100%可信的，因为用户可以通过浏览器设置或浏览器插件来修改或禁用Referer字段。因此，在进行任何安全性或敏感性操作时，不应仅依赖于Referer字段来验证请求的来源。</p>
+<h4 id="network-栏">Network 栏</h4>
+<p>这一栏通常会用来监视和分析与当前网页加载和网络请求相关的信息。下面是它的一些常见用途：
+1. 查看网络请求。<code>Network</code>
+栏显示了当前页面加载期间发出的所有网络请求，包括HTML、CSS、JavaScript、图像、API请求等。
+2. 查看请求头和响应头。我们可以通过 <code>Network</code> 来查看
+<code>RequestHeaders</code> 和
+<code>ResponseHeaders</code>，这对于检查服务器返回的信息、设置请求头来模拟不同的客户端环境或者调试跨域问题很有帮助。
+3. 筛选和搜索请求。<code>Network</code>
+栏通常提供了筛选和搜索功能，使你可以根据请求类型（XHR、Fetch、Document等）或关键字来查找特定的请求，从而更轻松地定位问题或查找特定资源。</p>
+<h4 id="request-具体操作">request 具体操作</h4>
+<p>打开 F12，选择 <code>Network</code> 一栏。
+然后在找到上搜索自己想选择的课程，点击右侧的「选课」按键(即使课程已经被选满了也无所谓，我们需要的是课程数据包的来源信息)，此时观察
+<code>Network</code> 栏目，最下方应该会出现一个 <code>ggxxkxk</code>
+开头的文件，点击后会出现它的具体信息。 如图： <img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png" class> 其中
+<code>Request Url</code> 就是我们获得数据包的地址，<code>kcid</code> 和
+<code>jx0404id</code> 后面的数字感觉没有什么实际意义，不过可以在 HTML
+代码中「选课」按键的属性值中找到，也可以查看 HTML
+代码对应一下而不需要点击「选课」按键。 <code>Cookie</code>
+代表的是我们的身份信息，是服务器辨识我们身份的信息，和
+<code>User-Agent</code> 还有 <code>referer</code> 一起设置在请求头中。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import json</span><br><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def selectCourse():</span><br><span class="line">    cur_num = 0</span><br><span class="line">    url = &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/ggxxkxkOper?kcid=xxxxxx&#x27; \</span><br><span class="line">          &#x27;&amp;cfbs=null&amp;jx0404id=xxxxxxx&amp;xkzy=&amp;trjf=&#x27;</span><br><span class="line">    cookie = &#x27;你的 Cookie&#x27;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &#x27;</span><br><span class="line">                      &#x27;(KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36&#x27;,</span><br><span class="line">        &#x27;cookie&#x27;: cookie,</span><br><span class="line">        &#x27;referer&#x27;: &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/getGgxxk&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    while True:</span><br><span class="line">        response = requests.get(url=url, headers=headers)</span><br><span class="line">        data = json.loads(response.content.decode(response.apparent_encoding))</span><br><span class="line">        cur_num = cur_num + 1</span><br><span class="line">        print(f&quot;&#123;cur_num&#125; &#123;data[&#x27;message&#x27;]&#125;&quot;)</span><br><span class="line">        if data[&#x27;message&#x27;] != &#x27;选课失败：此课堂选课人数已满！&#x27;:</span><br><span class="line">            break</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    selectCourse()</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h4 id="链接">链接</h4>
+<p>https://www.cnblogs.com/xubin97/p/10331558.html 抢课脚本链接
+https://blog.csdn.net/shenqueying/article/details/79426884 referer
+的作用 https://blog.csdn.net/weixin_43314519/article/details/107095245
+讲的挺好，还用到了多线程</p>
 
     </div>
 
