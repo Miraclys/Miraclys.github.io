@@ -6,7 +6,7 @@ description: the code of SkipList
 ---
 
 #### 代码：
-```
+```C++
 #include <vector>
 #include <iostream>
 
