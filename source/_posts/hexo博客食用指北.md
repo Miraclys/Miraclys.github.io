@@ -24,3 +24,8 @@ https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E
 
 1. https://blog.csdn.net/weixin_48927364/article/details/123321038
 2. https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/
+
+#### 侧边 menu 的配置
+
+https://qianfanguojin.top/tags/Hexo/
+

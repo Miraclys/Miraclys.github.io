@@ -277,6 +277,155 @@ ul li</p>
       </tags>
   </entry>
   <entry>
+    <title>JavaScript进阶</title>
+    <url>/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/</url>
+    <content><![CDATA[<h4 id="基础回顾">基础回顾</h4>
+<p>数据类型： 1. 基本类型 String Number boolean undefined null 2.
+对象(引用)类型 Object Function Array</p>
+<p>判断： 1. <code>typeof</code> 返回的数据类型的字符串表达 2.
+<code>instanceof</code> 3. <code>===</code> 和 <code>==</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123; // 这是一个 **类型对象**，因为函数也是一个对象。</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">var p = new Person(); // 这是一个实例对象。</span><br></pre></td></tr></table></figure>
+<p><code>null</code> 和 <code>undefined</code> <code>null</code>
+定义了并且赋值了，只是值为 <code>null</code>，而 <code>undefined</code>
+是定义了但是没有赋值。初始赋值为 <code>null</code>
+表示将要是一个对象。程序的最后赋值为 <code>null</code>
+可以释放内存。</p>
+<p>栈：全局变量 / 局部变量 堆：对象
+(对象本身在栈里面，而表示对象的变量在栈空间，比如函数和函数名的关系)</p>
+<p>JS 在调用函数传递变量的时候是 <strong>值传递</strong>（理解可能不同）
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">function add(a) &#123;</span><br><span class="line">    a = a + 1;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a); // 程序输出为 3</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">    var b = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数执行完以后 <code>b</code>
+这个局部变量会自动释放，而后面对应的对象因为没有再被指向，被认为是垃圾对象，是在后面的某个时刻由垃圾回收器回收，释放空间。
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">var b = &#123;&#125;;</span><br><span class="line">b = null;</span><br></pre></td></tr></table></figure> <code>b=null;</code> 以后，<code>b</code>
+所指向的对象没有被任何其他变量指向，所以会被标记为垃圾对象，由
+<code>JS</code> 引擎在一定时间后回收，而 <code>b</code>
+这个全局变量仍然存在。
+在<code>JavaScript</code>中，全局变量通常在整个应用程序的生命周期内存在，不会自动释放内存。<code>JavaScript</code>
+引擎会负责管理全局变量的内存，而不需要手动释放。当全局变量不再被引用时，<code>JavaScript</code>引擎会自动将其标记为可回收，并在适当的时候进行垃圾回收以释放内存。
+<code>JavaScript</code>
+的垃圾回收机制主要处理对象的内存释放，而不负责释放变量的内存。变量的生命周期通常由其作用域决定。在全局作用域中声明的变量通常会在整个应用程序的生命周期内存在，除非您显式删除它们或应用程序终止。在局部作用域中声明的变量在离开作用域时会被销毁，相应的内存也会被释放。</p>
+<p>什么时候必须使用 <code>['属性名']</code> 的方式？ 1.
+属性名包含特殊字符：如<code>-</code> 和 <code></code>。 2.
+使用表达式来动态访问属性 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    name: &quot;John&quot;,</span><br><span class="line">    age: 30</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var propertyName = &quot;name&quot;;</span><br><span class="line">console.log(person[propertyName]); // 使用方括号来访问属性</span><br></pre></td></tr></table></figure></p>
+<p><code>test.call/apply(obj);</code> 这个意思是把 <code>test</code>
+函数临时作为 <code>obj</code> 内部的函数来调用。<code>obj</code>
+内部可以没有 <code>test</code> 函数。</p>
+<p><code>JavaScript</code>
+中的回调函数是一种常见的编程概念，它允许您将一个函数作为参数传递给另一个函数，并在需要时执行该函数。这通常用于处理异步操作，例如处理文件读取、网络请求、定时器等等，因为在这些情况下，不能立即得到结果，而需要在操作完成后执行特定的代码。</p>
+<p>IIFE(Immediately-Invoked Function Expression)</p>
+<p><code>this</code> 是什么？ -
+任何函数本质上都是通过某个对象来调用，如果我们没有直接指定，就是
+<code>window</code> 来调用。 - 所有函数内部都以一个变量
+<code>this</code>。 - 这个 <code>this</code>
+的值是当前调用函数的对象。</p>
+<p>在<code>JavaScript</code>中声明的全局函数通常是<code>window</code>对象的一部分，而不是<code>document</code>对象的一部分，这是因为<code>JavaScript</code>最初是为浏览器环境设计的，并且全局作用域在浏览器中通常与<code>window</code>对象关联。</p>
+<p>在浏览器环境中，<code>window</code>对象代表整个浏览器窗口，它包含了全局<code>JavaScript</code>作用域的所有内容，包括全局变量和函数。当您声明一个全局函数时，它实际上是<code>window</code>对象的一个属性。这意味着您可以在全局范围内访问这个函数，无需任何其他前缀。</p>
+<h4 id="js-原型和原型链">JS 原型和原型链</h4>
+<p>JS 的复杂类型都是对象类型(<code>Object</code>)，而 JS
+不是一门完全面向对象的编程语言，所以如何涉及继承机制，这是一个问题。</p>
+<h5 id="构造函数">构造函数</h5>
+<p>因为 JS 中没有类(<code>Class</code>)这个概念，所以 JS 的设计者使用了
+<strong>构造函数</strong> 来实现继承机制。 &gt; ES6 中的
+<code>Class</code> 可以看成一个语法糖，它的绝大部分功能，ES5
+都可以做到，新的 <code>Class</code>
+写法只是让原型的写法更加清晰、更像面向对象编程的语言而已。</p>
+<p>在构造函数中，通过 <code>this</code> 赋值的属性或者方法，是每个实例的
+<strong>实例属性</strong> 和
+<strong>实例方法</strong>，<strong>无法共享公共属性</strong>。所以就又设计出了一个<strong>原型对象</strong>，来存储这个<strong>构造函数的公共属性以及方法</strong>。</p>
+<h5 id="函数的-prototype原型">函数的 <code>prototype</code>(原型)</h5>
+<ul>
+<li>每一个函数都有一个 <code>prototype</code> 属性，它默认指向一个
+<code>Object</code> 空实例对象(即称为：原型对象，但是
+<code>Object</code> 不满足)。 &gt; 为什么要有这个空对象？ &gt;
+它可以方便我们对于一个函数添加个性化的属性和方法，如果没有这个空对象而是直接链接到
+Obejct，那么不同函数之间的个性化操作都会添加到 Obejct
+下，会产生很多不必要的冲突和麻烦。</li>
+<li>原型对象中有一个属性 <code>constructor</code>，它指向函数对象。</li>
+<li>给原型对象添加属性(一般是方法) -&gt;
+实例对象可以访问使用。（感觉和类与对象的关系很像）
+构造函数和它的原型对象相互引用。 每一个函数 <code>function</code>
+都有一个 <code>prototype</code>，即显式原型(属性) 每一个对象都有一个
+<code>__proto__</code> 可以称为隐式原型(属性)
+对象隐式原型的值就是函数显式原型的值。</li>
+</ul>
+<h5 id="原型链">原型链</h5>
+<ul>
+<li>访问一个对象的属性时，现在自身属性中查找，找到返回。</li>
+<li>如果没有，再沿着 <code>__proto__</code>
+这条链向上查找，找到返回。</li>
+<li>如果最终没有找到，返回 <code>undefined</code>。</li>
+<li>一直是沿着隐式原型找的，所以我们的原型链本质上是一个
+<strong>隐式原型链</strong> <img src="/.com//08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B.png" class> <img src="/.com//08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B%E9%93%BE.png" class>
+所有函数的隐式原型都是相同的，<code>fun = new Function()</code> 都是
+<code>Function</code> 的实例对象。</li>
+<li>在读取对象的属性时，会自动到原型链中查找。</li>
+<li>设置对象的属性时，不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值。</li>
+<li>方法一般定义在原型中，属性一般通过构造函数定义在对象本身上。</li>
+</ul>
+<p>To do: 利用js快速完成大学生新生安全教育课程
+https://blog.csdn.net/m0_38072683/article/details/118878085</p>
+]]></content>
+      <tags>
+        <tag>JavaScript, WEB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/11/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>log</title>
+    <url>/2023/09/18/log/</url>
+    <content><![CDATA[<h4 id="年9月18日">2023年9月18日</h4>
+<ol type="1">
+<li>多种计算逆元的方式：扩展欧几里得、费马小定理、递推、阶乘</li>
+<li>扩展欧几里得推导：先假设一组解
+<code>x^&#123;'&#125; y^&#123;'&#125;</code>，然后找到和原来的解 <code>x y</code>
+之间的对应关系 或者 非递归实现</li>
+<li>组合数的各种公式和基础二项式反演了解：
+https://oi-wiki.org/math/combinatorics/combination/
+https://zhuanlan.zhihu.com/p/602675596</li>
+</ol>
+<h4 id="年9月21日">2023年9月21日</h4>
+<ol type="1">
+<li>矩阵加速递推 Fibonacci 数列的项公式推导。
+不动点法？求解微分方程？</li>
+<li>康托展开与康托逆展开 直接看 OI-Wiki 就行 全排列 next_permutation
+函数</li>
+<li>Hanoi 问题的数学方法求解(无需开辟新空间，直接输出移动方式) 对于
+最小块的移动 是隔一个移动一次，而且是有规律的 lowbit
+函数可以知道移动哪一个块
+根据最小块的移动规律和lowbit函数就可以直接计算出哪一块移动到哪一个地方了</li>
+</ol>
+<h4 id="年9月27日">2023年9月27日</h4>
+<ol type="1">
+<li>二叉树中序遍历和前序或者中序和后序可以确定二叉树的结构</li>
+<li>二叉树的层序遍历、中序遍历、前序遍历、后序遍历的非递归实现</li>
+<li>二叉树的括号形式解析和输出二叉树的括号形式，当然是非递归形式。</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>JavaScript基础</title>
     <url>/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>变量的声明就是 <code>var name = xxx;</code>。其中 <code>var</code> 是
@@ -475,121 +624,47 @@ JSON，这个对象可以帮助我们将一个 JSON 转换为 JS 对象，也可
       </tags>
   </entry>
   <entry>
-    <title>JavaScript进阶</title>
-    <url>/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/</url>
-    <content><![CDATA[<h4 id="基础回顾">基础回顾</h4>
-<p>数据类型： 1. 基本类型 String Number boolean undefined null 2.
-对象(引用)类型 Object Function Array</p>
-<p>判断： 1. <code>typeof</code> 返回的数据类型的字符串表达 2.
-<code>instanceof</code> 3. <code>===</code> 和 <code>==</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123; // 这是一个 **类型对象**，因为函数也是一个对象。</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">var p = new Person(); // 这是一个实例对象。</span><br></pre></td></tr></table></figure>
-<p><code>null</code> 和 <code>undefined</code> <code>null</code>
-定义了并且赋值了，只是值为 <code>null</code>，而 <code>undefined</code>
-是定义了但是没有赋值。初始赋值为 <code>null</code>
-表示将要是一个对象。程序的最后赋值为 <code>null</code>
-可以释放内存。</p>
-<p>栈：全局变量 / 局部变量 堆：对象
-(对象本身在栈里面，而表示对象的变量在栈空间，比如函数和函数名的关系)</p>
-<p>JS 在调用函数传递变量的时候是 <strong>值传递</strong>（理解可能不同）
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">function add(a) &#123;</span><br><span class="line">    a = a + 1;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a); // 程序输出为 3</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">    var b = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数执行完以后 <code>b</code>
-这个局部变量会自动释放，而后面对应的对象因为没有再被指向，被认为是垃圾对象，是在后面的某个时刻由垃圾回收器回收，释放空间。
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">var b = &#123;&#125;;</span><br><span class="line">b = null;</span><br></pre></td></tr></table></figure> <code>b=null;</code> 以后，<code>b</code>
-所指向的对象没有被任何其他变量指向，所以会被标记为垃圾对象，由
-<code>JS</code> 引擎在一定时间后回收，而 <code>b</code>
-这个全局变量仍然存在。
-在<code>JavaScript</code>中，全局变量通常在整个应用程序的生命周期内存在，不会自动释放内存。<code>JavaScript</code>
-引擎会负责管理全局变量的内存，而不需要手动释放。当全局变量不再被引用时，<code>JavaScript</code>引擎会自动将其标记为可回收，并在适当的时候进行垃圾回收以释放内存。
-<code>JavaScript</code>
-的垃圾回收机制主要处理对象的内存释放，而不负责释放变量的内存。变量的生命周期通常由其作用域决定。在全局作用域中声明的变量通常会在整个应用程序的生命周期内存在，除非您显式删除它们或应用程序终止。在局部作用域中声明的变量在离开作用域时会被销毁，相应的内存也会被释放。</p>
-<p>什么时候必须使用 <code>['属性名']</code> 的方式？ 1.
-属性名包含特殊字符：如<code>-</code> 和 <code></code>。 2.
-使用表达式来动态访问属性 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    name: &quot;John&quot;,</span><br><span class="line">    age: 30</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var propertyName = &quot;name&quot;;</span><br><span class="line">console.log(person[propertyName]); // 使用方括号来访问属性</span><br></pre></td></tr></table></figure></p>
-<p><code>test.call/apply(obj);</code> 这个意思是把 <code>test</code>
-函数临时作为 <code>obj</code> 内部的函数来调用。<code>obj</code>
-内部可以没有 <code>test</code> 函数。</p>
-<p><code>JavaScript</code>
-中的回调函数是一种常见的编程概念，它允许您将一个函数作为参数传递给另一个函数，并在需要时执行该函数。这通常用于处理异步操作，例如处理文件读取、网络请求、定时器等等，因为在这些情况下，不能立即得到结果，而需要在操作完成后执行特定的代码。</p>
-<p>IIFE(Immediately-Invoked Function Expression)</p>
-<p><code>this</code> 是什么？ -
-任何函数本质上都是通过某个对象来调用，如果我们没有直接指定，就是
-<code>window</code> 来调用。 - 所有函数内部都以一个变量
-<code>this</code>。 - 这个 <code>this</code>
-的值是当前调用函数的对象。</p>
-<p>在<code>JavaScript</code>中声明的全局函数通常是<code>window</code>对象的一部分，而不是<code>document</code>对象的一部分，这是因为<code>JavaScript</code>最初是为浏览器环境设计的，并且全局作用域在浏览器中通常与<code>window</code>对象关联。</p>
-<p>在浏览器环境中，<code>window</code>对象代表整个浏览器窗口，它包含了全局<code>JavaScript</code>作用域的所有内容，包括全局变量和函数。当您声明一个全局函数时，它实际上是<code>window</code>对象的一个属性。这意味着您可以在全局范围内访问这个函数，无需任何其他前缀。</p>
-<h4 id="js-原型和原型链">JS 原型和原型链</h4>
-<p>JS 的复杂类型都是对象类型(<code>Object</code>)，而 JS
-不是一门完全面向对象的编程语言，所以如何涉及继承机制，这是一个问题。</p>
-<h5 id="构造函数">构造函数</h5>
-<p>因为 JS 中没有类(<code>Class</code>)这个概念，所以 JS 的设计者使用了
-<strong>构造函数</strong> 来实现继承机制。 &gt; ES6 中的
-<code>Class</code> 可以看成一个语法糖，它的绝大部分功能，ES5
-都可以做到，新的 <code>Class</code>
-写法只是让原型的写法更加清晰、更像面向对象编程的语言而已。</p>
-<p>在构造函数中，通过 <code>this</code> 赋值的属性或者方法，是每个实例的
-<strong>实例属性</strong> 和
-<strong>实例方法</strong>，<strong>无法共享公共属性</strong>。所以就又设计出了一个<strong>原型对象</strong>，来存储这个<strong>构造函数的公共属性以及方法</strong>。</p>
-<h5 id="函数的-prototype原型">函数的 <code>prototype</code>(原型)</h5>
-<ul>
-<li>每一个函数都有一个 <code>prototype</code> 属性，它默认指向一个
-<code>Object</code> 空实例对象(即称为：原型对象，但是
-<code>Object</code> 不满足)。 &gt; 为什么要有这个空对象？ &gt;
-它可以方便我们对于一个函数添加个性化的属性和方法，如果没有这个空对象而是直接链接到
-Obejct，那么不同函数之间的个性化操作都会添加到 Obejct
-下，会产生很多不必要的冲突和麻烦。</li>
-<li>原型对象中有一个属性 <code>constructor</code>，它指向函数对象。</li>
-<li>给原型对象添加属性(一般是方法) -&gt;
-实例对象可以访问使用。（感觉和类与对象的关系很像）
-构造函数和它的原型对象相互引用。 每一个函数 <code>function</code>
-都有一个 <code>prototype</code>，即显式原型(属性) 每一个对象都有一个
-<code>__proto__</code> 可以称为隐式原型(属性)
-对象隐式原型的值就是函数显式原型的值。</li>
-</ul>
-<h5 id="原型链">原型链</h5>
-<ul>
-<li>访问一个对象的属性时，现在自身属性中查找，找到返回。</li>
-<li>如果没有，再沿着 <code>__proto__</code>
-这条链向上查找，找到返回。</li>
-<li>如果最终没有找到，返回 <code>undefined</code>。</li>
-<li>一直是沿着隐式原型找的，所以我们的原型链本质上是一个
-<strong>隐式原型链</strong> <img src="/.com//08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B.png" class> <img src="/.com//08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B%E9%93%BE.png" class>
-所有函数的隐式原型都是相同的，<code>fun = new Function()</code> 都是
-<code>Function</code> 的实例对象。</li>
-<li>在读取对象的属性时，会自动到原型链中查找。</li>
-<li>设置对象的属性时，不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值。</li>
-<li>方法一般定义在原型中，属性一般通过构造函数定义在对象本身上。</li>
-</ul>
-<p>To do: 利用js快速完成大学生新生安全教育课程
-https://blog.csdn.net/m0_38072683/article/details/118878085</p>
+    <title>python 数学建模与实验</title>
+    <url>/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/</url>
+    <content><![CDATA[<p>虽然列表 list
+可以完成数组操作，但不是真正意义上的数组，当数据量很大时，其速度很慢，故提供了
+NumPy 扩展库完成数组操作。很多高级扩展库也依赖于它，比如 Scipy, Pandas
+和 Matplotlib 等。</p>
+<p>数组创建的几种方式： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA.png" class></p>
+<p>NumPy 中的数组 array 和 list
+的区别是：列表中可以是数据类型不同的元素，而 array
+数组只允许存储相同数据类型。</p>
+<p>二维数组中的索引 list 为 a[i][j] 而 array 为 a[i, j]</p>
+<p>一般索引： 感觉有的地方还是和 matlab 很相似的。 <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E4%B8%80%E8%88%AC%E7%B4%A2%E5%BC%95.png" class></p>
+<p>文本文件读取： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%96%87%E6%9C%AC%E8%AF%BB%E5%8F%96.png" class> 二进制文件读取： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.png" class>
+另外，如果我们使用 NumPy 专用的二进制存取函数
+<code>load() save() savez()</code>
+会自动处理元素的类型和形状等信息。</p>
+<p>open
+打开文件的时候，如果打开的文件不在当前的目录，需要指定完整路径。注意，此时文件路径中的
+<code>\</code> 要改为 <code>\\</code>，例如
+<code>e:\mypython\test.txt</code> 应该改为
+<code>e:\\mypython\\test.txt</code>. <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F.png" class></p>
+<p>join 函数： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/join%E5%87%BD%E6%95%B0.png" class></p>
+<h4 id="数据处理工具-pandas">数据处理工具 Pandas</h4>
+<p>Pandas(Panel data, 面板数据) 是在 NumPy 的基础上开发的，是 Python
+最强大的数据分析和探索工具之一。</p>
+<h4 id="matplotlib">Matplotlib</h4>
+<p>Matplotib 是 Python 强大的数据可视化工具，类似于 MATLAB 语言。</p>
+<p>pie 绘制饼状图 bar 绘制柱状图 hist 绘制二维直方图 scatter
+绘制散点图</p>
+<img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E9%A2%9C%E8%89%B2.png" class>
+<h4 id="scipy">scipy</h4>
+<p>scipy 包含各种专用于科学计算常见问题的工具箱。其中 scipy.stats
+则是统计和随机数的专门的库。 NumPy
+能生成一定概率分布的随机数，但是如果需要更具体的概率密度、分布函数等，就用到
+scipy.stats 模块了。Python 做简单的统计分析也可以用 scipy.stats
+模块。</p>
+<h3 id="section"></h3>
 ]]></content>
       <tags>
-        <tag>JavaScript, WEB</tag>
+        <tag>python</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/08/23/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>hexo blog instructions list</title>
@@ -653,6 +728,32 @@ you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p
 ]]></content>
   </entry>
   <entry>
+    <title>hexo博客食用指北</title>
+    <url>/2023/11/12/hexo%E5%8D%9A%E5%AE%A2%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8C%97/</url>
+    <content><![CDATA[<h4 id="字体的设置">字体的设置</h4>
+<p>参见</p>
+<p>https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</p>
+<h4 id="数学公式的配置">数学公式的配置</h4>
+<p>使用 mathjax 渲染，卸载掉之前的插件。</p>
+<p>具体参见：</p>
+<ol type="1">
+<li>https://blog.csdn.net/weixin_45073562/article/details/120289648</li>
+<li>https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E9%85%8D%E7%BD%AEMathJax/</li>
+</ol>
+<h4 id="评论系统的配置">评论系统的配置</h4>
+<ol type="1">
+<li>https://blog.csdn.net/weixin_48927364/article/details/123321038</li>
+<li>https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2023/08/23/test/</url>
+    <content><![CDATA[<p>{ %asset_img machine_learning.jpg this is a example image. %}</p>
+]]></content>
+  </entry>
+  <entry>
     <title>matlab记录</title>
     <url>/2023/08/26/matlab%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<img src="/.com//08/26/matlab%E8%AE%B0%E5%BD%95/matlab%E7%82%B9%E4%B9%98%E7%82%B9%E9%99%A4.png" class>
@@ -696,101 +797,6 @@ Binarization）就是将图像上的像素点的灰度值设置为0或255，也�
 ]]></content>
       <tags>
         <tag>matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>log</title>
-    <url>/2023/09/18/log/</url>
-    <content><![CDATA[<h4 id="年9月18日">2023年9月18日</h4>
-<ol type="1">
-<li>多种计算逆元的方式：扩展欧几里得、费马小定理、递推、阶乘</li>
-<li>扩展欧几里得推导：先假设一组解
-<code>x^&#123;'&#125; y^&#123;'&#125;</code>，然后找到和原来的解 <code>x y</code>
-之间的对应关系 或者 非递归实现</li>
-<li>组合数的各种公式和基础二项式反演了解：
-https://oi-wiki.org/math/combinatorics/combination/
-https://zhuanlan.zhihu.com/p/602675596</li>
-</ol>
-<h4 id="年9月21日">2023年9月21日</h4>
-<ol type="1">
-<li>矩阵加速递推 Fibonacci 数列的项公式推导。
-不动点法？求解微分方程？</li>
-<li>康托展开与康托逆展开 直接看 OI-Wiki 就行 全排列 next_permutation
-函数</li>
-<li>Hanoi 问题的数学方法求解(无需开辟新空间，直接输出移动方式) 对于
-最小块的移动 是隔一个移动一次，而且是有规律的 lowbit
-函数可以知道移动哪一个块
-根据最小块的移动规律和lowbit函数就可以直接计算出哪一块移动到哪一个地方了</li>
-</ol>
-<h4 id="年9月27日">2023年9月27日</h4>
-<ol type="1">
-<li>二叉树中序遍历和前序或者中序和后序可以确定二叉树的结构</li>
-<li>二叉树的层序遍历、中序遍历、前序遍历、后序遍历的非递归实现</li>
-<li>二叉树的括号形式解析和输出二叉树的括号形式，当然是非递归形式。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>hexo博客食用指北</title>
-    <url>/2023/11/12/hexo%E5%8D%9A%E5%AE%A2%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8C%97/</url>
-    <content><![CDATA[<h4 id="字体的设置">字体的设置</h4>
-<p>参见
-https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</p>
-<h4 id="数学公式的配置">数学公式的配置</h4>
-<p>使用 mathjax 渲染，卸载掉之前的插件。</p>
-<p>具体参见：</p>
-<ol type="1">
-<li>https://blog.csdn.net/weixin_45073562/article/details/120289648</li>
-<li>https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E9%85%8D%E7%BD%AEMathJax/</li>
-</ol>
-<h4 id="评论系统的配置">评论系统的配置</h4>
-<ol type="1">
-<li>https://blog.csdn.net/weixin_48927364/article/details/123321038</li>
-<li>https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>python 数学建模与实验</title>
-    <url>/2023/08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/</url>
-    <content><![CDATA[<p>虽然列表 list
-可以完成数组操作，但不是真正意义上的数组，当数据量很大时，其速度很慢，故提供了
-NumPy 扩展库完成数组操作。很多高级扩展库也依赖于它，比如 Scipy, Pandas
-和 Matplotlib 等。</p>
-<p>数组创建的几种方式： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA.png" class></p>
-<p>NumPy 中的数组 array 和 list
-的区别是：列表中可以是数据类型不同的元素，而 array
-数组只允许存储相同数据类型。</p>
-<p>二维数组中的索引 list 为 a[i][j] 而 array 为 a[i, j]</p>
-<p>一般索引： 感觉有的地方还是和 matlab 很相似的。 <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E4%B8%80%E8%88%AC%E7%B4%A2%E5%BC%95.png" class></p>
-<p>文本文件读取： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%96%87%E6%9C%AC%E8%AF%BB%E5%8F%96.png" class> 二进制文件读取： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96.png" class>
-另外，如果我们使用 NumPy 专用的二进制存取函数
-<code>load() save() savez()</code>
-会自动处理元素的类型和形状等信息。</p>
-<p>open
-打开文件的时候，如果打开的文件不在当前的目录，需要指定完整路径。注意，此时文件路径中的
-<code>\</code> 要改为 <code>\\</code>，例如
-<code>e:\mypython\test.txt</code> 应该改为
-<code>e:\\mypython\\test.txt</code>. <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E6%96%B9%E5%BC%8F.png" class></p>
-<p>join 函数： <img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/join%E5%87%BD%E6%95%B0.png" class></p>
-<h4 id="数据处理工具-pandas">数据处理工具 Pandas</h4>
-<p>Pandas(Panel data, 面板数据) 是在 NumPy 的基础上开发的，是 Python
-最强大的数据分析和探索工具之一。</p>
-<h4 id="matplotlib">Matplotlib</h4>
-<p>Matplotib 是 Python 强大的数据可视化工具，类似于 MATLAB 语言。</p>
-<p>pie 绘制饼状图 bar 绘制柱状图 hist 绘制二维直方图 scatter
-绘制散点图</p>
-<img src="/.com//08/28/python-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E4%B8%8E%E5%AE%9E%E9%AA%8C/%E5%B8%B8%E8%A7%81%E6%A0%B7%E5%BC%8F%E9%A2%9C%E8%89%B2.png" class>
-<h4 id="scipy">scipy</h4>
-<p>scipy 包含各种专用于科学计算常见问题的工具箱。其中 scipy.stats
-则是统计和随机数的专门的库。 NumPy
-能生成一定概率分布的随机数，但是如果需要更具体的概率密度、分布函数等，就用到
-scipy.stats 模块了。Python 做简单的统计分析也可以用 scipy.stats
-模块。</p>
-<h3 id="section"></h3>
-]]></content>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -976,20 +982,6 @@ scheduler(调度器)，所以对于下载失败的 url，Scrapy 会重新进行�
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/2023/08/23/test/</url>
-    <content><![CDATA[<p>{ %asset_img machine_learning.jpg this is a example image. %}</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>二叉树遍历</title>
-    <url>/2023/09/26/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</url>
-    <content><![CDATA[<p>具体的更多可以参见代码 <code>GetTreeOrderNor.cpp</code> 和
-<code>ParseTreeSequence.cpp</code></p>
-<p>这是一段输入先序遍历和中序遍历输出后序遍历的代码。 <figure class="highlight plaintext"><figcaption><span><iostream></iostream></span></figcaption><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line"></span><br><span class="line">class TreeNode &#123;</span><br><span class="line">    public:</span><br><span class="line">        char value;</span><br><span class="line">        TreeNode* leftChild;</span><br><span class="line">        TreeNode* rightChild;</span><br><span class="line">        TreeNode(char val) : value(val), leftChild(nullptr), rightChild(nullptr) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">TreeNode* buildTree(std::vector&lt;char&gt; preOrder, std::vector&lt;char&gt; inOrder) &#123;</span><br><span class="line">    std::stack&lt;TreeNode*&gt; s;</span><br><span class="line">    std::map&lt;char, int&gt; vis;</span><br><span class="line">    for (int i = 0; i &lt; inOrder.size(); ++i) &#123;</span><br><span class="line">        vis[inOrder[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    TreeNode* root = new TreeNode(preOrder[0]);</span><br><span class="line">    s.push(root);</span><br><span class="line">    for (int i = 1; i &lt; preOrder.size(); ++i) &#123;</span><br><span class="line">        TreeNode* curNode = new TreeNode(preOrder[i]);</span><br><span class="line">        TreeNode* parent = nullptr;</span><br><span class="line">        while (!s.empty() &amp;&amp; vis[s.top()-&gt;value] &lt; vis[preOrder[i]]) &#123;</span><br><span class="line">            parent = s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        if (parent) &#123;</span><br><span class="line">            parent-&gt;rightChild = curNode;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            s.top()-&gt;leftChild = curNode;</span><br><span class="line">        &#125;</span><br><span class="line">        s.push(curNode);</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void getPostOrder(TreeNode* root) &#123;</span><br><span class="line">    std::stack&lt;TreeNode*&gt; s;</span><br><span class="line">    std::map&lt;TreeNode*, bool&gt; tag;</span><br><span class="line">    TreeNode* cur = root;</span><br><span class="line">    while (!s.empty() || cur) &#123;</span><br><span class="line">        if (cur) &#123;</span><br><span class="line">            s.push(cur);</span><br><span class="line">            cur = cur-&gt;leftChild;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (tag[s.top()] == 1) &#123;</span><br><span class="line">                std::cout &lt;&lt; s.top()-&gt;value;</span><br><span class="line">                s.pop();</span><br><span class="line">                cur = nullptr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                tag[s.top()] = 1;</span><br><span class="line">                cur = s.top()-&gt;rightChild;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    std::string pre, in;</span><br><span class="line">    while (std::cin &gt;&gt; pre &gt;&gt; in) &#123;</span><br><span class="line">        std::vector&lt;char&gt; preOrder(pre.begin(), pre.end());</span><br><span class="line">        std::vector&lt;char&gt; inOrder(in.begin(), in.end());</span><br><span class="line">        TreeNode* root = buildTree(preOrder, inOrder);</span><br><span class="line">        getPostOrder(root);</span><br><span class="line">        std::cout &lt;&lt; &quot;\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-  </entry>
-  <entry>
     <title>二项堆</title>
     <url>/2023/10/09/%E4%BA%8C%E9%A1%B9%E5%A0%86/</url>
     <content><![CDATA[<p>二项堆是二项树的集合。</p>
@@ -1013,6 +1005,15 @@ scheduler(调度器)，所以对于下载失败的 url，Scrapy 会重新进行�
 ]]></content>
   </entry>
   <entry>
+    <title>公共关系实务</title>
+    <url>/2023/09/18/%E5%85%AC%E5%85%B1%E5%85%B3%E7%B3%BB%E5%AE%9E%E5%8A%A1/</url>
+    <content><![CDATA[<h4 id="第二章-公共关系产生与发展">第二章 公共关系产生与发展</h4>
+<p>古代时期--公共关系思想的萌芽</p>
+<h4 id="扩展">扩展</h4>
+<p>公共关系确实有一段黑暗的历史，我们不否认，正视历史。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>二项式反演</title>
     <url>/2023/09/18/%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%8F%8D%E6%BC%94/</url>
     <content><![CDATA[<h4 id="参考见">参考见</h4>
@@ -1031,15 +1032,6 @@ https://zhuanlan.zhihu.com/p/602675596 笔记</p>
       <tags>
         <tag>Math Algorithm</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>公共关系实务</title>
-    <url>/2023/09/18/%E5%85%AC%E5%85%B1%E5%85%B3%E7%B3%BB%E5%AE%9E%E5%8A%A1/</url>
-    <content><![CDATA[<h4 id="第二章-公共关系产生与发展">第二章 公共关系产生与发展</h4>
-<p>古代时期--公共关系思想的萌芽</p>
-<h4 id="扩展">扩展</h4>
-<p>公共关系确实有一段黑暗的历史，我们不否认，正视历史。</p>
-]]></content>
   </entry>
   <entry>
     <title>决策分析方法</title>
@@ -1126,30 +1118,12 @@ for regression coefficient significance） 用于检验
       </tags>
   </entry>
   <entry>
-    <title>左偏树</title>
-    <url>/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/</url>
-    <content><![CDATA[<h4 id="参考资料">参考资料</h4>
-<p>https://www.cnblogs.com/skywang12345/p/3638327.html</p>
-<p>https://www.luogu.com.cn/problem/solution/P3377</p>
-<p>https://zh.wikipedia.org/wiki/%E5%B7%A6%E5%81%8F%E6%A0%91</p>
-<p>https://oi-wiki.org/ds/leftist-tree/</p>
-<p>https://www.jvruo.com/archives/343/</p>
-<h5 id="to-do">TO DO</h5>
-<p>左偏树实现删除任意节点？而不只是根节点。（其实就是从删除的节点一直向上递归，直到
-cur.npl == cur.rightChild.npl + 1）</p>
-<p>其实我们可以从左偏树的 merge
-操作中看出来，左偏树的子树也是一个左偏树</p>
-<p>好像如果想实现左偏树减小任意一个节点的值，可以先删除那个节点，再添加减小后的值。</p>
-<figure>
-<img src="/.com//Users\梁云森\AppData\Roaming\Typora\typora-user-images\image-20231018233914144.png" alt="image-20231018233914144">
-<figcaption aria-hidden="true">image-20231018233914144</figcaption>
-</figure>
-<h4 id="code">Code</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> LEFTISTHEAP_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LEFTISTHEAP_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LeftistHeapNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        T value;</span><br><span class="line">        <span class="type">int</span> npl;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* leftChild;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* rightChild;</span><br><span class="line">        <span class="built_in">LeftistHeapNode</span>()</span><br><span class="line">            : <span class="built_in">npl</span>(<span class="number">-1</span>)</span><br><span class="line">            , <span class="built_in">leftChild</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">rightChild</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">LeftistHeapNode</span>(T val)</span><br><span class="line">            : <span class="built_in">npl</span>(<span class="number">0</span>)</span><br><span class="line">            , <span class="built_in">value</span>(val)</span><br><span class="line">            , <span class="built_in">leftChild</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">rightChild</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;      </span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LeftistHeap</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* root;</span><br><span class="line">        <span class="built_in">LeftistHeap</span>()</span><br><span class="line">            : <span class="built_in">root</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">LeftistHeap</span>(T val) &#123;</span><br><span class="line">            root = <span class="keyword">new</span> <span class="built_in">LeftistHeapNode</span>&lt;T&gt;(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(LeftistHeap&lt;T&gt;)</span></span>;</span><br><span class="line">        <span class="comment">// void remove(LeftistHeapNode&lt;T&gt;*);</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">preOrder</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">inOrder</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="function">LeftistHeapNode&lt;T&gt;* <span class="title">merge</span><span class="params">(LeftistHeapNode&lt;T&gt;*, LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(LeftistHeap&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">preOrder</span><span class="params">(LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">inOrder</span><span class="params">(LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">postOrder</span>() &#123;</span><br><span class="line">    <span class="built_in">postOrder</span>(root);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">postOrder</span>(LeftistHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!cur) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">postOrder</span>(cur-&gt;leftChild);</span><br><span class="line">    <span class="built_in">postOrder</span>(cur-&gt;rightChild);</span><br><span class="line">    std::cout &lt;&lt; cur-&gt;value &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">inOrder</span>() &#123;</span><br><span class="line">    <span class="built_in">inOrder</span>(root);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">inOrder</span>(LeftistHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!cur) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">inOrder</span>(cur-&gt;leftChild);</span><br><span class="line">    std::cout &lt;&lt; cur-&gt;value &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">inOrder</span>(cur-&gt;rightChild);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">preOrder</span>() &#123;</span><br><span class="line">    <span class="built_in">preOrder</span>(root);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">preOrder</span>(LeftistHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!cur) <span class="keyword">return</span> ;</span><br><span class="line">    std::cout &lt;&lt; cur-&gt;value &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">preOrder</span>(cur-&gt;leftChild);</span><br><span class="line">    <span class="built_in">preOrder</span>(cur-&gt;rightChild);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">insert</span>(T value) &#123;</span><br><span class="line">    <span class="built_in">insert</span>(<span class="keyword">new</span> <span class="built_in">LeftistHeap</span>&lt;T&gt;(value));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">insert</span>(LeftistHeap&lt;T&gt;* heap) &#123;</span><br><span class="line">    root = <span class="built_in">merge</span>(root, heap-&gt;root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">merge</span>(LeftistHeap&lt;T&gt; heap) &#123;</span><br><span class="line">    root = <span class="built_in">merge</span>(root, heap.root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">LeftistHeapNode&lt;T&gt;* LeftistHeap&lt;T&gt;::<span class="built_in">merge</span>(LeftistHeapNode&lt;T&gt;* x, LeftistHeapNode&lt;T&gt;* y) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x-&gt;value &gt; y-&gt;value) &#123;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* temp = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    x-&gt;rightChild = <span class="built_in">merge</span>(x-&gt;rightChild, y);</span><br><span class="line">    <span class="keyword">if</span> (x-&gt;leftChild == <span class="literal">nullptr</span> || x-&gt;leftChild-&gt;npl &lt; x-&gt;rightChild-&gt;npl) &#123;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* temp = x-&gt;leftChild;</span><br><span class="line">        x-&gt;leftChild = x-&gt;rightChild;</span><br><span class="line">        x-&gt;rightChild = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x-&gt;rightChild == <span class="literal">nullptr</span> || x-&gt;leftChild == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        x-&gt;npl = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x-&gt;npl = (x-&gt;leftChild-&gt;npl &gt; x-&gt;rightChild-&gt;npl) ? (x-&gt;rightChild-&gt;npl + <span class="number">1</span>) : (x-&gt;leftChild-&gt;npl + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void LeftistHeap&lt;T&gt;::remove(LeftistHeapNode&lt;T&gt;* removeNode) &#123;</span></span><br><span class="line"><span class="comment">//     if (!root) &#123;</span></span><br><span class="line"><span class="comment">//         throw std::runtime_error(&quot;the heap is empty!&quot;);</span></span><br><span class="line"><span class="comment">//         return ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">pop</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (!root) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;the heap is empty!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    LeftistHeapNode&lt;T&gt;* l = root-&gt;leftChild;</span><br><span class="line">    LeftistHeapNode&lt;T&gt;* r = root-&gt;rightChild;</span><br><span class="line">    root = <span class="built_in">merge</span>(l, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+    <title>二叉树遍历</title>
+    <url>/2023/09/26/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/</url>
+    <content><![CDATA[<p>具体的更多可以参见代码 <code>GetTreeOrderNor.cpp</code> 和
+<code>ParseTreeSequence.cpp</code></p>
+<p>这是一段输入先序遍历和中序遍历输出后序遍历的代码。 <figure class="highlight plaintext"><figcaption><span><iostream></iostream></span></figcaption><table><tr><td class="code"><pre><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line"></span><br><span class="line">class TreeNode &#123;</span><br><span class="line">    public:</span><br><span class="line">        char value;</span><br><span class="line">        TreeNode* leftChild;</span><br><span class="line">        TreeNode* rightChild;</span><br><span class="line">        TreeNode(char val) : value(val), leftChild(nullptr), rightChild(nullptr) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">TreeNode* buildTree(std::vector&lt;char&gt; preOrder, std::vector&lt;char&gt; inOrder) &#123;</span><br><span class="line">    std::stack&lt;TreeNode*&gt; s;</span><br><span class="line">    std::map&lt;char, int&gt; vis;</span><br><span class="line">    for (int i = 0; i &lt; inOrder.size(); ++i) &#123;</span><br><span class="line">        vis[inOrder[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    TreeNode* root = new TreeNode(preOrder[0]);</span><br><span class="line">    s.push(root);</span><br><span class="line">    for (int i = 1; i &lt; preOrder.size(); ++i) &#123;</span><br><span class="line">        TreeNode* curNode = new TreeNode(preOrder[i]);</span><br><span class="line">        TreeNode* parent = nullptr;</span><br><span class="line">        while (!s.empty() &amp;&amp; vis[s.top()-&gt;value] &lt; vis[preOrder[i]]) &#123;</span><br><span class="line">            parent = s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        if (parent) &#123;</span><br><span class="line">            parent-&gt;rightChild = curNode;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            s.top()-&gt;leftChild = curNode;</span><br><span class="line">        &#125;</span><br><span class="line">        s.push(curNode);</span><br><span class="line">    &#125;</span><br><span class="line">    return root;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void getPostOrder(TreeNode* root) &#123;</span><br><span class="line">    std::stack&lt;TreeNode*&gt; s;</span><br><span class="line">    std::map&lt;TreeNode*, bool&gt; tag;</span><br><span class="line">    TreeNode* cur = root;</span><br><span class="line">    while (!s.empty() || cur) &#123;</span><br><span class="line">        if (cur) &#123;</span><br><span class="line">            s.push(cur);</span><br><span class="line">            cur = cur-&gt;leftChild;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if (tag[s.top()] == 1) &#123;</span><br><span class="line">                std::cout &lt;&lt; s.top()-&gt;value;</span><br><span class="line">                s.pop();</span><br><span class="line">                cur = nullptr;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                tag[s.top()] = 1;</span><br><span class="line">                cur = s.top()-&gt;rightChild;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    std::string pre, in;</span><br><span class="line">    while (std::cin &gt;&gt; pre &gt;&gt; in) &#123;</span><br><span class="line">        std::vector&lt;char&gt; preOrder(pre.begin(), pre.end());</span><br><span class="line">        std::vector&lt;char&gt; inOrder(in.begin(), in.end());</span><br><span class="line">        TreeNode* root = buildTree(preOrder, inOrder);</span><br><span class="line">        getPostOrder(root);</span><br><span class="line">        std::cout &lt;&lt; &quot;\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
-      <tags>
-        <tag>Data Structure</tag>
-      </tags>
   </entry>
   <entry>
     <title>差分方程模型</title>
@@ -1195,6 +1169,108 @@ g(y_k)\)</span>，称为供应函数，假设为单调上升函数。</p>
 ]]></content>
       <tags>
         <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>左偏树</title>
+    <url>/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/</url>
+    <content><![CDATA[<h4 id="参考资料">参考资料</h4>
+<p>https://www.cnblogs.com/skywang12345/p/3638327.html</p>
+<p>https://www.luogu.com.cn/problem/solution/P3377</p>
+<p>https://zh.wikipedia.org/wiki/%E5%B7%A6%E5%81%8F%E6%A0%91</p>
+<p>https://oi-wiki.org/ds/leftist-tree/</p>
+<p>https://www.jvruo.com/archives/343/</p>
+<h5 id="to-do">TO DO</h5>
+<p>左偏树实现删除任意节点？而不只是根节点。（其实就是从删除的节点一直向上递归，直到
+cur.npl == cur.rightChild.npl + 1）</p>
+<p>其实我们可以从左偏树的 merge
+操作中看出来，左偏树的子树也是一个左偏树</p>
+<p>好像如果想实现左偏树减小任意一个节点的值，可以先删除那个节点，再添加减小后的值。</p>
+<figure>
+<img src="/.com//Users\梁云森\AppData\Roaming\Typora\typora-user-images\image-20231018233914144.png" alt="image-20231018233914144">
+<figcaption aria-hidden="true">image-20231018233914144</figcaption>
+</figure>
+<h4 id="code">Code</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> LEFTISTHEAP_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LEFTISTHEAP_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LeftistHeapNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        T value;</span><br><span class="line">        <span class="type">int</span> npl;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* leftChild;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* rightChild;</span><br><span class="line">        <span class="built_in">LeftistHeapNode</span>()</span><br><span class="line">            : <span class="built_in">npl</span>(<span class="number">-1</span>)</span><br><span class="line">            , <span class="built_in">leftChild</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">rightChild</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">LeftistHeapNode</span>(T val)</span><br><span class="line">            : <span class="built_in">npl</span>(<span class="number">0</span>)</span><br><span class="line">            , <span class="built_in">value</span>(val)</span><br><span class="line">            , <span class="built_in">leftChild</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">rightChild</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;      </span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LeftistHeap</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* root;</span><br><span class="line">        <span class="built_in">LeftistHeap</span>()</span><br><span class="line">            : <span class="built_in">root</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">LeftistHeap</span>(T val) &#123;</span><br><span class="line">            root = <span class="keyword">new</span> <span class="built_in">LeftistHeapNode</span>&lt;T&gt;(val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(LeftistHeap&lt;T&gt;)</span></span>;</span><br><span class="line">        <span class="comment">// void remove(LeftistHeapNode&lt;T&gt;*);</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">preOrder</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">inOrder</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="function">LeftistHeapNode&lt;T&gt;* <span class="title">merge</span><span class="params">(LeftistHeapNode&lt;T&gt;*, LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(LeftistHeap&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">preOrder</span><span class="params">(LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">inOrder</span><span class="params">(LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">postOrder</span><span class="params">(LeftistHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">postOrder</span>() &#123;</span><br><span class="line">    <span class="built_in">postOrder</span>(root);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">postOrder</span>(LeftistHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!cur) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">postOrder</span>(cur-&gt;leftChild);</span><br><span class="line">    <span class="built_in">postOrder</span>(cur-&gt;rightChild);</span><br><span class="line">    std::cout &lt;&lt; cur-&gt;value &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">inOrder</span>() &#123;</span><br><span class="line">    <span class="built_in">inOrder</span>(root);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">inOrder</span>(LeftistHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!cur) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="built_in">inOrder</span>(cur-&gt;leftChild);</span><br><span class="line">    std::cout &lt;&lt; cur-&gt;value &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">inOrder</span>(cur-&gt;rightChild);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">preOrder</span>() &#123;</span><br><span class="line">    <span class="built_in">preOrder</span>(root);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">preOrder</span>(LeftistHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!cur) <span class="keyword">return</span> ;</span><br><span class="line">    std::cout &lt;&lt; cur-&gt;value &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">preOrder</span>(cur-&gt;leftChild);</span><br><span class="line">    <span class="built_in">preOrder</span>(cur-&gt;rightChild);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">insert</span>(T value) &#123;</span><br><span class="line">    <span class="built_in">insert</span>(<span class="keyword">new</span> <span class="built_in">LeftistHeap</span>&lt;T&gt;(value));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">insert</span>(LeftistHeap&lt;T&gt;* heap) &#123;</span><br><span class="line">    root = <span class="built_in">merge</span>(root, heap-&gt;root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">merge</span>(LeftistHeap&lt;T&gt; heap) &#123;</span><br><span class="line">    root = <span class="built_in">merge</span>(root, heap.root);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">LeftistHeapNode&lt;T&gt;* LeftistHeap&lt;T&gt;::<span class="built_in">merge</span>(LeftistHeapNode&lt;T&gt;* x, LeftistHeapNode&lt;T&gt;* y) &#123;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (y == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x-&gt;value &gt; y-&gt;value) &#123;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* temp = x;</span><br><span class="line">        x = y;</span><br><span class="line">        y = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    x-&gt;rightChild = <span class="built_in">merge</span>(x-&gt;rightChild, y);</span><br><span class="line">    <span class="keyword">if</span> (x-&gt;leftChild == <span class="literal">nullptr</span> || x-&gt;leftChild-&gt;npl &lt; x-&gt;rightChild-&gt;npl) &#123;</span><br><span class="line">        LeftistHeapNode&lt;T&gt;* temp = x-&gt;leftChild;</span><br><span class="line">        x-&gt;leftChild = x-&gt;rightChild;</span><br><span class="line">        x-&gt;rightChild = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x-&gt;rightChild == <span class="literal">nullptr</span> || x-&gt;leftChild == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        x-&gt;npl = <span class="number">0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x-&gt;npl = (x-&gt;leftChild-&gt;npl &gt; x-&gt;rightChild-&gt;npl) ? (x-&gt;rightChild-&gt;npl + <span class="number">1</span>) : (x-&gt;leftChild-&gt;npl + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void LeftistHeap&lt;T&gt;::remove(LeftistHeapNode&lt;T&gt;* removeNode) &#123;</span></span><br><span class="line"><span class="comment">//     if (!root) &#123;</span></span><br><span class="line"><span class="comment">//         throw std::runtime_error(&quot;the heap is empty!&quot;);</span></span><br><span class="line"><span class="comment">//         return ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> LeftistHeap&lt;T&gt;::<span class="built_in">pop</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (!root) &#123;</span><br><span class="line">        <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;the heap is empty!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    LeftistHeapNode&lt;T&gt;* l = root-&gt;leftChild;</span><br><span class="line">    LeftistHeapNode&lt;T&gt;* r = root-&gt;rightChild;</span><br><span class="line">    root = <span class="built_in">merge</span>(l, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Data Structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速排序的几种实现</title>
+    <url>/2023/09/17/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h4 id="双指针前移法">双指针前移法</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N = 1e5 + 5;</span><br><span class="line">int n;</span><br><span class="line"></span><br><span class="line">int partition(vector&lt;int&gt;&amp; v, int left, int right) &#123;</span><br><span class="line">	int pre = left;</span><br><span class="line">	int cur = pre + 1;</span><br><span class="line">	int key = v[left];</span><br><span class="line">	while (cur &lt;= right) &#123;</span><br><span class="line">		if (v[cur] &lt; key &amp;&amp; ++pre != cur) swap(v[cur], v[pre]);</span><br><span class="line">		++cur;</span><br><span class="line">	&#125;</span><br><span class="line">	swap(v[left], v[pre]); // 将基准元素放回正确的位置</span><br><span class="line">	return pre;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(vector&lt;int&gt;&amp; v, int left, int right) &#123;</span><br><span class="line">	stack&lt;int&gt; s;</span><br><span class="line">	s.push(left);</span><br><span class="line">	s.push(right);</span><br><span class="line">	while (!s.empty()) &#123;</span><br><span class="line">		int r = s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">		int l = s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">		if (l &gt;= r) continue;</span><br><span class="line">		int boundary = partition(v, l, r);</span><br><span class="line">		s.push(l);</span><br><span class="line">		s.push(boundary - 1);</span><br><span class="line">		s.push(boundary + 1);</span><br><span class="line">		s.push(r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	vector&lt;int&gt; v;	</span><br><span class="line">	int x;</span><br><span class="line">	for (int i = 1; i &lt;= n; ++i) &#123;</span><br><span class="line">		cin &gt;&gt; x;</span><br><span class="line">		v.push_back(x);</span><br><span class="line">	&#125;	</span><br><span class="line">	quickSort(v, 0, n - 1);</span><br><span class="line">	for (auto element : v) &#123;</span><br><span class="line">		cout &lt;&lt; element &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Data Structure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>抢课脚本</title>
+    <url>/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<p>本质上就是模拟一个请求。
+我们点击选课页面的时候，是将带有特定功能的数据包发送给对方，也就是服务器，然后得到服务器的反馈。
+&gt; 之前 Github
+上下载的学长写的选课脚本因为学校系统后台的更新没办法使用了，于是想为何不自己学习一下，自己写一个。</p>
+<h4 id="抓包-capture-packet">抓包 capture packet</h4>
+<p>因为Web
+表单中会有很多隐藏的字段，这些隐藏字段一般都有一些特殊的用途，比如收集用户的数据，预防
+CRSF
+攻击，防网络爬虫，以及一些其他用途。这些隐藏字段在界面上都看不到，如果想检测这些字段，就必须要使用抓包工具。
+使用 F12 开发者工具找了一圈也没找到 Github 上下载的 SDU
+抢课脚本的路径，搜索了一下感觉就是运用了抓包。 ##### 抓包工具的原理 那
+Fiddler 举例，Fiddler
+相当于一个「代理」，浏览器访问服务器页面时，就会先把 HTTP 请求先发送给
+Fiddler，Fiddler 再把请求转发给服务器，当服务器返回数据时，Fiddler
+拿到返回数据，再把数据交给浏览器。 因此 Fiddler
+对于浏览器和服务器之间的交互细节是非常清楚的，进而可以帮助我们完成相应的抓包工作(其实后来感觉浏览器自带的开发者工具中的「网络」就够用了)。
+<img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png" class></p>
+<h4 id="url-编码">url 编码</h4>
+<p>这段文字中，<code>https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/xsxkGgxxkxk</code>
+是 URL 基本部分，用于定位服务器上的特定资源或者页面。 <code>?</code>
+表示查询字符串的开始。然后在 <code>?</code>
+后面，通常会带有一个或者多个参数，每个参数都有一个名称和一个对应的值，它们之间用等号<code>=</code>连接，并且多个参数之间使用和号<code>&amp;</code>分隔。
+其中，参数的值是根据 <code>url</code> 编码的，因此需要
+<code>url decoding</code> 来将他们还原为原始文本。 可以直接使用 python
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from urllib.parse import unquote</span><br><span class="line"></span><br><span class="line">encoded_value = &quot;%E6%96%87%E5%AD%A6&quot;</span><br><span class="line">decoded_value = unquote(encoded_value, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">print(decoded_value)</span><br></pre></td></tr></table></figure> &gt; 在计算机编程领域，特别是在处理字符串时，"quote"
+通常表示在文本中添加引号或对特殊字符进行编码，而 "unquote"
+则表示将文本中的引号或编码解除，还原为原始的形式。</p>
+<h4 id="referer">Referer</h4>
+<p>Referer（也写作"referrer"，拼写时不包括第二个
+"e"）是一个HTTP头部字段，通常在Web请求中使用。这个字段用于指示请求的来源或引用页面的URL。当您从一个网页点击链接跳转到另一个页面时，浏览器通常会在请求中包含Referer字段，以告知目标页面是从哪个页面链接过来的。
+Referer字段对于网站分析、统计和跟踪用户流量非常有用，因为它可以帮助网站所有者了解访问者是如何到达其网站的。例如，如果您运营一个电子商务网站，您可以使用Referer字段来确定哪些外部网站或广告渠道为您带来了最多的流量和销售。
+需要注意的是，虽然Referer字段通常包含有用的信息，但它并不是100%可信的，因为用户可以通过浏览器设置或浏览器插件来修改或禁用Referer字段。因此，在进行任何安全性或敏感性操作时，不应仅依赖于Referer字段来验证请求的来源。</p>
+<h4 id="network-栏">Network 栏</h4>
+<p>这一栏通常会用来监视和分析与当前网页加载和网络请求相关的信息。下面是它的一些常见用途：
+1. 查看网络请求。<code>Network</code>
+栏显示了当前页面加载期间发出的所有网络请求，包括HTML、CSS、JavaScript、图像、API请求等。
+2. 查看请求头和响应头。我们可以通过 <code>Network</code> 来查看
+<code>RequestHeaders</code> 和
+<code>ResponseHeaders</code>，这对于检查服务器返回的信息、设置请求头来模拟不同的客户端环境或者调试跨域问题很有帮助。
+3. 筛选和搜索请求。<code>Network</code>
+栏通常提供了筛选和搜索功能，使你可以根据请求类型（XHR、Fetch、Document等）或关键字来查找特定的请求，从而更轻松地定位问题或查找特定资源。</p>
+<h4 id="request-具体操作">request 具体操作</h4>
+<p>打开 F12，选择 <code>Network</code> 一栏。
+然后在找到上搜索自己想选择的课程，点击右侧的「选课」按键(即使课程已经被选满了也无所谓，我们需要的是课程数据包的来源信息)，此时观察
+<code>Network</code> 栏目，最下方应该会出现一个 <code>ggxxkxk</code>
+开头的文件，点击后会出现它的具体信息。 如图： <img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png" class> 其中
+<code>Request Url</code> 就是我们获得数据包的地址，<code>kcid</code> 和
+<code>jx0404id</code> 后面的数字感觉没有什么实际意义，不过可以在 HTML
+代码中「选课」按键的属性值中找到，也可以查看 HTML
+代码对应一下而不需要点击「选课」按键。 <code>Cookie</code>
+代表的是我们的身份信息，是服务器辨识我们身份的信息，和
+<code>User-Agent</code> 还有 <code>referer</code> 一起设置在请求头中。
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import json</span><br><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def selectCourse():</span><br><span class="line">    cur_num = 0</span><br><span class="line">    url = &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/ggxxkxkOper?kcid=xxxxxx&#x27; \</span><br><span class="line">          &#x27;&amp;cfbs=null&amp;jx0404id=xxxxxxx&amp;xkzy=&amp;trjf=&#x27;</span><br><span class="line">    cookie = &#x27;你的 Cookie&#x27;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &#x27;</span><br><span class="line">                      &#x27;(KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36&#x27;,</span><br><span class="line">        &#x27;cookie&#x27;: cookie,</span><br><span class="line">        &#x27;referer&#x27;: &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/getGgxxk&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    while True:</span><br><span class="line">        response = requests.get(url=url, headers=headers)</span><br><span class="line">        data = json.loads(response.content.decode(response.apparent_encoding))</span><br><span class="line">        cur_num = cur_num + 1</span><br><span class="line">        print(f&quot;&#123;cur_num&#125; &#123;data[&#x27;message&#x27;]&#125;&quot;)</span><br><span class="line">        if data[&#x27;message&#x27;] != &#x27;选课失败：此课堂选课人数已满！&#x27;:</span><br><span class="line">            break</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    selectCourse()</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h4 id="链接">链接</h4>
+<p>https://www.cnblogs.com/xubin97/p/10331558.html 抢课脚本链接
+https://blog.csdn.net/shenqueying/article/details/79426884 referer
+的作用 https://blog.csdn.net/weixin_43314519/article/details/107095245
+讲的挺好，还用到了多线程</p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -1277,80 +1353,104 @@ f(t)\)</span>，f(t) 表示红军的增援情况。</li>
       </tags>
   </entry>
   <entry>
-    <title>快速排序的几种实现</title>
-    <url>/2023/09/17/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h4 id="双指针前移法">双指针前移法</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N = 1e5 + 5;</span><br><span class="line">int n;</span><br><span class="line"></span><br><span class="line">int partition(vector&lt;int&gt;&amp; v, int left, int right) &#123;</span><br><span class="line">	int pre = left;</span><br><span class="line">	int cur = pre + 1;</span><br><span class="line">	int key = v[left];</span><br><span class="line">	while (cur &lt;= right) &#123;</span><br><span class="line">		if (v[cur] &lt; key &amp;&amp; ++pre != cur) swap(v[cur], v[pre]);</span><br><span class="line">		++cur;</span><br><span class="line">	&#125;</span><br><span class="line">	swap(v[left], v[pre]); // 将基准元素放回正确的位置</span><br><span class="line">	return pre;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void quickSort(vector&lt;int&gt;&amp; v, int left, int right) &#123;</span><br><span class="line">	stack&lt;int&gt; s;</span><br><span class="line">	s.push(left);</span><br><span class="line">	s.push(right);</span><br><span class="line">	while (!s.empty()) &#123;</span><br><span class="line">		int r = s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">		int l = s.top();</span><br><span class="line">		s.pop();</span><br><span class="line">		if (l &gt;= r) continue;</span><br><span class="line">		int boundary = partition(v, l, r);</span><br><span class="line">		s.push(l);</span><br><span class="line">		s.push(boundary - 1);</span><br><span class="line">		s.push(boundary + 1);</span><br><span class="line">		s.push(r);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	vector&lt;int&gt; v;	</span><br><span class="line">	int x;</span><br><span class="line">	for (int i = 1; i &lt;= n; ++i) &#123;</span><br><span class="line">		cin &gt;&gt; x;</span><br><span class="line">		v.push_back(x);</span><br><span class="line">	&#125;	</span><br><span class="line">	quickSort(v, 0, n - 1);</span><br><span class="line">	for (auto element : v) &#123;</span><br><span class="line">		cout &lt;&lt; element &lt;&lt; &quot; &quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>插值与拟合建模</title>
+    <url>/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/</url>
+    <content><![CDATA[<p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数
+f(x) 在若干点的函数值或者微商值，即只能给出 f(x)
+的一张数据表。如果根据这张数据表构造一个函数 <span class="math inline">\(\varphi(x)\)</span>
+，使之满足这张表中的数据，这样的函数 <span class="math inline">\(\varphi(x)\)</span> 就是函数 f(x)
+的逼近函数。这种逼近问题称为插值问题。</p>
+<h4 id="插值多项式的存在性和唯一性">插值多项式的存在性和唯一性</h4>
+<p>设 <span class="math inline">\(p_n(x) = a_0 + a_1x + a_2x^{2} + ... +
+a_nx^n\)</span>，由插值条件可以得到非齐次线性方程组： <img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class title="插值条件非齐次方程组">
+可以由 <span class="math inline">\(\text{Vandermonde}\)</span>
+行列式，各个点是互异的来得到系数矩阵的行列式 <span class="math inline">\(D \neq 0\)</span>。由 <span class="math inline">\(\text{Cramer}\)</span>
+法则知道，方程有唯一的解，所以多项式存在且唯一。</p>
+<p><strong>几何解释：</strong> 一个 n 次的多项式一定可以由 n + 1
+个点唯一确定。</p>
+<h4 id="lagrange-插值公式">Lagrange 插值公式</h4>
+<img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class title="拉格朗日插值公式">
+<h4 id="newton-插值公式">Newton 插值公式</h4>
+<p>https://www.zhihu.com/question/22320408/answer/141973314
+马同学关于牛顿插值的解释
+牛顿插值法的特点在于：每增加一个点，不会导致之前的重新计算，只需要算和新增点有关的就可以了（这里不同于拉格朗日插值法）。</p>
+<h4 id="两种插值的比较">两种插值的比较</h4>
+<p>也不是很懂，给出 ChatGPT 的解释</p>
+<ol type="1">
+<li><p>数值稳定性：
+牛顿插值通常在数值上更稳定，特别是在高次插值中。高次的拉格朗日插值多项式的系数可能会变得非常大，导致数值计算问题，这在计算机中可能会引发数值溢出或不稳定性。牛顿插值使用分裂差分形式，这种形式在数值计算上通常更可靠。</p></li>
+<li><p>数据更新效率：
+如果您需要在运行时动态添加新的数据点并更新插值多项式，牛顿插值更为高效。因为在牛顿插值中，您可以通过添加一个新的数据点来更新插值多项式，而不需要重新计算整个多项式。</p></li>
+<li><p>分布不均匀的数据：
+如果您的数据点分布不均匀，拉格朗日插值可能会导致插值多项式的阶数变得非常高，这会增加计算的复杂性和开销。牛顿插值在这种情况下通常更具优势。</p></li>
+</ol>
+<p>然而，需要注意的是，即使在大数据集的情况下，牛顿插值也不是绝对适用的。在一些特定情况下，如数据点的数量非常大或插值多项式的次数非常高，都可能导致数值计算问题。在这种情况下，考虑使用更高级的插值技术，例如分段插值（如样条插值）或基于快速傅里叶变换的方法，以提高数值稳定性和计算效率。选择合适的插值方法需要综合考虑数据的性质、计算需求和数值稳定性。</p>
+<h4 id="三次样条插值函数">三次样条插值函数</h4>
+<p>三次样条插值在科学和工程计算中起到重要作用，它只在插值区间的断点比
+Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连续。
+样条一词来源于工程制图。绘图员为了将一些指定点（称作样点）连接成一条光滑的曲线，往往把富有弹性的细长木条（称为样条）固定在样点上，然后画下木条表示的曲线所形成的样条曲线。</p>
+<p>有三种边界条件： 1. 自然边界(Natural Spline) 指端点处二阶导数为 0. 2.
+固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 <span class="math inline">\(S_0&#39;(x_0) = A, S_{n - 1}^{x_n} = B\)</span> 3.
+非扭结边界(Not-A-Knot Spline)
+强制第一个插值点的三阶导数等于第二个点的三阶导数，最后一个点的三阶导数等于倒数第二个点的三阶导数。</p>
+<p>https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq
+关于三次样条的具体推导和最终求解矩阵方程。</p>
+<h4 id="最小二乘法拟合">最小二乘法拟合</h4>
+<p><span class="math inline">\(r_i = y_i - \varphi(x_i)\)</span>
+称为残量，<span class="math inline">\(\boldsymbol{r} = (r_0, r_1, ...,
+r_m)^{T}\)</span> 称为<strong>残向量</strong>。所以用 <span class="math inline">\(\varphi(x)\)</span> 去拟合 <span class="math inline">\(f(x)\)</span> 的问题就变成了残量的大小问题。
+我们用 <span class="math inline">\(\sum\limits_{i = 0}^{m} r_i^{2} =
+\boldsymbol{r^{T}}\boldsymbol{r}\)</span> 去度量残量的大小。
+后面的具体推导可以参考： 1. https://zhuanlan.zhihu.com/p/128083562 2.
+https://zhuanlan.zhihu.com/p/109986821 3.
+https://zhuanlan.zhihu.com/p/38128785</p>
+<p>最终结果就是参数向量 <span class="math inline">\(\widehat{w} =
+\boldsymbol{(X^{T}X)^{-1}X^{T}Y}\)</span></p>
+<p>内积表示？？？</p>
+<h4 id="最佳平方逼近">最佳平方逼近</h4>
 ]]></content>
       <tags>
-        <tag>Data Structure</tag>
+        <tag>Mathematic</tag>
       </tags>
   </entry>
   <entry>
-    <title>抢课脚本</title>
-    <url>/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/</url>
-    <content><![CDATA[<p>本质上就是模拟一个请求。
-我们点击选课页面的时候，是将带有特定功能的数据包发送给对方，也就是服务器，然后得到服务器的反馈。
-&gt; 之前 Github
-上下载的学长写的选课脚本因为学校系统后台的更新没办法使用了，于是想为何不自己学习一下，自己写一个。</p>
-<h4 id="抓包-capture-packet">抓包 capture packet</h4>
-<p>因为Web
-表单中会有很多隐藏的字段，这些隐藏字段一般都有一些特殊的用途，比如收集用户的数据，预防
-CRSF
-攻击，防网络爬虫，以及一些其他用途。这些隐藏字段在界面上都看不到，如果想检测这些字段，就必须要使用抓包工具。
-使用 F12 开发者工具找了一圈也没找到 Github 上下载的 SDU
-抢课脚本的路径，搜索了一下感觉就是运用了抓包。 ##### 抓包工具的原理 那
-Fiddler 举例，Fiddler
-相当于一个「代理」，浏览器访问服务器页面时，就会先把 HTTP 请求先发送给
-Fiddler，Fiddler 再把请求转发给服务器，当服务器返回数据时，Fiddler
-拿到返回数据，再把数据交给浏览器。 因此 Fiddler
-对于浏览器和服务器之间的交互细节是非常清楚的，进而可以帮助我们完成相应的抓包工作(其实后来感觉浏览器自带的开发者工具中的「网络」就够用了)。
-<img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png" class></p>
-<h4 id="url-编码">url 编码</h4>
-<p>这段文字中，<code>https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/xsxkGgxxkxk</code>
-是 URL 基本部分，用于定位服务器上的特定资源或者页面。 <code>?</code>
-表示查询字符串的开始。然后在 <code>?</code>
-后面，通常会带有一个或者多个参数，每个参数都有一个名称和一个对应的值，它们之间用等号<code>=</code>连接，并且多个参数之间使用和号<code>&amp;</code>分隔。
-其中，参数的值是根据 <code>url</code> 编码的，因此需要
-<code>url decoding</code> 来将他们还原为原始文本。 可以直接使用 python
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from urllib.parse import unquote</span><br><span class="line"></span><br><span class="line">encoded_value = &quot;%E6%96%87%E5%AD%A6&quot;</span><br><span class="line">decoded_value = unquote(encoded_value, encoding=&#x27;utf-8&#x27;)</span><br><span class="line">print(decoded_value)</span><br></pre></td></tr></table></figure> &gt; 在计算机编程领域，特别是在处理字符串时，"quote"
-通常表示在文本中添加引号或对特殊字符进行编码，而 "unquote"
-则表示将文本中的引号或编码解除，还原为原始的形式。</p>
-<h4 id="referer">Referer</h4>
-<p>Referer（也写作"referrer"，拼写时不包括第二个
-"e"）是一个HTTP头部字段，通常在Web请求中使用。这个字段用于指示请求的来源或引用页面的URL。当您从一个网页点击链接跳转到另一个页面时，浏览器通常会在请求中包含Referer字段，以告知目标页面是从哪个页面链接过来的。
-Referer字段对于网站分析、统计和跟踪用户流量非常有用，因为它可以帮助网站所有者了解访问者是如何到达其网站的。例如，如果您运营一个电子商务网站，您可以使用Referer字段来确定哪些外部网站或广告渠道为您带来了最多的流量和销售。
-需要注意的是，虽然Referer字段通常包含有用的信息，但它并不是100%可信的，因为用户可以通过浏览器设置或浏览器插件来修改或禁用Referer字段。因此，在进行任何安全性或敏感性操作时，不应仅依赖于Referer字段来验证请求的来源。</p>
-<h4 id="network-栏">Network 栏</h4>
-<p>这一栏通常会用来监视和分析与当前网页加载和网络请求相关的信息。下面是它的一些常见用途：
-1. 查看网络请求。<code>Network</code>
-栏显示了当前页面加载期间发出的所有网络请求，包括HTML、CSS、JavaScript、图像、API请求等。
-2. 查看请求头和响应头。我们可以通过 <code>Network</code> 来查看
-<code>RequestHeaders</code> 和
-<code>ResponseHeaders</code>，这对于检查服务器返回的信息、设置请求头来模拟不同的客户端环境或者调试跨域问题很有帮助。
-3. 筛选和搜索请求。<code>Network</code>
-栏通常提供了筛选和搜索功能，使你可以根据请求类型（XHR、Fetch、Document等）或关键字来查找特定的请求，从而更轻松地定位问题或查找特定资源。</p>
-<h4 id="request-具体操作">request 具体操作</h4>
-<p>打开 F12，选择 <code>Network</code> 一栏。
-然后在找到上搜索自己想选择的课程，点击右侧的「选课」按键(即使课程已经被选满了也无所谓，我们需要的是课程数据包的来源信息)，此时观察
-<code>Network</code> 栏目，最下方应该会出现一个 <code>ggxxkxk</code>
-开头的文件，点击后会出现它的具体信息。 如图： <img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png" class> 其中
-<code>Request Url</code> 就是我们获得数据包的地址，<code>kcid</code> 和
-<code>jx0404id</code> 后面的数字感觉没有什么实际意义，不过可以在 HTML
-代码中「选课」按键的属性值中找到，也可以查看 HTML
-代码对应一下而不需要点击「选课」按键。 <code>Cookie</code>
-代表的是我们的身份信息，是服务器辨识我们身份的信息，和
-<code>User-Agent</code> 还有 <code>referer</code> 一起设置在请求头中。
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import json</span><br><span class="line">import time</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def selectCourse():</span><br><span class="line">    cur_num = 0</span><br><span class="line">    url = &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/ggxxkxkOper?kcid=xxxxxx&#x27; \</span><br><span class="line">          &#x27;&amp;cfbs=null&amp;jx0404id=xxxxxxx&amp;xkzy=&amp;trjf=&#x27;</span><br><span class="line">    cookie = &#x27;你的 Cookie&#x27;</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 &#x27;</span><br><span class="line">                      &#x27;(KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36&#x27;,</span><br><span class="line">        &#x27;cookie&#x27;: cookie,</span><br><span class="line">        &#x27;referer&#x27;: &#x27;https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/getGgxxk&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">    while True:</span><br><span class="line">        response = requests.get(url=url, headers=headers)</span><br><span class="line">        data = json.loads(response.content.decode(response.apparent_encoding))</span><br><span class="line">        cur_num = cur_num + 1</span><br><span class="line">        print(f&quot;&#123;cur_num&#125; &#123;data[&#x27;message&#x27;]&#125;&quot;)</span><br><span class="line">        if data[&#x27;message&#x27;] != &#x27;选课失败：此课堂选课人数已满！&#x27;:</span><br><span class="line">            break</span><br><span class="line">        time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    selectCourse()</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h4 id="链接">链接</h4>
-<p>https://www.cnblogs.com/xubin97/p/10331558.html 抢课脚本链接
-https://blog.csdn.net/shenqueying/article/details/79426884 referer
-的作用 https://blog.csdn.net/weixin_43314519/article/details/107095245
-讲的挺好，还用到了多线程</p>
+    <title>斐波那契堆</title>
+    <url>/2023/10/09/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%A0%86/</url>
+    <content><![CDATA[<p>斐波那契堆数据结构有两种用途。</p>
+<ol type="1">
+<li>支持一系列操作，这些操作构成了所谓的「可合并堆」</li>
+<li>斐波那契的一系列操作可以在常数时间内完成，这使得这种数据结构非常适合需要频繁调用这些操作的应用。</li>
+</ol>
+<h4 id="优势与劣势">优势与劣势</h4>
+<p>斐波那契堆有着更好的均摊时间复杂度，但是最坏情况下的时间复杂度会比较高。在一些很多条边的稠密图中，每一次调用
+DECREASE-KEY 需要 O(1) 此时比普通的二项堆是要好一些的。</p>
+<p>但是从实际角度出发，除了某些需要管理大量数据的应用以外，对于大多数应用，斐波那契堆的常数因子和编程复杂性使得它比普通的二项堆或者(K
+项堆)并不那么适用。</p>
+<h4 id="插入操作">插入操作</h4>
+<p>斐波那契堆的根链表是「双向链表」，我们将 min
+节点看作为双向链表的表头。后面插入节点的时候就是将节点插入到 min
+节点之前，也就是双向链表的末尾。</p>
+<h4 id="合并操作">合并操作</h4>
+<p>合并操作就是将一个堆的根链表插入到另一个堆的根链表上。</p>
+<h4 id="减小节点值">减小节点值</h4>
+<p>难点在于，如果我们减小节点值后，破坏了「最小堆」的性质，应该如何维护呢？</p>
+<ol type="1">
+<li>首先，将「被减小节点」它所在的最小堆剥离出来，然后将该节点或者其子树(如果有的话)关联到根链中。</li>
+<li>对于「被减少节点」的原父节点进行「级联剪切」。所谓级联剪切，就是在被减小节点破坏了最小堆性质，并且被切下来以后，再从它的父节点递归进行级联剪切的操作。
+级联剪切具体地：如果父节点的 marked 为 false，赋值为 true，然后退出。
+否则，将父节点也从最小堆中切下来，继续递归。
+marked标记的作用就是用来标记"该节点的子节点是否有被删除过"，它的作用是来实现级联剪切。而级联剪切的真正目的是为了防止"最小堆"由二叉树演化成链表。</li>
+</ol>
+<h4 id="增加节点值">增加节点值</h4>
+<p>​</p>
+<h4 id="代码">代码</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> FIBONACCI_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FIBONACCI_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeapNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    T value;</span><br><span class="line">    <span class="type">int</span> degree;</span><br><span class="line">    <span class="type">bool</span> marked;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* parent;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* nxt;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* prev;</span><br><span class="line">    <span class="built_in">FibonacciHeapNode</span>(T val)</span><br><span class="line">        : <span class="built_in">value</span>(val)</span><br><span class="line">        , <span class="built_in">degree</span>(<span class="number">0</span>)</span><br><span class="line">        , <span class="built_in">marked</span>(<span class="literal">false</span>)</span><br><span class="line">        , <span class="built_in">parent</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">child</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">nxt</span>(<span class="keyword">this</span>)</span><br><span class="line">        , <span class="built_in">prev</span>(<span class="keyword">this</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeap</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        FibonacciHeapNode&lt;T&gt;* minNode; </span><br><span class="line">        <span class="comment">// 外部访问接口</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function">FibonacciHeapNode&lt;T&gt;* <span class="title">extractMin</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="built_in">FibonacciHeap</span>()</span><br><span class="line">            : <span class="built_in">minNode</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">size</span>(<span class="number">0</span>)</span><br><span class="line">            , <span class="built_in">maxDegree</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="keyword">private</span>: <span class="comment">// 内部实现细节</span></span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        <span class="type">int</span> maxDegree;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insertNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">removeNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">consolidate</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">decrease</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cutNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cascading</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insert</span>(T val) &#123;</span><br><span class="line">    <span class="built_in">insertNode</span>(<span class="keyword">new</span> <span class="built_in">FibonacciHeapNode</span>(val));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insertNode</span>(FibonacciHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">        minNode = cur;</span><br><span class="line">        maxDegree = <span class="number">1</span>; <span class="comment">// Initialize maxDegree</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cur-&gt;prev = minNode-&gt;prev;</span><br><span class="line">        cur-&gt;nxt = minNode;</span><br><span class="line">        minNode-&gt;prev-&gt;nxt = cur;</span><br><span class="line">        minNode-&gt;prev = cur;</span><br><span class="line">        <span class="keyword">if</span> (cur-&gt;value &lt; minNode-&gt;value) &#123;</span><br><span class="line">            minNode = cur;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">linkAdd</span><span class="params">(FibonacciHeapNode&lt;T&gt;* x, FibonacciHeapNode&lt;T&gt;* y)</span> </span>&#123;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* temp;</span><br><span class="line">    temp = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt = y-&gt;nxt;</span><br><span class="line">    y-&gt;nxt-&gt;nxt = x;</span><br><span class="line">    y-&gt;nxt = temp;</span><br><span class="line">    temp-&gt;prev = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">pop</span>() &#123;</span><br><span class="line">    <span class="built_in">extractMin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">removeNode</span>(FibonacciHeapNode&lt;T&gt;* x) &#123;</span><br><span class="line">    x-&gt;prev-&gt;nxt = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt-&gt;prev = x-&gt;prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function">FibonacciHeap&lt;T&gt;* <span class="title">heapUnion</span><span class="params">(FibonacciHeap&lt;T&gt;* h1, FibonacciHeap&lt;T&gt;* h2)</span> </span>&#123;</span><br><span class="line">    FibonacciHeap&lt;T&gt;* temp;</span><br><span class="line">    <span class="keyword">if</span> (h1 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h2-&gt;maxDegree &gt; h1-&gt;maxDegree) &#123;</span><br><span class="line">        temp = h1;</span><br><span class="line">        h1 = h2;</span><br><span class="line">        h2 = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h1-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        h1-&gt;size = h2-&gt;size;</span><br><span class="line">        h1-&gt;maxDegree = h2-&gt;maxDegree;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">linkAdd</span>(h1-&gt;minNode, h2-&gt;minNode);</span><br><span class="line">        <span class="keyword">if</span> (h1-&gt;minNode-&gt;value &gt; h2-&gt;minNode-&gt;value)</span><br><span class="line">            h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">FibonacciHeapNode&lt;T&gt;* FibonacciHeap&lt;T&gt;::<span class="built_in">extractMin</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child = <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* Min = minNode;</span><br><span class="line">    <span class="keyword">while</span> (Min-&gt;child != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        child = Min-&gt;child;</span><br><span class="line">        <span class="built_in">removeNode</span>(child);</span><br><span class="line">        <span class="keyword">if</span> (child-&gt;nxt == child)</span><br><span class="line">            Min-&gt;child = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            Min-&gt;child = child-&gt;nxt;</span><br><span class="line">        <span class="built_in">linkAdd</span>(child, minNode);</span><br><span class="line">        child-&gt;parent = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">removeNode</span>(Min);</span><br><span class="line">    <span class="keyword">if</span> (Min-&gt;nxt == Min) &#123;</span><br><span class="line">        minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        minNode = Min-&gt;nxt;</span><br><span class="line">        <span class="built_in">consolidate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    --size;</span><br><span class="line">    <span class="keyword">return</span> Min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">consolidate</span>() &#123;</span><br><span class="line">    <span class="type">int</span> maxDegreePossible = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="built_in">log2</span>(size)) + <span class="number">1</span>;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; <span class="built_in">degreeTable</span>(maxDegreePossible, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterate through the root list and consolidate nodes with the same degree</span></span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* cur = minNode;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; rootsToVisit;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        rootsToVisit.<span class="built_in">push_back</span>(cur);</span><br><span class="line">        cur = cur-&gt;nxt;</span><br><span class="line">    &#125; <span class="keyword">while</span> (cur != minNode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (FibonacciHeapNode&lt;T&gt;* node : rootsToVisit) &#123;</span><br><span class="line">        <span class="type">int</span> degree = node-&gt;degree;</span><br><span class="line">        <span class="keyword">while</span> (degreeTable[degree] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            FibonacciHeapNode&lt;T&gt;* other = degreeTable[degree];</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;value &gt; other-&gt;value) &#123;</span><br><span class="line">                <span class="comment">// Swap the nodes if necessary</span></span><br><span class="line">                FibonacciHeapNode&lt;T&gt;* temp = node;</span><br><span class="line">                node = other;</span><br><span class="line">                other = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Link other as a child of node</span></span><br><span class="line">            <span class="built_in">linkAdd</span>(node, other);</span><br><span class="line">            degreeTable[degree] = <span class="literal">nullptr</span>;</span><br><span class="line">            degree++;</span><br><span class="line">        &#125;</span><br><span class="line">        degreeTable[degree] = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rebuild the root list with consolidated nodes</span></span><br><span class="line">    minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; maxDegreePossible; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (degreeTable[i] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                minNode = degreeTable[i];</span><br><span class="line">                minNode-&gt;nxt = minNode;</span><br><span class="line">                minNode-&gt;prev = minNode;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">insertNode</span>(degreeTable[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::decrease(FibonacciHeapNode&lt;T&gt;* cur, T value) &#123;</span></span><br><span class="line"><span class="comment">//     FibonacciHeapNode&lt;T&gt;* parent;</span></span><br><span class="line"><span class="comment">//     if (minNode == nullptr || cur == nullptr) return ;</span></span><br><span class="line"><span class="comment">//     if (value &gt;= cur-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         throw std::runtime_error(&quot;illegal decreasing.&quot;);</span></span><br><span class="line"><span class="comment">//         return ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     cur-&gt;value = value;</span></span><br><span class="line"><span class="comment">//     if (parent != null &amp;&amp; cur-&gt;value &lt; parent-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         cutNode(cur, parent);</span></span><br><span class="line"><span class="comment">//         cascading(parent);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     if (cur-&gt;value &lt; minNode)</span></span><br><span class="line"><span class="comment">//         minNode = cur;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cutNode(FibonacciHeapNode&lt;T&gt;* cur, FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"><span class="comment">//     removeNode(cur);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cascading(FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="参考文章">参考文章</h4>
+<p>https://www.cnblogs.com/skywang12345/p/3659060.html 算法导论</p>
+<p>https://www.cnblogs.com/junyuhuang/p/4463758.html</p>
+<p>https://wangkuiwu.github.io/2013/03/05/fabonacci-cpp/</p>
+<p>https://blog.csdn.net/u013148167/article/details/54236076</p>
 ]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
   </entry>
   <entry>
     <title>数据结构关键记录</title>
@@ -1504,106 +1604,6 @@ Frequency)的计算问题。</p>
       <tags>
         <tag>Data Structure</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>插值与拟合建模</title>
-    <url>/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/</url>
-    <content><![CDATA[<p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数
-f(x) 在若干点的函数值或者微商值，即只能给出 f(x)
-的一张数据表。如果根据这张数据表构造一个函数 <span class="math inline">\(\varphi(x)\)</span>
-，使之满足这张表中的数据，这样的函数 <span class="math inline">\(\varphi(x)\)</span> 就是函数 f(x)
-的逼近函数。这种逼近问题称为插值问题。</p>
-<h4 id="插值多项式的存在性和唯一性">插值多项式的存在性和唯一性</h4>
-<p>设 <span class="math inline">\(p_n(x) = a_0 + a_1x + a_2x^{2} + ... +
-a_nx^n\)</span>，由插值条件可以得到非齐次线性方程组： <img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class title="插值条件非齐次方程组">
-可以由 <span class="math inline">\(\text{Vandermonde}\)</span>
-行列式，各个点是互异的来得到系数矩阵的行列式 <span class="math inline">\(D \neq 0\)</span>。由 <span class="math inline">\(\text{Cramer}\)</span>
-法则知道，方程有唯一的解，所以多项式存在且唯一。</p>
-<p><strong>几何解释：</strong> 一个 n 次的多项式一定可以由 n + 1
-个点唯一确定。</p>
-<h4 id="lagrange-插值公式">Lagrange 插值公式</h4>
-<img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class title="拉格朗日插值公式">
-<h4 id="newton-插值公式">Newton 插值公式</h4>
-<p>https://www.zhihu.com/question/22320408/answer/141973314
-马同学关于牛顿插值的解释
-牛顿插值法的特点在于：每增加一个点，不会导致之前的重新计算，只需要算和新增点有关的就可以了（这里不同于拉格朗日插值法）。</p>
-<h4 id="两种插值的比较">两种插值的比较</h4>
-<p>也不是很懂，给出 ChatGPT 的解释</p>
-<ol type="1">
-<li><p>数值稳定性：
-牛顿插值通常在数值上更稳定，特别是在高次插值中。高次的拉格朗日插值多项式的系数可能会变得非常大，导致数值计算问题，这在计算机中可能会引发数值溢出或不稳定性。牛顿插值使用分裂差分形式，这种形式在数值计算上通常更可靠。</p></li>
-<li><p>数据更新效率：
-如果您需要在运行时动态添加新的数据点并更新插值多项式，牛顿插值更为高效。因为在牛顿插值中，您可以通过添加一个新的数据点来更新插值多项式，而不需要重新计算整个多项式。</p></li>
-<li><p>分布不均匀的数据：
-如果您的数据点分布不均匀，拉格朗日插值可能会导致插值多项式的阶数变得非常高，这会增加计算的复杂性和开销。牛顿插值在这种情况下通常更具优势。</p></li>
-</ol>
-<p>然而，需要注意的是，即使在大数据集的情况下，牛顿插值也不是绝对适用的。在一些特定情况下，如数据点的数量非常大或插值多项式的次数非常高，都可能导致数值计算问题。在这种情况下，考虑使用更高级的插值技术，例如分段插值（如样条插值）或基于快速傅里叶变换的方法，以提高数值稳定性和计算效率。选择合适的插值方法需要综合考虑数据的性质、计算需求和数值稳定性。</p>
-<h4 id="三次样条插值函数">三次样条插值函数</h4>
-<p>三次样条插值在科学和工程计算中起到重要作用，它只在插值区间的断点比
-Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连续。
-样条一词来源于工程制图。绘图员为了将一些指定点（称作样点）连接成一条光滑的曲线，往往把富有弹性的细长木条（称为样条）固定在样点上，然后画下木条表示的曲线所形成的样条曲线。</p>
-<p>有三种边界条件： 1. 自然边界(Natural Spline) 指端点处二阶导数为 0. 2.
-固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 <span class="math inline">\(S_0&#39;(x_0) = A, S_{n - 1}^{x_n} = B\)</span> 3.
-非扭结边界(Not-A-Knot Spline)
-强制第一个插值点的三阶导数等于第二个点的三阶导数，最后一个点的三阶导数等于倒数第二个点的三阶导数。</p>
-<p>https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq
-关于三次样条的具体推导和最终求解矩阵方程。</p>
-<h4 id="最小二乘法拟合">最小二乘法拟合</h4>
-<p><span class="math inline">\(r_i = y_i - \varphi(x_i)\)</span>
-称为残量，<span class="math inline">\(\boldsymbol{r} = (r_0, r_1, ...,
-r_m)^{T}\)</span> 称为<strong>残向量</strong>。所以用 <span class="math inline">\(\varphi(x)\)</span> 去拟合 <span class="math inline">\(f(x)\)</span> 的问题就变成了残量的大小问题。
-我们用 <span class="math inline">\(\sum\limits_{i = 0}^{m} r_i^{2} =
-\boldsymbol{r^{T}}\boldsymbol{r}\)</span> 去度量残量的大小。
-后面的具体推导可以参考： 1. https://zhuanlan.zhihu.com/p/128083562 2.
-https://zhuanlan.zhihu.com/p/109986821 3.
-https://zhuanlan.zhihu.com/p/38128785</p>
-<p>最终结果就是参数向量 <span class="math inline">\(\widehat{w} =
-\boldsymbol{(X^{T}X)^{-1}X^{T}Y}\)</span></p>
-<p>内积表示？？？</p>
-<h4 id="最佳平方逼近">最佳平方逼近</h4>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>斐波那契堆</title>
-    <url>/2023/10/09/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%A0%86/</url>
-    <content><![CDATA[<p>斐波那契堆数据结构有两种用途。</p>
-<ol type="1">
-<li>支持一系列操作，这些操作构成了所谓的「可合并堆」</li>
-<li>斐波那契的一系列操作可以在常数时间内完成，这使得这种数据结构非常适合需要频繁调用这些操作的应用。</li>
-</ol>
-<h4 id="优势与劣势">优势与劣势</h4>
-<p>斐波那契堆有着更好的均摊时间复杂度，但是最坏情况下的时间复杂度会比较高。在一些很多条边的稠密图中，每一次调用
-DECREASE-KEY 需要 O(1) 此时比普通的二项堆是要好一些的。</p>
-<p>但是从实际角度出发，除了某些需要管理大量数据的应用以外，对于大多数应用，斐波那契堆的常数因子和编程复杂性使得它比普通的二项堆或者(K
-项堆)并不那么适用。</p>
-<h4 id="插入操作">插入操作</h4>
-<p>斐波那契堆的根链表是「双向链表」，我们将 min
-节点看作为双向链表的表头。后面插入节点的时候就是将节点插入到 min
-节点之前，也就是双向链表的末尾。</p>
-<h4 id="合并操作">合并操作</h4>
-<p>合并操作就是将一个堆的根链表插入到另一个堆的根链表上。</p>
-<h4 id="减小节点值">减小节点值</h4>
-<p>难点在于，如果我们减小节点值后，破坏了「最小堆」的性质，应该如何维护呢？</p>
-<ol type="1">
-<li>首先，将「被减小节点」它所在的最小堆剥离出来，然后将该节点或者其子树(如果有的话)关联到根链中。</li>
-<li>对于「被减少节点」的原父节点进行「级联剪切」。所谓级联剪切，就是在被减小节点破坏了最小堆性质，并且被切下来以后，再从它的父节点递归进行级联剪切的操作。
-级联剪切具体地：如果父节点的 marked 为 false，赋值为 true，然后退出。
-否则，将父节点也从最小堆中切下来，继续递归。
-marked标记的作用就是用来标记"该节点的子节点是否有被删除过"，它的作用是来实现级联剪切。而级联剪切的真正目的是为了防止"最小堆"由二叉树演化成链表。</li>
-</ol>
-<h4 id="增加节点值">增加节点值</h4>
-<p>​</p>
-<h4 id="代码">代码</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> FIBONACCI_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FIBONACCI_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeapNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    T value;</span><br><span class="line">    <span class="type">int</span> degree;</span><br><span class="line">    <span class="type">bool</span> marked;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* parent;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* nxt;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* prev;</span><br><span class="line">    <span class="built_in">FibonacciHeapNode</span>(T val)</span><br><span class="line">        : <span class="built_in">value</span>(val)</span><br><span class="line">        , <span class="built_in">degree</span>(<span class="number">0</span>)</span><br><span class="line">        , <span class="built_in">marked</span>(<span class="literal">false</span>)</span><br><span class="line">        , <span class="built_in">parent</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">child</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">nxt</span>(<span class="keyword">this</span>)</span><br><span class="line">        , <span class="built_in">prev</span>(<span class="keyword">this</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeap</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        FibonacciHeapNode&lt;T&gt;* minNode; </span><br><span class="line">        <span class="comment">// 外部访问接口</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function">FibonacciHeapNode&lt;T&gt;* <span class="title">extractMin</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="built_in">FibonacciHeap</span>()</span><br><span class="line">            : <span class="built_in">minNode</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">size</span>(<span class="number">0</span>)</span><br><span class="line">            , <span class="built_in">maxDegree</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="keyword">private</span>: <span class="comment">// 内部实现细节</span></span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        <span class="type">int</span> maxDegree;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insertNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">removeNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">consolidate</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">decrease</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cutNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cascading</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insert</span>(T val) &#123;</span><br><span class="line">    <span class="built_in">insertNode</span>(<span class="keyword">new</span> <span class="built_in">FibonacciHeapNode</span>(val));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insertNode</span>(FibonacciHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">        minNode = cur;</span><br><span class="line">        maxDegree = <span class="number">1</span>; <span class="comment">// Initialize maxDegree</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cur-&gt;prev = minNode-&gt;prev;</span><br><span class="line">        cur-&gt;nxt = minNode;</span><br><span class="line">        minNode-&gt;prev-&gt;nxt = cur;</span><br><span class="line">        minNode-&gt;prev = cur;</span><br><span class="line">        <span class="keyword">if</span> (cur-&gt;value &lt; minNode-&gt;value) &#123;</span><br><span class="line">            minNode = cur;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">linkAdd</span><span class="params">(FibonacciHeapNode&lt;T&gt;* x, FibonacciHeapNode&lt;T&gt;* y)</span> </span>&#123;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* temp;</span><br><span class="line">    temp = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt = y-&gt;nxt;</span><br><span class="line">    y-&gt;nxt-&gt;nxt = x;</span><br><span class="line">    y-&gt;nxt = temp;</span><br><span class="line">    temp-&gt;prev = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">pop</span>() &#123;</span><br><span class="line">    <span class="built_in">extractMin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">removeNode</span>(FibonacciHeapNode&lt;T&gt;* x) &#123;</span><br><span class="line">    x-&gt;prev-&gt;nxt = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt-&gt;prev = x-&gt;prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function">FibonacciHeap&lt;T&gt;* <span class="title">heapUnion</span><span class="params">(FibonacciHeap&lt;T&gt;* h1, FibonacciHeap&lt;T&gt;* h2)</span> </span>&#123;</span><br><span class="line">    FibonacciHeap&lt;T&gt;* temp;</span><br><span class="line">    <span class="keyword">if</span> (h1 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h2-&gt;maxDegree &gt; h1-&gt;maxDegree) &#123;</span><br><span class="line">        temp = h1;</span><br><span class="line">        h1 = h2;</span><br><span class="line">        h2 = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h1-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        h1-&gt;size = h2-&gt;size;</span><br><span class="line">        h1-&gt;maxDegree = h2-&gt;maxDegree;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">linkAdd</span>(h1-&gt;minNode, h2-&gt;minNode);</span><br><span class="line">        <span class="keyword">if</span> (h1-&gt;minNode-&gt;value &gt; h2-&gt;minNode-&gt;value)</span><br><span class="line">            h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">FibonacciHeapNode&lt;T&gt;* FibonacciHeap&lt;T&gt;::<span class="built_in">extractMin</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child = <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* Min = minNode;</span><br><span class="line">    <span class="keyword">while</span> (Min-&gt;child != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        child = Min-&gt;child;</span><br><span class="line">        <span class="built_in">removeNode</span>(child);</span><br><span class="line">        <span class="keyword">if</span> (child-&gt;nxt == child)</span><br><span class="line">            Min-&gt;child = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            Min-&gt;child = child-&gt;nxt;</span><br><span class="line">        <span class="built_in">linkAdd</span>(child, minNode);</span><br><span class="line">        child-&gt;parent = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">removeNode</span>(Min);</span><br><span class="line">    <span class="keyword">if</span> (Min-&gt;nxt == Min) &#123;</span><br><span class="line">        minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        minNode = Min-&gt;nxt;</span><br><span class="line">        <span class="built_in">consolidate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    --size;</span><br><span class="line">    <span class="keyword">return</span> Min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">consolidate</span>() &#123;</span><br><span class="line">    <span class="type">int</span> maxDegreePossible = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="built_in">log2</span>(size)) + <span class="number">1</span>;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; <span class="built_in">degreeTable</span>(maxDegreePossible, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterate through the root list and consolidate nodes with the same degree</span></span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* cur = minNode;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; rootsToVisit;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        rootsToVisit.<span class="built_in">push_back</span>(cur);</span><br><span class="line">        cur = cur-&gt;nxt;</span><br><span class="line">    &#125; <span class="keyword">while</span> (cur != minNode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (FibonacciHeapNode&lt;T&gt;* node : rootsToVisit) &#123;</span><br><span class="line">        <span class="type">int</span> degree = node-&gt;degree;</span><br><span class="line">        <span class="keyword">while</span> (degreeTable[degree] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            FibonacciHeapNode&lt;T&gt;* other = degreeTable[degree];</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;value &gt; other-&gt;value) &#123;</span><br><span class="line">                <span class="comment">// Swap the nodes if necessary</span></span><br><span class="line">                FibonacciHeapNode&lt;T&gt;* temp = node;</span><br><span class="line">                node = other;</span><br><span class="line">                other = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Link other as a child of node</span></span><br><span class="line">            <span class="built_in">linkAdd</span>(node, other);</span><br><span class="line">            degreeTable[degree] = <span class="literal">nullptr</span>;</span><br><span class="line">            degree++;</span><br><span class="line">        &#125;</span><br><span class="line">        degreeTable[degree] = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rebuild the root list with consolidated nodes</span></span><br><span class="line">    minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; maxDegreePossible; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (degreeTable[i] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                minNode = degreeTable[i];</span><br><span class="line">                minNode-&gt;nxt = minNode;</span><br><span class="line">                minNode-&gt;prev = minNode;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">insertNode</span>(degreeTable[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::decrease(FibonacciHeapNode&lt;T&gt;* cur, T value) &#123;</span></span><br><span class="line"><span class="comment">//     FibonacciHeapNode&lt;T&gt;* parent;</span></span><br><span class="line"><span class="comment">//     if (minNode == nullptr || cur == nullptr) return ;</span></span><br><span class="line"><span class="comment">//     if (value &gt;= cur-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         throw std::runtime_error(&quot;illegal decreasing.&quot;);</span></span><br><span class="line"><span class="comment">//         return ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     cur-&gt;value = value;</span></span><br><span class="line"><span class="comment">//     if (parent != null &amp;&amp; cur-&gt;value &lt; parent-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         cutNode(cur, parent);</span></span><br><span class="line"><span class="comment">//         cascading(parent);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     if (cur-&gt;value &lt; minNode)</span></span><br><span class="line"><span class="comment">//         minNode = cur;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cutNode(FibonacciHeapNode&lt;T&gt;* cur, FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"><span class="comment">//     removeNode(cur);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cascading(FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="参考文章">参考文章</h4>
-<p>https://www.cnblogs.com/skywang12345/p/3659060.html 算法导论</p>
-<p>https://www.cnblogs.com/junyuhuang/p/4463758.html</p>
-<p>https://wangkuiwu.github.io/2013/03/05/fabonacci-cpp/</p>
-<p>https://blog.csdn.net/u013148167/article/details/54236076</p>
-]]></content>
   </entry>
   <entry>
     <title>杂记</title>
@@ -2401,20 +2401,6 @@ Java 源代码、打包 JAR
 <p>std::vector<int> myVector(otherVector); // 使用另一个向量初始化新向量
 ```s</int></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>现代优化算法</title>
-    <url>/2023/08/25/%E7%8E%B0%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>20 世纪 70
-年代初期，随着计算复杂性的理论逐步形成，科学工作者发现并证明了大量来源于实际生活中的组合最优化问题是非常难解的，即所谓的
-NP 完全问题和 NP 难问题。 80
-年代一些现代化优化算法，如遗传算法、模拟退火算法、人工神经网络算法等。这些算法可以比较容易的解决一些复杂的、常规算法很难解决的问题。</p>
-<h4 id="遗传算法genetic-algorithm-ga">遗传算法(Genetic Algorithm,
-GA)</h4>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
   </entry>
   <entry>
     <title>概率论中各种分布</title>
@@ -3610,15 +3596,6 @@ https://www.zhihu.com/question/34866983/answer/60191363
       </tags>
   </entry>
   <entry>
-    <title>登录实现</title>
-    <url>/2023/09/07/%E7%99%BB%E5%BD%95%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<p>一个讲解 https://www.jianshu.com/p/53e687c198b5</p>
-]]></content>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>矩阵求导</title>
     <url>/2023/08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</url>
     <content><![CDATA[<h4 id="向量变元的实值函数">向量变元的实值函数</h4>
@@ -3641,6 +3618,20 @@ https://www.zhihu.com/question/34866983/answer/60191363
 https://zhuanlan.zhihu.com/p/263777564
 https://zhuanlan.zhihu.com/p/273729929 讲解最小二乘法的高维形式
 https://zhuanlan.zhihu.com/p/38128785</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>现代优化算法</title>
+    <url>/2023/08/25/%E7%8E%B0%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>20 世纪 70
+年代初期，随着计算复杂性的理论逐步形成，科学工作者发现并证明了大量来源于实际生活中的组合最优化问题是非常难解的，即所谓的
+NP 完全问题和 NP 难问题。 80
+年代一些现代化优化算法，如遗传算法、模拟退火算法、人工神经网络算法等。这些算法可以比较容易的解决一些复杂的、常规算法很难解决的问题。</p>
+<h4 id="遗传算法genetic-algorithm-ga">遗传算法(Genetic Algorithm,
+GA)</h4>
 ]]></content>
       <tags>
         <tag>Mathematic</tag>
@@ -3687,6 +3678,15 @@ J(m)\)</span></li>
       </tags>
   </entry>
   <entry>
+    <title>登录实现</title>
+    <url>/2023/09/07/%E7%99%BB%E5%BD%95%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<p>一个讲解 https://www.jianshu.com/p/53e687c198b5</p>
+]]></content>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>网管会</title>
     <url>/2023/10/28/%E7%BD%91%E7%AE%A1%E4%BC%9A/</url>
     <content><![CDATA[<p>ipconfig/all 命令可以看一下网络的配置</p>
@@ -3729,6 +3729,60 @@ windows 通过 DHCP 自动生成的地址。</p>
 <li>下周六前提交</li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>规划论模型</title>
+    <url>/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<p>规划论模型也成为运筹与优化模型，在实际问题的建模中应用最为广泛，涉及面较广。</p>
+<h4 id="线性规划">线性规划</h4>
+<p>通常对于只有两个决策变量的情形，可以使用图解法加以求解。而对于大于两个决策变量的情形，需要借助单纯形方法加以求解。单纯形方法的基本思想是迭代思想的一种体现。首先找到初始可行解，并通过迭代逐步从可行域的一个顶点走向另一个顶点，最终走到最优解。
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png" class> 下面的例题： <img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg" class> 其中，求 max，所以我们把 z
+的系数取反。第二个不等式是大于等于，我们也同样取反。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-1; -2; 3];</span><br><span class="line">A = [3 2 1; -4 -7 6];</span><br><span class="line">b = [6; -8];</span><br><span class="line">Aeq = [2 1 5];</span><br><span class="line">beq = [4];</span><br><span class="line">vlb = [0; 0; 0];</span><br><span class="line">vub= [];</span><br><span class="line">[x, fval] = linprog(f, A, b, Aeq, beq, vlb, vub)</span><br></pre></td></tr></table></figure> #####
+运输问题 较为常见的运输模型叙述如下： &gt; 某物资有 m 个原产地 <span class="math inline">\(A_i\)</span>，产量为 <span class="math inline">\(a_i\)</span>；有 n 个销地 <span class="math inline">\(B_j\)</span>，销量关系为 <span class="math inline">\(b_j\)</span>，从 <span class="math inline">\(A_i\)</span> 到 <span class="math inline">\(B_j\)</span> 之间的单位物资运价为 <span class="math inline">\(d_{ij}\)</span>，则产销平衡时有 <span class="math inline">\(\sum\limits_{i = 1}^{m}a_i = \sum\limits_{j =
+1}^{n} b_j\)</span></p>
+<h5 id="多目标规划问题">多目标规划问题</h5>
+<p>在建立优化模型时有时追求的目标可能是多个，无论忽略其中的哪个因素可能都会降低优化结果的可信度。对于这类问题通常有下面的三种处理方式：
+1. 为每个目标设置重要性权重。 当存在 n
+个目标时，首先对目标函数进行归一化处理（就是消除量纲的影响，进行标准统一）后分别设置自己的权重，假设第
+i 个目标的权重为 <span class="math inline">\(\alpha_i\)</span>，目标取值为 <span class="math inline">\(M_i\)</span>，则可以建立下面的优化模型：<span class="math inline">\(\max \alpha_1M_1 + \alpha_2M_2 + ... +
+\alpha_nM_n\)</span> 2.
+为各种目标设定优先权，并将模型转化为多个优化模型。 3.
+分别求得个目标的最优值后，将主要目标设定为目标函数，而将次要目标适当调整后修改为约束条件。</p>
+<h4 id="适度指标的线性处理">适度指标的线性处理</h4>
+<p>适度指标是指该指标的他正是数据大了或者小了均不好，要充分地接近于某一事先给定的标准指标，比如水的
+PH 值。 求 <span class="math inline">\(\min |x - D|\)</span>，D
+为数据指标的理想取值。 例题： 一个富豪准备拿 10
+万元买股票。经过他的筛选，有三种候选投资股票。这三种股票的价格、收益率以及风险系数如表所示：
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png" class>
+这是一个多规划问题，我们如果直接列两个不等式的话，可能存在无解的情况。所以我们可以采取上面所说的方法2，建立如下的两个不等式条件：
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png" class> 如果我们优先考虑投资的风险，就可以建立下面的线性规划模型：
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png" class> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clear all</span><br><span class="line">Aeq = [1 3 5 1 -1 0 0; 2 5 8 0 0 1 -1; 10 20 30 0 0 0 0];</span><br><span class="line">beq = [15000; 25000; 100000];</span><br><span class="line">f = zeros(7, 1);</span><br><span class="line">f(5) = 1;</span><br><span class="line">vlb = zeros(7, 1);</span><br><span class="line">vub = [];</span><br><span class="line">a = [];</span><br><span class="line">b = [];</span><br><span class="line">[x, y] = linprog(f, a, b, Aeq, beq, vlb, vub);</span><br><span class="line">fx = x(1) + 3 * x(2) + 5 * x(3)</span><br><span class="line">lr = 2 * x(1) + 5 * x(2) + 8 * x(3)</span><br></pre></td></tr></table></figure></p>
+<h4 id="整数规划">整数规划</h4>
+<p>在线性规划模型中，如果各个决策变量的取值均为整数，则称此类模型为整数规划模型。
+整数规划的解法主要有穷举法(变量维数较高时不可行)、舍入凑整法、分支定界法(比较可行)、割平面法(比较可行)等。
+1. 舍入凑整法
+感觉很是玄学，就是假装没有整数约束，求解出最优解后每个变量往下或者上取整比较一下。
+2. 分支界定法
+如果不满足整数条件，任选一个不满足整数条件的变量来构造新的约束，在原可行域中剔除部分非整数解。然后，再在缩小的可行域中求解新构造的线性规划的最优解（好抽象）。
+步骤： 1. 解没有整数约束的问题。 2. 定界 3. 分支 4. 修改上下界 5.
+比较与剪枝</p>
+<h5 id="型整数规划">0-1 型整数规划</h5>
+<p>约束条件为 <span class="math inline">\(0 \leq x_i \leq 1,x_i\)</span>
+为整数。这样就和一般的整数规划问题统一了。</p>
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png" class title="整数规划求解函数">
+<p>实例： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-3; 2; -5];</span><br><span class="line">intcon = [1, 2, 3]; % 表示哪几个变量为整数</span><br><span class="line">A = [1 2 -1; 1 4 1; 1 1 0; 4 0 1];</span><br><span class="line">b = [2; 4; 3; 6];</span><br><span class="line">Aeq = [];</span><br><span class="line">beq = [];</span><br><span class="line">lb = [0; 0; 0]; % 如果下界为 0 上界为 1，其实就是 0-1 整数规划了。</span><br><span class="line">rb = [1; 1; 1];</span><br><span class="line">[x, val] = intlinprog(f, intcon, A, b, Aeq, beq, lb, rb)</span><br></pre></td></tr></table></figure></p>
+<h5 id="指派问题">指派问题</h5>
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png" class title="指派问题">
+<p>当人数和任务的个数不同的时候，会出现某些人没有任务可做或者某些任务无人完成的情况。出现这两种情况的时候只需将约束条件中的某一个等于
+1 的约束条件修改为小于等于 1
+即可。有时也可以一对多（一个人多任务，一个任务多个人）。 2013
+年碎纸片拼接复原问题 1： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cell&#123;1,1&#125;=imread(&#x27;000.bmp&#x27;);</span><br><span class="line">cell&#123;1,2&#125;=imread(&#x27;001.bmp&#x27;);</span><br><span class="line">cell&#123;1,3&#125;=imread(&#x27;002.bmp&#x27;);</span><br><span class="line">cell&#123;1,4&#125;=imread(&#x27;003.bmp&#x27;);</span><br><span class="line">cell&#123;1,5&#125;=imread(&#x27;004.bmp&#x27;);</span><br><span class="line">cell&#123;1,6&#125;=imread(&#x27;005.bmp&#x27;);</span><br><span class="line">cell&#123;1,7&#125;=imread(&#x27;006.bmp&#x27;);</span><br><span class="line">cell&#123;1,8&#125;=imread(&#x27;007.bmp&#x27;);</span><br><span class="line">cell&#123;1,9&#125;=imread(&#x27;008.bmp&#x27;);</span><br><span class="line">cell&#123;1,10&#125;=imread(&#x27;009.bmp&#x27;);</span><br><span class="line">cell&#123;1,11&#125;=imread(&#x27;010.bmp&#x27;);</span><br><span class="line">cell&#123;1,12&#125;=imread(&#x27;011.bmp&#x27;);</span><br><span class="line">cell&#123;1,13&#125;=imread(&#x27;012.bmp&#x27;);</span><br><span class="line">cell&#123;1,14&#125;=imread(&#x27;013.bmp&#x27;);</span><br><span class="line">cell&#123;1,15&#125;=imread(&#x27;014.bmp&#x27;);</span><br><span class="line">cell&#123;1,16&#125;=imread(&#x27;015.bmp&#x27;);</span><br><span class="line">cell&#123;1,17&#125;=imread(&#x27;016.bmp&#x27;);</span><br><span class="line">cell&#123;1,18&#125;=imread(&#x27;017.bmp&#x27;);</span><br><span class="line">cell&#123;1,19&#125;=imread(&#x27;018.bmp&#x27;);</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">level=graythresh(cell&#123;1,i&#125;);%选择灰度阈值</span><br><span class="line">cell1&#123;1,i&#125;=im2bw(cell&#123;1,i&#125;,level); %将图像二值化</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19                %循环19个图像</span><br><span class="line">    for k=1:19</span><br><span class="line">        xs(i,k)=0;</span><br><span class="line">        for j=1:1980</span><br><span class="line">            if (cell1&#123;1,i&#125;(j,72)==cell1&#123;1,k&#125;(j,1))%判断图像的边缘信息特征，求相似度矩阵</span><br><span class="line">                xs(i,k)=1+xs(i,k);</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">    xs(i,i)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19 </span><br><span class="line">da(i)=max(xs(i,:));</span><br><span class="line">end</span><br><span class="line">wei=find(da==max(da));for i=1:19</span><br><span class="line">    k=find(xs(i,[1:19])==da(i));  %求两两相邻的矩阵</span><br><span class="line">    lian(i,1)=i;                  %前面一个</span><br><span class="line">    lian(i,2)=k;                  %后面一个</span><br><span class="line">end</span><br><span class="line">lian(wei,1)=0;</span><br><span class="line">tou=lian(wei,2);</span><br><span class="line">xu(1)=tou;</span><br><span class="line">for i=1:18</span><br><span class="line">    xu(i+1)=lian(xu(i),2);        %正确的排列顺序</span><br><span class="line">end</span><br><span class="line">%根据排出来顺序xu画图</span><br><span class="line">for i=1:19</span><br><span class="line">I(:,[72*(i-1)+1:72*i])=cell&#123;1,xu(i)&#125;;   %图像的整合</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">imwrite(I,&#x27;hanzi.jpg&#x27;,&#x27;quality&#x27;,100);</span><br><span class="line">imshow(&#x27;hanzi.jpg&#x27;)          %输出图像</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h5 id="选址问题">选址问题</h5>
+<p>集合覆盖选址模型和最大覆盖选址模型。</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
   </entry>
   <entry>
     <title>莫队算法</title>
@@ -3950,64 +4004,10 @@ CPU，或者写入请求时，将数据写入内存。<strong>一般是低电平
       </tags>
   </entry>
   <entry>
-    <title>规划论模型</title>
-    <url>/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<p>规划论模型也成为运筹与优化模型，在实际问题的建模中应用最为广泛，涉及面较广。</p>
-<h4 id="线性规划">线性规划</h4>
-<p>通常对于只有两个决策变量的情形，可以使用图解法加以求解。而对于大于两个决策变量的情形，需要借助单纯形方法加以求解。单纯形方法的基本思想是迭代思想的一种体现。首先找到初始可行解，并通过迭代逐步从可行域的一个顶点走向另一个顶点，最终走到最优解。
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png" class> 下面的例题： <img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg" class> 其中，求 max，所以我们把 z
-的系数取反。第二个不等式是大于等于，我们也同样取反。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-1; -2; 3];</span><br><span class="line">A = [3 2 1; -4 -7 6];</span><br><span class="line">b = [6; -8];</span><br><span class="line">Aeq = [2 1 5];</span><br><span class="line">beq = [4];</span><br><span class="line">vlb = [0; 0; 0];</span><br><span class="line">vub= [];</span><br><span class="line">[x, fval] = linprog(f, A, b, Aeq, beq, vlb, vub)</span><br></pre></td></tr></table></figure> #####
-运输问题 较为常见的运输模型叙述如下： &gt; 某物资有 m 个原产地 <span class="math inline">\(A_i\)</span>，产量为 <span class="math inline">\(a_i\)</span>；有 n 个销地 <span class="math inline">\(B_j\)</span>，销量关系为 <span class="math inline">\(b_j\)</span>，从 <span class="math inline">\(A_i\)</span> 到 <span class="math inline">\(B_j\)</span> 之间的单位物资运价为 <span class="math inline">\(d_{ij}\)</span>，则产销平衡时有 <span class="math inline">\(\sum\limits_{i = 1}^{m}a_i = \sum\limits_{j =
-1}^{n} b_j\)</span></p>
-<h5 id="多目标规划问题">多目标规划问题</h5>
-<p>在建立优化模型时有时追求的目标可能是多个，无论忽略其中的哪个因素可能都会降低优化结果的可信度。对于这类问题通常有下面的三种处理方式：
-1. 为每个目标设置重要性权重。 当存在 n
-个目标时，首先对目标函数进行归一化处理（就是消除量纲的影响，进行标准统一）后分别设置自己的权重，假设第
-i 个目标的权重为 <span class="math inline">\(\alpha_i\)</span>，目标取值为 <span class="math inline">\(M_i\)</span>，则可以建立下面的优化模型：<span class="math inline">\(\max \alpha_1M_1 + \alpha_2M_2 + ... +
-\alpha_nM_n\)</span> 2.
-为各种目标设定优先权，并将模型转化为多个优化模型。 3.
-分别求得个目标的最优值后，将主要目标设定为目标函数，而将次要目标适当调整后修改为约束条件。</p>
-<h4 id="适度指标的线性处理">适度指标的线性处理</h4>
-<p>适度指标是指该指标的他正是数据大了或者小了均不好，要充分地接近于某一事先给定的标准指标，比如水的
-PH 值。 求 <span class="math inline">\(\min |x - D|\)</span>，D
-为数据指标的理想取值。 例题： 一个富豪准备拿 10
-万元买股票。经过他的筛选，有三种候选投资股票。这三种股票的价格、收益率以及风险系数如表所示：
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png" class>
-这是一个多规划问题，我们如果直接列两个不等式的话，可能存在无解的情况。所以我们可以采取上面所说的方法2，建立如下的两个不等式条件：
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png" class> 如果我们优先考虑投资的风险，就可以建立下面的线性规划模型：
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png" class> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clear all</span><br><span class="line">Aeq = [1 3 5 1 -1 0 0; 2 5 8 0 0 1 -1; 10 20 30 0 0 0 0];</span><br><span class="line">beq = [15000; 25000; 100000];</span><br><span class="line">f = zeros(7, 1);</span><br><span class="line">f(5) = 1;</span><br><span class="line">vlb = zeros(7, 1);</span><br><span class="line">vub = [];</span><br><span class="line">a = [];</span><br><span class="line">b = [];</span><br><span class="line">[x, y] = linprog(f, a, b, Aeq, beq, vlb, vub);</span><br><span class="line">fx = x(1) + 3 * x(2) + 5 * x(3)</span><br><span class="line">lr = 2 * x(1) + 5 * x(2) + 8 * x(3)</span><br></pre></td></tr></table></figure></p>
-<h4 id="整数规划">整数规划</h4>
-<p>在线性规划模型中，如果各个决策变量的取值均为整数，则称此类模型为整数规划模型。
-整数规划的解法主要有穷举法(变量维数较高时不可行)、舍入凑整法、分支定界法(比较可行)、割平面法(比较可行)等。
-1. 舍入凑整法
-感觉很是玄学，就是假装没有整数约束，求解出最优解后每个变量往下或者上取整比较一下。
-2. 分支界定法
-如果不满足整数条件，任选一个不满足整数条件的变量来构造新的约束，在原可行域中剔除部分非整数解。然后，再在缩小的可行域中求解新构造的线性规划的最优解（好抽象）。
-步骤： 1. 解没有整数约束的问题。 2. 定界 3. 分支 4. 修改上下界 5.
-比较与剪枝</p>
-<h5 id="型整数规划">0-1 型整数规划</h5>
-<p>约束条件为 <span class="math inline">\(0 \leq x_i \leq 1,x_i\)</span>
-为整数。这样就和一般的整数规划问题统一了。</p>
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png" class title="整数规划求解函数">
-<p>实例： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-3; 2; -5];</span><br><span class="line">intcon = [1, 2, 3]; % 表示哪几个变量为整数</span><br><span class="line">A = [1 2 -1; 1 4 1; 1 1 0; 4 0 1];</span><br><span class="line">b = [2; 4; 3; 6];</span><br><span class="line">Aeq = [];</span><br><span class="line">beq = [];</span><br><span class="line">lb = [0; 0; 0]; % 如果下界为 0 上界为 1，其实就是 0-1 整数规划了。</span><br><span class="line">rb = [1; 1; 1];</span><br><span class="line">[x, val] = intlinprog(f, intcon, A, b, Aeq, beq, lb, rb)</span><br></pre></td></tr></table></figure></p>
-<h5 id="指派问题">指派问题</h5>
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png" class title="指派问题">
-<p>当人数和任务的个数不同的时候，会出现某些人没有任务可做或者某些任务无人完成的情况。出现这两种情况的时候只需将约束条件中的某一个等于
-1 的约束条件修改为小于等于 1
-即可。有时也可以一对多（一个人多任务，一个任务多个人）。 2013
-年碎纸片拼接复原问题 1： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cell&#123;1,1&#125;=imread(&#x27;000.bmp&#x27;);</span><br><span class="line">cell&#123;1,2&#125;=imread(&#x27;001.bmp&#x27;);</span><br><span class="line">cell&#123;1,3&#125;=imread(&#x27;002.bmp&#x27;);</span><br><span class="line">cell&#123;1,4&#125;=imread(&#x27;003.bmp&#x27;);</span><br><span class="line">cell&#123;1,5&#125;=imread(&#x27;004.bmp&#x27;);</span><br><span class="line">cell&#123;1,6&#125;=imread(&#x27;005.bmp&#x27;);</span><br><span class="line">cell&#123;1,7&#125;=imread(&#x27;006.bmp&#x27;);</span><br><span class="line">cell&#123;1,8&#125;=imread(&#x27;007.bmp&#x27;);</span><br><span class="line">cell&#123;1,9&#125;=imread(&#x27;008.bmp&#x27;);</span><br><span class="line">cell&#123;1,10&#125;=imread(&#x27;009.bmp&#x27;);</span><br><span class="line">cell&#123;1,11&#125;=imread(&#x27;010.bmp&#x27;);</span><br><span class="line">cell&#123;1,12&#125;=imread(&#x27;011.bmp&#x27;);</span><br><span class="line">cell&#123;1,13&#125;=imread(&#x27;012.bmp&#x27;);</span><br><span class="line">cell&#123;1,14&#125;=imread(&#x27;013.bmp&#x27;);</span><br><span class="line">cell&#123;1,15&#125;=imread(&#x27;014.bmp&#x27;);</span><br><span class="line">cell&#123;1,16&#125;=imread(&#x27;015.bmp&#x27;);</span><br><span class="line">cell&#123;1,17&#125;=imread(&#x27;016.bmp&#x27;);</span><br><span class="line">cell&#123;1,18&#125;=imread(&#x27;017.bmp&#x27;);</span><br><span class="line">cell&#123;1,19&#125;=imread(&#x27;018.bmp&#x27;);</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">level=graythresh(cell&#123;1,i&#125;);%选择灰度阈值</span><br><span class="line">cell1&#123;1,i&#125;=im2bw(cell&#123;1,i&#125;,level); %将图像二值化</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19                %循环19个图像</span><br><span class="line">    for k=1:19</span><br><span class="line">        xs(i,k)=0;</span><br><span class="line">        for j=1:1980</span><br><span class="line">            if (cell1&#123;1,i&#125;(j,72)==cell1&#123;1,k&#125;(j,1))%判断图像的边缘信息特征，求相似度矩阵</span><br><span class="line">                xs(i,k)=1+xs(i,k);</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">    xs(i,i)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19 </span><br><span class="line">da(i)=max(xs(i,:));</span><br><span class="line">end</span><br><span class="line">wei=find(da==max(da));for i=1:19</span><br><span class="line">    k=find(xs(i,[1:19])==da(i));  %求两两相邻的矩阵</span><br><span class="line">    lian(i,1)=i;                  %前面一个</span><br><span class="line">    lian(i,2)=k;                  %后面一个</span><br><span class="line">end</span><br><span class="line">lian(wei,1)=0;</span><br><span class="line">tou=lian(wei,2);</span><br><span class="line">xu(1)=tou;</span><br><span class="line">for i=1:18</span><br><span class="line">    xu(i+1)=lian(xu(i),2);        %正确的排列顺序</span><br><span class="line">end</span><br><span class="line">%根据排出来顺序xu画图</span><br><span class="line">for i=1:19</span><br><span class="line">I(:,[72*(i-1)+1:72*i])=cell&#123;1,xu(i)&#125;;   %图像的整合</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">imwrite(I,&#x27;hanzi.jpg&#x27;,&#x27;quality&#x27;,100);</span><br><span class="line">imshow(&#x27;hanzi.jpg&#x27;)          %输出图像</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h5 id="选址问题">选址问题</h5>
-<p>集合覆盖选址模型和最大覆盖选址模型。</p>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>跳表(skiplist)</title>
     <url>/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/</url>
     <content><![CDATA[<h4 id="代码">代码：</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class SkipListNode &#123;</span><br><span class="line">    public:</span><br><span class="line">        int value;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; nxt;</span><br><span class="line">        SkipListNode(int val, int level)</span><br><span class="line">            : value(val)</span><br><span class="line">            , nxt(level, nullptr) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Skiplist &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxLevel = 32;</span><br><span class="line">    int level;</span><br><span class="line">    SkipListNode* head;</span><br><span class="line">    Skiplist() &#123;</span><br><span class="line">        level = 1;</span><br><span class="line">        head = new SkipListNode(0, maxLevel);</span><br><span class="line">    &#125;</span><br><span class="line">    int randomLevel() &#123;</span><br><span class="line">        int level = 1;</span><br><span class="line">        while (level &lt; maxLevel &amp;&amp; (rand() % 2 == 0)) &#123;</span><br><span class="line">            level++;</span><br><span class="line">        &#125;</span><br><span class="line">        return level;</span><br><span class="line">    &#125;</span><br><span class="line">    bool search(int target) &#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        for (int i = level - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">            while (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; target) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (current &amp;&amp; current-&gt;nxt[0] &amp;&amp; current-&gt;nxt[0]-&gt;value == target) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void add(int num) &#123;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; update(maxLevel, nullptr);</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        for (int i = level - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">            while (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        int newLevel = randomLevel();</span><br><span class="line">        if (newLevel &gt; level) &#123;</span><br><span class="line">            for (int i = level; i &lt; newLevel; ++i) &#123;</span><br><span class="line">                update[i] = head;</span><br><span class="line">            &#125;</span><br><span class="line">            level = newLevel;</span><br><span class="line">        &#125;</span><br><span class="line">        SkipListNode* newNode = new SkipListNode(num, newLevel);</span><br><span class="line">        for (int i = 0; i &lt; newLevel; ++i) &#123;</span><br><span class="line">            newNode-&gt;nxt[i] = update[i]-&gt;nxt[i];</span><br><span class="line">            update[i]-&gt;nxt[i] = newNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    bool erase(int num) &#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; update(maxLevel, nullptr);</span><br><span class="line">        for (int i = level - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">            while (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        if (!current || !current-&gt;nxt[0] || current-&gt;nxt[0]-&gt;value != num) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        if (current-&gt;nxt[0] &amp;&amp; current-&gt;nxt[0]-&gt;value == num) &#123;</span><br><span class="line">            SkipListNode* toRemove = current-&gt;nxt[0];</span><br><span class="line">            for (int i = 0; i &lt; level; ++i) &#123;</span><br><span class="line">                if (update[i]-&gt;nxt[i] != toRemove) &#123; // 不能直接判断 value 因为可能出现多个相同数值的情况</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                update[i]-&gt;nxt[i] = toRemove-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            delete toRemove;</span><br><span class="line">        &#125;   </span><br><span class="line">        // 更新 level</span><br><span class="line">        while (level &gt; 1 &amp;&amp; head-&gt;nxt[level - 1] == nullptr)</span><br><span class="line">            level--;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SkipListNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> value;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; nxt;</span><br><span class="line">        <span class="built_in">SkipListNode</span>(<span class="type">int</span> val, <span class="type">int</span> level)</span><br><span class="line">            : <span class="built_in">value</span>(val)</span><br><span class="line">            , <span class="built_in">nxt</span>(level, <span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Skiplist</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> maxLevel = <span class="number">32</span>;</span><br><span class="line">    <span class="type">int</span> level;</span><br><span class="line">    SkipListNode* head;</span><br><span class="line">    <span class="built_in">Skiplist</span>() &#123;</span><br><span class="line">        level = <span class="number">1</span>;</span><br><span class="line">        head = <span class="keyword">new</span> <span class="built_in">SkipListNode</span>(<span class="number">0</span>, maxLevel);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">randomLevel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> level = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (level &lt; maxLevel &amp;&amp; (<span class="built_in">rand</span>() % <span class="number">2</span> == <span class="number">0</span>)) &#123;</span><br><span class="line">            level++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(<span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = level - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">while</span> (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; target) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (current &amp;&amp; current-&gt;nxt[<span class="number">0</span>] &amp;&amp; current-&gt;nxt[<span class="number">0</span>]-&gt;value == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="function">std::vector&lt;SkipListNode*&gt; <span class="title">update</span><span class="params">(maxLevel, <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = level - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">while</span> (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> newLevel = <span class="built_in">randomLevel</span>();</span><br><span class="line">        <span class="keyword">if</span> (newLevel &gt; level) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = level; i &lt; newLevel; ++i) &#123;</span><br><span class="line">                update[i] = head;</span><br><span class="line">            &#125;</span><br><span class="line">            level = newLevel;</span><br><span class="line">        &#125;</span><br><span class="line">        SkipListNode* newNode = <span class="keyword">new</span> <span class="built_in">SkipListNode</span>(num, newLevel);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; newLevel; ++i) &#123;</span><br><span class="line">            newNode-&gt;nxt[i] = update[i]-&gt;nxt[i];</span><br><span class="line">            update[i]-&gt;nxt[i] = newNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">erase</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        <span class="function">std::vector&lt;SkipListNode*&gt; <span class="title">update</span><span class="params">(maxLevel, <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = level - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">while</span> (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!current || !current-&gt;nxt[<span class="number">0</span>] || current-&gt;nxt[<span class="number">0</span>]-&gt;value != num) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (current-&gt;nxt[<span class="number">0</span>] &amp;&amp; current-&gt;nxt[<span class="number">0</span>]-&gt;value == num) &#123;</span><br><span class="line">            SkipListNode* toRemove = current-&gt;nxt[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; level; ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span> (update[i]-&gt;nxt[i] != toRemove) &#123; <span class="comment">// 不能直接判断 value 因为可能出现多个相同数值的情况</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                update[i]-&gt;nxt[i] = toRemove-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">delete</span> toRemove;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="comment">// 更新 level</span></span><br><span class="line">        <span class="keyword">while</span> (level &gt; <span class="number">1</span> &amp;&amp; head-&gt;nxt[level - <span class="number">1</span>] == <span class="literal">nullptr</span>)</span><br><span class="line">            level--;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="参考">参考：</h4>
 <p>https://github.com/youngyangyang04/Skiplist-CPP/blob/master/skiplist.h
 https://www.luogu.com.cn/problem/solution/P3369?page=2 leetcode 跳表题解
