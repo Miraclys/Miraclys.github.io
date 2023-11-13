@@ -7,7 +7,9 @@ description: 记录一下我搭建博客的过程~
 
 #### 字体的设置
 
-参见 https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/
+参见 
+
+https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/
 
 #### 数学公式的配置
 
