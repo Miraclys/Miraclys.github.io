@@ -475,29 +475,6 @@ JSON，这个对象可以帮助我们将一个 JSON 转换为 JS 对象，也可
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/08/23/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>JavaScript进阶</title>
     <url>/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/</url>
     <content><![CDATA[<h4 id="基础回顾">基础回顾</h4>
@@ -592,23 +569,26 @@ https://blog.csdn.net/m0_38072683/article/details/118878085</p>
       </tags>
   </entry>
   <entry>
-    <title>hexo博客食用指北</title>
-    <url>/2023/11/12/hexo%E5%8D%9A%E5%AE%A2%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8C%97/</url>
-    <content><![CDATA[<h4 id="字体的设置">字体的设置</h4>
-<p>参见
-https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</p>
-<h4 id="数学公式的配置">数学公式的配置</h4>
-<p>使用 mathjax 渲染，卸载掉之前的插件。</p>
-<p>具体参见：</p>
-<ol type="1">
-<li>https://blog.csdn.net/weixin_45073562/article/details/120289648</li>
-<li>https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E9%85%8D%E7%BD%AEMathJax/</li>
-</ol>
-<h4 id="评论系统的配置">评论系统的配置</h4>
-<ol type="1">
-<li>https://blog.csdn.net/weixin_48927364/article/details/123321038</li>
-<li>https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</li>
-</ol>
+    <title>Hello World</title>
+    <url>/2023/08/23/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -673,38 +653,6 @@ https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E
 ]]></content>
   </entry>
   <entry>
-    <title>log</title>
-    <url>/2023/09/18/log/</url>
-    <content><![CDATA[<h4 id="年9月18日">2023年9月18日</h4>
-<ol type="1">
-<li>多种计算逆元的方式：扩展欧几里得、费马小定理、递推、阶乘</li>
-<li>扩展欧几里得推导：先假设一组解
-<code>x^&#123;'&#125; y^&#123;'&#125;</code>，然后找到和原来的解 <code>x y</code>
-之间的对应关系 或者 非递归实现</li>
-<li>组合数的各种公式和基础二项式反演了解：
-https://oi-wiki.org/math/combinatorics/combination/
-https://zhuanlan.zhihu.com/p/602675596</li>
-</ol>
-<h4 id="年9月21日">2023年9月21日</h4>
-<ol type="1">
-<li>矩阵加速递推 Fibonacci 数列的项公式推导。
-不动点法？求解微分方程？</li>
-<li>康托展开与康托逆展开 直接看 OI-Wiki 就行 全排列 next_permutation
-函数</li>
-<li>Hanoi 问题的数学方法求解(无需开辟新空间，直接输出移动方式) 对于
-最小块的移动 是隔一个移动一次，而且是有规律的 lowbit
-函数可以知道移动哪一个块
-根据最小块的移动规律和lowbit函数就可以直接计算出哪一块移动到哪一个地方了</li>
-</ol>
-<h4 id="年9月27日">2023年9月27日</h4>
-<ol type="1">
-<li>二叉树中序遍历和前序或者中序和后序可以确定二叉树的结构</li>
-<li>二叉树的层序遍历、中序遍历、前序遍历、后序遍历的非递归实现</li>
-<li>二叉树的括号形式解析和输出二叉树的括号形式，当然是非递归形式。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>matlab记录</title>
     <url>/2023/08/26/matlab%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<img src="/.com//08/26/matlab%E8%AE%B0%E5%BD%95/matlab%E7%82%B9%E4%B9%98%E7%82%B9%E9%99%A4.png" class>
@@ -749,6 +697,58 @@ Binarization）就是将图像上的像素点的灰度值设置为0或255，也�
       <tags>
         <tag>matlab</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>log</title>
+    <url>/2023/09/18/log/</url>
+    <content><![CDATA[<h4 id="年9月18日">2023年9月18日</h4>
+<ol type="1">
+<li>多种计算逆元的方式：扩展欧几里得、费马小定理、递推、阶乘</li>
+<li>扩展欧几里得推导：先假设一组解
+<code>x^&#123;'&#125; y^&#123;'&#125;</code>，然后找到和原来的解 <code>x y</code>
+之间的对应关系 或者 非递归实现</li>
+<li>组合数的各种公式和基础二项式反演了解：
+https://oi-wiki.org/math/combinatorics/combination/
+https://zhuanlan.zhihu.com/p/602675596</li>
+</ol>
+<h4 id="年9月21日">2023年9月21日</h4>
+<ol type="1">
+<li>矩阵加速递推 Fibonacci 数列的项公式推导。
+不动点法？求解微分方程？</li>
+<li>康托展开与康托逆展开 直接看 OI-Wiki 就行 全排列 next_permutation
+函数</li>
+<li>Hanoi 问题的数学方法求解(无需开辟新空间，直接输出移动方式) 对于
+最小块的移动 是隔一个移动一次，而且是有规律的 lowbit
+函数可以知道移动哪一个块
+根据最小块的移动规律和lowbit函数就可以直接计算出哪一块移动到哪一个地方了</li>
+</ol>
+<h4 id="年9月27日">2023年9月27日</h4>
+<ol type="1">
+<li>二叉树中序遍历和前序或者中序和后序可以确定二叉树的结构</li>
+<li>二叉树的层序遍历、中序遍历、前序遍历、后序遍历的非递归实现</li>
+<li>二叉树的括号形式解析和输出二叉树的括号形式，当然是非递归形式。</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>hexo博客食用指北</title>
+    <url>/2023/11/12/hexo%E5%8D%9A%E5%AE%A2%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8C%97/</url>
+    <content><![CDATA[<h4 id="字体的设置">字体的设置</h4>
+<p>参见
+https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/</p>
+<h4 id="数学公式的配置">数学公式的配置</h4>
+<p>使用 mathjax 渲染，卸载掉之前的插件。</p>
+<p>具体参见：</p>
+<ol type="1">
+<li>https://blog.csdn.net/weixin_45073562/article/details/120289648</li>
+<li>https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E9%85%8D%E7%BD%AEMathJax/</li>
+</ol>
+<h4 id="评论系统的配置">评论系统的配置</h4>
+<ol type="1">
+<li>https://blog.csdn.net/weixin_48927364/article/details/123321038</li>
+<li>https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>python 数学建模与实验</title>
@@ -1098,6 +1098,34 @@ strategy)。由所有参与人的占优战略构成的战略组合被称为“�
       </tags>
   </entry>
   <entry>
+    <title>回归分析与时间序列方法</title>
+    <url>/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>统计推断的另一类重要问题是假设检验问题。在总体的分布函数未知或者只知道其形式、但不知其参数的情况，为了推断总体的某些未知特性，提出某些关于总体的假设。我们要根据样本对于所提出的假设做出是接受还是拒绝的决策，<strong>假设检验</strong>就是做出这一决策的过程。</p>
+<p>这种只对于第一种错误的概率进行控制，而不考虑第二种错误的概率的检验，称为显著性检验。对应的还有双边假设检验、右边检验和左边检验。
+<img src="/.com//08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C.png" class></p>
+<h4 id="一元线性回归方程的检验">一元线性回归方程的检验</h4>
+<p>根据样本数据算出的回归可能有一定的抽样误差。为了考察这两个变量在同体内是否是存在线性关系以及回归方程对估计预测因变量的有效性如何，首先进行的就是显著性检验。</p>
+<h5 id="t-检验">t 检验</h5>
+<p>t 检验又称学生 t
+检验，是统计推断中一种非常常见的检验方法，<strong>用于统计量服从正态分布</strong>但是方差未知(如果知道方差，我们可以直接
+Z 检验，或者叫做 U 检验，就是正态检验)的情况。</p>
+<p>t检验的前提是要求样本服从正态分布或近似正态分布，不然可以利用一些变换（取对数、开根号、倒数等等）试图将其转化为服从正态分布是数据，如若还是不满足正态分布，只能利用非参数检验方法。</p>
+<p>t 检验最常见的四个用途： 1. 单样本均值检验（One-sample t-test）
+用于检验 总体方差未知、正态数据或近似正态的 单样本的均值 是否与
+已知的总体均值相等 2. 两独立样本均值检验（Independent two-sample
+t-test） 用于检验 两对独立的 正态数据或近似正态的 样本的均值
+是否相等，这里可根据总体方差是否相等分类讨论 3.
+配对样本均值检验（Dependent t-test for paired samples） 用于检验
+一对配对样本的均值的差 是否等于某一个值 4. 回归系数的显著性检验（t-test
+for regression coefficient significance） 用于检验
+回归模型的解释变量对被解释变量是否有显著影响</p>
+<p>具体内容见 https://zhuanlan.zhihu.com/p/138711532</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>左偏树</title>
     <url>/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/</url>
     <content><![CDATA[<h4 id="参考资料">参考资料</h4>
@@ -1164,34 +1192,6 @@ g(y_k)\)</span>，称为供应函数，假设为单调上升函数。</p>
 的递推式，可以求出通项，求极限和上面的条件等价。</p>
 <h4 id="简单的种群增长模型">简单的种群增长模型</h4>
 <p>利用了矩阵的特征方程求解。对角化或者化为若尔当标准型。</p>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回归分析与时间序列方法</title>
-    <url>/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<p>统计推断的另一类重要问题是假设检验问题。在总体的分布函数未知或者只知道其形式、但不知其参数的情况，为了推断总体的某些未知特性，提出某些关于总体的假设。我们要根据样本对于所提出的假设做出是接受还是拒绝的决策，<strong>假设检验</strong>就是做出这一决策的过程。</p>
-<p>这种只对于第一种错误的概率进行控制，而不考虑第二种错误的概率的检验，称为显著性检验。对应的还有双边假设检验、右边检验和左边检验。
-<img src="/.com//08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C.png" class></p>
-<h4 id="一元线性回归方程的检验">一元线性回归方程的检验</h4>
-<p>根据样本数据算出的回归可能有一定的抽样误差。为了考察这两个变量在同体内是否是存在线性关系以及回归方程对估计预测因变量的有效性如何，首先进行的就是显著性检验。</p>
-<h5 id="t-检验">t 检验</h5>
-<p>t 检验又称学生 t
-检验，是统计推断中一种非常常见的检验方法，<strong>用于统计量服从正态分布</strong>但是方差未知(如果知道方差，我们可以直接
-Z 检验，或者叫做 U 检验，就是正态检验)的情况。</p>
-<p>t检验的前提是要求样本服从正态分布或近似正态分布，不然可以利用一些变换（取对数、开根号、倒数等等）试图将其转化为服从正态分布是数据，如若还是不满足正态分布，只能利用非参数检验方法。</p>
-<p>t 检验最常见的四个用途： 1. 单样本均值检验（One-sample t-test）
-用于检验 总体方差未知、正态数据或近似正态的 单样本的均值 是否与
-已知的总体均值相等 2. 两独立样本均值检验（Independent two-sample
-t-test） 用于检验 两对独立的 正态数据或近似正态的 样本的均值
-是否相等，这里可根据总体方差是否相等分类讨论 3.
-配对样本均值检验（Dependent t-test for paired samples） 用于检验
-一对配对样本的均值的差 是否等于某一个值 4. 回归系数的显著性检验（t-test
-for regression coefficient significance） 用于检验
-回归模型的解释变量对被解释变量是否有显著影响</p>
-<p>具体内容见 https://zhuanlan.zhihu.com/p/138711532</p>
 ]]></content>
       <tags>
         <tag>Mathematic</tag>
@@ -1474,6 +1474,34 @@ union，希望并查集中有路径压缩的功能（不需要新写一个函数
       </tags>
   </entry>
   <entry>
+    <title>数据结构关键记录2</title>
+    <url>/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%952/</url>
+    <content><![CDATA[<h4 id="树状数组">树状数组</h4>
+<p>树状数组或二元索引树(Binary Indexed Tree)，又以其发明者命名为 Fenwick
+树。其初衷是解决数据压缩里面的累计频率(Cumulative
+Frequency)的计算问题。</p>
+<p>满足差分性质？ 不满足差分性质的实现？</p>
+<p>树状数组倍增？</p>
+<p>多维树状数组</p>
+<h4 id="treap">Treap</h4>
+<p>有旋和非旋。一种弱平衡的二叉搜索树。</p>
+<p>删除操作，可以找到后继以后交换值，然后向右删除？还是一直旋转操作？</p>
+<p>无旋 splite 和合并</p>
+<p>复杂度正确性证明？？</p>
+<p>https://www.luogu.com.cn/problem/solution/P3369?page=3</p>
+<h4 id="sqrt-tree">sqrt tree</h4>
+<p>开方树</p>
+<p>使用场合？复杂度证明？代码实现？同类之间的区别？</p>
+<h4 id="线段树">线段树</h4>
+<p>求解最大和子段？区间染色问题？ 线段树的动态开点</p>
+<p>主席树</p>
+<p>是不是都能解决区间乘积 区间 min max gcd？</p>
+]]></content>
+      <tags>
+        <tag>Data Structure</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>插值与拟合建模</title>
     <url>/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/</url>
     <content><![CDATA[<p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数
@@ -1535,180 +1563,43 @@ https://zhuanlan.zhihu.com/p/38128785</p>
       </tags>
   </entry>
   <entry>
-    <title>杂记2</title>
-    <url>/2023/11/12/%E6%9D%82%E8%AE%B02/</url>
-    <content><![CDATA[<h4 id="apt">apt</h4>
-<p>Ubuntu 主要使用 apt(Advanced Package Tool)作为包管理工具。APT
-是一套工具集，用于安装、更新、卸载和管理软件包。</p>
-<p>下面是一些常见的 apt 指令： sudo apt update:
-用于更新本地包信息的命令，以确保系统知道可用的软件包和更新。 sudo apt
-upgrade: 用于升级已安装软件包的命令。 sudo apt install package_name:
-用于安装特定软件包的命令。 sudo apt remove package_name:
-用于卸载已安装的软件包。 sudo apt search search_term:
-用于在存储库中搜索软件包的命令。 sudo apt list:
-用于列出可用的软件包。</p>
-<p>Ubuntu的软件存储库包含大量的开源软件包，而APT使得管理和安装这些软件包变得非常方便。APT还支持依赖解决，确保软件包安装时满足其所需的依赖项。</p>
-<p>虽然 Ubuntu 使用 apt，但是我们也可以在 Ubuntu
-上面安装其他的包管理工具。</p>
-<h4 id="arch-linux">Arch Linux</h4>
-<p>Arch
-Linux是一种面向Linux发烧友和高级用户的Linux发行版，以其<strong>极简的设计和强大的定制性</strong>而闻名。</p>
-<p>Arch
-Linux采用滚动发布模型，这意味着它不会按照固定的版本发布，而是持续更新软件包以提供最新的功能和安全性修复。</p>
-<p>Arch
-Linux的包管理系统使用称为"pacman"的工具，它允许用户轻松地安装、更新和删除软件包。用户可以通过Arch
-User
-Repository（AUR）来访问大量社区维护的软件包，这些软件包不包含在官方仓库中，从而增加了软件可用性。</p>
-<p>由于Arch
-Linux的定制性，用户必须亲自配置和设置系统，包括桌面环境、窗口管理器和其他系统组件。这使得Arch
-Linux适合那些喜欢自定义自己的Linux系统的用户，但也可能对新手来说有一定的学习曲线。</p>
-<h4 id="数据库结构">数据库结构</h4>
-<p>一般数据库中有着不同的用户，不同用户下有着不同是数据库，并且不同数据库下有着不同的表格。</p>
-<p>这是数据库管理的一种基本安全和隔离策略，有助于确保数据的完整性、安全性和隔离。</p>
-<p>下面是一些应用情况：</p>
+    <title>斐波那契堆</title>
+    <url>/2023/10/09/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%A0%86/</url>
+    <content><![CDATA[<p>斐波那契堆数据结构有两种用途。</p>
 <ol type="1">
-<li><p><strong>不同用户访问不同的数据库</strong>：不同用户可以被授予访问不同数据库的权限。这意味着用户A可以访问数据库A，而用户B可以访问数据库B，但它们无法相互访问对方的数据库。</p></li>
-<li><p><strong>不同用户访问相同数据库的不同表格</strong>：即使多个用户可以访问相同的数据库，也可以根据其权限来访问和操作不同的表格。例如，用户A可能只能访问表格X，而用户B可以访问表格Y。</p></li>
-<li><p><strong>权限级别不同</strong>：用户的权限级别可以不同，例如只读用户、读写用户、管理员等。这决定了用户可以执行的操作和管理的范围。</p></li>
+<li>支持一系列操作，这些操作构成了所谓的「可合并堆」</li>
+<li>斐波那契的一系列操作可以在常数时间内完成，这使得这种数据结构非常适合需要频繁调用这些操作的应用。</li>
 </ol>
-<h4 id="gis-系统">GIS 系统</h4>
-<h4 id="os.path.join-函数">os.path.join 函数</h4>
-<p><code>os.path.join</code> 函数用于构建文件和目录路径。
-它可以接受任意数量的字符串参数，然后根据操作系统的规则构建有效的路径字符串。
-<strong>这对于创建跨平台的路径非常有用</strong>，因为不同操作系统使用不同的路径分隔符（例如，在Unix和Linux系统上是/，在Windows系统上是）。</p>
-<h4 id="os.listdir-函数">os.listdir() 函数</h4>
-<p><code>os.listdir()</code> 函数用于列出指定目录中的文件和子目录。</p>
-<h4 id="dos-命令">Dos 命令</h4>
-<h4 id="低代码平台">低代码平台</h4>
-<p>低代码平台(Low-Code
-Platform)是一种用于应用程序开发的软件开发工具或平台，它旨在简化和加速应用程序开发过程。这种平台允许开发人员使用图形用户界面、拖放式元素和少量的编程代码来创建应用程序，而不需要从头开始编写大量的传统编程代码。</p>
-<h4 id="jdk-和-jre">JDK 和 JRE</h4>
+<h4 id="优势与劣势">优势与劣势</h4>
+<p>斐波那契堆有着更好的均摊时间复杂度，但是最坏情况下的时间复杂度会比较高。在一些很多条边的稠密图中，每一次调用
+DECREASE-KEY 需要 O(1) 此时比普通的二项堆是要好一些的。</p>
+<p>但是从实际角度出发，除了某些需要管理大量数据的应用以外，对于大多数应用，斐波那契堆的常数因子和编程复杂性使得它比普通的二项堆或者(K
+项堆)并不那么适用。</p>
+<h4 id="插入操作">插入操作</h4>
+<p>斐波那契堆的根链表是「双向链表」，我们将 min
+节点看作为双向链表的表头。后面插入节点的时候就是将节点插入到 min
+节点之前，也就是双向链表的末尾。</p>
+<h4 id="合并操作">合并操作</h4>
+<p>合并操作就是将一个堆的根链表插入到另一个堆的根链表上。</p>
+<h4 id="减小节点值">减小节点值</h4>
+<p>难点在于，如果我们减小节点值后，破坏了「最小堆」的性质，应该如何维护呢？</p>
 <ol type="1">
-<li><p>Java开发工具包 (JDK): JDK
-是用于开发Java应用程序的核心工具集。它包括Java编译器 (javac)、Java虚拟机
-(JVM)、标准类库和各种开发工具。JDK是开发Java应用程序的必备组件，你需要安装它才能开始编写和运行Java代码。</p></li>
-<li><p>Java运行时环境 (JRE): JRE
-包含Java应用程序的运行时组件，包括Java虚拟机 (JVM)
-和标准类库。如果你只需要运行Java应用程序而不是开发它们，你可以安装JRE而不是完整的JDK。</p></li>
+<li>首先，将「被减小节点」它所在的最小堆剥离出来，然后将该节点或者其子树(如果有的话)关联到根链中。</li>
+<li>对于「被减少节点」的原父节点进行「级联剪切」。所谓级联剪切，就是在被减小节点破坏了最小堆性质，并且被切下来以后，再从它的父节点递归进行级联剪切的操作。
+级联剪切具体地：如果父节点的 marked 为 false，赋值为 true，然后退出。
+否则，将父节点也从最小堆中切下来，继续递归。
+marked标记的作用就是用来标记"该节点的子节点是否有被删除过"，它的作用是来实现级联剪切。而级联剪切的真正目的是为了防止"最小堆"由二叉树演化成链表。</li>
 </ol>
-<p>它们的简写是： JDK: Java Development Kit（Java开发工具包） JRE: Java
-Runtime Environment（Java运行时环境）</p>
-<p>javac 是 Java 编程语言中的编译器。它用于将 Java 源代码文件（以 .java
-为扩展名）转换成 Java 字节码文件（以 .class
-为扩展名），这些字节码文件可以由 Java
-虚拟机（JVM）执行。编译器负责将源代码翻译成计算机可以理解的字节码，以便在运行时执行。</p>
-<p>使用 javac 命令，你可以编译你的 Java
-源代码文件，检查代码中是否有语法错误，以及生成可执行的字节码文件。</p>
-<h4 id="使用-jvm-执行">使用 JVM 执行</h4>
-<p>使用 JVM 执行编译后的 java 代码，有很多重要作用。</p>
-<ol type="1">
-<li><p>跨平台性：Java程序编译成字节码，而不是与特定操作系统或硬件相关的本地机器代码。这使得Java应用程序具有跨平台性，可以在支持Java的不同操作系统上运行，只要这些系统上安装了相应的JVM。这大大简化了跨平台开发和部署。</p></li>
-<li><p>安全性：JVM提供了各种安全特性，包括字节码验证和安全沙箱，以确保Java应用程序在运行时不会执行危险的操作或访问系统资源。这有助于防止恶意代码的执行和对系统的潜在损害。</p></li>
-<li><p>内存管理：JVM负责Java应用程序的内存管理，包括垃圾回收。这减轻了开发人员的负担，因为他们不必手动分配和释放内存，而是依赖JVM来自动处理内存管理。</p></li>
-<li><p>性能优化：JVM具有即时编译器和其他优化技术，可以在运行时提高Java应用程序的性能。它可以根据应用程序的行为动态进行性能调整，以提供更高的执行效率。</p></li>
-<li><p>多线程支持：JVM提供了多线程支持，允许Java应用程序轻松地创建和管理多个线程，以实现并行执行和并发操作。</p></li>
-<li><p>异常处理：JVM提供了强大的异常处理机制，使开发人员能够更容易地检测和处理错误条件，从而增加应用程序的可靠性。</p></li>
-</ol>
-<h4 id="python-解释器">python 解释器</h4>
-<p>Python也使用了虚拟机的概念，具有跨平台性质。Python代码通常由Python解释器执行，这个<strong>解释器充当了Python虚拟机的角色</strong>。Python解释器负责将Python源代码转换为字节码，然后在Python虚拟机上执行这些字节码。</p>
-<h4 id="java-环境管理">Java 环境管理</h4>
-<p>构建工具(Apache Meaven  Gradle):</p>
-<ol type="1">
-<li><p><strong>项目构建自动化</strong>。构建工具可以自动化构建过程，包括编译
-Java 源代码、打包 JAR
-文件、运行单元测试、生成文档等。这大大减少了开发人员手动操作的负担。</p></li>
-<li><p><strong>依赖管理</strong>。构建工具可以管理项目的依赖关系，包括第三方库、框架和插件。</p></li>
-<li><p>多模块项目支持：构建工具允许你将项目分解为多个模块，每个模块可以有自己的构建配置。这有助于组织大型项目并提高代码的模块化性。</p></li>
-</ol>
-<p>依赖管理：</p>
-<ol type="1">
-<li><p>引入第三方库：Java项目通常依赖于各种第三方库和框架，如数据库驱动程序、HTTP客户端库、日志库等。通过在项目配置文件中定义这些依赖关系，你可以告诉构建工具从中央仓库或其他位置下载这些库，然后将它们添加到你的项目中。</p></li>
-<li><p>版本控制：依赖管理工具允许你指定依赖库的版本号，确保你使用的是特定版本，避免不同版本之间的冲突。</p></li>
-<li><p>自动下载和更新：一旦依赖关系被定义，构建工具可以自动下载和更新这些依赖项，从而简化了维护过程。</p></li>
-<li><p>可重用性：依赖管理使你的项目可以更容易地与其他项目共享，因为其他项目可以使用相同的依赖定义。</p></li>
-</ol>
-<h4 id="vector-赋值">vector 赋值</h4>
-<ol type="1">
-<li>使用赋值操作符</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination;</span><br><span class="line">destination = source; // 使用赋值操作符</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>使用拷贝构造函数</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination(source); // 使用拷贝构造函数</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>使用 <code>assign</code> 函数</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination;</span><br><span class="line">destination.assign(source.begin(), source.end()); // 使用 assign 函数</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>使用范围初始化 / 范围构造函数</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination(source.begin(), source.end()); // 范围初始化</span><br></pre></td></tr></table></figure>
-<h4 id="vector-构造">vector 构造</h4>
-<ol type="1">
-<li>默认构造函数 其实也就是直接声明</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector; // 创建一个空的整数向量</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>指定大小的构造函数</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector(5); // 创建一个包含5个默认构造的整数的向量</span><br></pre></td></tr></table></figure>
-<p>默认值为 0</p>
-<ol start="3" type="1">
-<li>指定大小和初值的构造函数</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector(5, 42); // 创建一个包含5个值为42的整数的向量</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>拷贝构造 有两种，一种是范围的拷贝构造，另一种是直接写另一个 vector
-的拷贝构造</li>
-</ol>
-<p>``` std::vector<int> myVector(myIteratorBegin, myIteratorEnd); //
-用迭代器范围初始化向量</int></p>
-<p>std::vector<int> myVector(otherVector); // 使用另一个向量初始化新向量
-```s</int></p>
+<h4 id="增加节点值">增加节点值</h4>
+<p>​</p>
+<h4 id="代码">代码</h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> FIBONACCI_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FIBONACCI_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeapNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    T value;</span><br><span class="line">    <span class="type">int</span> degree;</span><br><span class="line">    <span class="type">bool</span> marked;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* parent;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* nxt;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* prev;</span><br><span class="line">    <span class="built_in">FibonacciHeapNode</span>(T val)</span><br><span class="line">        : <span class="built_in">value</span>(val)</span><br><span class="line">        , <span class="built_in">degree</span>(<span class="number">0</span>)</span><br><span class="line">        , <span class="built_in">marked</span>(<span class="literal">false</span>)</span><br><span class="line">        , <span class="built_in">parent</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">child</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">nxt</span>(<span class="keyword">this</span>)</span><br><span class="line">        , <span class="built_in">prev</span>(<span class="keyword">this</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeap</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        FibonacciHeapNode&lt;T&gt;* minNode; </span><br><span class="line">        <span class="comment">// 外部访问接口</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function">FibonacciHeapNode&lt;T&gt;* <span class="title">extractMin</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="built_in">FibonacciHeap</span>()</span><br><span class="line">            : <span class="built_in">minNode</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">size</span>(<span class="number">0</span>)</span><br><span class="line">            , <span class="built_in">maxDegree</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="keyword">private</span>: <span class="comment">// 内部实现细节</span></span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        <span class="type">int</span> maxDegree;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insertNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">removeNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">consolidate</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">decrease</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cutNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cascading</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insert</span>(T val) &#123;</span><br><span class="line">    <span class="built_in">insertNode</span>(<span class="keyword">new</span> <span class="built_in">FibonacciHeapNode</span>(val));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insertNode</span>(FibonacciHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">        minNode = cur;</span><br><span class="line">        maxDegree = <span class="number">1</span>; <span class="comment">// Initialize maxDegree</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cur-&gt;prev = minNode-&gt;prev;</span><br><span class="line">        cur-&gt;nxt = minNode;</span><br><span class="line">        minNode-&gt;prev-&gt;nxt = cur;</span><br><span class="line">        minNode-&gt;prev = cur;</span><br><span class="line">        <span class="keyword">if</span> (cur-&gt;value &lt; minNode-&gt;value) &#123;</span><br><span class="line">            minNode = cur;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">linkAdd</span><span class="params">(FibonacciHeapNode&lt;T&gt;* x, FibonacciHeapNode&lt;T&gt;* y)</span> </span>&#123;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* temp;</span><br><span class="line">    temp = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt = y-&gt;nxt;</span><br><span class="line">    y-&gt;nxt-&gt;nxt = x;</span><br><span class="line">    y-&gt;nxt = temp;</span><br><span class="line">    temp-&gt;prev = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">pop</span>() &#123;</span><br><span class="line">    <span class="built_in">extractMin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">removeNode</span>(FibonacciHeapNode&lt;T&gt;* x) &#123;</span><br><span class="line">    x-&gt;prev-&gt;nxt = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt-&gt;prev = x-&gt;prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function">FibonacciHeap&lt;T&gt;* <span class="title">heapUnion</span><span class="params">(FibonacciHeap&lt;T&gt;* h1, FibonacciHeap&lt;T&gt;* h2)</span> </span>&#123;</span><br><span class="line">    FibonacciHeap&lt;T&gt;* temp;</span><br><span class="line">    <span class="keyword">if</span> (h1 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h2-&gt;maxDegree &gt; h1-&gt;maxDegree) &#123;</span><br><span class="line">        temp = h1;</span><br><span class="line">        h1 = h2;</span><br><span class="line">        h2 = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h1-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        h1-&gt;size = h2-&gt;size;</span><br><span class="line">        h1-&gt;maxDegree = h2-&gt;maxDegree;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">linkAdd</span>(h1-&gt;minNode, h2-&gt;minNode);</span><br><span class="line">        <span class="keyword">if</span> (h1-&gt;minNode-&gt;value &gt; h2-&gt;minNode-&gt;value)</span><br><span class="line">            h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">FibonacciHeapNode&lt;T&gt;* FibonacciHeap&lt;T&gt;::<span class="built_in">extractMin</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child = <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* Min = minNode;</span><br><span class="line">    <span class="keyword">while</span> (Min-&gt;child != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        child = Min-&gt;child;</span><br><span class="line">        <span class="built_in">removeNode</span>(child);</span><br><span class="line">        <span class="keyword">if</span> (child-&gt;nxt == child)</span><br><span class="line">            Min-&gt;child = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            Min-&gt;child = child-&gt;nxt;</span><br><span class="line">        <span class="built_in">linkAdd</span>(child, minNode);</span><br><span class="line">        child-&gt;parent = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">removeNode</span>(Min);</span><br><span class="line">    <span class="keyword">if</span> (Min-&gt;nxt == Min) &#123;</span><br><span class="line">        minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        minNode = Min-&gt;nxt;</span><br><span class="line">        <span class="built_in">consolidate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    --size;</span><br><span class="line">    <span class="keyword">return</span> Min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">consolidate</span>() &#123;</span><br><span class="line">    <span class="type">int</span> maxDegreePossible = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="built_in">log2</span>(size)) + <span class="number">1</span>;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; <span class="built_in">degreeTable</span>(maxDegreePossible, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterate through the root list and consolidate nodes with the same degree</span></span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* cur = minNode;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; rootsToVisit;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        rootsToVisit.<span class="built_in">push_back</span>(cur);</span><br><span class="line">        cur = cur-&gt;nxt;</span><br><span class="line">    &#125; <span class="keyword">while</span> (cur != minNode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (FibonacciHeapNode&lt;T&gt;* node : rootsToVisit) &#123;</span><br><span class="line">        <span class="type">int</span> degree = node-&gt;degree;</span><br><span class="line">        <span class="keyword">while</span> (degreeTable[degree] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            FibonacciHeapNode&lt;T&gt;* other = degreeTable[degree];</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;value &gt; other-&gt;value) &#123;</span><br><span class="line">                <span class="comment">// Swap the nodes if necessary</span></span><br><span class="line">                FibonacciHeapNode&lt;T&gt;* temp = node;</span><br><span class="line">                node = other;</span><br><span class="line">                other = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Link other as a child of node</span></span><br><span class="line">            <span class="built_in">linkAdd</span>(node, other);</span><br><span class="line">            degreeTable[degree] = <span class="literal">nullptr</span>;</span><br><span class="line">            degree++;</span><br><span class="line">        &#125;</span><br><span class="line">        degreeTable[degree] = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rebuild the root list with consolidated nodes</span></span><br><span class="line">    minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; maxDegreePossible; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (degreeTable[i] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                minNode = degreeTable[i];</span><br><span class="line">                minNode-&gt;nxt = minNode;</span><br><span class="line">                minNode-&gt;prev = minNode;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">insertNode</span>(degreeTable[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::decrease(FibonacciHeapNode&lt;T&gt;* cur, T value) &#123;</span></span><br><span class="line"><span class="comment">//     FibonacciHeapNode&lt;T&gt;* parent;</span></span><br><span class="line"><span class="comment">//     if (minNode == nullptr || cur == nullptr) return ;</span></span><br><span class="line"><span class="comment">//     if (value &gt;= cur-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         throw std::runtime_error(&quot;illegal decreasing.&quot;);</span></span><br><span class="line"><span class="comment">//         return ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     cur-&gt;value = value;</span></span><br><span class="line"><span class="comment">//     if (parent != null &amp;&amp; cur-&gt;value &lt; parent-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         cutNode(cur, parent);</span></span><br><span class="line"><span class="comment">//         cascading(parent);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     if (cur-&gt;value &lt; minNode)</span></span><br><span class="line"><span class="comment">//         minNode = cur;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cutNode(FibonacciHeapNode&lt;T&gt;* cur, FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"><span class="comment">//     removeNode(cur);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cascading(FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="参考文章">参考文章</h4>
+<p>https://www.cnblogs.com/skywang12345/p/3659060.html 算法导论</p>
+<p>https://www.cnblogs.com/junyuhuang/p/4463758.html</p>
+<p>https://wangkuiwu.github.io/2013/03/05/fabonacci-cpp/</p>
+<p>https://blog.csdn.net/u013148167/article/details/54236076</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>数据结构关键记录2</title>
-    <url>/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%952/</url>
-    <content><![CDATA[<h4 id="树状数组">树状数组</h4>
-<p>树状数组或二元索引树(Binary Indexed Tree)，又以其发明者命名为 Fenwick
-树。其初衷是解决数据压缩里面的累计频率(Cumulative
-Frequency)的计算问题。</p>
-<p>满足差分性质？ 不满足差分性质的实现？</p>
-<p>树状数组倍增？</p>
-<p>多维树状数组</p>
-<h4 id="treap">Treap</h4>
-<p>有旋和非旋。一种弱平衡的二叉搜索树。</p>
-<p>删除操作，可以找到后继以后交换值，然后向右删除？还是一直旋转操作？</p>
-<p>无旋 splite 和合并</p>
-<p>复杂度正确性证明？？</p>
-<p>https://www.luogu.com.cn/problem/solution/P3369?page=3</p>
-<h4 id="sqrt-tree">sqrt tree</h4>
-<p>开方树</p>
-<p>使用场合？复杂度证明？代码实现？同类之间的区别？</p>
-<h4 id="线段树">线段树</h4>
-<p>求解最大和子段？区间染色问题？ 线段树的动态开点</p>
-<p>主席树</p>
-<p>是不是都能解决区间乘积 区间 min max gcd？</p>
-]]></content>
-      <tags>
-        <tag>Data Structure</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>现代优化算法</title>
-    <url>/2023/08/25/%E7%8E%B0%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>20 世纪 70
-年代初期，随着计算复杂性的理论逐步形成，科学工作者发现并证明了大量来源于实际生活中的组合最优化问题是非常难解的，即所谓的
-NP 完全问题和 NP 难问题。 80
-年代一些现代化优化算法，如遗传算法、模拟退火算法、人工神经网络算法等。这些算法可以比较容易的解决一些复杂的、常规算法很难解决的问题。</p>
-<h4 id="遗传算法genetic-algorithm-ga">遗传算法(Genetic Algorithm,
-GA)</h4>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
   </entry>
   <entry>
     <title>杂记</title>
@@ -2371,6 +2262,154 @@ MySQL 的话，需要在电脑上开启它)</p>
 ]]></content>
       <tags>
         <tag>Miscellaneous</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>杂记2</title>
+    <url>/2023/11/12/%E6%9D%82%E8%AE%B02/</url>
+    <content><![CDATA[<h4 id="apt">apt</h4>
+<p>Ubuntu 主要使用 apt(Advanced Package Tool)作为包管理工具。APT
+是一套工具集，用于安装、更新、卸载和管理软件包。</p>
+<p>下面是一些常见的 apt 指令： sudo apt update:
+用于更新本地包信息的命令，以确保系统知道可用的软件包和更新。 sudo apt
+upgrade: 用于升级已安装软件包的命令。 sudo apt install package_name:
+用于安装特定软件包的命令。 sudo apt remove package_name:
+用于卸载已安装的软件包。 sudo apt search search_term:
+用于在存储库中搜索软件包的命令。 sudo apt list:
+用于列出可用的软件包。</p>
+<p>Ubuntu的软件存储库包含大量的开源软件包，而APT使得管理和安装这些软件包变得非常方便。APT还支持依赖解决，确保软件包安装时满足其所需的依赖项。</p>
+<p>虽然 Ubuntu 使用 apt，但是我们也可以在 Ubuntu
+上面安装其他的包管理工具。</p>
+<h4 id="arch-linux">Arch Linux</h4>
+<p>Arch
+Linux是一种面向Linux发烧友和高级用户的Linux发行版，以其<strong>极简的设计和强大的定制性</strong>而闻名。</p>
+<p>Arch
+Linux采用滚动发布模型，这意味着它不会按照固定的版本发布，而是持续更新软件包以提供最新的功能和安全性修复。</p>
+<p>Arch
+Linux的包管理系统使用称为"pacman"的工具，它允许用户轻松地安装、更新和删除软件包。用户可以通过Arch
+User
+Repository（AUR）来访问大量社区维护的软件包，这些软件包不包含在官方仓库中，从而增加了软件可用性。</p>
+<p>由于Arch
+Linux的定制性，用户必须亲自配置和设置系统，包括桌面环境、窗口管理器和其他系统组件。这使得Arch
+Linux适合那些喜欢自定义自己的Linux系统的用户，但也可能对新手来说有一定的学习曲线。</p>
+<h4 id="数据库结构">数据库结构</h4>
+<p>一般数据库中有着不同的用户，不同用户下有着不同是数据库，并且不同数据库下有着不同的表格。</p>
+<p>这是数据库管理的一种基本安全和隔离策略，有助于确保数据的完整性、安全性和隔离。</p>
+<p>下面是一些应用情况：</p>
+<ol type="1">
+<li><p><strong>不同用户访问不同的数据库</strong>：不同用户可以被授予访问不同数据库的权限。这意味着用户A可以访问数据库A，而用户B可以访问数据库B，但它们无法相互访问对方的数据库。</p></li>
+<li><p><strong>不同用户访问相同数据库的不同表格</strong>：即使多个用户可以访问相同的数据库，也可以根据其权限来访问和操作不同的表格。例如，用户A可能只能访问表格X，而用户B可以访问表格Y。</p></li>
+<li><p><strong>权限级别不同</strong>：用户的权限级别可以不同，例如只读用户、读写用户、管理员等。这决定了用户可以执行的操作和管理的范围。</p></li>
+</ol>
+<h4 id="gis-系统">GIS 系统</h4>
+<h4 id="os.path.join-函数">os.path.join 函数</h4>
+<p><code>os.path.join</code> 函数用于构建文件和目录路径。
+它可以接受任意数量的字符串参数，然后根据操作系统的规则构建有效的路径字符串。
+<strong>这对于创建跨平台的路径非常有用</strong>，因为不同操作系统使用不同的路径分隔符（例如，在Unix和Linux系统上是/，在Windows系统上是）。</p>
+<h4 id="os.listdir-函数">os.listdir() 函数</h4>
+<p><code>os.listdir()</code> 函数用于列出指定目录中的文件和子目录。</p>
+<h4 id="dos-命令">Dos 命令</h4>
+<h4 id="低代码平台">低代码平台</h4>
+<p>低代码平台(Low-Code
+Platform)是一种用于应用程序开发的软件开发工具或平台，它旨在简化和加速应用程序开发过程。这种平台允许开发人员使用图形用户界面、拖放式元素和少量的编程代码来创建应用程序，而不需要从头开始编写大量的传统编程代码。</p>
+<h4 id="jdk-和-jre">JDK 和 JRE</h4>
+<ol type="1">
+<li><p>Java开发工具包 (JDK): JDK
+是用于开发Java应用程序的核心工具集。它包括Java编译器 (javac)、Java虚拟机
+(JVM)、标准类库和各种开发工具。JDK是开发Java应用程序的必备组件，你需要安装它才能开始编写和运行Java代码。</p></li>
+<li><p>Java运行时环境 (JRE): JRE
+包含Java应用程序的运行时组件，包括Java虚拟机 (JVM)
+和标准类库。如果你只需要运行Java应用程序而不是开发它们，你可以安装JRE而不是完整的JDK。</p></li>
+</ol>
+<p>它们的简写是： JDK: Java Development Kit（Java开发工具包） JRE: Java
+Runtime Environment（Java运行时环境）</p>
+<p>javac 是 Java 编程语言中的编译器。它用于将 Java 源代码文件（以 .java
+为扩展名）转换成 Java 字节码文件（以 .class
+为扩展名），这些字节码文件可以由 Java
+虚拟机（JVM）执行。编译器负责将源代码翻译成计算机可以理解的字节码，以便在运行时执行。</p>
+<p>使用 javac 命令，你可以编译你的 Java
+源代码文件，检查代码中是否有语法错误，以及生成可执行的字节码文件。</p>
+<h4 id="使用-jvm-执行">使用 JVM 执行</h4>
+<p>使用 JVM 执行编译后的 java 代码，有很多重要作用。</p>
+<ol type="1">
+<li><p>跨平台性：Java程序编译成字节码，而不是与特定操作系统或硬件相关的本地机器代码。这使得Java应用程序具有跨平台性，可以在支持Java的不同操作系统上运行，只要这些系统上安装了相应的JVM。这大大简化了跨平台开发和部署。</p></li>
+<li><p>安全性：JVM提供了各种安全特性，包括字节码验证和安全沙箱，以确保Java应用程序在运行时不会执行危险的操作或访问系统资源。这有助于防止恶意代码的执行和对系统的潜在损害。</p></li>
+<li><p>内存管理：JVM负责Java应用程序的内存管理，包括垃圾回收。这减轻了开发人员的负担，因为他们不必手动分配和释放内存，而是依赖JVM来自动处理内存管理。</p></li>
+<li><p>性能优化：JVM具有即时编译器和其他优化技术，可以在运行时提高Java应用程序的性能。它可以根据应用程序的行为动态进行性能调整，以提供更高的执行效率。</p></li>
+<li><p>多线程支持：JVM提供了多线程支持，允许Java应用程序轻松地创建和管理多个线程，以实现并行执行和并发操作。</p></li>
+<li><p>异常处理：JVM提供了强大的异常处理机制，使开发人员能够更容易地检测和处理错误条件，从而增加应用程序的可靠性。</p></li>
+</ol>
+<h4 id="python-解释器">python 解释器</h4>
+<p>Python也使用了虚拟机的概念，具有跨平台性质。Python代码通常由Python解释器执行，这个<strong>解释器充当了Python虚拟机的角色</strong>。Python解释器负责将Python源代码转换为字节码，然后在Python虚拟机上执行这些字节码。</p>
+<h4 id="java-环境管理">Java 环境管理</h4>
+<p>构建工具(Apache Meaven  Gradle):</p>
+<ol type="1">
+<li><p><strong>项目构建自动化</strong>。构建工具可以自动化构建过程，包括编译
+Java 源代码、打包 JAR
+文件、运行单元测试、生成文档等。这大大减少了开发人员手动操作的负担。</p></li>
+<li><p><strong>依赖管理</strong>。构建工具可以管理项目的依赖关系，包括第三方库、框架和插件。</p></li>
+<li><p>多模块项目支持：构建工具允许你将项目分解为多个模块，每个模块可以有自己的构建配置。这有助于组织大型项目并提高代码的模块化性。</p></li>
+</ol>
+<p>依赖管理：</p>
+<ol type="1">
+<li><p>引入第三方库：Java项目通常依赖于各种第三方库和框架，如数据库驱动程序、HTTP客户端库、日志库等。通过在项目配置文件中定义这些依赖关系，你可以告诉构建工具从中央仓库或其他位置下载这些库，然后将它们添加到你的项目中。</p></li>
+<li><p>版本控制：依赖管理工具允许你指定依赖库的版本号，确保你使用的是特定版本，避免不同版本之间的冲突。</p></li>
+<li><p>自动下载和更新：一旦依赖关系被定义，构建工具可以自动下载和更新这些依赖项，从而简化了维护过程。</p></li>
+<li><p>可重用性：依赖管理使你的项目可以更容易地与其他项目共享，因为其他项目可以使用相同的依赖定义。</p></li>
+</ol>
+<h4 id="vector-赋值">vector 赋值</h4>
+<ol type="1">
+<li>使用赋值操作符</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination;</span><br><span class="line">destination = source; // 使用赋值操作符</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>使用拷贝构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination(source); // 使用拷贝构造函数</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>使用 <code>assign</code> 函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination;</span><br><span class="line">destination.assign(source.begin(), source.end()); // 使用 assign 函数</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>使用范围初始化 / 范围构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; source = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line">std::vector&lt;int&gt; destination(source.begin(), source.end()); // 范围初始化</span><br></pre></td></tr></table></figure>
+<h4 id="vector-构造">vector 构造</h4>
+<ol type="1">
+<li>默认构造函数 其实也就是直接声明</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector; // 创建一个空的整数向量</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>指定大小的构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector(5); // 创建一个包含5个默认构造的整数的向量</span><br></pre></td></tr></table></figure>
+<p>默认值为 0</p>
+<ol start="3" type="1">
+<li>指定大小和初值的构造函数</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">std::vector&lt;int&gt; myVector(5, 42); // 创建一个包含5个值为42的整数的向量</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>拷贝构造 有两种，一种是范围的拷贝构造，另一种是直接写另一个 vector
+的拷贝构造</li>
+</ol>
+<p>``` std::vector<int> myVector(myIteratorBegin, myIteratorEnd); //
+用迭代器范围初始化向量</int></p>
+<p>std::vector<int> myVector(otherVector); // 使用另一个向量初始化新向量
+```s</int></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>现代优化算法</title>
+    <url>/2023/08/25/%E7%8E%B0%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<p>20 世纪 70
+年代初期，随着计算复杂性的理论逐步形成，科学工作者发现并证明了大量来源于实际生活中的组合最优化问题是非常难解的，即所谓的
+NP 完全问题和 NP 难问题。 80
+年代一些现代化优化算法，如遗传算法、模拟退火算法、人工神经网络算法等。这些算法可以比较容易的解决一些复杂的、常规算法很难解决的问题。</p>
+<h4 id="遗传算法genetic-algorithm-ga">遗传算法(Genetic Algorithm,
+GA)</h4>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
       </tags>
   </entry>
   <entry>
@@ -3576,43 +3615,32 @@ https://www.zhihu.com/question/34866983/answer/60191363
       </tags>
   </entry>
   <entry>
-    <title>斐波那契堆</title>
-    <url>/2023/10/09/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E5%A0%86/</url>
-    <content><![CDATA[<p>斐波那契堆数据结构有两种用途。</p>
-<ol type="1">
-<li>支持一系列操作，这些操作构成了所谓的「可合并堆」</li>
-<li>斐波那契的一系列操作可以在常数时间内完成，这使得这种数据结构非常适合需要频繁调用这些操作的应用。</li>
-</ol>
-<h4 id="优势与劣势">优势与劣势</h4>
-<p>斐波那契堆有着更好的均摊时间复杂度，但是最坏情况下的时间复杂度会比较高。在一些很多条边的稠密图中，每一次调用
-DECREASE-KEY 需要 O(1) 此时比普通的二项堆是要好一些的。</p>
-<p>但是从实际角度出发，除了某些需要管理大量数据的应用以外，对于大多数应用，斐波那契堆的常数因子和编程复杂性使得它比普通的二项堆或者(K
-项堆)并不那么适用。</p>
-<h4 id="插入操作">插入操作</h4>
-<p>斐波那契堆的根链表是「双向链表」，我们将 min
-节点看作为双向链表的表头。后面插入节点的时候就是将节点插入到 min
-节点之前，也就是双向链表的末尾。</p>
-<h4 id="合并操作">合并操作</h4>
-<p>合并操作就是将一个堆的根链表插入到另一个堆的根链表上。</p>
-<h4 id="减小节点值">减小节点值</h4>
-<p>难点在于，如果我们减小节点值后，破坏了「最小堆」的性质，应该如何维护呢？</p>
-<ol type="1">
-<li>首先，将「被减小节点」它所在的最小堆剥离出来，然后将该节点或者其子树(如果有的话)关联到根链中。</li>
-<li>对于「被减少节点」的原父节点进行「级联剪切」。所谓级联剪切，就是在被减小节点破坏了最小堆性质，并且被切下来以后，再从它的父节点递归进行级联剪切的操作。
-级联剪切具体地：如果父节点的 marked 为 false，赋值为 true，然后退出。
-否则，将父节点也从最小堆中切下来，继续递归。
-marked标记的作用就是用来标记"该节点的子节点是否有被删除过"，它的作用是来实现级联剪切。而级联剪切的真正目的是为了防止"最小堆"由二叉树演化成链表。</li>
-</ol>
-<h4 id="增加节点值">增加节点值</h4>
-<p>​</p>
-<h4 id="代码">代码</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> FIBONACCI_HPP</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> FIBONACCI_HPP</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeapNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    T value;</span><br><span class="line">    <span class="type">int</span> degree;</span><br><span class="line">    <span class="type">bool</span> marked;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* parent;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* nxt;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* prev;</span><br><span class="line">    <span class="built_in">FibonacciHeapNode</span>(T val)</span><br><span class="line">        : <span class="built_in">value</span>(val)</span><br><span class="line">        , <span class="built_in">degree</span>(<span class="number">0</span>)</span><br><span class="line">        , <span class="built_in">marked</span>(<span class="literal">false</span>)</span><br><span class="line">        , <span class="built_in">parent</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">child</span>(<span class="literal">nullptr</span>)</span><br><span class="line">        , <span class="built_in">nxt</span>(<span class="keyword">this</span>)</span><br><span class="line">        , <span class="built_in">prev</span>(<span class="keyword">this</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FibonacciHeap</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        FibonacciHeapNode&lt;T&gt;* minNode; </span><br><span class="line">        <span class="comment">// 外部访问接口</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pop</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function">FibonacciHeapNode&lt;T&gt;* <span class="title">extractMin</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="built_in">FibonacciHeap</span>()</span><br><span class="line">            : <span class="built_in">minNode</span>(<span class="literal">nullptr</span>)</span><br><span class="line">            , <span class="built_in">size</span>(<span class="number">0</span>)</span><br><span class="line">            , <span class="built_in">maxDegree</span>(<span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="keyword">private</span>: <span class="comment">// 内部实现细节</span></span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        <span class="type">int</span> maxDegree;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">insertNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">removeNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">consolidate</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">decrease</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, T)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cutNode</span><span class="params">(FibonacciHeapNode&lt;T&gt;*, FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">cascading</span><span class="params">(FibonacciHeapNode&lt;T&gt;*)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insert</span>(T val) &#123;</span><br><span class="line">    <span class="built_in">insertNode</span>(<span class="keyword">new</span> <span class="built_in">FibonacciHeapNode</span>(val));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">insertNode</span>(FibonacciHeapNode&lt;T&gt;* cur) &#123;</span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">        minNode = cur;</span><br><span class="line">        maxDegree = <span class="number">1</span>; <span class="comment">// Initialize maxDegree</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cur-&gt;prev = minNode-&gt;prev;</span><br><span class="line">        cur-&gt;nxt = minNode;</span><br><span class="line">        minNode-&gt;prev-&gt;nxt = cur;</span><br><span class="line">        minNode-&gt;prev = cur;</span><br><span class="line">        <span class="keyword">if</span> (cur-&gt;value &lt; minNode-&gt;value) &#123;</span><br><span class="line">            minNode = cur;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">linkAdd</span><span class="params">(FibonacciHeapNode&lt;T&gt;* x, FibonacciHeapNode&lt;T&gt;* y)</span> </span>&#123;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* temp;</span><br><span class="line">    temp = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt = y-&gt;nxt;</span><br><span class="line">    y-&gt;nxt-&gt;nxt = x;</span><br><span class="line">    y-&gt;nxt = temp;</span><br><span class="line">    temp-&gt;prev = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">pop</span>() &#123;</span><br><span class="line">    <span class="built_in">extractMin</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">removeNode</span>(FibonacciHeapNode&lt;T&gt;* x) &#123;</span><br><span class="line">    x-&gt;prev-&gt;nxt = x-&gt;nxt;</span><br><span class="line">    x-&gt;nxt-&gt;prev = x-&gt;prev;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function">FibonacciHeap&lt;T&gt;* <span class="title">heapUnion</span><span class="params">(FibonacciHeap&lt;T&gt;* h1, FibonacciHeap&lt;T&gt;* h2)</span> </span>&#123;</span><br><span class="line">    FibonacciHeap&lt;T&gt;* temp;</span><br><span class="line">    <span class="keyword">if</span> (h1 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2 == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h2-&gt;maxDegree &gt; h1-&gt;maxDegree) &#123;</span><br><span class="line">        temp = h1;</span><br><span class="line">        h1 = h2;</span><br><span class="line">        h2 = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (h1-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        h1-&gt;size = h2-&gt;size;</span><br><span class="line">        h1-&gt;maxDegree = h2-&gt;maxDegree;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h2-&gt;minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">linkAdd</span>(h1-&gt;minNode, h2-&gt;minNode);</span><br><span class="line">        <span class="keyword">if</span> (h1-&gt;minNode-&gt;value &gt; h2-&gt;minNode-&gt;value)</span><br><span class="line">            h1-&gt;minNode = h2-&gt;minNode;</span><br><span class="line">        <span class="keyword">delete</span> h2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> h1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">FibonacciHeapNode&lt;T&gt;* FibonacciHeap&lt;T&gt;::<span class="built_in">extractMin</span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* child = <span class="literal">nullptr</span>;</span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* Min = minNode;</span><br><span class="line">    <span class="keyword">while</span> (Min-&gt;child != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        child = Min-&gt;child;</span><br><span class="line">        <span class="built_in">removeNode</span>(child);</span><br><span class="line">        <span class="keyword">if</span> (child-&gt;nxt == child)</span><br><span class="line">            Min-&gt;child = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            Min-&gt;child = child-&gt;nxt;</span><br><span class="line">        <span class="built_in">linkAdd</span>(child, minNode);</span><br><span class="line">        child-&gt;parent = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">removeNode</span>(Min);</span><br><span class="line">    <span class="keyword">if</span> (Min-&gt;nxt == Min) &#123;</span><br><span class="line">        minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        minNode = Min-&gt;nxt;</span><br><span class="line">        <span class="built_in">consolidate</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    --size;</span><br><span class="line">    <span class="keyword">return</span> Min;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="type">void</span> FibonacciHeap&lt;T&gt;::<span class="built_in">consolidate</span>() &#123;</span><br><span class="line">    <span class="type">int</span> maxDegreePossible = <span class="built_in">static_cast</span>&lt;<span class="type">int</span>&gt;(<span class="built_in">log2</span>(size)) + <span class="number">1</span>;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; <span class="built_in">degreeTable</span>(maxDegreePossible, <span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Iterate through the root list and consolidate nodes with the same degree</span></span><br><span class="line">    FibonacciHeapNode&lt;T&gt;* cur = minNode;</span><br><span class="line">    std::vector&lt;FibonacciHeapNode&lt;T&gt;*&gt; rootsToVisit;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        rootsToVisit.<span class="built_in">push_back</span>(cur);</span><br><span class="line">        cur = cur-&gt;nxt;</span><br><span class="line">    &#125; <span class="keyword">while</span> (cur != minNode);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (FibonacciHeapNode&lt;T&gt;* node : rootsToVisit) &#123;</span><br><span class="line">        <span class="type">int</span> degree = node-&gt;degree;</span><br><span class="line">        <span class="keyword">while</span> (degreeTable[degree] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            FibonacciHeapNode&lt;T&gt;* other = degreeTable[degree];</span><br><span class="line">            <span class="keyword">if</span> (node-&gt;value &gt; other-&gt;value) &#123;</span><br><span class="line">                <span class="comment">// Swap the nodes if necessary</span></span><br><span class="line">                FibonacciHeapNode&lt;T&gt;* temp = node;</span><br><span class="line">                node = other;</span><br><span class="line">                other = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Link other as a child of node</span></span><br><span class="line">            <span class="built_in">linkAdd</span>(node, other);</span><br><span class="line">            degreeTable[degree] = <span class="literal">nullptr</span>;</span><br><span class="line">            degree++;</span><br><span class="line">        &#125;</span><br><span class="line">        degreeTable[degree] = node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rebuild the root list with consolidated nodes</span></span><br><span class="line">    minNode = <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; maxDegreePossible; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (degreeTable[i] != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (minNode == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                minNode = degreeTable[i];</span><br><span class="line">                minNode-&gt;nxt = minNode;</span><br><span class="line">                minNode-&gt;prev = minNode;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">insertNode</span>(degreeTable[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::decrease(FibonacciHeapNode&lt;T&gt;* cur, T value) &#123;</span></span><br><span class="line"><span class="comment">//     FibonacciHeapNode&lt;T&gt;* parent;</span></span><br><span class="line"><span class="comment">//     if (minNode == nullptr || cur == nullptr) return ;</span></span><br><span class="line"><span class="comment">//     if (value &gt;= cur-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         throw std::runtime_error(&quot;illegal decreasing.&quot;);</span></span><br><span class="line"><span class="comment">//         return ;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     cur-&gt;value = value;</span></span><br><span class="line"><span class="comment">//     if (parent != null &amp;&amp; cur-&gt;value &lt; parent-&gt;value) &#123;</span></span><br><span class="line"><span class="comment">//         cutNode(cur, parent);</span></span><br><span class="line"><span class="comment">//         cascading(parent);</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//     if (cur-&gt;value &lt; minNode)</span></span><br><span class="line"><span class="comment">//         minNode = cur;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cutNode(FibonacciHeapNode&lt;T&gt;* cur, FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"><span class="comment">//     removeNode(cur);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// template&lt;class T&gt;</span></span><br><span class="line"><span class="comment">// void FibonacciHeap&lt;T&gt;::cascading(FibonacciHeapNode&lt;T&gt;* parent) &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h4 id="参考文章">参考文章</h4>
-<p>https://www.cnblogs.com/skywang12345/p/3659060.html 算法导论</p>
-<p>https://www.cnblogs.com/junyuhuang/p/4463758.html</p>
-<p>https://wangkuiwu.github.io/2013/03/05/fabonacci-cpp/</p>
-<p>https://blog.csdn.net/u013148167/article/details/54236076</p>
+    <title>矩阵求导</title>
+    <url>/2023/08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</url>
+    <content><![CDATA[<h4 id="向量变元的实值函数">向量变元的实值函数</h4>
+<p>单纯的对于<strong>向量</strong>求导和实数的求导大同小异，也是常数为
+0，乘法有链式法则，除法的形式也是一样的。
+其中有行向量形式和列向量形式（也叫做<strong>梯度向量形式</strong>，记作
+<span class="math inline">\(\nabla _{x}f(\boldsymbol{x})\)</span>）
+然后就是几个比较重要的常见公式</p>
+<h4 id="几个重要的向量变元求导公式">几个重要的向量变元求导公式</h4>
+<p>符合分子布局或者分母布局的形式(谁是列向量就是什么布局)</p>
+<img src="/.com//08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC.png" class title="矩阵求导公式">
+<h4 id="矩阵变元的实值函数">矩阵变元的实值函数</h4>
+<p>实值函数的求导其实还是比较容易理解的。对于矩阵变元无非是对于矩阵中每一个元素求导。
+和对于向量变元的实值函数求导差不多，也是有着四个求导法则，分别对应常数、线性相加、乘法和商。</p>
+<h4 id="几个重要的矩阵变元的求导公式">几个重要的矩阵变元的求导公式</h4>
+<img src="/.com//08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/%E7%9F%A9%E9%98%B5%E5%8F%98%E5%85%83%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png" class title="矩阵变元常用求导公式">
+<h4 id="更详细证明了解链接">更详细证明了解链接</h4>
+<p>比较懒，贴几个链接，更深的内容可以看 <strong>矩阵分析</strong>
+相关的书籍。 https://www.zhihu.com/question/352174717/answer/1436808747
+https://zhuanlan.zhihu.com/p/263777564
+https://zhuanlan.zhihu.com/p/273729929 讲解最小二乘法的高维形式
+https://zhuanlan.zhihu.com/p/38128785</p>
 ]]></content>
+      <tags>
+        <tag>Mathematic</tag>
+      </tags>
   </entry>
   <entry>
     <title>组合优化与随机性模型</title>
@@ -3649,34 +3677,6 @@ lp}{p}= \dfrac{m}{1 - \Phi(\frac{l - m}{\sigma}) -
 l}\)</span>，决策目标为 <span class="math inline">\(\min
 J(m)\)</span></li>
 </ol>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>矩阵求导</title>
-    <url>/2023/08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/</url>
-    <content><![CDATA[<h4 id="向量变元的实值函数">向量变元的实值函数</h4>
-<p>单纯的对于<strong>向量</strong>求导和实数的求导大同小异，也是常数为
-0，乘法有链式法则，除法的形式也是一样的。
-其中有行向量形式和列向量形式（也叫做<strong>梯度向量形式</strong>，记作
-<span class="math inline">\(\nabla _{x}f(\boldsymbol{x})\)</span>）
-然后就是几个比较重要的常见公式</p>
-<h4 id="几个重要的向量变元求导公式">几个重要的向量变元求导公式</h4>
-<p>符合分子布局或者分母布局的形式(谁是列向量就是什么布局)</p>
-<img src="/.com//08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC.png" class title="矩阵求导公式">
-<h4 id="矩阵变元的实值函数">矩阵变元的实值函数</h4>
-<p>实值函数的求导其实还是比较容易理解的。对于矩阵变元无非是对于矩阵中每一个元素求导。
-和对于向量变元的实值函数求导差不多，也是有着四个求导法则，分别对应常数、线性相加、乘法和商。</p>
-<h4 id="几个重要的矩阵变元的求导公式">几个重要的矩阵变元的求导公式</h4>
-<img src="/.com//08/24/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/%E7%9F%A9%E9%98%B5%E5%8F%98%E5%85%83%E6%B1%82%E5%AF%BC%E5%85%AC%E5%BC%8F.png" class title="矩阵变元常用求导公式">
-<h4 id="更详细证明了解链接">更详细证明了解链接</h4>
-<p>比较懒，贴几个链接，更深的内容可以看 <strong>矩阵分析</strong>
-相关的书籍。 https://www.zhihu.com/question/352174717/answer/1436808747
-https://zhuanlan.zhihu.com/p/263777564
-https://zhuanlan.zhihu.com/p/273729929 讲解最小二乘法的高维形式
-https://zhuanlan.zhihu.com/p/38128785</p>
 ]]></content>
       <tags>
         <tag>Mathematic</tag>
@@ -3783,60 +3783,6 @@ t，对于每个查询操作，如果当前时间戳相对太大了，说明已�
 莫队 - 知乎 (zhihu.com)</a></p>
 <p>OIwiki</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>规划论模型</title>
-    <url>/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<p>规划论模型也成为运筹与优化模型，在实际问题的建模中应用最为广泛，涉及面较广。</p>
-<h4 id="线性规划">线性规划</h4>
-<p>通常对于只有两个决策变量的情形，可以使用图解法加以求解。而对于大于两个决策变量的情形，需要借助单纯形方法加以求解。单纯形方法的基本思想是迭代思想的一种体现。首先找到初始可行解，并通过迭代逐步从可行域的一个顶点走向另一个顶点，最终走到最优解。
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png" class> 下面的例题： <img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg" class> 其中，求 max，所以我们把 z
-的系数取反。第二个不等式是大于等于，我们也同样取反。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-1; -2; 3];</span><br><span class="line">A = [3 2 1; -4 -7 6];</span><br><span class="line">b = [6; -8];</span><br><span class="line">Aeq = [2 1 5];</span><br><span class="line">beq = [4];</span><br><span class="line">vlb = [0; 0; 0];</span><br><span class="line">vub= [];</span><br><span class="line">[x, fval] = linprog(f, A, b, Aeq, beq, vlb, vub)</span><br></pre></td></tr></table></figure> #####
-运输问题 较为常见的运输模型叙述如下： &gt; 某物资有 m 个原产地 <span class="math inline">\(A_i\)</span>，产量为 <span class="math inline">\(a_i\)</span>；有 n 个销地 <span class="math inline">\(B_j\)</span>，销量关系为 <span class="math inline">\(b_j\)</span>，从 <span class="math inline">\(A_i\)</span> 到 <span class="math inline">\(B_j\)</span> 之间的单位物资运价为 <span class="math inline">\(d_{ij}\)</span>，则产销平衡时有 <span class="math inline">\(\sum\limits_{i = 1}^{m}a_i = \sum\limits_{j =
-1}^{n} b_j\)</span></p>
-<h5 id="多目标规划问题">多目标规划问题</h5>
-<p>在建立优化模型时有时追求的目标可能是多个，无论忽略其中的哪个因素可能都会降低优化结果的可信度。对于这类问题通常有下面的三种处理方式：
-1. 为每个目标设置重要性权重。 当存在 n
-个目标时，首先对目标函数进行归一化处理（就是消除量纲的影响，进行标准统一）后分别设置自己的权重，假设第
-i 个目标的权重为 <span class="math inline">\(\alpha_i\)</span>，目标取值为 <span class="math inline">\(M_i\)</span>，则可以建立下面的优化模型：<span class="math inline">\(\max \alpha_1M_1 + \alpha_2M_2 + ... +
-\alpha_nM_n\)</span> 2.
-为各种目标设定优先权，并将模型转化为多个优化模型。 3.
-分别求得个目标的最优值后，将主要目标设定为目标函数，而将次要目标适当调整后修改为约束条件。</p>
-<h4 id="适度指标的线性处理">适度指标的线性处理</h4>
-<p>适度指标是指该指标的他正是数据大了或者小了均不好，要充分地接近于某一事先给定的标准指标，比如水的
-PH 值。 求 <span class="math inline">\(\min |x - D|\)</span>，D
-为数据指标的理想取值。 例题： 一个富豪准备拿 10
-万元买股票。经过他的筛选，有三种候选投资股票。这三种股票的价格、收益率以及风险系数如表所示：
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png" class>
-这是一个多规划问题，我们如果直接列两个不等式的话，可能存在无解的情况。所以我们可以采取上面所说的方法2，建立如下的两个不等式条件：
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png" class> 如果我们优先考虑投资的风险，就可以建立下面的线性规划模型：
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png" class> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clear all</span><br><span class="line">Aeq = [1 3 5 1 -1 0 0; 2 5 8 0 0 1 -1; 10 20 30 0 0 0 0];</span><br><span class="line">beq = [15000; 25000; 100000];</span><br><span class="line">f = zeros(7, 1);</span><br><span class="line">f(5) = 1;</span><br><span class="line">vlb = zeros(7, 1);</span><br><span class="line">vub = [];</span><br><span class="line">a = [];</span><br><span class="line">b = [];</span><br><span class="line">[x, y] = linprog(f, a, b, Aeq, beq, vlb, vub);</span><br><span class="line">fx = x(1) + 3 * x(2) + 5 * x(3)</span><br><span class="line">lr = 2 * x(1) + 5 * x(2) + 8 * x(3)</span><br></pre></td></tr></table></figure></p>
-<h4 id="整数规划">整数规划</h4>
-<p>在线性规划模型中，如果各个决策变量的取值均为整数，则称此类模型为整数规划模型。
-整数规划的解法主要有穷举法(变量维数较高时不可行)、舍入凑整法、分支定界法(比较可行)、割平面法(比较可行)等。
-1. 舍入凑整法
-感觉很是玄学，就是假装没有整数约束，求解出最优解后每个变量往下或者上取整比较一下。
-2. 分支界定法
-如果不满足整数条件，任选一个不满足整数条件的变量来构造新的约束，在原可行域中剔除部分非整数解。然后，再在缩小的可行域中求解新构造的线性规划的最优解（好抽象）。
-步骤： 1. 解没有整数约束的问题。 2. 定界 3. 分支 4. 修改上下界 5.
-比较与剪枝</p>
-<h5 id="型整数规划">0-1 型整数规划</h5>
-<p>约束条件为 <span class="math inline">\(0 \leq x_i \leq 1,x_i\)</span>
-为整数。这样就和一般的整数规划问题统一了。</p>
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png" class title="整数规划求解函数">
-<p>实例： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-3; 2; -5];</span><br><span class="line">intcon = [1, 2, 3]; % 表示哪几个变量为整数</span><br><span class="line">A = [1 2 -1; 1 4 1; 1 1 0; 4 0 1];</span><br><span class="line">b = [2; 4; 3; 6];</span><br><span class="line">Aeq = [];</span><br><span class="line">beq = [];</span><br><span class="line">lb = [0; 0; 0]; % 如果下界为 0 上界为 1，其实就是 0-1 整数规划了。</span><br><span class="line">rb = [1; 1; 1];</span><br><span class="line">[x, val] = intlinprog(f, intcon, A, b, Aeq, beq, lb, rb)</span><br></pre></td></tr></table></figure></p>
-<h5 id="指派问题">指派问题</h5>
-<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png" class title="指派问题">
-<p>当人数和任务的个数不同的时候，会出现某些人没有任务可做或者某些任务无人完成的情况。出现这两种情况的时候只需将约束条件中的某一个等于
-1 的约束条件修改为小于等于 1
-即可。有时也可以一对多（一个人多任务，一个任务多个人）。 2013
-年碎纸片拼接复原问题 1： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cell&#123;1,1&#125;=imread(&#x27;000.bmp&#x27;);</span><br><span class="line">cell&#123;1,2&#125;=imread(&#x27;001.bmp&#x27;);</span><br><span class="line">cell&#123;1,3&#125;=imread(&#x27;002.bmp&#x27;);</span><br><span class="line">cell&#123;1,4&#125;=imread(&#x27;003.bmp&#x27;);</span><br><span class="line">cell&#123;1,5&#125;=imread(&#x27;004.bmp&#x27;);</span><br><span class="line">cell&#123;1,6&#125;=imread(&#x27;005.bmp&#x27;);</span><br><span class="line">cell&#123;1,7&#125;=imread(&#x27;006.bmp&#x27;);</span><br><span class="line">cell&#123;1,8&#125;=imread(&#x27;007.bmp&#x27;);</span><br><span class="line">cell&#123;1,9&#125;=imread(&#x27;008.bmp&#x27;);</span><br><span class="line">cell&#123;1,10&#125;=imread(&#x27;009.bmp&#x27;);</span><br><span class="line">cell&#123;1,11&#125;=imread(&#x27;010.bmp&#x27;);</span><br><span class="line">cell&#123;1,12&#125;=imread(&#x27;011.bmp&#x27;);</span><br><span class="line">cell&#123;1,13&#125;=imread(&#x27;012.bmp&#x27;);</span><br><span class="line">cell&#123;1,14&#125;=imread(&#x27;013.bmp&#x27;);</span><br><span class="line">cell&#123;1,15&#125;=imread(&#x27;014.bmp&#x27;);</span><br><span class="line">cell&#123;1,16&#125;=imread(&#x27;015.bmp&#x27;);</span><br><span class="line">cell&#123;1,17&#125;=imread(&#x27;016.bmp&#x27;);</span><br><span class="line">cell&#123;1,18&#125;=imread(&#x27;017.bmp&#x27;);</span><br><span class="line">cell&#123;1,19&#125;=imread(&#x27;018.bmp&#x27;);</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">level=graythresh(cell&#123;1,i&#125;);%选择灰度阈值</span><br><span class="line">cell1&#123;1,i&#125;=im2bw(cell&#123;1,i&#125;,level); %将图像二值化</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19                %循环19个图像</span><br><span class="line">    for k=1:19</span><br><span class="line">        xs(i,k)=0;</span><br><span class="line">        for j=1:1980</span><br><span class="line">            if (cell1&#123;1,i&#125;(j,72)==cell1&#123;1,k&#125;(j,1))%判断图像的边缘信息特征，求相似度矩阵</span><br><span class="line">                xs(i,k)=1+xs(i,k);</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">    xs(i,i)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19 </span><br><span class="line">da(i)=max(xs(i,:));</span><br><span class="line">end</span><br><span class="line">wei=find(da==max(da));for i=1:19</span><br><span class="line">    k=find(xs(i,[1:19])==da(i));  %求两两相邻的矩阵</span><br><span class="line">    lian(i,1)=i;                  %前面一个</span><br><span class="line">    lian(i,2)=k;                  %后面一个</span><br><span class="line">end</span><br><span class="line">lian(wei,1)=0;</span><br><span class="line">tou=lian(wei,2);</span><br><span class="line">xu(1)=tou;</span><br><span class="line">for i=1:18</span><br><span class="line">    xu(i+1)=lian(xu(i),2);        %正确的排列顺序</span><br><span class="line">end</span><br><span class="line">%根据排出来顺序xu画图</span><br><span class="line">for i=1:19</span><br><span class="line">I(:,[72*(i-1)+1:72*i])=cell&#123;1,xu(i)&#125;;   %图像的整合</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">imwrite(I,&#x27;hanzi.jpg&#x27;,&#x27;quality&#x27;,100);</span><br><span class="line">imshow(&#x27;hanzi.jpg&#x27;)          %输出图像</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h5 id="选址问题">选址问题</h5>
-<p>集合覆盖选址模型和最大覆盖选址模型。</p>
-]]></content>
-      <tags>
-        <tag>Mathematic</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机组成原理</title>
@@ -3997,6 +3943,60 @@ CPU，或者写入请求时，将数据写入内存。<strong>一般是低电平
 ]]></content>
       <tags>
         <tag>ComputerScience</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>规划论模型</title>
+    <url>/2023/08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<p>规划论模型也成为运筹与优化模型，在实际问题的建模中应用最为广泛，涉及面较广。</p>
+<h4 id="线性规划">线性规划</h4>
+<p>通常对于只有两个决策变量的情形，可以使用图解法加以求解。而对于大于两个决策变量的情形，需要借助单纯形方法加以求解。单纯形方法的基本思想是迭代思想的一种体现。首先找到初始可行解，并通过迭代逐步从可行域的一个顶点走向另一个顶点，最终走到最优解。
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/linprog.png" class> 下面的例题： <img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/problem1.jpg" class> 其中，求 max，所以我们把 z
+的系数取反。第二个不等式是大于等于，我们也同样取反。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-1; -2; 3];</span><br><span class="line">A = [3 2 1; -4 -7 6];</span><br><span class="line">b = [6; -8];</span><br><span class="line">Aeq = [2 1 5];</span><br><span class="line">beq = [4];</span><br><span class="line">vlb = [0; 0; 0];</span><br><span class="line">vub= [];</span><br><span class="line">[x, fval] = linprog(f, A, b, Aeq, beq, vlb, vub)</span><br></pre></td></tr></table></figure> #####
+运输问题 较为常见的运输模型叙述如下： &gt; 某物资有 m 个原产地 <span class="math inline">\(A_i\)</span>，产量为 <span class="math inline">\(a_i\)</span>；有 n 个销地 <span class="math inline">\(B_j\)</span>，销量关系为 <span class="math inline">\(b_j\)</span>，从 <span class="math inline">\(A_i\)</span> 到 <span class="math inline">\(B_j\)</span> 之间的单位物资运价为 <span class="math inline">\(d_{ij}\)</span>，则产销平衡时有 <span class="math inline">\(\sum\limits_{i = 1}^{m}a_i = \sum\limits_{j =
+1}^{n} b_j\)</span></p>
+<h5 id="多目标规划问题">多目标规划问题</h5>
+<p>在建立优化模型时有时追求的目标可能是多个，无论忽略其中的哪个因素可能都会降低优化结果的可信度。对于这类问题通常有下面的三种处理方式：
+1. 为每个目标设置重要性权重。 当存在 n
+个目标时，首先对目标函数进行归一化处理（就是消除量纲的影响，进行标准统一）后分别设置自己的权重，假设第
+i 个目标的权重为 <span class="math inline">\(\alpha_i\)</span>，目标取值为 <span class="math inline">\(M_i\)</span>，则可以建立下面的优化模型：<span class="math inline">\(\max \alpha_1M_1 + \alpha_2M_2 + ... +
+\alpha_nM_n\)</span> 2.
+为各种目标设定优先权，并将模型转化为多个优化模型。 3.
+分别求得个目标的最优值后，将主要目标设定为目标函数，而将次要目标适当调整后修改为约束条件。</p>
+<h4 id="适度指标的线性处理">适度指标的线性处理</h4>
+<p>适度指标是指该指标的他正是数据大了或者小了均不好，要充分地接近于某一事先给定的标准指标，比如水的
+PH 值。 求 <span class="math inline">\(\min |x - D|\)</span>，D
+为数据指标的理想取值。 例题： 一个富豪准备拿 10
+万元买股票。经过他的筛选，有三种候选投资股票。这三种股票的价格、收益率以及风险系数如表所示：
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E8%82%A1%E7%A5%A8.png" class>
+这是一个多规划问题，我们如果直接列两个不等式的话，可能存在无解的情况。所以我们可以采取上面所说的方法2，建立如下的两个不等式条件：
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E7%AD%89%E5%BC%8F.png" class> 如果我们优先考虑投资的风险，就可以建立下面的线性规划模型：
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B.png" class> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">clear all</span><br><span class="line">Aeq = [1 3 5 1 -1 0 0; 2 5 8 0 0 1 -1; 10 20 30 0 0 0 0];</span><br><span class="line">beq = [15000; 25000; 100000];</span><br><span class="line">f = zeros(7, 1);</span><br><span class="line">f(5) = 1;</span><br><span class="line">vlb = zeros(7, 1);</span><br><span class="line">vub = [];</span><br><span class="line">a = [];</span><br><span class="line">b = [];</span><br><span class="line">[x, y] = linprog(f, a, b, Aeq, beq, vlb, vub);</span><br><span class="line">fx = x(1) + 3 * x(2) + 5 * x(3)</span><br><span class="line">lr = 2 * x(1) + 5 * x(2) + 8 * x(3)</span><br></pre></td></tr></table></figure></p>
+<h4 id="整数规划">整数规划</h4>
+<p>在线性规划模型中，如果各个决策变量的取值均为整数，则称此类模型为整数规划模型。
+整数规划的解法主要有穷举法(变量维数较高时不可行)、舍入凑整法、分支定界法(比较可行)、割平面法(比较可行)等。
+1. 舍入凑整法
+感觉很是玄学，就是假装没有整数约束，求解出最优解后每个变量往下或者上取整比较一下。
+2. 分支界定法
+如果不满足整数条件，任选一个不满足整数条件的变量来构造新的约束，在原可行域中剔除部分非整数解。然后，再在缩小的可行域中求解新构造的线性规划的最优解（好抽象）。
+步骤： 1. 解没有整数约束的问题。 2. 定界 3. 分支 4. 修改上下界 5.
+比较与剪枝</p>
+<h5 id="型整数规划">0-1 型整数规划</h5>
+<p>约束条件为 <span class="math inline">\(0 \leq x_i \leq 1,x_i\)</span>
+为整数。这样就和一般的整数规划问题统一了。</p>
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92.png" class title="整数规划求解函数">
+<p>实例： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">f = [-3; 2; -5];</span><br><span class="line">intcon = [1, 2, 3]; % 表示哪几个变量为整数</span><br><span class="line">A = [1 2 -1; 1 4 1; 1 1 0; 4 0 1];</span><br><span class="line">b = [2; 4; 3; 6];</span><br><span class="line">Aeq = [];</span><br><span class="line">beq = [];</span><br><span class="line">lb = [0; 0; 0]; % 如果下界为 0 上界为 1，其实就是 0-1 整数规划了。</span><br><span class="line">rb = [1; 1; 1];</span><br><span class="line">[x, val] = intlinprog(f, intcon, A, b, Aeq, beq, lb, rb)</span><br></pre></td></tr></table></figure></p>
+<h5 id="指派问题">指派问题</h5>
+<img src="/.com//08/26/%E8%A7%84%E5%88%92%E8%AE%BA%E6%A8%A1%E5%9E%8B/%E6%8C%87%E6%B4%BE%E9%97%AE%E9%A2%98.png" class title="指派问题">
+<p>当人数和任务的个数不同的时候，会出现某些人没有任务可做或者某些任务无人完成的情况。出现这两种情况的时候只需将约束条件中的某一个等于
+1 的约束条件修改为小于等于 1
+即可。有时也可以一对多（一个人多任务，一个任务多个人）。 2013
+年碎纸片拼接复原问题 1： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cell&#123;1,1&#125;=imread(&#x27;000.bmp&#x27;);</span><br><span class="line">cell&#123;1,2&#125;=imread(&#x27;001.bmp&#x27;);</span><br><span class="line">cell&#123;1,3&#125;=imread(&#x27;002.bmp&#x27;);</span><br><span class="line">cell&#123;1,4&#125;=imread(&#x27;003.bmp&#x27;);</span><br><span class="line">cell&#123;1,5&#125;=imread(&#x27;004.bmp&#x27;);</span><br><span class="line">cell&#123;1,6&#125;=imread(&#x27;005.bmp&#x27;);</span><br><span class="line">cell&#123;1,7&#125;=imread(&#x27;006.bmp&#x27;);</span><br><span class="line">cell&#123;1,8&#125;=imread(&#x27;007.bmp&#x27;);</span><br><span class="line">cell&#123;1,9&#125;=imread(&#x27;008.bmp&#x27;);</span><br><span class="line">cell&#123;1,10&#125;=imread(&#x27;009.bmp&#x27;);</span><br><span class="line">cell&#123;1,11&#125;=imread(&#x27;010.bmp&#x27;);</span><br><span class="line">cell&#123;1,12&#125;=imread(&#x27;011.bmp&#x27;);</span><br><span class="line">cell&#123;1,13&#125;=imread(&#x27;012.bmp&#x27;);</span><br><span class="line">cell&#123;1,14&#125;=imread(&#x27;013.bmp&#x27;);</span><br><span class="line">cell&#123;1,15&#125;=imread(&#x27;014.bmp&#x27;);</span><br><span class="line">cell&#123;1,16&#125;=imread(&#x27;015.bmp&#x27;);</span><br><span class="line">cell&#123;1,17&#125;=imread(&#x27;016.bmp&#x27;);</span><br><span class="line">cell&#123;1,18&#125;=imread(&#x27;017.bmp&#x27;);</span><br><span class="line">cell&#123;1,19&#125;=imread(&#x27;018.bmp&#x27;);</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">level=graythresh(cell&#123;1,i&#125;);%选择灰度阈值</span><br><span class="line">cell1&#123;1,i&#125;=im2bw(cell&#123;1,i&#125;,level); %将图像二值化</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19                %循环19个图像</span><br><span class="line">    for k=1:19</span><br><span class="line">        xs(i,k)=0;</span><br><span class="line">        for j=1:1980</span><br><span class="line">            if (cell1&#123;1,i&#125;(j,72)==cell1&#123;1,k&#125;(j,1))%判断图像的边缘信息特征，求相似度矩阵</span><br><span class="line">                xs(i,k)=1+xs(i,k);</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19</span><br><span class="line">    xs(i,i)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">for i=1:19 </span><br><span class="line">da(i)=max(xs(i,:));</span><br><span class="line">end</span><br><span class="line">wei=find(da==max(da));for i=1:19</span><br><span class="line">    k=find(xs(i,[1:19])==da(i));  %求两两相邻的矩阵</span><br><span class="line">    lian(i,1)=i;                  %前面一个</span><br><span class="line">    lian(i,2)=k;                  %后面一个</span><br><span class="line">end</span><br><span class="line">lian(wei,1)=0;</span><br><span class="line">tou=lian(wei,2);</span><br><span class="line">xu(1)=tou;</span><br><span class="line">for i=1:18</span><br><span class="line">    xu(i+1)=lian(xu(i),2);        %正确的排列顺序</span><br><span class="line">end</span><br><span class="line">%根据排出来顺序xu画图</span><br><span class="line">for i=1:19</span><br><span class="line">I(:,[72*(i-1)+1:72*i])=cell&#123;1,xu(i)&#125;;   %图像的整合</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">imwrite(I,&#x27;hanzi.jpg&#x27;,&#x27;quality&#x27;,100);</span><br><span class="line">imshow(&#x27;hanzi.jpg&#x27;)          %输出图像</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h5 id="选址问题">选址问题</h5>
+<p>集合覆盖选址模型和最大覆盖选址模型。</p>
+]]></content>
+      <tags>
+        <tag>Mathematic</tag>
       </tags>
   </entry>
   <entry>
