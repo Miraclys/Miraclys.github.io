@@ -29,3 +29,10 @@ https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E
 
 https://qianfanguojin.top/tags/Hexo/
 
+#### 插入图片
+
+之前版本的 `hexo-asset-image` 已经过时了，不更新了。先 `npm uninstall hexo-asset-image`，再 `npm install hexo-asset-img`，使用这个新的包。
+
+然后了，打开 hexo 下的 `_config.yml`，更改 `post_asset_folder` 为 `true`。此时，我们已经可以使用 `asset_img xxx.png xxx` 或者 `![](xxx/xxx.jpg)`
+
+![image-20231117222747974](hexo博客食用指北/image-20231117222747974.png)
