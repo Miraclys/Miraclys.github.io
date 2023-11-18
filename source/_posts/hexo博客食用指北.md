@@ -99,3 +99,11 @@ Menci 的 OI 博客：https://oi.men.ci/
 ```
 
 这样就可以只在首页显示这行代码上方的内容。
+
+#### 绑定域名
+
+参考：
+
+1. https://cloud.tencent.com/developer/article/1964349
+
+2. 
