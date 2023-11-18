@@ -1,7 +1,9 @@
 ---
 title: CSS记录
 date: 2023-09-01 19:27:33
-tags: CSS, WEB
+tags: 
+- CSS
+- Web
 description: The key record of CSS. 
 ---
 #### 行内样式

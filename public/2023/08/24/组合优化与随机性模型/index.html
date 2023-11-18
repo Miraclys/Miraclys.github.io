@@ -26,13 +26,13 @@
 <meta property="og:site_name" content="Miraclys">
 <meta property="og:description" content="The key record of mathematical modeling.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png">
+<meta property="og:image" content="http://example.com/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png">
 <meta property="article:published_time" content="2023-08-24T06:45:01.000Z">
-<meta property="article:modified_time" content="2023-11-13T03:31:53.624Z">
+<meta property="article:modified_time" content="2023-11-17T17:07:15.486Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="Mathematic">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png">
+<meta name="twitter:image" content="http://example.com/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png">
 
 
 <link rel="canonical" href="http://example.com/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/">
@@ -156,13 +156,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -232,7 +233,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-13 11:31:53" itemprop="dateModified" datetime="2023-11-13T11:31:53+08:00">2023-11-13</time>
+      <time title="Modified: 2023-11-18 01:07:15" itemprop="dateModified" datetime="2023-11-18T01:07:15+08:00">2023-11-18</time>
     </span>
 
   
@@ -266,7 +267,7 @@
 <li>报童问题
 一个分区间讨论收益的问题（可以抽象为类似的生产或者进货然后销售求最大收益的问题），下面的问题建模对于未出售完的报纸进行退回（可以抽象为低价处理）。
 设没份报纸的进价为 b，零售价为 a，退回价格为
-c，报童应该如何购进报纸数量以获得最高的收入？ <img src="/.com//08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png" class title="收入和 n 的函数关系"> 假设需求量 r
+c，报童应该如何购进报纸数量以获得最高的收入？ <img src="/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png" class="" title="收入和 n 的函数关系"> 假设需求量 r
 的分布为 <span class="math inline">\(P\{r = k\} = f(k), k = 0, 1, 2,
 ...\)</span> 但是注意到 G
 是一个<strong>随机目标函数</strong>，求其最大值没有什么意义，我们转为求解其最大期望。
@@ -275,7 +276,8 @@ c，报童应该如何购进报纸数量以获得最高的收入？ <img src="/.
 (a-b)nf(r)\)</span>，<strong>该问题很难求解，可以将上述函数进行连续化</strong>（数列求和和积分之间的转化使问题求解简单），可以得到
 <span class="math inline">\(\overline{G}(n) = \int_0^{n}[(a - b)r - (b -
 c)(n - r)]f(r)\mathrm{d}r + \int_{n + 1}^{+\infty} (a -
-b)nf(r)\mathrm{d}r\)</span>，所求问题变为 <span class="math inline">\(\max \overline{G}(n)\)</span>，求导，导数为
+b)nf(r)\mathrm{d}r\)</span>，所求问题变为 <span
+class="math inline">\(\max \overline{G}(n)\)</span>，求导，导数为
 0，得到 <span class="math inline">\(\int_0^{n} f(r)\mathrm{d}r =
 \frac{a- b}{a - c}\)</span> 的时候，期望收益最大。</li>
 <li>轧钢中的浪费问题

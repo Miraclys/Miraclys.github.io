@@ -26,13 +26,13 @@
 <meta property="og:site_name" content="Miraclys">
 <meta property="og:description" content="The key record of mathematical modeling.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg">
+<meta property="og:image" content="http://example.com/2023/08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg">
 <meta property="article:published_time" content="2023-08-24T01:05:59.000Z">
-<meta property="article:modified_time" content="2023-11-13T03:31:53.606Z">
+<meta property="article:modified_time" content="2023-11-17T17:07:15.452Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="Mathematic">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg">
+<meta name="twitter:image" content="http://example.com/2023/08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg">
 
 
 <link rel="canonical" href="http://example.com/2023/08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
@@ -156,13 +156,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -232,7 +233,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-13 11:31:53" itemprop="dateModified" datetime="2023-11-13T11:31:53+08:00">2023-11-13</time>
+      <time title="Modified: 2023-11-18 01:07:15" itemprop="dateModified" datetime="2023-11-18T01:07:15+08:00">2023-11-18</time>
     </span>
 
   
@@ -262,7 +263,7 @@
     <div class="post-body" itemprop="articleBody"><h4 id="微分方程模型">微分方程模型</h4>
 <p>如果能得到解析解的形式固然便于分析和应用，但是大多数微分方程无法得到解析解，因此研究其稳定性和数值解法就十分重要。</p>
 <ol type="1">
-<li><img src="/.com//08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg" class title="流量系数">
+<li><img src="/2023/08/24/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/liuliangxishu.jpg" class="" title="流量系数">
 容器漏水问题。 好像是 <span class="math inline">\(Q = Sv\)</span>
 流量前面一个系数，不是很懂。</li>
 <li>导弹追踪问题 列出关于斜率的微分方程，然后代入初值条件。</li>
@@ -271,10 +272,13 @@
 <p>我们一开始不把所有的因素考虑在内，而是抓住主要因素，把问题简化，建立相应的数学模型。然后与实际比较，再做出修改。</p>
 <ol type="1">
 <li>指数模型 用 <span class="math inline">\(i(t)\)</span> 表示 t
-时刻病人的数量，每个病人传染的人数为 k, 则有 <span class="math inline">\(i(t + \Delta t) - i(t) = ki(t)\Delta t\)</span>
+时刻病人的数量，每个病人传染的人数为 k, 则有 <span
+class="math inline">\(i(t + \Delta t) - i(t) = ki(t)\Delta t\)</span>
 解得 <span class="math inline">\(i(t) =
 i_0e^{kt}\)</span>，随着时间增长，人数是无穷的，不符合实际，所以我们对于这个模型进行修改。</li>
-<li>SI 模型 设 t 时刻病人为 <span class="math inline">\(i(t)\)</span>，健康人数为 <span class="math inline">\(s(t)\)</span>，每个病人传染的人数和健康人数呈正比，比例系数为
+<li>SI 模型 设 t 时刻病人为 <span
+class="math inline">\(i(t)\)</span>，健康人数为 <span
+class="math inline">\(s(t)\)</span>，每个病人传染的人数和健康人数呈正比，比例系数为
 k，则有 <span class="math inline">\(i(t + \Delta t) - i(t) = i(t)\Delta
 ks(t) = ki(t)(n - i(t))\)</span>，解得 <span class="math inline">\(i(t)
 = \dfrac{n}{1 + (\frac{n}{i_0} - 1)e^{-kt}}\)</span> 医学上一般称这个
@@ -282,22 +286,31 @@ ks(t) = ki(t)(n - i(t))\)</span>，解得 <span class="math inline">\(i(t)
 但是这个模型的缺点是，当 <span class="math inline">\(t \to
 +\infty\)</span> 的时候，人人都会生病，这是不符合实际的。</li>
 <li>SIS 模型 考虑到人们生病后是恢复的，或者说有人可能会感染多次。
-在上一个模型的基础上，添加日治愈率 <span class="math inline">\(\mu\)</span>，和病人的数量呈正比。 现在就有 <span class="math inline">\(i(t + \Delta t) - i(t) = (ks(t)i(t) - \mu
+在上一个模型的基础上，添加日治愈率 <span
+class="math inline">\(\mu\)</span>，和病人的数量呈正比。 现在就有 <span
+class="math inline">\(i(t + \Delta t) - i(t) = (ks(t)i(t) - \mu
 i(t))\Delta t, i(0) = i_0\)</span>。</li>
 </ol>
 <h4 id="捕鱼业的持续收获模型">捕鱼业的持续收获模型</h4>
 <h6 id="阻滞增长模型-logistic-模型">阻滞增长模型 (Logistic 模型)</h6>
 <p>将增长率 r 修正为 r - sx 一个关于 x
-的线性函数。自然资源和环境限制所能容纳的最大人数为 <span class="math inline">\(x_m\)</span>，也就是 <span class="math inline">\(x
+的线性函数。自然资源和环境限制所能容纳的最大人数为 <span
+class="math inline">\(x_m\)</span>，也就是 <span class="math inline">\(x
 = x_m\)</span> 的时候，<span class="math inline">\(r =0\)</span>，所以有
 <span class="math inline">\(r(x) = r(1 -
 \dfrac{x}{x_m})\)</span>，其实和上面传染病模型中的 SI
 模型是差不多的。)</p>
 <ol type="1">
-<li>产量模型 记时刻 t 时渔场中的鱼量为 <span class="math inline">\(x(t)\)</span>，由 Logistic 模型则有 <span class="math inline">\(x&#39;(t) = f(x) = rx(1 - \frac{x}{N})\)</span>，N
-是环境允许的最大鱼量。 设捕鱼强度为 E，也就是单位时间捕鱼量为 <span class="math inline">\(Ex\)</span>，记 <span class="math inline">\(F(x) =
-f(x) - Ex\)</span>，则持续捕捞下，平衡的鱼量为 <span class="math inline">\(x_0 = N(1 - \frac{E}{r})\)</span> <span class="math inline">\(x_0 \times E\)</span>
-求二次函数的最值，就是最大的持续捕捞量了，此时 <span class="math inline">\(E =
+<li>产量模型 记时刻 t 时渔场中的鱼量为 <span
+class="math inline">\(x(t)\)</span>，由 Logistic 模型则有 <span
+class="math inline">\(x&#39;(t) = f(x) = rx(1 - \frac{x}{N})\)</span>，N
+是环境允许的最大鱼量。 设捕鱼强度为 E，也就是单位时间捕鱼量为 <span
+class="math inline">\(Ex\)</span>，记 <span class="math inline">\(F(x) =
+f(x) - Ex\)</span>，则持续捕捞下，平衡的鱼量为 <span
+class="math inline">\(x_0 = N(1 - \frac{E}{r})\)</span> <span
+class="math inline">\(x_0 \times E\)</span>
+求二次函数的最值，就是最大的持续捕捞量了，此时 <span
+class="math inline">\(E =
 \dfrac{r}{2}\)</span>（好像和高中生物学的一样了）。
 (其实和人口增长差不多)</li>
 <li>效益模型</li>
@@ -315,7 +328,8 @@ f(x) - Ex\)</span>，则持续捕捞下，平衡的鱼量为 <span class="math i
 c\)</span></li>
 <li>混合战模型
 红军游击队，蓝军正规部队，但是游击队伍位于不易发现的有利位置，所以把红军的人员损失方程再乘一个
-x，表示损失与自身规模大小有关。 <span class="math inline">\(\frac{\mathrm{d}x}{\mathrm{d}t} = -cxy +
+x，表示损失与自身规模大小有关。 <span
+class="math inline">\(\frac{\mathrm{d}x}{\mathrm{d}t} = -cxy +
 f(t)\)</span>，f(t) 表示红军的增援情况。</li>
 <li>游击战模型 双方都是游击队伍。就都变成上个模型红军的方程形式。</li>
 </ol>
@@ -346,8 +360,8 @@ f(t)\)</span>，f(t) 表示红军的增援情况。</li>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/08/23/test/" rel="prev" title="test">
-                  <i class="fa fa-angle-left"></i> test
+                <a href="/2023/08/23/hexo-blog-instruction-list/" rel="prev" title="hexo blog instructions list">
+                  <i class="fa fa-angle-left"></i> hexo blog instructions list
                 </a>
             </div>
             <div class="post-nav-item">

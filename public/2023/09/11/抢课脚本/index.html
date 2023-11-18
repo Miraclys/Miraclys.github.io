@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="Miraclys">
 <meta property="og:description" content="The key record of completing a select courses script.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png">
-<meta property="og:image" content="http://example.com/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png">
+<meta property="og:image" content="http://example.com/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png">
+<meta property="og:image" content="http://example.com/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png">
 <meta property="article:published_time" content="2023-09-11T09:12:35.000Z">
-<meta property="article:modified_time" content="2023-11-13T03:31:53.610Z">
+<meta property="article:modified_time" content="2023-11-17T17:07:15.455Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png">
+<meta name="twitter:image" content="http://example.com/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png">
 
 
 <link rel="canonical" href="http://example.com/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/">
@@ -157,13 +157,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -233,7 +234,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-13 11:31:53" itemprop="dateModified" datetime="2023-11-13T11:31:53+08:00">2023-11-13</time>
+      <time title="Modified: 2023-11-18 01:07:15" itemprop="dateModified" datetime="2023-11-18T01:07:15+08:00">2023-11-18</time>
     </span>
 
   
@@ -276,7 +277,7 @@ Fiddler 举例，Fiddler
 Fiddler，Fiddler 再把请求转发给服务器，当服务器返回数据时，Fiddler
 拿到返回数据，再把数据交给浏览器。 因此 Fiddler
 对于浏览器和服务器之间的交互细节是非常清楚的，进而可以帮助我们完成相应的抓包工作(其实后来感觉浏览器自带的开发者工具中的「网络」就够用了)。
-<img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png" class></p>
+<img src="/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/fiddler.png" class=""></p>
 <h4 id="url-编码">url 编码</h4>
 <p>这段文字中，<code>https://bkzhjx.wh.sdu.edu.cn/jsxsd/xsxkkc/xsxkGgxxkxk</code>
 是 URL 基本部分，用于定位服务器上的特定资源或者页面。 <code>?</code>
@@ -305,7 +306,7 @@ Referer字段对于网站分析、统计和跟踪用户流量非常有用，因�
 <p>打开 F12，选择 <code>Network</code> 一栏。
 然后在找到上搜索自己想选择的课程，点击右侧的「选课」按键(即使课程已经被选满了也无所谓，我们需要的是课程数据包的来源信息)，此时观察
 <code>Network</code> 栏目，最下方应该会出现一个 <code>ggxxkxk</code>
-开头的文件，点击后会出现它的具体信息。 如图： <img src="/.com//09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png" class> 其中
+开头的文件，点击后会出现它的具体信息。 如图： <img src="/2023/09/11/%E6%8A%A2%E8%AF%BE%E8%84%9A%E6%9C%AC/selectCourseInfo.png" class=""> 其中
 <code>Request Url</code> 就是我们获得数据包的地址，<code>kcid</code> 和
 <code>jx0404id</code> 后面的数字感觉没有什么实际意义，不过可以在 HTML
 代码中「选课」按键的属性值中找到，也可以查看 HTML

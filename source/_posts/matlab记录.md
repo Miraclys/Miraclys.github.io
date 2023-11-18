@@ -1,11 +1,11 @@
 ---
 title: matlab记录
 date: 2023-08-26 09:06:51
-tags: matlab
+tags: Matlab
 description: The key record of matlab. 
 mathjax: true
 ---
-{%asset_img matlab点乘点除.png%}
+{% asset_img matlab点乘点除.png matlab %}
 
 x:y:z 一般表示 x 初值 y 步长 z 终值
 

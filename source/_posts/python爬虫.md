@@ -1,7 +1,7 @@
 ---
 title: python爬虫
 date: 2023-09-04 15:18:39
-tags: python
+tags: Python
 description: The key record of python crawler.
 ---
 #### 识别网页所用技术

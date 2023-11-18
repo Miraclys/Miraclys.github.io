@@ -26,14 +26,14 @@
 <meta property="og:site_name" content="Miraclys">
 <meta property="og:description" content="The key record of mathematical modeling.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png">
-<meta property="og:image" content="http://example.com/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="http://example.com/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png">
+<meta property="og:image" content="http://example.com/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png">
 <meta property="article:published_time" content="2023-08-25T02:22:51.000Z">
-<meta property="article:modified_time" content="2023-11-13T03:31:53.611Z">
+<meta property="article:modified_time" content="2023-11-17T17:07:15.457Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="Mathematic">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png">
+<meta name="twitter:image" content="http://example.com/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png">
 
 
 <link rel="canonical" href="http://example.com/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/">
@@ -157,13 +157,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">43</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -233,7 +234,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-13 11:31:53" itemprop="dateModified" datetime="2023-11-13T11:31:53+08:00">2023-11-13</time>
+      <time title="Modified: 2023-11-18 01:07:15" itemprop="dateModified" datetime="2023-11-18T01:07:15+08:00">2023-11-18</time>
     </span>
 
   
@@ -262,19 +263,23 @@
     
     <div class="post-body" itemprop="articleBody"><p>插值方法实数值分析中的一种古老而重要的方法。在实际生产和科学实验中，有时候仅仅能获得函数
 f(x) 在若干点的函数值或者微商值，即只能给出 f(x)
-的一张数据表。如果根据这张数据表构造一个函数 <span class="math inline">\(\varphi(x)\)</span>
-，使之满足这张表中的数据，这样的函数 <span class="math inline">\(\varphi(x)\)</span> 就是函数 f(x)
+的一张数据表。如果根据这张数据表构造一个函数 <span
+class="math inline">\(\varphi(x)\)</span>
+，使之满足这张表中的数据，这样的函数 <span
+class="math inline">\(\varphi(x)\)</span> 就是函数 f(x)
 的逼近函数。这种逼近问题称为插值问题。</p>
 <h4 id="插值多项式的存在性和唯一性">插值多项式的存在性和唯一性</h4>
 <p>设 <span class="math inline">\(p_n(x) = a_0 + a_1x + a_2x^{2} + ... +
-a_nx^n\)</span>，由插值条件可以得到非齐次线性方程组： <img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class title="插值条件非齐次方程组">
+a_nx^n\)</span>，由插值条件可以得到非齐次线性方程组： <img src="/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8F%92%E5%80%BC%E6%9D%A1%E4%BB%B6%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%E7%BB%84.png" class="" title="插值条件非齐次方程组">
 可以由 <span class="math inline">\(\text{Vandermonde}\)</span>
-行列式，各个点是互异的来得到系数矩阵的行列式 <span class="math inline">\(D \neq 0\)</span>。由 <span class="math inline">\(\text{Cramer}\)</span>
+行列式，各个点是互异的来得到系数矩阵的行列式 <span
+class="math inline">\(D \neq 0\)</span>。由 <span
+class="math inline">\(\text{Cramer}\)</span>
 法则知道，方程有唯一的解，所以多项式存在且唯一。</p>
 <p><strong>几何解释：</strong> 一个 n 次的多项式一定可以由 n + 1
 个点唯一确定。</p>
 <h4 id="lagrange-插值公式">Lagrange 插值公式</h4>
-<img src="/.com//08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class title="拉格朗日插值公式">
+<img src="/2023/08/25/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88%E5%BB%BA%E6%A8%A1/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC%E5%85%AC%E5%BC%8F.png" class="" title="拉格朗日插值公式">
 <h4 id="newton-插值公式">Newton 插值公式</h4>
 <p>https://www.zhihu.com/question/22320408/answer/141973314
 马同学关于牛顿插值的解释
@@ -295,7 +300,8 @@ a_nx^n\)</span>，由插值条件可以得到非齐次线性方程组： <img sr
 Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连续。
 样条一词来源于工程制图。绘图员为了将一些指定点（称作样点）连接成一条光滑的曲线，往往把富有弹性的细长木条（称为样条）固定在样点上，然后画下木条表示的曲线所形成的样条曲线。</p>
 <p>有三种边界条件： 1. 自然边界(Natural Spline) 指端点处二阶导数为 0. 2.
-固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 <span class="math inline">\(S_0&#39;(x_0) = A, S_{n - 1}^{x_n} = B\)</span> 3.
+固定边界(Clamped Spline) 指定端点一阶导数，这里分别定为 A 和 B，即 <span
+class="math inline">\(S_0&#39;(x_0) = A, S_{n - 1}^{x_n} = B\)</span> 3.
 非扭结边界(Not-A-Knot Spline)
 强制第一个插值点的三阶导数等于第二个点的三阶导数，最后一个点的三阶导数等于倒数第二个点的三阶导数。</p>
 <p>https://zhuanlan.zhihu.com/p/62860859?utm_medium=social&amp;utm_oi=1127691903852081152&amp;utm_psn=1678405306240057344&amp;utm_source=qq
@@ -303,7 +309,9 @@ Lagrange 插值多两个边界条件，但是却在内节点处二阶导数连�
 <h4 id="最小二乘法拟合">最小二乘法拟合</h4>
 <p><span class="math inline">\(r_i = y_i - \varphi(x_i)\)</span>
 称为残量，<span class="math inline">\(\boldsymbol{r} = (r_0, r_1, ...,
-r_m)^{T}\)</span> 称为<strong>残向量</strong>。所以用 <span class="math inline">\(\varphi(x)\)</span> 去拟合 <span class="math inline">\(f(x)\)</span> 的问题就变成了残量的大小问题。
+r_m)^{T}\)</span> 称为<strong>残向量</strong>。所以用 <span
+class="math inline">\(\varphi(x)\)</span> 去拟合 <span
+class="math inline">\(f(x)\)</span> 的问题就变成了残量的大小问题。
 我们用 <span class="math inline">\(\sum\limits_{i = 0}^{m} r_i^{2} =
 \boldsymbol{r^{T}}\boldsymbol{r}\)</span> 去度量残量的大小。
 后面的具体推导可以参考： 1. https://zhuanlan.zhihu.com/p/128083562 2.
