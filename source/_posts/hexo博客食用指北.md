@@ -2,6 +2,7 @@
 title: hexo博客食用指北
 date: 2023-11-12 22:43:38
 tags: 
+- Hexo
 description: 记录一下我搭建博客的过程~
 ---
 
@@ -10,6 +11,10 @@ description: 记录一下我搭建博客的过程~
 参见 
 
 https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE/
+
+对于字体大小的设置：
+
+https://marshzero.github.io/2021/12/09/Hexo%20NexT%20%E5%AD%97%E4%BD%93%E7%BE%8E%E5%8C%96%20%E7%B1%BBMeme/
 
 #### 数学公式的配置
 
@@ -40,3 +45,7 @@ https://qianfanguojin.top/tags/Hexo/
 #### 配置标签(tags)页面
 
 先使用 `hexo new page tags` 命令创建 tags 页面，然后修改 `front-matter`，在其中添加 `type: "tags"` 和 `layout: "tags"`
+
+#### hexo deploy 报错
+
+当执行 `hexo d` 报错 `error: spawn failed...` 的时候
