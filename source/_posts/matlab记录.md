@@ -1,7 +1,7 @@
 ---
 title: matlab记录
 date: 2023-08-26 09:06:51
-tags: matlab
+tags: Matlab
 description: The key record of matlab. 
 mathjax: true
 ---

@@ -1,7 +1,9 @@
 ---
 title: JavaScript基础
 date: 2023-08-28 14:10:05
-tags: JavaScript, WEB
+tags:
+- JavaScript
+- Web
 description: The key record of JavaScript. 
 ---
 变量的声明就是 `var name = xxx;`。其中 `var` 是 `variable` 的缩写（虽然和方差 variance 的缩写一样）。

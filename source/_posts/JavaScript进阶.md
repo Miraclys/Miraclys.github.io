@@ -1,10 +1,14 @@
 ---
 title: JavaScript进阶
 date: 2023-08-31 16:08:47
-tags: JavaScript, WEB
+tags: 
+- JavaScript
+- Web
 description: The key record of JavaScript advance.
 ---
+
 #### 基础回顾
+
 数据类型：
 1. 基本类型
     String Number boolean undefined null

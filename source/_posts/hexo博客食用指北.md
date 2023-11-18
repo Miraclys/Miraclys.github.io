@@ -36,3 +36,7 @@ https://qianfanguojin.top/tags/Hexo/
 然后了，打开 hexo 下的 `_config.yml`，更改 `post_asset_folder` 为 `true`。此时，我们已经可以使用 `asset_img xxx.png xxx` 或者 `![](xxx/xxx.jpg)`
 
 ![image-20231117222747974](hexo博客食用指北/image-20231117222747974.png)
+
+#### 配置标签(tags)页面
+
+先使用 `hexo new page tags` 命令创建 tags 页面，然后修改 `front-matter`，在其中添加 `type: "tags"` 和 `layout: "tags"`

@@ -1,7 +1,7 @@
 ---
 title: python 数学建模与实验
 date: 2023-08-28 13:31:38
-tags: python
+tags: Python
 description: The key record of python and mathematical modeling.
 mathjax: true
 ---
