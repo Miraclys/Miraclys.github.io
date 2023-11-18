@@ -162,7 +162,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -262,10 +262,36 @@
     
     <div class="post-body" itemprop="articleBody"><p>在有限个可行解集合中找出最优解，这类问题称为组合优化问题。如最短路径问题、最小连接问题、分配问题、运输问题、服务点设置问题、中国邮递员问题、背包问题、装箱问题等等。</p>
 <p>贪心法和分支定界法是组合优化问题中常见的两种有效的方法。</p>
-<h4 id="随机性模型"><a href="#随机性模型" class="headerlink" title="随机性模型"></a>随机性模型</h4><ol>
-<li>报童问题<br> 一个分区间讨论收益的问题（可以抽象为类似的生产或者进货然后销售求最大收益的问题），下面的问题建模对于未出售完的报纸进行退回（可以抽象为低价处理）。<br> 设没份报纸的进价为 b，零售价为 a，退回价格为 c，报童应该如何购进报纸数量以获得最高的收入？ <img src="/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png" class="" title="收入和 n 的函数关系">
- 假设需求量 r 的分布为 $P{r &#x3D; k} &#x3D; f(k), k &#x3D; 0, 1, 2, …$<br> 但是注意到 G 是一个<strong>随机目标函数</strong>，求其最大值没有什么意义，我们转为求解其最大期望。<br> $\overline{G}(n) &#x3D; \sum\limits_{r &#x3D; 0}^{n}[(a - b)r - (b - c)(n - r)]f(r) + \sum\limits_{r &#x3D; n + 1}^{+\infty} (a-b)nf(r)$，<strong>该问题很难求解，可以将上述函数进行连续化</strong>（数列求和和积分之间的转化使问题求解简单），可以得到 $\overline{G}(n) &#x3D; \int_0^{n}[(a - b)r - (b - c)(n - r)]f(r)\mathrm{d}r + \int_{n + 1}^{+\infty} (a - b)nf(r)\mathrm{d}r$，所求问题变为 $\max \overline{G}(n)$，求导，导数为 0，得到 $\int_0^{n} f(r)\mathrm{d}r &#x3D; \frac{a- b}{a - c}$ 的时候，期望收益最大。</li>
-<li>轧钢中的浪费问题<br> 由于收到环境技术的影响，得到的钢材的长度是随机的，其数值上大体呈正态分布，均值可以通过调整轧机设定，而均方误差是由设备的精度决定的，不能随意改变。如果粗轧后的钢材长度大于规定长度，精轧时要把多余的部分切除，造成浪费；而如果粗轧后的钢材长度小于规定长度，则造成整根浪费。（一般我们不会利用多余的切除部分再次制作成钢材，因为实际生产中钢材长度 $l &gt;&gt; \sigma$）<br> 这样我们有模型总的平均浪费长度：<br> $W &#x3D; \int_{l}^{+\infty} (x - l)f(x)\mathrm{d}x + \int_{-\infty}^{l} xf(x) \mathrm{d}x &#x3D; \int_{-\infty}^{+\infty}xf(x)\mathrm{d}x - l\int_{-\infty}^{+\infty} f(x)\mathrm{d}x $<br> $ &#x3D; E(X) - lP{X &gt; l} &#x3D; m - lp$<br> 其中，$p &#x3D; P{X &gt; l} &#x3D; 1 - \Phi(\frac{l - m}{\sigma})$<br> 但是上式中，W 的含义是没轧一根钢材平均浪费的长度，这是从<strong>最终的产量分析浪费量</strong>；但是从实际中一个工厂的发展来看，工厂追求的是效益，可以由生产一根成品钢材浪费的平均长度来衡量，所以目标函数修改为：<br> $J &#x3D; \frac{W}{P{X &gt; l}} &#x3D; \frac{m - lp}{p}&#x3D; \dfrac{m}{1 - \Phi(\frac{l - m}{\sigma}) - l}$，决策目标为 $\min J(m)$</li>
+<h4 id="随机性模型">随机性模型</h4>
+<ol type="1">
+<li>报童问题
+一个分区间讨论收益的问题（可以抽象为类似的生产或者进货然后销售求最大收益的问题），下面的问题建模对于未出售完的报纸进行退回（可以抽象为低价处理）。
+设没份报纸的进价为 b，零售价为 a，退回价格为
+c，报童应该如何购进报纸数量以获得最高的收入？ <img src="/2023/08/24/%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A8%A1%E5%9E%8B/%E6%8A%A5%E7%AB%A5%E9%97%AE%E9%A2%98.png" class="" title="收入和 n 的函数关系"> 假设需求量 r
+的分布为 <span class="math inline">\(P\{r = k\} = f(k), k = 0, 1, 2,
+...\)</span> 但是注意到 G
+是一个<strong>随机目标函数</strong>，求其最大值没有什么意义，我们转为求解其最大期望。
+<span class="math inline">\(\overline{G}(n) = \sum\limits_{r = 0}^{n}[(a
+- b)r - (b - c)(n - r)]f(r) + \sum\limits_{r = n + 1}^{+\infty}
+(a-b)nf(r)\)</span>，<strong>该问题很难求解，可以将上述函数进行连续化</strong>（数列求和和积分之间的转化使问题求解简单），可以得到
+<span class="math inline">\(\overline{G}(n) = \int_0^{n}[(a - b)r - (b -
+c)(n - r)]f(r)\mathrm{d}r + \int_{n + 1}^{+\infty} (a -
+b)nf(r)\mathrm{d}r\)</span>，所求问题变为 <span
+class="math inline">\(\max \overline{G}(n)\)</span>，求导，导数为
+0，得到 <span class="math inline">\(\int_0^{n} f(r)\mathrm{d}r =
+\frac{a- b}{a - c}\)</span> 的时候，期望收益最大。</li>
+<li>轧钢中的浪费问题
+由于收到环境技术的影响，得到的钢材的长度是随机的，其数值上大体呈正态分布，均值可以通过调整轧机设定，而均方误差是由设备的精度决定的，不能随意改变。如果粗轧后的钢材长度大于规定长度，精轧时要把多余的部分切除，造成浪费；而如果粗轧后的钢材长度小于规定长度，则造成整根浪费。（一般我们不会利用多余的切除部分再次制作成钢材，因为实际生产中钢材长度
+<span class="math inline">\(l &gt;&gt; \sigma\)</span>）
+这样我们有模型总的平均浪费长度： $W = <em>{l}^{+} (x - l)f(x)x +
+</em>{-}^{l} xf(x) x = <em>{-}^{+}xf(x)x - l</em>{-}^{+} f(x)x $ $ =
+E(X) - lP{X &gt; l} = m - lp$ 其中，<span class="math inline">\(p = P\{X
+&gt; l\} = 1 - \Phi(\frac{l - m}{\sigma})\)</span> 但是上式中，W
+的含义是没轧一根钢材平均浪费的长度，这是从<strong>最终的产量分析浪费量</strong>；但是从实际中一个工厂的发展来看，工厂追求的是效益，可以由生产一根成品钢材浪费的平均长度来衡量，所以目标函数修改为：
+<span class="math inline">\(J = \frac{W}{P\{X &gt; l\}} = \frac{m -
+lp}{p}= \dfrac{m}{1 - \Phi(\frac{l - m}{\sigma}) -
+l}\)</span>，决策目标为 <span class="math inline">\(\min
+J(m)\)</span></li>
 </ol>
 
     </div>

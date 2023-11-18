@@ -59,3 +59,15 @@ https://qianfanguojin.top/tags/Hexo/
 2. https://blog.csdn.net/weixin_44543463/article/details/119749738
 
 不过有些时候还是需要自己打开开发者工具寻找一下，自己修改。因为网上查到的资料使用的 hexo 版本差异很大。
+
+#### 封面图片配置
+
+参考：
+
+https://cloud.tencent.com/developer/article/1964392
+
+但是这种方式插入图片，使用的 CSS 格式和文章中的格式一致，所以感觉可能不是很好修改样式，就先不搞这个了。
+
+#### 段落间距设置
+
+直接开发者工具找到 `h` 的配置 CSS 地址，然后修改即可。
