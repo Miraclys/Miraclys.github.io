@@ -36,7 +36,7 @@ https://marshzero.github.io/2021/12/09/Hexo%20NexT%20%E5%AD%97%E4%BD%93%E7%BE%8E
 
 2. https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/
 
-第二种方式比较常见，但是需要科学上网才能使用，使用 disqus 
+第二种方式比较常见，但是需要科学上网才能使用，使用 disqus 评论系统
 
 参考：
 
@@ -89,3 +89,13 @@ https://cloud.tencent.com/developer/article/1964392
 此处是受到 Menci 的博客启发，网上找了很久没有找到如何操作。只得查看 Menci 博客源码，直接摘了过来。
 
 Menci 的 OI 博客：https://oi.men.ci/
+
+#### 文章首页预览
+
+如果不使用 description，文章将会全文显示在主页。如果我们想将文章截断，只需要在文章原文中添加
+
+```
+<!--more-->
+```
+
+这样就可以只在首页显示这行代码上方的内容。
