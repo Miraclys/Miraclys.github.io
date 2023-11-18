@@ -49,3 +49,13 @@ https://qianfanguojin.top/tags/Hexo/
 #### hexo deploy 报错
 
 当执行 `hexo d` 报错 `error: spawn failed...` 的时候
+
+#### 修改 sidebar 以及页面主题颜色
+
+参考：
+
+1. https://www.jianshu.com/p/2a8d399f1266
+
+2. https://blog.csdn.net/weixin_44543463/article/details/119749738
+
+不过有些时候还是需要自己打开开发者工具寻找一下，自己修改。因为网上查到的资料使用的 hexo 版本差异很大。
