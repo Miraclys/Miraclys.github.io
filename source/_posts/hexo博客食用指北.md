@@ -106,4 +106,4 @@ Menci 的 OI 博客：https://oi.men.ci/
 
 1. https://cloud.tencent.com/developer/article/1964349
 
-2. 
+2. https://ioaol.github.io/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html
