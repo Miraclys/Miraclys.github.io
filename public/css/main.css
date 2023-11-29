@@ -2573,6 +2573,14 @@ header.header {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
 }
+.posts-expand .post-title-link:hover::before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1);
+}
 .main-inner .sub-menu,
 .main-inner .post-block,
 .main-inner .tabs-comment,

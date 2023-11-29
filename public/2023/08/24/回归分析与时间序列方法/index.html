@@ -51,7 +51,7 @@
 
 
 
-<link rel="dns-prefetch" href="https://waline-server-xi-plum.vercel.app/">
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -156,13 +156,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -234,13 +234,13 @@
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline: </span>
-  
-    <a title="waline" href="/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/08/24/回归分析与时间序列方法/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -255,25 +255,20 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>统计推断的另一类重要问题是假设检验问题。在总体的分布函数未知或者只知道其形式、但不知其参数的情况，为了推断总体的某些未知特性，提出某些关于总体的假设。我们要根据样本对于所提出的假设做出是接受还是拒绝的决策，<strong>假设检验</strong>就是做出这一决策的过程。</p>
-<p>这种只对于第一种错误的概率进行控制，而不考虑第二种错误的概率的检验，称为显著性检验。对应的还有双边假设检验、右边检验和左边检验。
-<img src="/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C.png" class=""></p>
-<h4 id="一元线性回归方程的检验">一元线性回归方程的检验</h4>
-<p>根据样本数据算出的回归可能有一定的抽样误差。为了考察这两个变量在同体内是否是存在线性关系以及回归方程对估计预测因变量的有效性如何，首先进行的就是显著性检验。</p>
-<h5 id="t-检验">t 检验</h5>
-<p>t 检验又称学生 t
-检验，是统计推断中一种非常常见的检验方法，<strong>用于统计量服从正态分布</strong>但是方差未知(如果知道方差，我们可以直接
-Z 检验，或者叫做 U 检验，就是正态检验)的情况。</p>
+<p>这种只对于第一种错误的概率进行控制，而不考虑第二种错误的概率的检验，称为显著性检验。对应的还有双边假设检验、右边检验和左边检验。</p>
+<img src="/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C.png" class="">
+
+<h4 id="一元线性回归方程的检验"><a href="#一元线性回归方程的检验" class="headerlink" title="一元线性回归方程的检验"></a>一元线性回归方程的检验</h4><p>根据样本数据算出的回归可能有一定的抽样误差。为了考察这两个变量在同体内是否是存在线性关系以及回归方程对估计预测因变量的有效性如何，首先进行的就是显著性检验。</p>
+<h5 id="t-检验"><a href="#t-检验" class="headerlink" title="t 检验"></a>t 检验</h5><p>t 检验又称学生 t 检验，是统计推断中一种非常常见的检验方法，<strong>用于统计量服从正态分布</strong>但是方差未知(如果知道方差，我们可以直接 Z 检验，或者叫做 U 检验，就是正态检验)的情况。</p>
 <p>t检验的前提是要求样本服从正态分布或近似正态分布，不然可以利用一些变换（取对数、开根号、倒数等等）试图将其转化为服从正态分布是数据，如若还是不满足正态分布，只能利用非参数检验方法。</p>
-<p>t 检验最常见的四个用途： 1. 单样本均值检验（One-sample t-test）
-用于检验 总体方差未知、正态数据或近似正态的 单样本的均值 是否与
-已知的总体均值相等 2. 两独立样本均值检验（Independent two-sample
-t-test） 用于检验 两对独立的 正态数据或近似正态的 样本的均值
-是否相等，这里可根据总体方差是否相等分类讨论 3.
-配对样本均值检验（Dependent t-test for paired samples） 用于检验
-一对配对样本的均值的差 是否等于某一个值 4. 回归系数的显著性检验（t-test
-for regression coefficient significance） 用于检验
-回归模型的解释变量对被解释变量是否有显著影响</p>
-<p>具体内容见 https://zhuanlan.zhihu.com/p/138711532</p>
+<p>t 检验最常见的四个用途：</p>
+<ol>
+<li>单样本均值检验（One-sample t-test）<br> 用于检验 总体方差未知、正态数据或近似正态的 单样本的均值 是否与 已知的总体均值相等</li>
+<li>两独立样本均值检验（Independent two-sample t-test）<br> 用于检验 两对独立的 正态数据或近似正态的 样本的均值 是否相等，这里可根据总体方差是否相等分类讨论</li>
+<li>配对样本均值检验（Dependent t-test for paired samples）<br> 用于检验 一对配对样本的均值的差 是否等于某一个值</li>
+<li>回归系数的显著性检验（t-test for regression coefficient significance）<br> 用于检验 回归模型的解释变量对被解释变量是否有显著影响</li>
+</ol>
+<p>具体内容见 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138711532">https://zhuanlan.zhihu.com/p/138711532</a></p>
 
     </div>
 
@@ -309,7 +304,11 @@ for regression coefficient significance） 用于检验
 
 
 
-    <div class="comments" id="waline"></div>
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 </div>
   </main>
 
@@ -363,17 +362,8 @@ for regression coefficient significance） 用于检验
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-server-xi-plum.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/08/24/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%8E%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%96%B9%E6%B3%95/"}</script>
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
-<script>
-document.addEventListener('page:loaded', () => {
-  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
-    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
-  ).then(() => 
-    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
-  );
-});
-</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"miraclys","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>

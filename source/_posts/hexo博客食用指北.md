@@ -6,7 +6,7 @@ tags:
 description: 记录一下我搭建博客的过程~
 ---
 
-#### 字体的设置
+#### 字体的配置
 
 参见 
 
@@ -23,12 +23,24 @@ https://marshzero.github.io/2021/12/09/Hexo%20NexT%20%E5%AD%97%E4%BD%93%E7%BE%8E
 具体参见：
 
 1. https://blog.csdn.net/weixin_45073562/article/details/120289648
+
 2. https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E9%85%8D%E7%BD%AEMathJax/
 
 #### 评论系统的配置
 
+有两种评论区配置方式。
+
+第一种是配置 `Waline`，下面是参考博客：
+
 1. https://blog.csdn.net/weixin_48927364/article/details/123321038
+
 2. https://qianfanguojin.top/2022/01/20/Hexo%E5%8D%9A%E5%AE%A2%E8%BF%9B%E9%98%B6%EF%BC%9A%E4%B8%BA-Next-%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0-Waline-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/
+
+第二种方式比较常见，但是需要科学上网才能使用，使用 disqus 评论系统
+
+参考：
+
+https://bambrow.com/20211130-hexo-comment-disqus/
 
 #### 侧边 menu 的配置
 
@@ -68,6 +80,30 @@ https://cloud.tencent.com/developer/article/1964392
 
 但是这种方式插入图片，使用的 CSS 格式和文章中的格式一致，所以感觉可能不是很好修改样式，就先不搞这个了。
 
-#### 段落间距设置
+#### 段落间距配置
 
 直接开发者工具找到 `h` 的配置 CSS 地址，然后修改即可。
+
+#### 配置文章标题悬浮下划线
+
+此处是受到 Menci 的博客启发，网上找了很久没有找到如何操作。只得查看 Menci 博客源码，直接摘了过来。
+
+Menci 的 OI 博客：https://oi.men.ci/
+
+#### 文章首页预览
+
+如果不使用 description，文章将会全文显示在主页。如果我们想将文章截断，只需要在文章原文中添加
+
+```
+<!--more-->
+```
+
+这样就可以只在首页显示这行代码上方的内容。
+
+#### 绑定域名
+
+参考：
+
+1. https://cloud.tencent.com/developer/article/1964349
+
+2. https://ioaol.github.io/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html

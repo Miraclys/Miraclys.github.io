@@ -48,7 +48,7 @@
 
 
 
-<link rel="dns-prefetch" href="https://waline-server-xi-plum.vercel.app/">
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -231,13 +231,13 @@
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline: </span>
-  
-    <a title="waline" href="/2023/10/07/%E9%9A%8F%E6%9C%BA%E6%95%B0/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/10/07/%E9%9A%8F%E6%9C%BA%E6%95%B0/" itemprop="commentCount"></span>
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/10/07/%E9%9A%8F%E6%9C%BA%E6%95%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/10/07/随机数/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -251,18 +251,16 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h5 id="线性同余法">线性同余法</h5>
-<p>线性同余法是目前应用广泛的<strong>伪随机数生成算法</strong>。基本思想是对于一个数进行线性运算并取模从而得到下一个数，递归公式为：<span
-class="math inline">\(x_{n+1}=(ax_n+c) \pmod{m}, y_{n + 1} =
-x_{n+1}/m\)</span></p>
-<p>线性同余法的最大周期是 m，但是一般情况下会小于
-m，如果要使得周期达到最大，应该满足： 1. c 和 m 互质 2. m
-所有质因子的积能整除 a-1 3. a c 初值都比 m 小 4. a c 是正整数</p>
-<h5 id="梅森旋转法">梅森旋转法</h5>
-<p>梅森旋转法也是一种伪随机数产生算法。</p>
-<h5 id="密码学安全随机数生成器">密码学安全随机数生成器</h5>
-<h5 id="硬件随机数生成器">硬件随机数生成器</h5>
-
+    <div class="post-body" itemprop="articleBody"><h5 id="线性同余法"><a href="#线性同余法" class="headerlink" title="线性同余法"></a>线性同余法</h5><p>线性同余法是目前应用广泛的<strong>伪随机数生成算法</strong>。基本思想是对于一个数进行线性运算并取模从而得到下一个数，递归公式为：$x_{n+1}&#x3D;(ax_n+c) \pmod{m}, y_{n + 1} &#x3D; x_{n+1}&#x2F;m$</p>
+<p>线性同余法的最大周期是 m，但是一般情况下会小于 m，如果要使得周期达到最大，应该满足：</p>
+<ol>
+<li>c 和 m 互质</li>
+<li>m 所有质因子的积能整除 a-1</li>
+<li>a c 初值都比 m 小</li>
+<li>a c 是正整数</li>
+</ol>
+<h5 id="梅森旋转法"><a href="#梅森旋转法" class="headerlink" title="梅森旋转法"></a>梅森旋转法</h5><p>梅森旋转法也是一种伪随机数产生算法。</p>
+<h5 id="密码学安全随机数生成器"><a href="#密码学安全随机数生成器" class="headerlink" title="密码学安全随机数生成器"></a>密码学安全随机数生成器</h5><h5 id="硬件随机数生成器"><a href="#硬件随机数生成器" class="headerlink" title="硬件随机数生成器"></a>硬件随机数生成器</h5>
     </div>
 
     
@@ -294,7 +292,11 @@ m，如果要使得周期达到最大，应该满足： 1. c 和 m 互质 2. m
 
 
 
-    <div class="comments" id="waline"></div>
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 </div>
   </main>
 
@@ -348,17 +350,8 @@ m，如果要使得周期达到最大，应该满足： 1. c 和 m 互质 2. m
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-server-xi-plum.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/10/07/%E9%9A%8F%E6%9C%BA%E6%95%B0/"}</script>
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
-<script>
-document.addEventListener('page:loaded', () => {
-  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
-    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
-  ).then(() => 
-    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
-  );
-});
-</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"miraclys","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
