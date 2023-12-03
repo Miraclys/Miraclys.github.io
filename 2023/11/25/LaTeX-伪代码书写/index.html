@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300italic,400,400italic,700,700italic%7Cfira+code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="record the key points to add pseudo-code in beamer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX 伪代码书写">
+<meta property="og:url" content="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/index.html">
+<meta property="og:site_name" content="Miraclys">
+<meta property="og:description" content="record the key points to add pseudo-code in beamer">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/image-20231125152134665.png">
+<meta property="og:image" content="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/image-20231125191211512.png">
+<meta property="article:published_time" content="2023-11-25T07:04:18.000Z">
+<meta property="article:modified_time" content="2023-12-02T08:54:22.438Z">
+<meta property="article:author" content="Miraclys">
+<meta property="article:tag" content="LaTeX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/image-20231125152134665.png">
+
+
+<link rel="canonical" href="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/","path":"2023/11/25/LaTeX-伪代码书写/","title":"LaTeX 伪代码书写"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LaTeX 伪代码书写 | Miraclys</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Miraclys</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">伪代码书写规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#algorithm-%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">algorithm 包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.1.</span> <span class="nav-text">简单的语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">判断结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.3.</span> <span class="nav-text">循环语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">2.4.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%82%E9%A1%B9"><span class="nav-number">2.5.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7"><span class="nav-number">2.5.1.</span> <span class="nav-text">显示行号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.5.2.</span> <span class="nav-text">注释</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83-1"><span class="nav-number">2.6.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#algorithm2e-%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">algorithm2e 包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">3.2.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83-2"><span class="nav-number">3.3.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Miraclys"
+      src="/../images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Miraclys</p>
+  <div class="site-description" itemprop="description">Live a life you will remember.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">49</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Miraclys" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Miraclys" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:miraclysyunsenl@gmail.com" title="E-Mail → mailto:miraclysyunsenl@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LaTeX 伪代码书写 | Miraclys">
+      <meta itemprop="description" content="record the key points to add pseudo-code in beamer">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTeX 伪代码书写
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-25 15:04:18" itemprop="dateCreated datePublished" datetime="2023-11-25T15:04:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-02 16:54:22" itemprop="dateModified" datetime="2023-12-02T16:54:22+08:00">2023-12-02</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/25/LaTeX-伪代码书写/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">record the key points to add pseudo-code in beamer</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="伪代码书写规范">伪代码书写规范</h3>
+<p>伪代码是一种接近自然语言的算法描述形式，目的是在不涉及具体编程语言的情况下将算法的流程和含义清楚的表达出来，因此没有一个统一的规范。</p>
+<p>一般来说：</p>
+<ol type="1">
+<li><p>有一个标题和编号</p></li>
+<li><p>明确输入和输出</p></li>
+<li><p>赋值一般使用 <code>&lt;-</code> 来表示</p></li>
+<li><p><code>A[i]</code> 表示 A 的第 i 个元素，<code>A[1...j]</code>
+表示从下标 1 到 j 的子数组</p></li>
+<li><p>返回值使用 <code>return</code> 关键字</p></li>
+<li><p>函数的调用使用函数名 + 传入参数的形式</p></li>
+</ol>
+<h4 id="参考">参考</h4>
+<p>https://shuzang.github.io/2021/pseudocode-specification/</p>
+<h3 id="algorithm-包">algorithm 包</h3>
+<h4 id="简单的语句">简单的语句</h4>
+<p>在 <code>.tex</code> 文件中，先引入宏包</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;algorithm&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;algorithmic&#125;</span><br></pre></td></tr></table></figure>
+<p>然后写入</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就可以创建一个伪代码环境，如下如所示</p>
+<img src="/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/image-20231125152134665.png" class="" title="image-20231125152134665">
+<p>此时伪代码是空的，我们在 <code>algorithm</code> 模块中嵌入一个
+<code>algorithmi</code> 块，可以发现我们是在代码块中内嵌数学公式：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<p>也就是说，伪代码是一个赋值语句，一行普通语句以 <code>\STATE</code>
+开头：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>y<span class="keyword">\gets</span><span class="keyword">\sqrt</span>&#123;x&#125;+1<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>z<span class="keyword">\gets</span><span class="keyword">\dfrac</span>&#123;x&#125;&#123;y&#125;<span class="built_in">$</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="判断结构">判断结构</h4>
+<p>一个简单的判断结构：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\IF</span> &#123;<span class="built_in">$</span>x<span class="keyword">\leq</span> 0<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span> x+1<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\ENDIF</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<p>我们不需要手动缩进，只需要用 <code>\IF</code> 和 <code>\ENDIF</code>
+限制范围即可。此外，<code>IF</code> 后面的条件外面需要加上
+<code>&#123;&#125;</code> 。类似的，加上 <code>\ELSE</code> 就可以实现一个完整的
+<code>if-else</code> 子句。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\IF</span> &#123;<span class="built_in">$</span>x<span class="keyword">\leq</span> 0<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span> x+1<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\ELSE</span></span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span> x-1<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\ENDIF</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="循环语句">循环语句</h4>
+<p>除了 <code>while</code>，<code>algorithmic</code>
+还支持四种循环方法：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% for循环</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">    <span class="keyword">\FOR</span> &#123;&lt;condition&gt;&#125;</span><br><span class="line">    <span class="keyword">\STATE</span> &lt;text&gt;</span><br><span class="line">    <span class="keyword">\ENDFOR</span></span><br><span class="line"><span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% forall循环</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">    <span class="keyword">\FORALL</span> &#123;&lt;condition&gt;&#125;</span><br><span class="line">    <span class="keyword">\STATE</span> &lt;text&gt;</span><br><span class="line">    <span class="keyword">\ENDFOR</span></span><br><span class="line"><span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% repeat循环</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">    <span class="keyword">\REPEAT</span> &lt;text&gt;</span><br><span class="line">    <span class="keyword">\UNTIL</span> &#123;&lt;condition&gt;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% loop循环</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">    <span class="keyword">\LOOP</span> &lt;text&gt;</span><br><span class="line">    <span class="keyword">\ENDLOOP</span></span><br><span class="line"><span class="keyword">\end</span>&#123;algorithmic&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="输入输出">输入输出</h4>
+<p>在算法为代码中，我们常常需要说明算法的输入和输出，帮助读者更好的阅读代码。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">        <span class="keyword">\ENSURE</span>&#123;<span class="built_in">$</span>x<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\REQUIRE</span>&#123;<span class="built_in">$</span>y<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\IF</span>&#123;<span class="built_in">$</span>x<span class="keyword">\leq</span>0<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\STATE</span>&#123;<span class="built_in">$</span>y<span class="keyword">\gets</span>-1<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\ELSE</span></span><br><span class="line">        <span class="keyword">\STATE</span>&#123;<span class="built_in">$</span>y<span class="keyword">\gets</span>1<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\ENDIF</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，输入对应 <code>\REQUIRE</code>，输出对应
+<code>\ENSURE</code></p>
+<p>如果喜欢使用 <code>INPUT</code> 表示输入，<code>OUTPUT</code>
+表示输出，可以对于关键字进行重新定义：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\renewcommand</span>&#123;<span class="keyword">\algorithmicrequire</span>&#125;&#123;<span class="keyword">\textbf</span>&#123;Input:&#125;&#125;</span><br><span class="line"><span class="keyword">\renewcommand</span>&#123;<span class="keyword">\algorithmicensure</span>&#125;&#123;<span class="keyword">\textbf</span>&#123;Output:&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="杂项">杂项</h4>
+<h5 id="显示行号">显示行号</h5>
+<p>在 <code>\begin&#123;algorithmic&#125;</code> 后面加上
+<code>[1]</code>，算法伪代码会显示行号：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;[1]</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\IF</span> &#123;<span class="built_in">$</span>x<span class="keyword">\leq</span>1<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span> x+1<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\ENDIF</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：[1] 表示每一行都显示行号，如果是
+[2]，表示每两行显示一个行号</p>
+</blockquote>
+<h5 id="注释">注释</h5>
+<p><code>\COMMENT</code> 命令会在算法伪代码中加上注释：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;Example Pseudocode&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;algorithmic&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span>0<span class="built_in">$</span><span class="keyword">\COMMENT</span>&#123;This is a comment&#125;</span><br><span class="line">        <span class="keyword">\IF</span> &#123;<span class="built_in">$</span>x<span class="keyword">\leq</span>1<span class="built_in">$</span>&#125;</span><br><span class="line">        <span class="keyword">\STATE</span> <span class="built_in">$</span>x<span class="keyword">\gets</span> x+1<span class="built_in">$</span></span><br><span class="line">        <span class="keyword">\ENDIF</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;algorithmic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+<p>如果是 <code>IF</code>、<code>FOR</code>
+这些语句，则需要这样写注释：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\IF</span>[This is a comment]&#123;&lt;text&gt;&#125;</span><br></pre></td></tr></table></figure>
+<p>但是这样的显示效果不是很好，注释和代码之间的距离太小，我们可以使用
+<code>\Comment</code> 来注释（这一次只有首字母是大写）。</p>
+<h4 id="参考-1">参考</h4>
+<p>https://welts.xyz/2022/01/17/pseudocode/</p>
+<h3 id="algorithm2e-包">algorithm2e 包</h3>
+<p>在 <code>beamer</code> 中，一般更经常使用
+<code>algorithm2e</code>，并且它们的语法也有着挺大的不同。</p>
+<h4 id="基本语法">基本语法</h4>
+<img src="/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/image-20231125191211512.png" class="" title="image-20231125191211512">
+<h4 id="例子">例子</h4>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\def</span><span class="keyword">\SetClass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\documentclass</span>&#123;<span class="keyword">\SetClass</span>&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[ruled,linesnumbered]&#123;algorithm2e&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;Simulation-optimization heuristic&#125;<span class="keyword">\label</span>&#123;algorithm&#125;</span><br><span class="line"><span class="keyword">\KwData</span>&#123;current period <span class="built_in">$</span>t<span class="built_in">$</span>, initial inventory <span class="built_in">$</span>I<span class="built_in">_</span>&#123;t-1&#125;<span class="built_in">$</span>, initial capital <span class="built_in">$</span>B<span class="built_in">_</span>&#123;t-1&#125;<span class="built_in">$</span>, demand samples&#125;</span><br><span class="line"><span class="keyword">\KwResult</span>&#123;Optimal order quantity <span class="built_in">$</span>Q<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;<span class="built_in">_</span>&#123;t&#125;<span class="built_in">$</span>&#125;</span><br><span class="line"><span class="built_in">$</span>r<span class="keyword">\leftarrow</span> t<span class="built_in">$</span><span class="keyword">\;</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\Delta</span> B<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;<span class="keyword">\leftarrow</span> -<span class="keyword">\infty</span><span class="built_in">$</span><span class="keyword">\;</span></span><br><span class="line"><span class="keyword">\While</span>&#123;<span class="built_in">$</span><span class="keyword">\Delta</span> B<span class="keyword">\leq</span> <span class="keyword">\Delta</span> B<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;<span class="built_in">$</span> and <span class="built_in">$</span>r<span class="keyword">\leq</span> T<span class="built_in">$</span>&#125;&#123;<span class="built_in">$</span>Q<span class="keyword">\leftarrow</span><span class="keyword">\arg</span><span class="keyword">\max</span><span class="built_in">_</span>&#123;Q<span class="keyword">\geq</span> 0&#125;<span class="keyword">\Delta</span> B<span class="built_in">^</span>&#123;Q&#125;<span class="built_in">_</span>&#123;t,r&#125;(I<span class="built_in">_</span>&#123;t-1&#125;,B<span class="built_in">_</span>&#123;t-1&#125;)<span class="built_in">$</span><span class="keyword">\;</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\Delta</span> B<span class="keyword">\leftarrow</span> <span class="keyword">\Delta</span> B<span class="built_in">^</span>&#123;Q&#125;<span class="built_in">_</span>&#123;t,r&#125;(I<span class="built_in">_</span>&#123;t-1&#125;,B<span class="built_in">_</span>&#123;t-1&#125;)/(r-t+1)<span class="built_in">$</span><span class="keyword">\;</span></span><br><span class="line"><span class="keyword">\If</span>&#123;<span class="built_in">$</span><span class="keyword">\Delta</span> B<span class="keyword">\geq</span> <span class="keyword">\Delta</span> B<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;<span class="built_in">$</span>&#125;&#123;<span class="built_in">$</span>Q<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;<span class="keyword">\leftarrow</span> Q<span class="built_in">$</span><span class="keyword">\;</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\Delta</span> B<span class="built_in">^</span>&#123;<span class="keyword">\ast</span>&#125;<span class="keyword">\leftarrow</span> <span class="keyword">\Delta</span> B<span class="built_in">$</span><span class="keyword">\;</span>&#125;</span><br><span class="line"><span class="built_in">$</span>r<span class="keyword">\leftarrow</span> r+1<span class="built_in">$</span><span class="keyword">\;</span>&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参考-2">参考</h4>
+<p>https://www.zhihu.com/tardis/zm/art/166418214?source_id=1003</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/LaTeX/" rel="tag"># LaTeX</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/22/LaTeX%20%E5%AD%A6%E4%B9%A0/" rel="prev" title="LaTeX学习">
+                  <i class="fa fa-angle-left"></i> LaTeX学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/11/27/%E4%BA%8C%E7%BB%B4%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="next" title="二维线段树">
+                  二维线段树 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Miraclys</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+  <a href="https://github.com/Miraclys" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"miraclys","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

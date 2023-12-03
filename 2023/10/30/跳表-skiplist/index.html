@@ -27,7 +27,7 @@
 <meta property="og:description" content="the code of SkipList">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-30T06:39:04.000Z">
-<meta property="article:modified_time" content="2023-11-12T10:49:09.509Z">
+<meta property="article:modified_time" content="2023-11-13T03:42:18.077Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="Data Structure">
 <meta name="twitter:card" content="summary">
@@ -49,7 +49,7 @@
 
 
 
-<link rel="dns-prefetch" href="https://waline-server-xi-plum.vercel.app/">
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -63,6 +63,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -85,7 +88,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -151,16 +154,25 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Miraclys" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Miraclys" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:miraclysyunsenl@gmail.com" title="E-Mail → mailto:miraclysyunsenl@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -219,20 +231,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-12 18:49:09" itemprop="dateModified" datetime="2023-11-12T18:49:09+08:00">2023-11-12</time>
+      <time title="Modified: 2023-11-13 11:42:18" itemprop="dateModified" datetime="2023-11-13T11:42:18+08:00">2023-11-13</time>
     </span>
 
   
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline: </span>
-  
-    <a title="waline" href="/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/" itemprop="commentCount"></span>
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/10/30/跳表-skiplist/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -247,7 +259,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><h4 id="代码">代码：</h4>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">class SkipListNode &#123;</span><br><span class="line">    public:</span><br><span class="line">        int value;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; nxt;</span><br><span class="line">        SkipListNode(int val, int level)</span><br><span class="line">            : value(val)</span><br><span class="line">            , nxt(level, nullptr) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Skiplist &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxLevel = 32;</span><br><span class="line">    int level;</span><br><span class="line">    SkipListNode* head;</span><br><span class="line">    Skiplist() &#123;</span><br><span class="line">        level = 1;</span><br><span class="line">        head = new SkipListNode(0, maxLevel);</span><br><span class="line">    &#125;</span><br><span class="line">    int randomLevel() &#123;</span><br><span class="line">        int level = 1;</span><br><span class="line">        while (level &lt; maxLevel &amp;&amp; (rand() % 2 == 0)) &#123;</span><br><span class="line">            level++;</span><br><span class="line">        &#125;</span><br><span class="line">        return level;</span><br><span class="line">    &#125;</span><br><span class="line">    bool search(int target) &#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        for (int i = level - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">            while (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; target) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (current &amp;&amp; current-&gt;nxt[0] &amp;&amp; current-&gt;nxt[0]-&gt;value == target) &#123;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void add(int num) &#123;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; update(maxLevel, nullptr);</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        for (int i = level - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">            while (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        int newLevel = randomLevel();</span><br><span class="line">        if (newLevel &gt; level) &#123;</span><br><span class="line">            for (int i = level; i &lt; newLevel; ++i) &#123;</span><br><span class="line">                update[i] = head;</span><br><span class="line">            &#125;</span><br><span class="line">            level = newLevel;</span><br><span class="line">        &#125;</span><br><span class="line">        SkipListNode* newNode = new SkipListNode(num, newLevel);</span><br><span class="line">        for (int i = 0; i &lt; newLevel; ++i) &#123;</span><br><span class="line">            newNode-&gt;nxt[i] = update[i]-&gt;nxt[i];</span><br><span class="line">            update[i]-&gt;nxt[i] = newNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    bool erase(int num) &#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; update(maxLevel, nullptr);</span><br><span class="line">        for (int i = level - 1; i &gt;= 0; --i) &#123;</span><br><span class="line">            while (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        if (!current || !current-&gt;nxt[0] || current-&gt;nxt[0]-&gt;value != num) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        if (current-&gt;nxt[0] &amp;&amp; current-&gt;nxt[0]-&gt;value == num) &#123;</span><br><span class="line">            SkipListNode* toRemove = current-&gt;nxt[0];</span><br><span class="line">            for (int i = 0; i &lt; level; ++i) &#123;</span><br><span class="line">                if (update[i]-&gt;nxt[i] != toRemove) &#123; // 不能直接判断 value 因为可能出现多个相同数值的情况</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                update[i]-&gt;nxt[i] = toRemove-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            delete toRemove;</span><br><span class="line">        &#125;   </span><br><span class="line">        // 更新 level</span><br><span class="line">        while (level &gt; 1 &amp;&amp; head-&gt;nxt[level - 1] == nullptr)</span><br><span class="line">            level--;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SkipListNode</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="type">int</span> value;</span><br><span class="line">        std::vector&lt;SkipListNode*&gt; nxt;</span><br><span class="line">        <span class="built_in">SkipListNode</span>(<span class="type">int</span> val, <span class="type">int</span> level)</span><br><span class="line">            : <span class="built_in">value</span>(val)</span><br><span class="line">            , <span class="built_in">nxt</span>(level, <span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Skiplist</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> maxLevel = <span class="number">32</span>;</span><br><span class="line">    <span class="type">int</span> level;</span><br><span class="line">    SkipListNode* head;</span><br><span class="line">    <span class="built_in">Skiplist</span>() &#123;</span><br><span class="line">        level = <span class="number">1</span>;</span><br><span class="line">        head = <span class="keyword">new</span> <span class="built_in">SkipListNode</span>(<span class="number">0</span>, maxLevel);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">randomLevel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> level = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (level &lt; maxLevel &amp;&amp; (<span class="built_in">rand</span>() % <span class="number">2</span> == <span class="number">0</span>)) &#123;</span><br><span class="line">            level++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> level;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(<span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = level - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">while</span> (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; target) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (current &amp;&amp; current-&gt;nxt[<span class="number">0</span>] &amp;&amp; current-&gt;nxt[<span class="number">0</span>]-&gt;value == target) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="function">std::vector&lt;SkipListNode*&gt; <span class="title">update</span><span class="params">(maxLevel, <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = level - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">while</span> (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> newLevel = <span class="built_in">randomLevel</span>();</span><br><span class="line">        <span class="keyword">if</span> (newLevel &gt; level) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = level; i &lt; newLevel; ++i) &#123;</span><br><span class="line">                update[i] = head;</span><br><span class="line">            &#125;</span><br><span class="line">            level = newLevel;</span><br><span class="line">        &#125;</span><br><span class="line">        SkipListNode* newNode = <span class="keyword">new</span> <span class="built_in">SkipListNode</span>(num, newLevel);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; newLevel; ++i) &#123;</span><br><span class="line">            newNode-&gt;nxt[i] = update[i]-&gt;nxt[i];</span><br><span class="line">            update[i]-&gt;nxt[i] = newNode;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">erase</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        SkipListNode* current = head;</span><br><span class="line">        <span class="function">std::vector&lt;SkipListNode*&gt; <span class="title">update</span><span class="params">(maxLevel, <span class="literal">nullptr</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = level - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            <span class="keyword">while</span> (current-&gt;nxt[i] &amp;&amp; current-&gt;nxt[i]-&gt;value &lt; num) &#123;</span><br><span class="line">                current = current-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            update[i] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!current || !current-&gt;nxt[<span class="number">0</span>] || current-&gt;nxt[<span class="number">0</span>]-&gt;value != num) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (current-&gt;nxt[<span class="number">0</span>] &amp;&amp; current-&gt;nxt[<span class="number">0</span>]-&gt;value == num) &#123;</span><br><span class="line">            SkipListNode* toRemove = current-&gt;nxt[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; level; ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span> (update[i]-&gt;nxt[i] != toRemove) &#123; <span class="comment">// 不能直接判断 value 因为可能出现多个相同数值的情况</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                update[i]-&gt;nxt[i] = toRemove-&gt;nxt[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">delete</span> toRemove;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="comment">// 更新 level</span></span><br><span class="line">        <span class="keyword">while</span> (level &gt; <span class="number">1</span> &amp;&amp; head-&gt;nxt[level - <span class="number">1</span>] == <span class="literal">nullptr</span>)</span><br><span class="line">            level--;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="参考">参考：</h4>
 <p>https://github.com/youngyangyang04/Skiplist-CPP/blob/master/skiplist.h
 https://www.luogu.com.cn/problem/solution/P3369?page=2 leetcode 跳表题解
@@ -287,7 +299,11 @@ https://yuerblog.cc/2019/02/13/skiplist-rank/ 实现 rank</p>
 
 
 
-    <div class="comments" id="waline"></div>
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 </div>
   </main>
 
@@ -309,10 +325,6 @@ https://yuerblog.cc/2019/02/13/skiplist-rank/ 实现 rank</p>
   </footer>
 
   
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
 
   <a href="https://github.com/Miraclys" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -345,17 +357,8 @@ https://yuerblog.cc/2019/02/13/skiplist-rank/ 实现 rank</p>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline-server-xi-plum.vercel.app/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/"}</script>
-<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
-<script>
-document.addEventListener('page:loaded', () => {
-  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
-    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
-  ).then(() => 
-    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
-  );
-});
-</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"miraclys","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
