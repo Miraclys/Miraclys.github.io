@@ -150,13 +150,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -181,6 +181,495 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/27/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%B0%B8%E4%B9%85%E5%8C%96%E6%A0%87%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Miraclys">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/27/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%B0%B8%E4%B9%85%E5%8C%96%E6%A0%87%E8%AE%B0/" class="post-title-link" itemprop="url">线段树永久化标记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-27 22:27:13" itemprop="dateCreated datePublished" datetime="2023-11-27T22:27:13+08:00">2023-11-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/27/%E7%BA%BF%E6%AE%B5%E6%A0%91%E6%B0%B8%E4%B9%85%E5%8C%96%E6%A0%87%E8%AE%B0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/27/线段树永久化标记/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="一些优势">一些优势</h4>
+<ol type="1">
+<li><p>时间效率。使用永久化标记无需再去 <code>push_down</code> 和
+<code>push_up</code>，所以常数可能会小一点。</p></li>
+<li><p>空间效率。标记永久化可以降低区间修改的时间复杂度。</p></li>
+<li><p>支持撤销操作。可以使得我们方便地对于之前的操作进行撤销，因为我们并没有在最基础的数据上进行修改(比较
+<code>push_down</code> 和 <code>push_up</code>
+操作的话，都是在原来的数据上操作，不可撤销)</p></li>
+<li><p>方便版本管理，我们可以很方便地回溯到某一个版本。</p></li>
+</ol>
+<p>可以参考例题：https://acm.hdu.edu.cn/showproblem.php?pid=4348
+来理解这个可持久化的时候我们需要使用永久化标记。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/27/%E4%BA%8C%E7%BB%B4%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Miraclys">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/27/%E4%BA%8C%E7%BB%B4%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="post-title-link" itemprop="url">二维线段树</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-27 10:23:22" itemprop="dateCreated datePublished" datetime="2023-11-27T10:23:22+08:00">2023-11-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/27/%E4%BA%8C%E7%BB%B4%E7%BA%BF%E6%AE%B5%E6%A0%91/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/27/二维线段树/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>the key record of 2-dimensional segment tree.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/27/%E4%BA%8C%E7%BB%B4%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Miraclys">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/" class="post-title-link" itemprop="url">LaTeX 伪代码书写</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-25 15:04:18" itemprop="dateCreated datePublished" datetime="2023-11-25T15:04:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-12-02 16:54:22" itemprop="dateModified" datetime="2023-12-02T16:54:22+08:00">2023-12-02</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/25/LaTeX-伪代码书写/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>record the key points to add pseudo-code in beamer</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/25/LaTeX-%E4%BC%AA%E4%BB%A3%E7%A0%81%E4%B9%A6%E5%86%99/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/22/LaTeX%20%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Miraclys">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/22/LaTeX%20%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">LaTeX学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-22 17:23:55" itemprop="dateCreated datePublished" datetime="2023-11-22T17:23:55+08:00">2023-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/22/LaTeX%20%E5%AD%A6%E4%B9%A0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/22/LaTeX 学习/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Take notes of LaTeX's main point.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/22/LaTeX%20%E5%AD%A6%E4%B9%A0/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/22/Beamer%20%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Miraclys">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/22/Beamer%20%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Beamer学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-22 12:57:15" itemprop="dateCreated datePublished" datetime="2023-11-22T12:57:15+08:00">2023-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/11/22/Beamer%20%E5%AD%A6%E4%B9%A0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/22/Beamer 学习/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Take notes of beamer's main point.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/22/Beamer%20%E5%AD%A6%E4%B9%A0/">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -226,7 +715,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-20 20:52:04" itemprop="dateModified" datetime="2023-11-20T20:52:04+08:00">2023-11-20</time>
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
     </span>
 
   
@@ -315,13 +804,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-<<<<<<< HEAD
-      <time title="Created: 2023-11-18 14:02:47 / Modified: 16:30:13" itemprop="dateCreated datePublished" datetime="2023-11-18T14:02:47+08:00">2023-11-18</time>
-=======
-      <time title="Created: 2023-11-18 14:02:47 / Modified: 18:18:37" itemprop="dateCreated datePublished" datetime="2023-11-18T14:02:47+08:00">2023-11-18</time>
->>>>>>> 1e50b1f9bc507effde69552824d90fe0193643ca
+      <time title="Created: 2023-11-18 14:02:47" itemprop="dateCreated datePublished" datetime="2023-11-18T14:02:47+08:00">2023-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
     </span>
 
   
@@ -382,99 +873,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-<<<<<<< HEAD
-=======
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/18/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/18/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-18 01:07:15" itemprop="dateCreated datePublished" datetime="2023-11-18T01:07:15+08:00">2023-11-18</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/11/18/hello-world/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/18/hello-world/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Hello World.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/18/hello-world/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
->>>>>>> 1e50b1f9bc507effde69552824d90fe0193643ca
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/13/%E5%89%B2%E7%82%B9%E3%80%81%E5%89%B2%E8%BE%B9%E3%80%81%E7%BC%A9%E7%82%B9%E3%80%81%E7%82%B9%E5%8F%8C%E5%92%8C%E8%BE%B9%E5%8F%8C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -699,11 +1097,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-<<<<<<< HEAD
-      <time title="Modified: 2023-11-18 16:40:11" itemprop="dateModified" datetime="2023-11-18T16:40:11+08:00">2023-11-18</time>
-=======
-      <time title="Modified: 2023-11-20 08:00:32" itemprop="dateModified" datetime="2023-11-20T08:00:32+08:00">2023-11-20</time>
->>>>>>> 1e50b1f9bc507effde69552824d90fe0193643ca
+      <time title="Modified: 2023-11-29 21:41:39" itemprop="dateModified" datetime="2023-11-29T21:41:39+08:00">2023-11-29</time>
     </span>
 
   
@@ -756,595 +1150,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/12/%E6%9D%82%E8%AE%B02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/12/%E6%9D%82%E8%AE%B02/" class="post-title-link" itemprop="url">杂记2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-12 18:19:52" itemprop="dateCreated datePublished" datetime="2023-11-12T18:19:52+08:00">2023-11-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-<<<<<<< HEAD
-      <time title="Modified: 2023-11-14 14:57:44" itemprop="dateModified" datetime="2023-11-14T14:57:44+08:00">2023-11-14</time>
-=======
-      <time title="Modified: 2023-11-20 20:23:00" itemprop="dateModified" datetime="2023-11-20T20:23:00+08:00">2023-11-20</time>
->>>>>>> 1e50b1f9bc507effde69552824d90fe0193643ca
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/11/12/%E6%9D%82%E8%AE%B02/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/12/杂记2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>the key record of something important.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/12/%E6%9D%82%E8%AE%B02/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%952/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%952/" class="post-title-link" itemprop="url">数据结构关键记录2</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-11-08 14:00:37" itemprop="dateCreated datePublished" datetime="2023-11-08T14:00:37+08:00">2023-11-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-18 16:30:13" itemprop="dateModified" datetime="2023-11-18T16:30:13+08:00">2023-11-18</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%952/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/11/08/数据结构关键记录2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>the key record of data structure.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%952/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/" class="post-title-link" itemprop="url">跳表(skiplist)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-30 14:39:04" itemprop="dateCreated datePublished" datetime="2023-10-30T14:39:04+08:00">2023-10-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-13 11:42:18" itemprop="dateModified" datetime="2023-11-13T11:42:18+08:00">2023-11-13</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/10/30/跳表-skiplist/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>the code of SkipList</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/30/%E8%B7%B3%E8%A1%A8-skiplist/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/28/%E7%BD%91%E7%AE%A1%E4%BC%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/28/%E7%BD%91%E7%AE%A1%E4%BC%9A/" class="post-title-link" itemprop="url">网管会</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-28 19:04:59" itemprop="dateCreated datePublished" datetime="2023-10-28T19:04:59+08:00">2023-10-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-12 20:45:58" itemprop="dateModified" datetime="2023-11-12T20:45:58+08:00">2023-11-12</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/10/28/%E7%BD%91%E7%AE%A1%E4%BC%9A/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/10/28/网管会/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>just record some important things of Network Management Association.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/28/%E7%BD%91%E7%AE%A1%E4%BC%9A/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-<<<<<<< HEAD
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%AD%E5%90%84%E7%A7%8D%E5%88%86%E5%B8%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%AD%E5%90%84%E7%A7%8D%E5%88%86%E5%B8%83/" class="post-title-link" itemprop="url">概率论中各种分布</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-24 09:08:47" itemprop="dateCreated datePublished" datetime="2023-10-24T09:08:47+08:00">2023-10-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-13 11:12:20" itemprop="dateModified" datetime="2023-11-13T11:12:20+08:00">2023-11-13</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline: </span>
-  
-    <a title="waline" href="/2023/10/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%AD%E5%90%84%E7%A7%8D%E5%88%86%E5%B8%83/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/10/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%AD%E5%90%84%E7%A7%8D%E5%88%86%E5%B8%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>the record of various distribution also my mid-term examination.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/24/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%AD%E5%90%84%E7%A7%8D%E5%88%86%E5%B8%83/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/../images/avatar.jpg">
-      <meta itemprop="name" content="Miraclys">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miraclys">
-      <meta itemprop="description" content="Live a life you will remember.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Miraclys">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/" class="post-title-link" itemprop="url">左偏树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-10-11 14:47:17" itemprop="dateCreated datePublished" datetime="2023-10-11T14:47:17+08:00">2023-10-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-11-12 18:51:56" itemprop="dateModified" datetime="2023-11-12T18:51:56+08:00">2023-11-12</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline: </span>
-  
-    <a title="waline" href="/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>the learning process of leftistheap.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/10/11/%E5%B7%A6%E5%81%8F%E6%A0%91/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-=======
->>>>>>> 1e50b1f9bc507effde69552824d90fe0193643ca
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>

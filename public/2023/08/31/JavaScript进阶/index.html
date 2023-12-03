@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.</span> <span class="nav-text">基础回顾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS-%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">2.</span> <span class="nav-text">JS 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84-prototype-%E5%8E%9F%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">函数的 prototype(原型)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">2.3.</span> <span class="nav-text">原型链</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE"><span class="nav-number">1.</span> <span class="nav-text">基础回顾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js-%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">2.</span> <span class="nav-text">JS 原型和原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84-prototype%E5%8E%9F%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">函数的 prototype(原型)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="nav-number">2.3.</span> <span class="nav-text">原型链</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -158,13 +158,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -262,69 +262,92 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h4 id="基础回顾"><a href="#基础回顾" class="headerlink" title="基础回顾"></a>基础回顾</h4><p>数据类型：</p>
-<ol>
-<li>基本类型<br> String Number boolean undefined null</li>
-<li>对象(引用)类型<br> Object Function Array</li>
-</ol>
-<p>判断：</p>
-<ol>
-<li><code>typeof</code><br> 返回的数据类型的字符串表达</li>
-<li><code>instanceof</code></li>
-<li><code>===</code> 和 <code>==</code></li>
-</ol>
+    <div class="post-body" itemprop="articleBody"><h4 id="基础回顾">基础回顾</h4>
+<p>数据类型： 1. 基本类型 String Number boolean undefined null 2.
+对象(引用)类型 Object Function Array</p>
+<p>判断： 1. <code>typeof</code> 返回的数据类型的字符串表达 2.
+<code>instanceof</code> 3. <code>===</code> 和 <code>==</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age) &#123; // 这是一个 **类型对象**，因为函数也是一个对象。</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">var p = new Person(); // 这是一个实例对象。</span><br></pre></td></tr></table></figure>
-<p><code>null</code> 和 <code>undefined</code><br><code>null</code> 定义了并且赋值了，只是值为 <code>null</code>，而 <code>undefined</code> 是定义了但是没有赋值。初始赋值为 <code>null</code> 表示将要是一个对象。程序的最后赋值为 <code>null</code> 可以释放内存。</p>
-<p>栈：全局变量 &#x2F; 局部变量<br>堆：对象<br>(对象本身在栈里面，而表示对象的变量在栈空间，比如函数和函数名的关系)</p>
-<p>JS 在调用函数传递变量的时候是 <strong>值传递</strong>（理解可能不同）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">function add(a) &#123;</span><br><span class="line">    a = a + 1;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a); // 程序输出为 3</span><br></pre></td></tr></table></figure>
-
+<p><code>null</code> 和 <code>undefined</code> <code>null</code>
+定义了并且赋值了，只是值为 <code>null</code>，而 <code>undefined</code>
+是定义了但是没有赋值。初始赋值为 <code>null</code>
+表示将要是一个对象。程序的最后赋值为 <code>null</code>
+可以释放内存。</p>
+<p>栈：全局变量 / 局部变量 堆：对象
+(对象本身在栈里面，而表示对象的变量在栈空间，比如函数和函数名的关系)</p>
+<p>JS 在调用函数传递变量的时候是 <strong>值传递</strong>（理解可能不同）
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">function add(a) &#123;</span><br><span class="line">    a = a + 1;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a); // 程序输出为 3</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fn() &#123;</span><br><span class="line">    var b = &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>函数执行完以后 <code>b</code> 这个局部变量会自动释放，而后面对应的对象因为没有再被指向，被认为是垃圾对象，是在后面的某个时刻由垃圾回收器回收，释放空间。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">var b = &#123;&#125;;</span><br><span class="line">b = null;</span><br></pre></td></tr></table></figure>
-<p><code>b=null;</code> 以后，<code>b</code> 所指向的对象没有被任何其他变量指向，所以会被标记为垃圾对象，由 <code>JS</code> 引擎在一定时间后回收，而 <code>b</code> 这个全局变量仍然存在。<br>在<code>JavaScript</code>中，全局变量通常在整个应用程序的生命周期内存在，不会自动释放内存。<code>JavaScript</code> 引擎会负责管理全局变量的内存，而不需要手动释放。当全局变量不再被引用时，<code>JavaScript</code>引擎会自动将其标记为可回收，并在适当的时候进行垃圾回收以释放内存。<br><code>JavaScript</code> 的垃圾回收机制主要处理对象的内存释放，而不负责释放变量的内存。变量的生命周期通常由其作用域决定。在全局作用域中声明的变量通常会在整个应用程序的生命周期内存在，除非您显式删除它们或应用程序终止。在局部作用域中声明的变量在离开作用域时会被销毁，相应的内存也会被释放。</p>
-<p>什么时候必须使用 <code>[&#39;属性名&#39;]</code> 的方式？</p>
-<ol>
-<li>属性名包含特殊字符：如<code>-</code> 和 <code> </code>。</li>
-<li>使用表达式来动态访问属性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    name: &quot;John&quot;,</span><br><span class="line">    age: 30</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var propertyName = &quot;name&quot;;</span><br><span class="line">console.log(person[propertyName]); // 使用方括号来访问属性</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><code>test.call/apply(obj);</code> 这个意思是把 <code>test</code> 函数临时作为 <code>obj</code> 内部的函数来调用。<code>obj</code> 内部可以没有 <code>test</code> 函数。</p>
-<p><code>JavaScript</code> 中的回调函数是一种常见的编程概念，它允许您将一个函数作为参数传递给另一个函数，并在需要时执行该函数。这通常用于处理异步操作，例如处理文件读取、网络请求、定时器等等，因为在这些情况下，不能立即得到结果，而需要在操作完成后执行特定的代码。</p>
+<p>函数执行完以后 <code>b</code>
+这个局部变量会自动释放，而后面对应的对象因为没有再被指向，被认为是垃圾对象，是在后面的某个时刻由垃圾回收器回收，释放空间。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a = 3;</span><br><span class="line">var b = &#123;&#125;;</span><br><span class="line">b = null;</span><br></pre></td></tr></table></figure> <code>b=null;</code> 以后，<code>b</code>
+所指向的对象没有被任何其他变量指向，所以会被标记为垃圾对象，由
+<code>JS</code> 引擎在一定时间后回收，而 <code>b</code>
+这个全局变量仍然存在。
+在<code>JavaScript</code>中，全局变量通常在整个应用程序的生命周期内存在，不会自动释放内存。<code>JavaScript</code>
+引擎会负责管理全局变量的内存，而不需要手动释放。当全局变量不再被引用时，<code>JavaScript</code>引擎会自动将其标记为可回收，并在适当的时候进行垃圾回收以释放内存。
+<code>JavaScript</code>
+的垃圾回收机制主要处理对象的内存释放，而不负责释放变量的内存。变量的生命周期通常由其作用域决定。在全局作用域中声明的变量通常会在整个应用程序的生命周期内存在，除非您显式删除它们或应用程序终止。在局部作用域中声明的变量在离开作用域时会被销毁，相应的内存也会被释放。</p>
+<p>什么时候必须使用 <code>['属性名']</code> 的方式？ 1.
+属性名包含特殊字符：如<code>-</code> 和 <code></code>。 2.
+使用表达式来动态访问属性 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">    name: &quot;John&quot;,</span><br><span class="line">    age: 30</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var propertyName = &quot;name&quot;;</span><br><span class="line">console.log(person[propertyName]); // 使用方括号来访问属性</span><br></pre></td></tr></table></figure></p>
+<p><code>test.call/apply(obj);</code> 这个意思是把 <code>test</code>
+函数临时作为 <code>obj</code> 内部的函数来调用。<code>obj</code>
+内部可以没有 <code>test</code> 函数。</p>
+<p><code>JavaScript</code>
+中的回调函数是一种常见的编程概念，它允许您将一个函数作为参数传递给另一个函数，并在需要时执行该函数。这通常用于处理异步操作，例如处理文件读取、网络请求、定时器等等，因为在这些情况下，不能立即得到结果，而需要在操作完成后执行特定的代码。</p>
 <p>IIFE(Immediately-Invoked Function Expression)</p>
-<p><code>this</code> 是什么？</p>
-<ul>
-<li>任何函数本质上都是通过某个对象来调用，如果我们没有直接指定，就是 <code>window</code> 来调用。</li>
-<li>所有函数内部都以一个变量 <code>this</code>。</li>
-<li>这个 <code>this</code> 的值是当前调用函数的对象。</li>
-</ul>
+<p><code>this</code> 是什么？ -
+任何函数本质上都是通过某个对象来调用，如果我们没有直接指定，就是
+<code>window</code> 来调用。 - 所有函数内部都以一个变量
+<code>this</code>。 - 这个 <code>this</code>
+的值是当前调用函数的对象。</p>
 <p>在<code>JavaScript</code>中声明的全局函数通常是<code>window</code>对象的一部分，而不是<code>document</code>对象的一部分，这是因为<code>JavaScript</code>最初是为浏览器环境设计的，并且全局作用域在浏览器中通常与<code>window</code>对象关联。</p>
 <p>在浏览器环境中，<code>window</code>对象代表整个浏览器窗口，它包含了全局<code>JavaScript</code>作用域的所有内容，包括全局变量和函数。当您声明一个全局函数时，它实际上是<code>window</code>对象的一个属性。这意味着您可以在全局范围内访问这个函数，无需任何其他前缀。</p>
-<h4 id="JS-原型和原型链"><a href="#JS-原型和原型链" class="headerlink" title="JS 原型和原型链"></a>JS 原型和原型链</h4><p>JS 的复杂类型都是对象类型(<code>Object</code>)，而 JS 不是一门完全面向对象的编程语言，所以如何涉及继承机制，这是一个问题。</p>
-<h5 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h5><p>因为 JS 中没有类(<code>Class</code>)这个概念，所以 JS 的设计者使用了 <strong>构造函数</strong> 来实现继承机制。</p>
-<blockquote>
-<p>ES6 中的 <code>Class</code> 可以看成一个语法糖，它的绝大部分功能，ES5 都可以做到，新的 <code>Class</code> 写法只是让原型的写法更加清晰、更像面向对象编程的语言而已。</p>
-</blockquote>
-<p>在构造函数中，通过 <code>this</code> 赋值的属性或者方法，是每个实例的 <strong>实例属性</strong> 和 <strong>实例方法</strong>，<strong>无法共享公共属性</strong>。所以就又设计出了一个<strong>原型对象</strong>，来存储这个<strong>构造函数的公共属性以及方法</strong>。</p>
-<h5 id="函数的-prototype-原型"><a href="#函数的-prototype-原型" class="headerlink" title="函数的 prototype(原型)"></a>函数的 <code>prototype</code>(原型)</h5><ul>
-<li>每一个函数都有一个 <code>prototype</code> 属性，它默认指向一个 <code>Object</code> 空实例对象(即称为：原型对象，但是 <code>Object</code> 不满足)。<blockquote>
-<p>为什么要有这个空对象？<br>它可以方便我们对于一个函数添加个性化的属性和方法，如果没有这个空对象而是直接链接到 Obejct，那么不同函数之间的个性化操作都会添加到 Obejct 下，会产生很多不必要的冲突和麻烦。</p>
-</blockquote>
-</li>
+<h4 id="js-原型和原型链">JS 原型和原型链</h4>
+<p>JS 的复杂类型都是对象类型(<code>Object</code>)，而 JS
+不是一门完全面向对象的编程语言，所以如何涉及继承机制，这是一个问题。</p>
+<h5 id="构造函数">构造函数</h5>
+<p>因为 JS 中没有类(<code>Class</code>)这个概念，所以 JS 的设计者使用了
+<strong>构造函数</strong> 来实现继承机制。 &gt; ES6 中的
+<code>Class</code> 可以看成一个语法糖，它的绝大部分功能，ES5
+都可以做到，新的 <code>Class</code>
+写法只是让原型的写法更加清晰、更像面向对象编程的语言而已。</p>
+<p>在构造函数中，通过 <code>this</code> 赋值的属性或者方法，是每个实例的
+<strong>实例属性</strong> 和
+<strong>实例方法</strong>，<strong>无法共享公共属性</strong>。所以就又设计出了一个<strong>原型对象</strong>，来存储这个<strong>构造函数的公共属性以及方法</strong>。</p>
+<h5 id="函数的-prototype原型">函数的 <code>prototype</code>(原型)</h5>
+<ul>
+<li>每一个函数都有一个 <code>prototype</code> 属性，它默认指向一个
+<code>Object</code> 空实例对象(即称为：原型对象，但是
+<code>Object</code> 不满足)。 &gt; 为什么要有这个空对象？ &gt;
+它可以方便我们对于一个函数添加个性化的属性和方法，如果没有这个空对象而是直接链接到
+Obejct，那么不同函数之间的个性化操作都会添加到 Obejct
+下，会产生很多不必要的冲突和麻烦。</li>
 <li>原型对象中有一个属性 <code>constructor</code>，它指向函数对象。</li>
-<li>给原型对象添加属性(一般是方法) -&gt; 实例对象可以访问使用。（感觉和类与对象的关系很像）<br>构造函数和它的原型对象相互引用。<br>每一个函数 <code>function</code> 都有一个 <code>prototype</code>，即显式原型(属性)<br>每一个对象都有一个 <code>__proto__</code> 可以称为隐式原型(属性)<br>对象隐式原型的值就是函数显式原型的值。</li>
+<li>给原型对象添加属性(一般是方法) -&gt;
+实例对象可以访问使用。（感觉和类与对象的关系很像）
+构造函数和它的原型对象相互引用。 每一个函数 <code>function</code>
+都有一个 <code>prototype</code>，即显式原型(属性) 每一个对象都有一个
+<code>__proto__</code> 可以称为隐式原型(属性)
+对象隐式原型的值就是函数显式原型的值。</li>
 </ul>
-<h5 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h5><ul>
+<h5 id="原型链">原型链</h5>
+<ul>
 <li>访问一个对象的属性时，现在自身属性中查找，找到返回。</li>
-<li>如果没有，再沿着 <code>__proto__</code> 这条链向上查找，找到返回。</li>
+<li>如果没有，再沿着 <code>__proto__</code>
+这条链向上查找，找到返回。</li>
 <li>如果最终没有找到，返回 <code>undefined</code>。</li>
-<li>一直是沿着隐式原型找的，所以我们的原型链本质上是一个 <strong>隐式原型链</strong><img src="/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B.png" class="">
-<img src="/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B%E9%93%BE.png" class="">
-所有函数的隐式原型都是相同的，<code>fun = new Function()</code> 都是 <code>Function</code> 的实例对象。</li>
+<li>一直是沿着隐式原型找的，所以我们的原型链本质上是一个
+<strong>隐式原型链</strong> <img src="/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B.png" class=""> <img src="/2023/08/31/JavaScript%E8%BF%9B%E9%98%B6/%E5%8E%9F%E5%9E%8B%E9%93%BE.png" class="">
+所有函数的隐式原型都是相同的，<code>fun = new Function()</code> 都是
+<code>Function</code> 的实例对象。</li>
 <li>在读取对象的属性时，会自动到原型链中查找。</li>
 <li>设置对象的属性时，不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值。</li>
 <li>方法一般定义在原型中，属性一般通过构造函数定义在对象本身上。</li>
 </ul>
-<p>To do:<br>利用js快速完成大学生新生安全教育课程<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38072683/article/details/118878085">https://blog.csdn.net/m0_38072683/article/details/118878085</a></p>
+<p>To do: 利用js快速完成大学生新生安全教育课程
+https://blog.csdn.net/m0_38072683/article/details/118878085</p>
 
     </div>
 
