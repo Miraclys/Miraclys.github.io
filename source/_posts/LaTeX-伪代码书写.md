@@ -3,6 +3,7 @@ title: LaTeX 伪代码书写
 date: 2023-11-25 15:04:18
 tags:
 - LaTeX
+description: record the key points to add pseudo-code in beamer
 ---
 
 ### 伪代码书写规范
