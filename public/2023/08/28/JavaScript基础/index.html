@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://example.com/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/document%E5%92%8Cwindow.png">
 <meta property="og:image" content="http://example.com/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/bom%E5%AF%B9%E8%B1%A1.png">
 <meta property="article:published_time" content="2023-08-28T06:10:05.000Z">
-<meta property="article:modified_time" content="2024-01-31T10:38:54.181Z">
+<meta property="article:modified_time" content="2023-11-18T08:30:13.323Z">
 <meta property="article:author" content="Miraclys">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Web">
@@ -166,13 +166,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -243,7 +243,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-31 18:38:54" itemprop="dateModified" datetime="2024-01-31T18:38:54+08:00">2024-01-31</time>
+      <time title="Modified: 2023-11-18 16:30:13" itemprop="dateModified" datetime="2023-11-18T16:30:13+08:00">2023-11-18</time>
     </span>
 
   
@@ -270,145 +270,196 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>变量的声明就是 <code>var name = xxx;</code>。其中 <code>var</code> 是 <code>variable</code> 的缩写（虽然和方差 variance 的缩写一样）。</p>
-<p>在 JS 中使用 {} 来分块，同一个 {} 中的语句我们称之为一组语句，它们要么都执行，要么都不执行。</p>
-<p>其实函数也是一个对象，可以如下定义一个函数：<code>f = new Function(&quot;console.log(&#39;this is a function. &#39;)&quot;)</code>。但是一般不这么使用。</p>
+    <div class="post-body" itemprop="articleBody"><p>变量的声明就是 <code>var name = xxx;</code>。其中 <code>var</code> 是
+<code>variable</code> 的缩写（虽然和方差 variance 的缩写一样）。</p>
+<p>在 JS 中使用 {} 来分块，同一个 {}
+中的语句我们称之为一组语句，它们要么都执行，要么都不执行。</p>
+<p>其实函数也是一个对象，可以如下定义一个函数：<code>f = new Function("console.log('this is a function. ')")</code>。但是一般不这么使用。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    name: &#x27;lys&#x27;,</span><br><span class="line">    age: 19,</span><br><span class="line">    address: &#x27;SDU&#x27;</span><br><span class="line">&#125;</span><br><span class="line">for (var x in obj) &#123;</span><br><span class="line">    console.log(x); // 这样只是枚举的对象中的元素名字</span><br><span class="line">&#125;</span><br><span class="line">for (var x in obj)&#123;</span><br><span class="line">    console.log(obj[x]); // 不能直接 obj.x 来获得具体元素，应用 [] 的引用方式。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>数组创建 <code>var arr = new Array()</code> 或者 <code>var arr = []</code>。但是一般不使用 <code>new Array()</code> 的创建方式。并且数组中的元素类型也是不一定的，不一定非要是 Number 类型的。<br>其实数组也是一个对象，只不过索引方式是 []，所以对象有的东西数组也有。</p>
-<p>数组既然是对象，就有方法，在 JS 中数组有一些常用的方法：</p>
-<ol>
-<li><code>push()</code> 向数组末尾添加一个或者多个元素，并且返回新的数组的长度。</li>
-<li><code>pop()</code> 从数组末尾删除一个元素，并且返回删除的元素。</li>
-<li><code>unshift()</code> 向数组的<strong>开头</strong>添加一个或者多个元素，并且返回新的数组的长度。</li>
-<li><code>shift()</code> 从数组开头删除一个元素，并且返回删除的元素。</li>
-<li><code>join()</code> 将所有的元素连接成一个字符串。</li>
-<li><code>slice()</code> 返回数组的一部分，不修改原数组。</li>
-</ol>
-<p>建立函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function xxx() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果是构造函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br></pre></td></tr></table></figure>
-<p>如果不写前面的 function 直接 new，会出现错误。</p>
-<p>arr.forEach(xx) 中间 xx 都要传递一个函数，如果之前定义了 <code>function fun() &#123;&#125;</code> 就写为 <code>arr.forEach(fun)</code>，但是一般不这样，一般都是用匿名函数。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3];</span><br><span class="line">arr.forEach(function(a, b, c) &#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>上面就是输出 a，遍历的时候会将 arr 中的元素传递给 function。<br>会传递三个参数，第一个是数组当前遍历到元素 value，第二个是当前遍历到的索引 index，第三个是正在遍历的数组。</p>
-<p>函数在调用的时候，浏览器会向里面传递两个隐含的参数</p>
-<ol>
-<li>上下文对象的 this</li>
-<li>封装实参的类数组对象 arguments，在调用函数的时候，我们所传递的实参都会在 arguments 中保存。</li>
-</ol>
-<p>在 JS 中，对象有 3 类</p>
-<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1.png" class="">
-<p>DOM Document Object Model<br>JS 通过 DOM 对于 HTML 文档进行操作，只要理解了 DOM，就可以随心所欲操作 WEB 页面。</p>
-<p>节点 Node 是构成 HTML 文档的最基本的单元，常用节点分为四类</p>
-<ul>
-<li>文档节点 整个 HTML 文档</li>
-<li>元素节点 HTML 文档中的 HTML 标签</li>
-<li>属性节点 元素的属性</li>
-<li>文本节点 HTML 标签中的文本<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8A%82%E7%82%B9.png" class=""></li>
-</ul>
+<p>数组创建 <code>var arr = new Array()</code> 或者
+<code>var arr = []</code>。但是一般不使用 <code>new Array()</code>
+的创建方式。并且数组中的元素类型也是不一定的，不一定非要是 Number
+类型的。 其实数组也是一个对象，只不过索引方式是
+[]，所以对象有的东西数组也有。</p>
+<p>数组既然是对象，就有方法，在 JS 中数组有一些常用的方法： 1.
+<code>push()</code>
+向数组末尾添加一个或者多个元素，并且返回新的数组的长度。 2.
+<code>pop()</code> 从数组末尾删除一个元素，并且返回删除的元素。 3.
+<code>unshift()</code>
+向数组的<strong>开头</strong>添加一个或者多个元素，并且返回新的数组的长度。
+4. <code>shift()</code> 从数组开头删除一个元素，并且返回删除的元素。 5.
+<code>join()</code> 将所有的元素连接成一个字符串。 6.
+<code>slice()</code> 返回数组的一部分，不修改原数组。</p>
+<p>建立函数 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function xxx() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果是构造函数 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">var person = new Person();</span><br></pre></td></tr></table></figure> 如果不写前面的 function 直接
+new，会出现错误。</p>
+<p>arr.forEach(xx) 中间 xx 都要传递一个函数，如果之前定义了
+<code>function fun() &#123;&#125;</code> 就写为
+<code>arr.forEach(fun)</code>，但是一般不这样，一般都是用匿名函数。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3];</span><br><span class="line">arr.forEach(function(a, b, c) &#123;</span><br><span class="line">    console.log(a);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure> 上面就是输出 a，遍历的时候会将 arr 中的元素传递给
+function。 会传递三个参数，第一个是数组当前遍历到元素
+value，第二个是当前遍历到的索引 index，第三个是正在遍历的数组。</p>
+<p>函数在调用的时候，浏览器会向里面传递两个隐含的参数 1. 上下文对象的
+this 2. 封装实参的类数组对象
+arguments，在调用函数的时候，我们所传递的实参都会在 arguments
+中保存。</p>
+<p>在 JS 中，对象有 3 类 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1.png" class=""> DOM Document Object Model JS
+通过 DOM 对于 HTML 文档进行操作，只要理解了 DOM，就可以随心所欲操作 WEB
+页面。</p>
+<p>节点 Node 是构成 HTML 文档的最基本的单元，常用节点分为四类 - 文档节点
+整个 HTML 文档 - 元素节点 HTML 文档中的 HTML 标签 - 属性节点 元素的属性
+- 文本节点 HTML 标签中的文本 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8A%82%E7%82%B9.png" class=""></p>
 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8A%82%E7%82%B9%E7%9A%84%E5%B1%9E%E6%80%A7.png" class="">
 <p>上面的三个属性是每一个节点都有的三个属性。</p>
 <p>innerHTML 可以获得到文字</p>
-<p>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。JavaScript 与 HTML 之间的交互是通过事件实现的。比如对于 Web 应用来说，有下面一些有代表性的事件：点击某个元素、将鼠标移动至某个元素上方、按下键盘上某个键等等。</p>
-<p><code>onload</code> 事件会在整个页面加载完成之后发生。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onload= function() &#123;</span><br><span class="line">    xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这一段代码是页面加载完成之后执行的。</p>
+<p>事件就是文档或浏览器窗口中发生的一些特定的交互瞬间。JavaScript 与
+HTML 之间的交互是通过事件实现的。比如对于 Web
+应用来说，有下面一些有代表性的事件：点击某个元素、将鼠标移动至某个元素上方、按下键盘上某个键等等。</p>
+<p><code>onload</code> 事件会在整个页面加载完成之后发生。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">window.onload= function() &#123;</span><br><span class="line">    xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+这一段代码是页面加载完成之后执行的。</p>
 <p>标签就是元素，元素就是标签。</p>
 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9.png" class="">
-
-<p>innerHTML 对于「自结束标签」没有意义。如：</p>
-<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%87%AA%E7%BB%93%E6%9D%9F%E6%A0%87%E7%AD%BE.png" class="">
-<p>如果想读取元素的属性，直接 <code>元素.属性名</code>。但是读取元素的 <code>class</code> 属性的时候不能直接 <code>元素.class</code> 因为 class 是 JS 中的保留字，应该写为 <code>元素.className</code></p>
+<p>innerHTML 对于「自结束标签」没有意义。如： <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%87%AA%E7%BB%93%E6%9D%9F%E6%A0%87%E7%AD%BE.png" class="">
+如果想读取元素的属性，直接 <code>元素.属性名</code>。但是读取元素的
+<code>class</code> 属性的时候不能直接 <code>元素.class</code> 因为 class
+是 JS 中的保留字，应该写为 <code>元素.className</code></p>
 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E6%9F%A5%E6%89%BE%E5%AD%90%E8%8A%82%E7%82%B9.png" class="">
-<p>但是 <code>childNodes</code> 有个缺陷，此时如果我们使用 <code>children</code> 就不会出现这种问题了，它返回的是当前元素的所有子元素。</p>
-<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/childnodes%E7%BC%BA%E9%99%B7.png" class="">
-
-<p><code>innerText</code> 和 <code>innerHTML</code> 类似，但是 <code>innerText</code> 获取的会将 html 标签去除。</p>
+<p>但是 <code>childNodes</code> 有个缺陷，此时如果我们使用
+<code>children</code>
+就不会出现这种问题了，它返回的是当前元素的所有子元素。
+<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/childnodes%E7%BC%BA%E9%99%B7.png" class=""></p>
+<p><code>innerText</code> 和 <code>innerHTML</code> 类似，但是
+<code>innerText</code> 获取的会将 html 标签去除。</p>
 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E8%8E%B7%E5%8F%96%E5%85%84%E5%BC%9F%E8%8A%82%E7%82%B9.png" class="">
-
-<p><code>getElementsByName()</code> 一般用来操作一些表单项目。 </p>
-<p>获取 <code>body</code> 标签的话有两种方式：</p>
-<ol>
-<li><code>var body = document.getElementsByTagName()[0];</code> 因为 <code>getElementsByTagName()</code> 返回的是一个集合 <code>Collection</code>，但是我们又只有一个 <code>body</code>，所以直接返回索引 0 就可以了。</li>
-<li>其实在 <code>document</code> 中就有一个属性 <code>body</code>，我们直接 <code>var body = document.body;</code> 就可以了。</li>
-</ol>
+<p><code>getElementsByName()</code> 一般用来操作一些表单项目。</p>
+<p>获取 <code>body</code> 标签的话有两种方式： 1.
+<code>var body = document.getElementsByTagName()[0];</code> 因为
+<code>getElementsByTagName()</code> 返回的是一个集合
+<code>Collection</code>，但是我们又只有一个
+<code>body</code>，所以直接返回索引 0 就可以了。 2. 其实在
+<code>document</code> 中就有一个属性 <code>body</code>，我们直接
+<code>var body = document.body;</code> 就可以了。</p>
 <p><code>html</code> 元素是 <code>document.documentElement;</code></p>
-<p><code>document.all</code> 代表的是页面的所有元素。也可以写成 <code>document.getElementsByTagName(&quot;*&quot;)</code></p>
-<p><code>document.getElementsByClassName();</code> 可以根据元素的 <code>class</code> 属性值获取一组节点对象。</p>
-<p><code>document.querySelector();</code> 需要一个选择器字符串作为参数，可以根据一个 CSS 选择器来查询一个元素节点对象。但是使用这个方法只会返回唯一的一个元素，如果满足条件的元素有多个，但是只会返回第一个。如果需要多个就使用 <code>document.querySelectorAll();</code></p>
-<p><code>父节点.insertBefore(新节点, 旧节点)</code> 是在旧节点前面添加新节点。</p>
-<p>超链接点击以后会默认跳转页面，如果我们不希望出现此默认行为，我们可以在超链接的 <code>onclick = function() &#123;&#125;</code> 中写上 <code>return false;</code></p>
-<p><code>confirm()</code> 函数会弹出一个带有确定和取消两个按键的提示框，并且如果我们点击确定，会返回 true，如果点击取消，会返回 false。</p>
+<p><code>document.all</code> 代表的是页面的所有元素。也可以写成
+<code>document.getElementsByTagName("*")</code></p>
+<p><code>document.getElementsByClassName();</code> 可以根据元素的
+<code>class</code> 属性值获取一组节点对象。</p>
+<p><code>document.querySelector();</code>
+需要一个选择器字符串作为参数，可以根据一个 CSS
+选择器来查询一个元素节点对象。但是使用这个方法只会返回唯一的一个元素，如果满足条件的元素有多个，但是只会返回第一个。如果需要多个就使用
+<code>document.querySelectorAll();</code></p>
+<p><code>父节点.insertBefore(新节点, 旧节点)</code>
+是在旧节点前面添加新节点。</p>
+<p>超链接点击以后会默认跳转页面，如果我们不希望出现此默认行为，我们可以在超链接的
+<code>onclick = function() &#123;&#125;</code> 中写上
+<code>return false;</code></p>
+<p><code>confirm()</code>
+函数会弹出一个带有确定和取消两个按键的提示框，并且如果我们点击确定，会返回
+true，如果点击取消，会返回 false。</p>
 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F.png" class="">
-<p>一个比较细节容易忽视的点，直观上我们认为 this 和 allA[i] 是一样的。<br>图中，我们的 <code>onclick = function() &#123;&#125;</code> 可以认为只是函数之间的一个赋值，里面的内容并没有执行。只有我们在点击按钮的时候，<code>function</code> 里面的内容才会执行。如果我们 <code>function</code> 里面使用 <code>allA[i]</code>，等到我们点击的时候 for 循环早就已经执行完毕，此时的 i 必然是 all 的length，所以就会出现错误。我们正确的做法应该是将 function 里面的 allA[i] 改为 this。</p>
-<p>通过 JS 修改元素的样式：<code>元素.style.样式名 = 样式值</code> 其中样式值需要是一个字符串。<br>注意，如果 CSS 样式名称中含有 <code>-</code>，如 <code>background-color</code> 这种命名在 JS 中是不合法的，我们需要将这种命名改为驼峰命名法，去掉 <code>-</code>，然后将 <code>-</code> 的字母大写。</p>
-<p>通过 JS 的 style 修改的往往是内联样式，而内联样式有较高的优先级，所以通过 JS 修改的样式往往会立即显示。</p>
-<p>事件对象：<br>当事件的响应函数被触发的时候，浏览器每次会将一个事件对象作为实参传递进响应函数。在事件对象中封装了当前关于事件的一切信息，比如鼠标的坐标、键盘的哪一个按键被按下、鼠标滚轮的移动方向</p>
+<p>一个比较细节容易忽视的点，直观上我们认为 this 和 allA[i] 是一样的。
+图中，我们的 <code>onclick = function() &#123;&#125;</code>
+可以认为只是函数之间的一个赋值，里面的内容并没有执行。只有我们在点击按钮的时候，<code>function</code>
+里面的内容才会执行。如果我们 <code>function</code> 里面使用
+<code>allA[i]</code>，等到我们点击的时候 for
+循环早就已经执行完毕，此时的 i 必然是 all
+的length，所以就会出现错误。我们正确的做法应该是将 function 里面的
+allA[i] 改为 this。</p>
+<p>通过 JS 修改元素的样式：<code>元素.style.样式名 = 样式值</code>
+其中样式值需要是一个字符串。 注意，如果 CSS 样式名称中含有
+<code>-</code>，如 <code>background-color</code> 这种命名在 JS
+中是不合法的，我们需要将这种命名改为驼峰命名法，去掉
+<code>-</code>，然后将 <code>-</code> 的字母大写。</p>
+<p>通过 JS 的 style
+修改的往往是内联样式，而内联样式有较高的优先级，所以通过 JS
+修改的样式往往会立即显示。</p>
+<p>事件对象：
+当事件的响应函数被触发的时候，浏览器每次会将一个事件对象作为实参传递进响应函数。在事件对象中封装了当前关于事件的一切信息，比如鼠标的坐标、键盘的哪一个按键被按下、鼠标滚轮的移动方向</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;</span><br><span class="line">            this is a title.</span><br><span class="line">        &lt;/title&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var box1 = document.getElementById(&quot;box1&quot;);</span><br><span class="line">                document.onmousemove = function(event) &#123;</span><br><span class="line">                    var clientX = event.clientX;</span><br><span class="line">                    var clientY = event.clientY;</span><br><span class="line">                    box1.style.left = clientX + &quot;px&quot;;</span><br><span class="line">                    box1.style.top = clientY + &quot;px&quot;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            #box1 &#123;</span><br><span class="line">                width: 100px;</span><br><span class="line">                height: 100px;</span><br><span class="line">                background-color: red;</span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">        &lt;box id=&quot;box1&quot;&gt;&lt;/box&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><code>clientX</code> 和 <code>clientY</code> 是用于我们鼠标在当前可见窗口的坐标，所以对于有滚动条的窗口的话可能会出现一些错误。所以我们这时候使用 <code>pageX</code> 和 <code>pageY</code> 这两和属性是相对于整个页面的。</p>
+<p><code>clientX</code> 和 <code>clientY</code>
+是用于我们鼠标在当前可见窗口的坐标，所以对于有滚动条的窗口的话可能会出现一些错误。所以我们这时候使用
+<code>pageX</code> 和 <code>pageY</code>
+这两和属性是相对于整个页面的。</p>
 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/document%E5%92%8Cwindow.png" class="">
-
-<p>事件的冒泡(bubble)<br>所谓事件的冒泡就是事件的想上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。在开发中，大部分情况冒泡是有用的，如果不希望发生事件冒泡可以通过事件对象来取消冒泡。<br><code>event.cancelBubble = true;</code></p>
+<p>事件的冒泡(bubble)
+所谓事件的冒泡就是事件的想上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。在开发中，大部分情况冒泡是有用的，如果不希望发生事件冒泡可以通过事件对象来取消冒泡。
+<code>event.cancelBubble = true;</code></p>
 <p>我们希望只绑定一次事件，即可应用到多个元素之上，即使元素是后来添加的。我们可以尝试将元素绑定给其共同的祖先元素。然后通过冒泡来实现事件的发生。这其实就是事件的「委派」。</p>
-<p><code>document.getElementsByTagName();</code> 返回的不是一个数组（一个NodeList对象，指定标签名的集合 collection），虽然我们可以遍历，它也有长度。</p>
-<p>点击超链接时会自动默认跳转，我们把超链接的 <code>href</code> 修改为 <code>javascript:;</code> 就不会发生跳转了。</p>
-<p>事件给谁绑定的，function 中的 this 就是谁。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> ul.onclick = function() &#123;</span><br><span class="line">    alert(this);</span><br><span class="line">    alert(&quot;我是一个响应函数。&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>像这一个，第一个 <code>alert</code> 输出的就是 <code>[object HTMLUListElement]</code>。<br>但是事件绑定对象不等于事件触发对象，我们如果想要获得事件<strong>触发对象</strong>需要使用 <code>event.target</code> 属性。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;this is a test.&lt;/title&gt;</span><br><span class="line">    &lt;/title&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var btn1 = document.getElementById(&quot;btn1&quot;);</span><br><span class="line">                var ul = document.getElementsByTagName(&quot;ul&quot;)[0];</span><br><span class="line">                btn1.onclick = function() &#123;</span><br><span class="line">                    var li = document.createElement(&quot;li&quot;);</span><br><span class="line">                    li.innerHTML = &quot;&lt;a href=&#x27;javascript:;&#x27; class=&#x27;link&#x27;&gt;新建的超链接&lt;/a&gt;&quot;</span><br><span class="line">                    ul.appendChild(li);</span><br><span class="line">                &#125;</span><br><span class="line">                ul.onclick = function(event) &#123;</span><br><span class="line">                    if (event.target.className == &#x27;link&#x27;) &#123;</span><br><span class="line">                        alert(&quot;这是一个响应函数&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;button id=&quot;btn1&quot;&gt;我是一个按钮&lt;/button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>对象.事件 = 函数</code> 的形式绑定响应函数，它只能同时为一个事件绑定一个响应函数，不能绑定多个，如果绑定了多个，那么后面的就会覆盖掉前面的。<br>我们可以使用 <code>addEventListener(xxx, xxx, xxx)</code> 为元素绑定响应函数。<br>它的参数：</p>
-<ol>
-<li>事件的字符串，如果是 onclick 不要前面的 on</li>
-<li>回调函数，当事件被触发时，该函数会被调用。</li>
-<li>是否在捕获阶段触发，需要布尔值，一般是 false</li>
-</ol>
-<p>JavaScript中的call()函数是用于调用函数的方法之一，它允许你显式地指定函数内部的this关键字，并传递参数给该函数。call()方法的语法如下：</p>
+<p><code>document.getElementsByTagName();</code>
+返回的不是一个数组（一个NodeList对象，指定标签名的集合
+collection），虽然我们可以遍历，它也有长度。</p>
+<p>点击超链接时会自动默认跳转，我们把超链接的 <code>href</code> 修改为
+<code>javascript:;</code> 就不会发生跳转了。</p>
+<p>事件给谁绑定的，function 中的 this 就是谁。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> ul.onclick = function() &#123;</span><br><span class="line">    alert(this);</span><br><span class="line">    alert(&quot;我是一个响应函数。&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+像这一个，第一个 <code>alert</code> 输出的就是
+<code>[object HTMLUListElement]</code>。
+但是事件绑定对象不等于事件触发对象，我们如果想要获得事件<strong>触发对象</strong>需要使用
+<code>event.target</code> 属性。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;this is a test.&lt;/title&gt;</span><br><span class="line">    &lt;/title&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var btn1 = document.getElementById(&quot;btn1&quot;);</span><br><span class="line">                var ul = document.getElementsByTagName(&quot;ul&quot;)[0];</span><br><span class="line">                btn1.onclick = function() &#123;</span><br><span class="line">                    var li = document.createElement(&quot;li&quot;);</span><br><span class="line">                    li.innerHTML = &quot;&lt;a href=&#x27;javascript:;&#x27; class=&#x27;link&#x27;&gt;新建的超链接&lt;/a&gt;&quot;</span><br><span class="line">                    ul.appendChild(li);</span><br><span class="line">                &#125;</span><br><span class="line">                ul.onclick = function(event) &#123;</span><br><span class="line">                    if (event.target.className == &#x27;link&#x27;) &#123;</span><br><span class="line">                        alert(&quot;这是一个响应函数&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;button id=&quot;btn1&quot;&gt;我是一个按钮&lt;/button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;javascript:;&quot; class=&quot;link&quot;&gt;这是一个超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>使用 <code>对象.事件 = 函数</code>
+的形式绑定响应函数，它只能同时为一个事件绑定一个响应函数，不能绑定多个，如果绑定了多个，那么后面的就会覆盖掉前面的。
+我们可以使用 <code>addEventListener(xxx, xxx, xxx)</code>
+为元素绑定响应函数。 它的参数： 1. 事件的字符串，如果是 onclick
+不要前面的 on 2. 回调函数，当事件被触发时，该函数会被调用。 3.
+是否在捕获阶段触发，需要布尔值，一般是 false</p>
+<p>JavaScript中的call()函数是用于调用函数的方法之一，它允许你显式地指定函数内部的this关键字，并传递参数给该函数。call()方法的语法如下：
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">functionName.call(thisArg, arg1, arg2, ...);</span><br></pre></td></tr></table></figure>
-<p>总之，call()方法是JavaScript中用于在指定上下文对象上调用函数的强大工具，它允许你更灵活地控制函数的执行环境。</p>
+总之，call()方法是JavaScript中用于在指定上下文对象上调用函数的强大工具，它允许你更灵活地控制函数的执行环境。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;</span><br><span class="line">        &lt;meta charset=&quot;UFT-8&quot;&gt;</span><br><span class="line">        this is a test.</span><br><span class="line">    &lt;/title&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            #box1 &#123;</span><br><span class="line">                width: 100px;</span><br><span class="line">                height: 100px;</span><br><span class="line">                background-color: red;</span><br><span class="line">                position: absolute;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">        &lt;script&gt;</span><br><span class="line">            window.onload = function() &#123;</span><br><span class="line">                var box1 = document.getElementById(&quot;box1&quot;);</span><br><span class="line">                box1.onmousedown = function(event) &#123;</span><br><span class="line">                    var offsetX = event.clientX - box1.offsetLeft;</span><br><span class="line">                    var offsetY = event.clientY - box1.offsetTop;</span><br><span class="line">                    document.onmousemove = function(event) &#123;</span><br><span class="line">                        var x = event.clientX;</span><br><span class="line">                        var y = event.clientY;</span><br><span class="line">                        box1.style.left = x - offsetX + &quot;px&quot;;</span><br><span class="line">                        box1.style.top = y - offsetY + &quot;px&quot;;</span><br><span class="line">                    &#125;</span><br><span class="line">                    document.onmouseup = function() &#123;</span><br><span class="line">                        document.onmousemove = null;</span><br><span class="line">                        document.onmouseup = null;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">        &lt;div id=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p>实现一个小方块位置的拖拽。</p>
-<p>键盘事件一般都会绑定给可以获取到焦点的对象或者是 <code>document</code> 对象。对于 <code>onkeydown</code> 事件来说，如果我们一直按着某个按键不松手，则事件就会一直触发。当 <code>onkeydown</code> 连续触发时，第一次和第二次之间的间隔会长一点，其他后面的会非常快，这是为了防止我们误操作。</p>
-<p>我们可以使用 <code>event</code> 的 <code>keyCode</code> 属性可以返回被按下键的 <code>Unicode</code> 编码。或者使用 <code>key</code> 属性直接返回被按键的按键。<br>如果判断 <code>alt</code> 或者 <code>ctrl</code> 或者 <code>shift</code> 和某个键是否同时被按下，可以同时使用 <code>event</code> 的 <code>altKey、shiftKey、ctrlKey</code> 属性和 <code>key</code> 属性。</p>
-<p>BOM browser object model 浏览器对象模型<br>BOM 可以使我们通过 JS 来操作浏览器，DOM 可以使我们通过 JS 来操作网页。</p>
-<img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/bom%E5%AF%B9%E8%B1%A1.png" class="">
-
-<p><code>uerAgent</code> 用户代理，通常指的是浏览器，其中 <code>navigator</code> 的属性 <code>userAgent</code> 是一个字符串，包含用来描述浏览器的内容，不同的浏览器有着不同的 userAgent</p>
+<p>键盘事件一般都会绑定给可以获取到焦点的对象或者是
+<code>document</code> 对象。对于 <code>onkeydown</code>
+事件来说，如果我们一直按着某个按键不松手，则事件就会一直触发。当
+<code>onkeydown</code>
+连续触发时，第一次和第二次之间的间隔会长一点，其他后面的会非常快，这是为了防止我们误操作。</p>
+<p>我们可以使用 <code>event</code> 的 <code>keyCode</code>
+属性可以返回被按下键的 <code>Unicode</code> 编码。或者使用
+<code>key</code> 属性直接返回被按键的按键。 如果判断 <code>alt</code>
+或者 <code>ctrl</code> 或者 <code>shift</code>
+和某个键是否同时被按下，可以同时使用 <code>event</code> 的
+<code>altKey、shiftKey、ctrlKey</code> 属性和 <code>key</code>
+属性。</p>
+<p>BOM browser object model 浏览器对象模型 BOM 可以使我们通过 JS
+来操作浏览器，DOM 可以使我们通过 JS 来操作网页。 <img src="/2023/08/28/JavaScript%E5%9F%BA%E7%A1%80/bom%E5%AF%B9%E8%B1%A1.png" class=""></p>
+<p><code>uerAgent</code> 用户代理，通常指的是浏览器，其中
+<code>navigator</code> 的属性 <code>userAgent</code>
+是一个字符串，包含用来描述浏览器的内容，不同的浏览器有着不同的
+userAgent</p>
 <p>Gecko CSS 渲染的一个引擎。</p>
-<p><code>history</code> 对象 <code>length</code> 属性，返回浏览器历史列表中 url 数量。<br>方法：<code>back</code> 加载 <code>history</code> 列表中前一个 url，<code>forward</code> 加载 <code>history</code> 列表中下一个 url，<code>go(xx)</code> 加载列表中某一个具体的页面，xx 如果是正，就是前多少个，如果是负，就是加载后面第xx个页面。</p>
-<p><code>location</code> 对象<br>如果直接打印 <code>location</code> 可以获取当前的地址栏，也就是网页的完整路径。如果直接将 <code>location</code> 修改为一个路径，就会直接跳转到那个页面。</p>
-<p><code>window</code> 的 <code>setInterval</code> 方法。(Interval 是 间隔、中场休息、幕间休息、间隙 的意思)</p>
-<ul>
-<li>定时调用</li>
-<li>可以将一个函数，每隔一段时间执行一次</li>
-<li>参数：<ol>
-<li>回调函数</li>
-<li>每次调用的时间间隔，单位是毫秒</li>
-</ol>
-</li>
-<li>返回值：<br>  返回一个 Number 类型的数据<br>  这个数字用来作为定时器的唯一标识(因为一个页面上可能有很多个定时器)<br>  比如我们的 <code>clearInterval(xx)</code> 方法，可以用来关闭一个定时器，其中的 <code>xx</code> 就需要我们的标识作为参数。  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function() &#123;</span><br><span class="line">    xxx.innerHTML = ++count;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>延时调用：一个函数不是马上执行，而是一段时间之后再执行(只会执行一次)。<br>用法和定时调用差不多 <code>setTimeout(xxx);</code><br><code>clearTimeout(xxx);</code> 是关闭延时调用。</p>
+<p><code>history</code> 对象 <code>length</code>
+属性，返回浏览器历史列表中 url 数量。 方法：<code>back</code> 加载
+<code>history</code> 列表中前一个 url，<code>forward</code> 加载
+<code>history</code> 列表中下一个 url，<code>go(xx)</code>
+加载列表中某一个具体的页面，xx
+如果是正，就是前多少个，如果是负，就是加载后面第xx个页面。</p>
+<p><code>location</code> 对象 如果直接打印 <code>location</code>
+可以获取当前的地址栏，也就是网页的完整路径。如果直接将
+<code>location</code> 修改为一个路径，就会直接跳转到那个页面。</p>
+<p><code>window</code> 的 <code>setInterval</code> 方法。(Interval 是
+间隔、中场休息、幕间休息、间隙 的意思) - 定时调用 -
+可以将一个函数，每隔一段时间执行一次 - 参数： 1. 回调函数 2.
+每次调用的时间间隔，单位是毫秒 - 返回值： 返回一个 Number 类型的数据
+这个数字用来作为定时器的唯一标识(因为一个页面上可能有很多个定时器)
+比如我们的 <code>clearInterval(xx)</code>
+方法，可以用来关闭一个定时器，其中的 <code>xx</code>
+就需要我们的标识作为参数。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function() &#123;</span><br><span class="line">    xxx.innerHTML = ++count;</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure></p>
+<p>延时调用：一个函数不是马上执行，而是一段时间之后再执行(只会执行一次)。
+用法和定时调用差不多 <code>setTimeout(xxx);</code>
+<code>clearTimeout(xxx);</code> 是关闭延时调用。</p>
 <p>延时调用其实和定时调用是可以互相代替的。</p>
-<p>JSON(JavaScript Object Notation)<br>因为和 JavaScript 中对象的表示方法一样，只不过在 JSON 中属性名字必须加双引号。<br>JSON 分类：</p>
-<ol>
-<li>对象 <code>&#123;&#125;</code></li>
-<li>数组 <code>[]</code></li>
-</ol>
-<p>在 JS 中，为我们提供了一个工具类就叫做 JSON，这个对象可以帮助我们将一个 JSON 转换为 JS 对象，也可以将一个 JS 对象转换为 JSON。<br><code>JSON.parse(xx);</code></p>
-<ul>
-<li>将字符串转换为 JS 对象</li>
-<li>需要一个 JSON 字符串作为参数，返回一个 JS 对象</li>
-</ul>
-<p><code>JSON.stringfy();</code></p>
-<ul>
-<li>将 JS 对象转换为字符串</li>
-<li>需要一个 JS 对象作为参数，但会一个 JSON 字符串。</li>
-</ul>
-<p><code>===</code> 是严格相等的意思，它用于比较两个值是否完全相等，包括值和数据类型。<br>使用严格相等运算符是 JavaScript 编程中的一种良好实践，因为它可以减少潜在的错误和不确定性，确保比较的值具有相同的类型和值。</p>
+<p>JSON(JavaScript Object Notation) 因为和 JavaScript
+中对象的表示方法一样，只不过在 JSON 中属性名字必须加双引号。 JSON 分类：
+1. 对象 <code>&#123;&#125;</code> 2. 数组 <code>[]</code></p>
+<p>在 JS 中，为我们提供了一个工具类就叫做
+JSON，这个对象可以帮助我们将一个 JSON 转换为 JS 对象，也可以将一个 JS
+对象转换为 JSON。 <code>JSON.parse(xx);</code> - 将字符串转换为 JS 对象
+- 需要一个 JSON 字符串作为参数，返回一个 JS 对象</p>
+<p><code>JSON.stringfy();</code> - 将 JS 对象转换为字符串 - 需要一个 JS
+对象作为参数，但会一个 JSON 字符串。</p>
+<p><code>===</code>
+是严格相等的意思，它用于比较两个值是否完全相等，包括值和数据类型。
+使用严格相等运算符是 JavaScript
+编程中的一种良好实践，因为它可以减少潜在的错误和不确定性，确保比较的值具有相同的类型和值。</p>
 
     </div>
 
@@ -506,5 +557,5 @@
 <script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"miraclys","count":true,"i18n":{"disqus":"disqus"}}</script>
 <script src="/js/third-party/comments/disqus.js"></script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</body>
 </html>
