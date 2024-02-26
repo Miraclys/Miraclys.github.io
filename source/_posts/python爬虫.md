@@ -4,6 +4,9 @@ date: 2023-09-04 15:18:39
 tags: Python
 description: The key record of python crawler.
 ---
+#### 学习视频
+B 站：https://www.bilibili.com/video/BV1Db4y1m7Ho/?p=70&share_source=copy_web&vd_source=ca842ea19ddf18fb9427fb4d903d435a
+
 #### 识别网页所用技术
 构建网站所用的技术类型会对我们如何爬取信息产生影响。有一个十分有用的工具可以检查网站构建的技术类型--detectem 模块，该模块需要 python3.5+ 环境以及 Docker
 
@@ -36,7 +39,7 @@ python requests 是一个常用的 HTTP 请求库，可以方便地向网站发�
 response = requests.get(url=url, headers=headers)
 ```
 返回一个 response 对象，该对象包含了具体的响应信息，如状态码、响应头(200 OK 404 NotFound)、响应内容等。
-对于其中的content 和 text 属性
+对于其中的content 和 text 属性(通过输出我们可以看到，content 的输出最开始有一个字母 b，表示输出的格式为二进制，所以我们需要重新编码)
 
 > content中间存的是字节码，而text中存的是Beautifulsoup根据猜测的编码方式将content内容编码成字符串。直接输出content，会发现前面存在b'这样的标志，这是字节字符串的标志，而text是，没有前面的b,对于纯ascii码，这两个可以说一模一样，对于其他的文字，需要正确编码才能正常显示。大部分情况建议使用.text，因为显示的是汉字，但有时会显示乱码，这时需要用.content.decode('utf-8')，中文常用utf-8和GBK，GB2312等。这样可以手工选择文字编码方式。
 
@@ -58,6 +61,10 @@ text = content.decode(encoding)
 print(text)
 ```
 通过这种方式，我们一般可以爬取网页的 `html` 代码。
+
+#### GET 方法
+
+其中有三个参数，url，params 和 kwargs，params 传递 get 卸载 URL 中的参数即可。kwargs 我们常写请求头。
 
 #### python 标准库 os 模块
 Python的os模块是一个用于与操作系统交互的内置模块。它提供了许多功能，允许你执行各种文件和目录操作，例如创建、删除、移动和重命名文件和目录，以及检查文件和目录的属性。下面是一些os模块的常见用法和功能：
@@ -115,6 +122,75 @@ RE 库就是正则表达式库，通过 RE 库我们可以匹配某些特定字�
 - `re.split(pattern, string, maxsplit=0, flags=0)` 根据模式拆分字符串。
 其中 `flags` 是标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等。
 > 在Python中，前缀r表示一个原始字符串（raw string）。原始字符串中的反斜杠字符\会被当作普通字符处理，而不会被解释为转义字符。这在处理正则表达式等包含大量反斜杠的字符串时非常有用，因为正则表达式模式本身通常包含许多反斜杠，这些反斜杠需要被保留而不被解释为转义字符。
+
+#### url 的组成
+
+http 协议的端口号一般是 80，https 是 443
+
+分别是 协议、主机、端口号、路径、参数和锚点
+
+User Agent 简称 UA，中文名位用户代理，是一个特殊的字符串头，使得服务器识别用户使用的操作系统及版本、CPU 类型、浏览器版本、浏览器内核、浏览器渲染引擎、浏览器语言和浏览器插件。
+
+我们可以直接百度 UA 大全获得常用的 UA
+
+为了添加 UA，我们可以定制一个 Request
+
+#### python urllib 库
+
+urrlib 中常用的方法
+
+先创建一个 response 类 `response = urrlib.request.urlopen(url)`
+
+1. reponse.read() 返回按照字节读取的结果，如果我们想改变编码方式加上一个 decode 就可以
+    如果是写 `reponse.read(5)` 就是读取了前 5 个字节
+2. reponse.readline() 读取一行、
+3. reponse.readlines() 返回一个 list，包含所有的行
+4. reponse.getcode() 返回状态码，如果是 200 表示没有问题
+5. reponse.geturl() 返回的是 url 地址
+6. reponse.headers() 获得的响应头，包含很多状态信息
+7. urllib.request.urlretrieve(url=url, filename='xxx') 可以下载 url 地址的文件下来
+
+其中，urllib.request.urlopen(xxx) 函数，其中的 xxx 可以是一个 url（也就是一串字符串），也可以是一个 Request 对象（包含 url，headers 等一些其余的参数）
+
+如果我们使用协议为 https，但是不加 UA，返回的内容会很少，因为有反爬机制，但是如果使用 http 协议就没有问题
+
+```
+import urllib.request
+
+url = 'https://www.baidu.com'
+
+headers = {
+    'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
+}
+
+request = urllib.request.Request(url=url, headers=headers)
+
+response = urllib.request.urlopen(request)
+
+print(response.read().decode('utf-8'))
+```
+
+我们可以使用 urllib.parse.quote('xxx') 来将一段文字转换为 url 中的格式。如果我们需要同时转换多个属性或者说文字，可以使用 urllib.parse.urlencode('xxx')。其中，xxx 是一个参数的字典。
+
+注意使用 GET 方法和 POST 方法时，传递参数的不同
+
+#### URLError/HTTPError
+
+两个异常类，URLError 和 HTTPError
+
+因为我们知道在 URL 结构中包括 HTTP 协议，所以这里的异常类，HTTPError 其实是 URLError 的一个子类。
+
+#### Handler 处理器
+
+Handler 可以定制更高级的请求头（相比直接的 headers），比如说动态 cookie 和代理
+
+##### 代理
+
+代理的常用功能：
+1. 突破自身 ip 限制，访问国外的一些站点
+2. 访问一些单位或者团体内部的资源
+3. 提高访问速度，通常代理服务器有一个较大的硬盘缓冲区，当其他用户访问相同信息的时候，则从缓冲区中直接取出信息，提高访问速度。
+4. 隐藏真实 ip，上网者可以通过这种方式隐藏自己的 ip，免受攻击
 
 #### python 爬取图片简单示例
 我们打开一个下载图片的网址 https://pic.netbian.com/new/
@@ -180,16 +256,32 @@ for element in images:
     cnt = cnt + 1
 ```
 
+#### 解析
+
+上面我们都是对于一个接口或者一个网页进行 request 操作。但是有时候我们想得到网页上的若干内容，这就需要我们对于网页进行解析。
+
+市场中，比较主流的解析方式有三种，Xpath、Jsonpath 和 BeautifulSoup。正则的话是比较少用的，因为使用正则表达式解析复杂的HTML或XML结构可能会变得笨拙和容易出错。
+
 #### lxml 库
 lxml 库是一个使用 python 编写的库，可以迅速、灵活地处理 XML 和 HTML。
 
 其中 lxml.etree 模块是最常用的 HTML、XML 文档解析模块。其中lxml.etree.Element是处理xml的一个核心类，Element对象可以直观的理解为是XML中的节点。使用Element类，可以实现对XML节点、节点属性、节点内文本的操作。
 
-
-
 https://blog.csdn.net/weixin_57440207/article/details/116363166 lxml 库的基本使用。
 
-#### BeautifulSoup 示例
+示例代码 `zhanzhangsucai_jpg.py`
+
+#### Jsonpath
+
+JsonPath 可以解析 json 格式的内容，帮助我们快速定位到特定的节点或值。
+
+JsonPath 只可以解析本地的 json 文件，但是 XPath 可以解析网络上获取的内容或者本地的 HTML，这一方面两者有一些区别
+
+#### BeautifulSoup 示例、
+相比直接使用 XPath，bs4 的接口更加人性化，我们使用更加方便。但是相比其他的解析库如 lxml，BeautifulSoup 的速度可能会比较慢，因为它是纯用 python 编写的，而不是 C 语言。
+
+所以说，很多时候我们并不选择使用 bs4，即使它比较简单，但是比较慢
+
 上面的都是比较基础的，对于一些动态的网页结构还是无能为力的。
 我们可以使用 python `bs4` 库的 `BeautifulSoup` 库来对于请求后获得的 `html` 文本进行解析。
 这是一段爬取豆瓣网站上`电影top250`的电影名称。
