@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,300italic,400,400italic,700,700italic%7Cfira+code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="The key record.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理关键记录">
+<meta property="og:url" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Miraclys">
+<meta property="og:description" content="The key record.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209144026178.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224200952029.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231226110547094.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231226110746804.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209163806854.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224202940456.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209164855648.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209173508149.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209174055131.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209181755310.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203305851.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203320092.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203332745.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203951268.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209210730500.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209214224933.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209215450386.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209215605843.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209220904784.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209222325961.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209224832903.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209231605543.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225120237653.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092251645.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092420098.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092501731.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092651747.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092744349.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210102402739.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210093343619.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210093737400.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210101826008.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224123722644.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224130156929.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210104008118.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210104136558.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210104411999.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210105259734.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210105317158.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210113358606.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210113638785.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224172227948.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210122712315.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210123749614.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210124222991.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210125621267.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210131113003.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210132039459.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210164425122.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210165321513.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210165520480.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210183444176.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210193320109.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210193519753.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194510392.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194628952.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194806418.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194822716.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225190340372.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210204743514.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210204754320.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210204858927.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205036659.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205132900.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205232859.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205423361.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210213457033.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210215852624.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210215924367.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210215944658.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210220809562.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210221728323.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210221934965.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210224337586.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231211153050821.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231211160557847.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207153912299.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207162859023.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207163257678.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207163551737.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207165814006.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207170831367.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209150515503.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209151825169.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210131953000.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210190332080.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210191311320.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219220620549.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219221118811.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219222624866.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219230323825.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219230847814.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219232243387.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219232703307.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219232740920.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233045969.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233240243.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233333311.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233516247.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233536291.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225115337794.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225145004473.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225161305743.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/667609db17d80704fe232e8ef19f826c.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/cccef010812373902fde3be31e189adc.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/7710574e7af5829abbc252d691bb0080.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/b465c7d6061ae5d82834cabbd72dff06.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/bc3728b92a12a15b74ea5a14b48472b3.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/7187d9bd9aa1a0e0811f4005ec5bec91.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/6c9f70143858cb4e068830def67d501e.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/49a8bf2117a7aabdfea9d261780a5ecf.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/96316c64856c85cf3804e6768a8de882.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/967e29c0f18fad417cc936d3992e0b61.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/b141b7bc5df573bdbda7e787e81e2aca.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/fc54f0bf384954397959709c0fbabf86.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/07fd9368093a312caef6c3cd9bcd28c2.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/3c17a277fc4eda6dcd91e079a96a4bf5.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/7384cc2ff89b011332e0469c15602da5.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/f16bd578014a5d651c4e3950b639ee69.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/eb41d77d372dec03bccc87188917b54d.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/8bef6054fe23d8b6d8b94926e2cc712b.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/dc9e47f79f59ba830e9014643d7b56bc.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/1b9d52ad9a61a0a0e216f3d0de4679f8.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/a8fc17935532fbec8bf36ebbe7548ee8.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/39278e7fbc20b1c91ce303b67281f0f3.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/9840b944602de7aac2d855fc6d79e0bd.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/05fd0d0e38d667b6d212b81c01f30d4b.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/98964ab63df1512f262c081b9245f7ca.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/32521ce1ee826878033acd08a026e4b3.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/494ab01e2a6c2503821e78e323ec02b9.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240103163951506.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240103172730016.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104103339056.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104110952404.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104111408195.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104112417927.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104114044137.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104114105035.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104115436049.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104142057903.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104161019509.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104200609153.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104204219414.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104211142752.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104214823019.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104215604992.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104220215439.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240105171237087.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240105175751192.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003453047.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003504275.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003716629.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003900192.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240114111445525.png">
+<meta property="og:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240114135921986.png">
+<meta property="article:published_time" content="2023-12-07T01:06:51.000Z">
+<meta property="article:modified_time" content="2024-02-24T12:10:18.380Z">
+<meta property="article:author" content="Miraclys">
+<meta property="article:tag" content="computer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209144026178.png">
+
+
+<link rel="canonical" href="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/","path":"2023/12/07/计算机组成原理关键记录/","title":"计算机组成原理关键记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>计算机组成原理关键记录 | Miraclys</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Miraclys</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">第一章 计算机系统概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95%E5%8F%8A%E5%BA%94%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">第二章 计算机的发展及应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">第四章 存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%82%A8%E5%99%A8"><span class="nav-number">3.0.1.</span> <span class="nav-text">随机存储器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">第五章 输入输出系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#dma-%E5%B0%8F%E7%BB%93"><span class="nav-number">4.0.1.</span> <span class="nav-text">DMA 小结：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dma-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.0.2.</span> <span class="nav-text">DMA 接口的类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E7%9A%84-cpu-%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87%E6%AF%94%E8%BE%83"><span class="nav-number">4.0.3.</span> <span class="nav-text">三种方式的 CPU 工作效率比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">第六章 计算机的运算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81"><span class="nav-number">5.1.</span> <span class="nav-text">原码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81"><span class="nav-number">5.2.</span> <span class="nav-text">补码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8D%E7%A0%81"><span class="nav-number">5.3.</span> <span class="nav-text">反码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E7%A0%81"><span class="nav-number">5.4.</span> <span class="nav-text">移码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E5%92%8C%E5%AE%9A%E7%82%B9%E6%95%B0"><span class="nav-number">5.5.</span> <span class="nav-text">浮点数和定点数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E8%BF%90%E7%AE%97"><span class="nav-number">5.6.</span> <span class="nav-text">定点运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">5.6.1.</span> <span class="nav-text">移位运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E4%B8%8E%E5%87%8F%E6%B3%95"><span class="nav-number">5.6.2.</span> <span class="nav-text">加法与减法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%BA%A2%E5%87%BA%E5%88%A4%E6%96%AD"><span class="nav-number">5.6.2.1.</span> <span class="nav-text">溢出判断</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97"><span class="nav-number">5.6.3.</span> <span class="nav-text">乘法运算</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E4%B9%98%E6%B3%95"><span class="nav-number">5.6.3.1.</span> <span class="nav-text">原码乘法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E4%B9%98%E6%B3%95"><span class="nav-number">5.6.3.2.</span> <span class="nav-text">补码乘法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%B3%95"><span class="nav-number">5.6.3.3.</span> <span class="nav-text">比较法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97-1"><span class="nav-number">5.6.4.</span> <span class="nav-text">乘法运算</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8E%9F%E7%A0%81%E9%99%A4%E6%B3%95"><span class="nav-number">5.6.4.1.</span> <span class="nav-text">原码除法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%A5%E7%A0%81%E9%99%A4%E6%B3%95"><span class="nav-number">5.6.4.2.</span> <span class="nav-text">补码除法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-number">5.7.</span> <span class="nav-text">浮点四则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">6.</span> <span class="nav-text">第七章 指令系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%9A%84%E4%B8%80%E8%88%AC%E6%A0%BC%E5%BC%8F"><span class="nav-number">6.1.</span> <span class="nav-text">指令的一般格式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E6%93%8D%E4%BD%9C%E7%A0%81"><span class="nav-number">6.1.1.</span> <span class="nav-text">扩展操作码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E5%AD%97%E9%95%BF"><span class="nav-number">6.1.2.</span> <span class="nav-text">指令字长</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.1.3.</span> <span class="nav-text">操作数类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="nav-number">6.2.</span> <span class="nav-text">寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.1.</span> <span class="nav-text">指令寻址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.</span> <span class="nav-text">数据寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AB%8B%E5%8D%B3%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">1. 立即寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.2.</span> <span class="nav-text">2. 直接寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9A%90%E5%90%AB%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.3.</span> <span class="nav-text">3. 隐含寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.4.</span> <span class="nav-text">4. 间接寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.5.</span> <span class="nav-text">5. 寄存器寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E9%97%B4%E6%8E%A5%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.6.</span> <span class="nav-text">6. 寄存器间接寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E5%9D%80%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.7.</span> <span class="nav-text">7. 基址寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%98%E5%9D%80%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.8.</span> <span class="nav-text">8. 变址寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%9B%B8%E5%AF%B9%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.9.</span> <span class="nav-text">9. 相对寻址</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A0%86%E6%A0%88%E5%AF%BB%E5%9D%80"><span class="nav-number">6.2.2.10.</span> <span class="nav-text">10. 堆栈寻址</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F%E4%B8%BE%E4%BE%8B"><span class="nav-number">6.2.3.</span> <span class="nav-text">指令格式举例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E8%AE%BE%E8%AE%A1%E4%B8%BE%E4%BE%8B"><span class="nav-number">6.2.4.</span> <span class="nav-text">指令设计举例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rsic-%E6%8A%80%E6%9C%AF"><span class="nav-number">6.3.</span> <span class="nav-text">RSIC 技术</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-cpu-%E7%BB%93%E6%9E%84%E5%92%8C%E5%8A%9F%E8%83%BD"><span class="nav-number">7.</span> <span class="nav-text">第八章 CPU 结构和功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="nav-number">7.1.</span> <span class="nav-text">指令周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.2.</span> <span class="nav-text">指令周期的数据流</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E5%80%BC%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.2.1.</span> <span class="nav-text">取值周期的数据流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%B4%E5%9D%80%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.2.2.</span> <span class="nav-text">间址周期的数据流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.2.3.</span> <span class="nav-text">执行周期的数据流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="nav-number">7.2.4.</span> <span class="nav-text">中断周期的数据流</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4"><span class="nav-number">7.3.</span> <span class="nav-text">指令流水</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%80%A7%E8%83%BD"><span class="nav-number">7.3.1.</span> <span class="nav-text">流水线性能</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.4.</span> <span class="nav-text">中断系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E5%9C%B0%E5%9D%80%E7%9A%84%E5%AF%BB%E6%89%BE"><span class="nav-number">7.4.1.</span> <span class="nav-text">中断服务程序入口地址的寻找</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%90%91%E9%87%8F%E6%B3%95"><span class="nav-number">7.4.1.1.</span> <span class="nav-text">硬件向量法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9F%A5%E8%AF%A2%E6%B3%95"><span class="nav-number">7.4.1.2.</span> <span class="nav-text">软件查询法</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94"><span class="nav-number">7.4.2.</span> <span class="nav-text">中断响应</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%9D%E6%8A%A4%E7%8E%B0%E5%9C%BA%E5%92%8C%E6%81%A2%E5%A4%8D%E7%8E%B0%E5%9C%BA"><span class="nav-number">7.4.3.</span> <span class="nav-text">保护现场和恢复现场</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E9%9A%90%E6%8C%87%E4%BB%A4"><span class="nav-number">7.4.4.</span> <span class="nav-text">中断隐指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%B1%8F%E8%94%BD%E6%8A%80%E6%9C%AF"><span class="nav-number">7.4.5.</span> <span class="nav-text">中断屏蔽技术</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">8.</span> <span class="nav-text">第九章 控制单元的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4%E7%9A%84%E5%88%86%E6%9E%90"><span class="nav-number">8.1.</span> <span class="nav-text">微操作命令的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%96%E6%8C%87%E5%91%A8%E6%9C%9F"><span class="nav-number">8.1.1.</span> <span class="nav-text">取指周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%B4%E5%9D%80%E5%91%A8%E6%9C%9F"><span class="nav-number">8.1.2.</span> <span class="nav-text">间址周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%A8%E6%9C%9F"><span class="nav-number">8.1.3.</span> <span class="nav-text">执行周期</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%9D%9E%E8%AE%BF%E5%AD%98%E6%8C%87%E4%BB%A4"><span class="nav-number">8.1.3.1.</span> <span class="nav-text">非访存指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%BF%E5%AD%98%E6%8C%87%E4%BB%A4"><span class="nav-number">8.1.3.2.</span> <span class="nav-text">访存指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E7%B1%BB%E6%8C%87%E4%BB%A4"><span class="nav-number">8.1.3.3.</span> <span class="nav-text">转移类指令</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%91%A8%E6%9C%9F"><span class="nav-number">8.1.4.</span> <span class="nav-text">中断周期</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">8.2.</span> <span class="nav-text">控制单元的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83%E7%9A%84%E5%A4%96%E7%89%B9%E6%80%A7"><span class="nav-number">8.2.1.</span> <span class="nav-text">控制单元的外特性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E4%BF%A1%E5%8F%B7"><span class="nav-number">8.2.1.1.</span> <span class="nav-text">输入信号</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E4%BF%A1%E5%8F%B7"><span class="nav-number">8.2.1.2.</span> <span class="nav-text">输出信号</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E4%BF%A1%E5%8F%B7%E4%B8%BE%E4%BE%8B"><span class="nav-number">8.2.2.</span> <span class="nav-text">控制信号举例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E6%97%B6%E5%BA%8F%E7%B3%BB%E7%BB%9F"><span class="nav-number">8.2.3.</span> <span class="nav-text">多级时序系统</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%91%A8%E6%9C%9F"><span class="nav-number">8.2.3.1.</span> <span class="nav-text">机器周期</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F%E8%8A%82%E6%8B%8D%E7%8A%B6%E6%80%81"><span class="nav-number">8.2.3.2.</span> <span class="nav-text">时钟周期（节拍、状态）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E6%97%B6%E5%BA%8F%E7%B3%BB%E7%BB%9F-1"><span class="nav-number">8.2.3.3.</span> <span class="nav-text">多级时序系统</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F"><span class="nav-number">8.2.4.</span> <span class="nav-text">控制方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BA%A7%E6%97%B6%E5%BA%8F%E7%B3%BB%E7%BB%9F%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="nav-number">8.2.5.</span> <span class="nav-text">多级时序系统实例分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">9.</span> <span class="nav-text">第十章 控制单元的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1"><span class="nav-number">9.1.</span> <span class="nav-text">组合逻辑设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E6%8E%A7%E5%88%B6%E6%A1%86%E5%9B%BE"><span class="nav-number">9.1.1.</span> <span class="nav-text">组合逻辑控制框图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E8%8A%82%E6%8B%8D%E5%AE%89%E6%8E%92"><span class="nav-number">9.1.2.</span> <span class="nav-text">微操作的节拍安排</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E6%AD%A5%E9%AA%A4"><span class="nav-number">9.1.3.</span> <span class="nav-text">组合逻辑设计步骤</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="nav-number">9.2.</span> <span class="nav-text">微程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="nav-number">9.2.1.</span> <span class="nav-text">微程序设计思想的产生</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%8D%95%E5%85%83%E6%A1%86%E5%9B%BE%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">9.2.2.</span> <span class="nav-text">微程序控制单元框图及工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="nav-number">9.2.3.</span> <span class="nav-text">微指令的编码方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E5%BA%8F%E5%88%97%E5%9C%B0%E5%9D%80%E7%9A%84%E5%BD%A2%E6%88%90"><span class="nav-number">9.2.4.</span> <span class="nav-text">微指令序列地址的形成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="nav-number">9.2.5.</span> <span class="nav-text">微指令格式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%82%E8%AE%B0"><span class="nav-number">10.</span> <span class="nav-text">杂记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%80%83%E8%AF%95"><span class="nav-number">10.1.</span> <span class="nav-text">考试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D"><span class="nav-number">11.</span> <span class="nav-text">名词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E4%B9%A0%E8%AF%BE"><span class="nav-number">12.</span> <span class="nav-text">复习课</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-number">12.1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="nav-number">12.2.</span> <span class="nav-text">第四章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-number">12.3.</span> <span class="nav-text">第三章</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Miraclys"
+      src="/../images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Miraclys</p>
+  <div class="site-description" itemprop="description">Live a life you will remember.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Miraclys" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Miraclys" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:miraclysyunsenl@gmail.com" title="E-Mail → mailto:miraclysyunsenl@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/../images/avatar.jpg">
+      <meta itemprop="name" content="Miraclys">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miraclys">
+      <meta itemprop="description" content="Live a life you will remember.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机组成原理关键记录 | Miraclys">
+      <meta itemprop="description" content="The key record.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机组成原理关键记录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-12-07 09:06:51" itemprop="dateCreated datePublished" datetime="2023-12-07T09:06:51+08:00">2023-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-24 20:10:18" itemprop="dateModified" datetime="2024-02-24T20:10:18+08:00">2024-02-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/12/07/计算机组成原理关键记录/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">The key record.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="第一章-计算机系统概念">第一章 计算机系统概念</h3>
+<p>将高级语言程序翻译为机器语言程序的软件
+称为翻译软件，有两种，一种是「编译程序」，一种是「解释程序」。</p>
+<p>冯诺依曼计算机的特点：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209144026178.png" class="" title="image-20231209144026178">
+<p>现代的计算机已经转变为「以<strong>存储器</strong>为中心」。</p>
+<p>CPU 和主存储器合起来，又可以称为「主机」。</p>
+<p>主存储器简称主存或者内存，包括存储体
+M、各种逻辑部件和控制电路。<strong>存储体由许多存储单元组成，每一个存储单元又有若干个存储元件</strong>（或者称为存储元、存储基元），每个存储元件都能寄存一位二进制代码。可见，<strong>一个存储单元可以存储一串二进制代码</strong>，称这串二进制代码为一个<strong>存储字</strong>，这串二进制代码的位数为<strong>存储字长</strong>。</p>
+<p>主存工 作的时候是按照<strong>存储单元</strong>的地址号来存取</p>
+<p><strong>MAR：</strong> memory address register</p>
+<p><strong>MDR：</strong> memory data register</p>
+<p>现在，MDR 和 MAR 通常集成在 CPU 芯片内。</p>
+<p>一般情况下，所有的硬件组件（CPU、GPU、外设等）都无法直接访问外存，而是通过内存进行交互。当计算机启动时，操作系统会将需要的程序和数据从外存加载到内存中，然后
+CPU 可以直接访问内存中的数据来执行任务。</p>
+<p><strong>PC</strong>，Program Counter 程序计数器，与 MAR
+之间有通路连接。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224200952029.png" class="" title="image-20231224200952029">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231226110547094.png" class="" title="image-20231226110547094">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231226110746804.png" class="" title="image-20231226110746804">
+<p>还有主频、吞吐量、响应时间</p>
+<p><strong>指令和数据都存储在存储器中，如何区分它们？</strong></p>
+<p>通过不同的时间段来区分指令和数据，即在取指令阶段(或取指微程序)取出的为指令，在执行指令阶段(或相应微程序)取出的即为数据。
+通过地址来源区分，由PC提供存储单元地址的取出的是指令，由指令地址码部分提供存储单元地址的取出的是操作数。</p>
+<h3 id="第二章-计算机的发展及应用">第二章 计算机的发展及应用</h3>
+<p><strong>计算机的产生和发展</strong>：</p>
+<ol type="1">
+<li>第一代电子管计算机，1943 二战时期</li>
+<li>第二代晶体管计算机，1947</li>
+<li>第三代集成电路计算机</li>
+</ol>
+<p>总线 bus</p>
+<p>总线按照不同的角度，有很多种分类方式，按连接部件的不同，有三种：</p>
+<ol type="1">
+<li>片内总线，指的是芯片内部的总线，如 CPU
+芯片的内部、寄存器与寄存器之间。</li>
+<li>系统总线，指的是 CPU、主存、IO 设备各大部件之间的信息传输线
+按照传输信息的不同，又可以分为三类：数据总线、地址总线、控制总线</li>
+<li>通信总线，这类总线用于计算机系统之间或者计算机系统与其他系统之间的通信。</li>
+</ol>
+<h3 id="第四章-存储器">第四章 存储器</h3>
+<p>按照在系统中的作用分类，可以分为主存储器、辅助存储器、缓冲存储器</p>
+<p>主存储器：可以和 CPU 直接交换信息</p>
+<p>辅助存储器：不能和 CPU 直接交换信息</p>
+<p>主存的结构：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209163806854.png" class="" title="image-20231209163806854">
+<p>现代的计算机主存都是由半导体集成电路构成，图中的驱动器、译码器和读写电路均制作在存储芯片之中，而
+MAR 和 MDR 制作在 CPU 芯片之中。存储芯片和 CPU
+芯片可以通过总线连接。</p>
+<p><strong>存储速度</strong>是由<strong>存储时间</strong>和<strong>存储周期</strong>来表示的。</p>
+<p>存储时间：存储器的访问时间，指启动一次存储器操作（读或者写）到完成该操作的时间</p>
+<p>存储周期：存储器进行连续两次独立的存储器操作所需的最小间隔时间，<strong>通常存储周期大于存储时间</strong>。总线传输周期是包含在存储周期内部的。</p>
+<p>存储带宽：表示单位时间内存储器的存取信息量。（与存储周期紧密相连的指标）</p>
+<p><strong>一个关于存储时间和存储周期的解释：</strong></p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224202940456.png" class="" title="image-20231224202940456">
+<p><strong>半导体存储器</strong>是由<strong>许多个</strong>半导体存储芯片构成的，所以需要进行片选，决定哪一个存储芯片工作。</p>
+<p>下面是一个存储芯片的构成结构</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209164855648.png" class="" title="image-20231209164855648">
+<p><strong>地址线和数据线的位数共同反应</strong>存储芯片的容量。</p>
+<h5 id="随机存储器">随机存储器</h5>
+<p>随机存取存储器按照存储信息的原理不同，可以分为动态 RAM 和静态 RAM
+两大类。</p>
+<p>存储器中用于存储 0 和 1
+的代码电路称为存储器的「基本单元电路」，也就是存储基元，一个<strong>存储单元</strong>包括多个存储基元。</p>
+<p><strong>静态 RAM：</strong>静态 RAM
+是使用触发器原理存储信息的，因此读出信息以后，仍然保持原状，不需要再生，但是掉电时，原来的信息丢失。</p>
+<p><strong>动态 RAM：</strong>动态 RAM
+基本单元电路中有三管式和单管式两种，并且共同特点是都是靠
+<strong>电容存储电荷</strong> 的原理来寄存信息。</p>
+<p>电容上的电荷一般只能维持 1 到
+2ms，所以即使电源不断电，信息也会自动消失。所以必须在 2ms 内
+刷新一次。</p>
+<p>由于动态 RAM 相比静态 RAM
+集成度更高、功耗更低，所以目前被各类计算机广泛使用。</p>
+<p><strong>刷新：</strong>
+采用定时刷新的方式，规定一段时间，必须对于所有的基本单元电路都刷新一次。这个时间叫做「再生周期」或者「刷新周期」。</p>
+<p>刷新是一行一行进行的，通常有三种方式刷新：集中刷新、分散刷新和异步刷新。</p>
+<ol type="1">
+<li>对全部的存储单元集中一段时间逐行进行刷新。此刻必须停止读/写操作。
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209173508149.png" class="" title="image-20231209173508149"> 关于时间死区的计算</li>
+<li>分散刷新是指每行存储单元的刷新<strong>分散到每一个存取周期内完成</strong>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209174055131.png" class="" title="image-20231209174055131"></li>
+<li>异步刷新。将前两种方式结合，可以缩短死时间，也可以充分利用刷新周期
+2ms。</li>
+</ol>
+<p><strong>存储器容量的扩展：</strong></p>
+<ol type="1">
+<li>位扩展 增加<strong>存储字长</strong>。</li>
+<li>字扩展 字扩展指的是<strong>增加存储字的数量。</strong></li>
+</ol>
+<p><strong>存储器和 CPU 的连接：</strong></p>
+<ol type="1">
+<li>CPU 的地址线通常比存储芯片的地址线数多。通常是将 CPU
+地址线的低位与存储芯片的地址线相连，CPU
+的地址线的高位或在存储芯片扩充时使用，或者用做其他用途。</li>
+<li>CPU
+的数据线和存储芯片的数据线数可能也不同，<strong>此时必须对于存储芯片进行位扩展</strong>。</li>
+</ol>
+<p><strong>存储器的校验：</strong></p>
+<p><strong>提高访存速度的措施：</strong></p>
+<p>除了寻找高速元件和采用层次结构以外，调整主存的结构也可以提高访存速度。</p>
+<ol type="1">
+<li><p>单体多字系统
+采用前提是：指令和数据在主存中是连续存放的，一旦遇到转移指令，或者操作数不能连续存放，效果不明显。</p></li>
+<li><p>多体并行系统</p>
+<p>高位地址交叉编址 和 低位地址交叉编址</p></li>
+</ol>
+<p>关于这两种的时间计算问题</p>
+<p><strong>存控：</strong></p>
+<p>多体模块存储器不仅要与 CPU 交换信息，还要与辅存、IO
+设备、乃至IO处理机交换信息。因此，某一时刻，应该决定主存究竟和哪一个部件交换信息。<strong>这就是由存储器控制部件（简称存控）来承担。</strong></p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209181755310.png" class="" title="image-20231209181755310">
+<p><strong>Cache 主存地址映射</strong></p>
+<p>Cache 与主存之间的数据交换是以块为单位的，CPU 与 Cache
+之间的数据交换是以字为单位的。</p>
+<p>由主存地址映射到 Cache 地址叫做地址映射。</p>
+<p>在这里我们是按照 <strong>字块</strong> 为单位进行映射的，其中
+<strong>字块</strong>
+的大小不一定，根据题目的定义来。<strong>字块</strong> 包括了若干个
+<strong>字</strong>，一个 <strong>字</strong>
+是若干位，这些都是题目定义。</p>
+<p>我们把主存和 Cache 分成了若干块，进行映射。</p>
+<p>有直接相连映射、全相联映射和组相连映射。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203305851.png" class="" title="image-20231209203305851">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203320092.png" class="" title="image-20231209203320092">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203332745.png" class="" title="image-20231209203332745">
+<p>这里的题目还是比较重要的。 <strong>课本 P120</strong></p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209203951268.png" class="" title="image-20231209203951268">
+<p>还有若干例题。。。</p>
+<h3 id="第五章-输入输出系统">第五章 输入输出系统</h3>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209210730500.png" class="" title="image-20231209210730500">
+<p>IO 设备与主机交换信息时的控制方式：</p>
+<ol type="1">
+<li>程序查询方式</li>
+<li>程序中断方式</li>
+<li>DMA（直接存储器存取方式）</li>
+</ol>
+<p><strong>设置 IO 接口的理由：</strong></p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209214224933.png" class="" title="image-20231209214224933">
+<p><strong>这三种方式的接口电路设计：</strong></p>
+<p>程序查询方式：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209215450386.png" class="" title="image-20231209215450386">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209215605843.png" class="" title="image-20231209215605843">
+<p>IO 设备直接和主存交互的时候是 DMA
+方式，但是这里是程序查询方式，所以我们就是必须经过中间的
+CPU，然后再将数据存入主存。</p>
+<p>程序中断方式： CPU
+<strong>启动设备以后</strong>往往需要等待一段时间才能实现主机与 IO
+设备之间的信息交换。如果在设备准备的同时，CPU
+不做无谓的等待，而是继续执行程序，只有 IO 设备准备就绪的时候才向 CPU
+提出请求，暂时中断 CPU 现行程序进入 IO 服务程序，这就是 IO 中断。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209220904784.png" class="" title="image-20231209220904784">
+<p>CPU
+总是在统一的时间，比如每条指令执行阶段的最后阶段，查询所有的设备是否有中断请求。</p>
+<p>中断向量地址形成部件的输入是来自排队器的输出，它的输出是中断向量。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209222325961.png" class="" title="image-20231209222325961">
+<p><strong>中断请求、中断判优、中断响应、中断服务、中断返回</strong>五个阶段。</p>
+<p>对于其中的<strong>中断服务阶段</strong>，一般来说可以分为：保护现场、中断服务、恢复现场、中断返回</p>
+<p>保护现场：两个含义。一个是保存程序的断点，一个是保存通用寄存器和状态寄存器的内容。</p>
+<p>恢复现场：在中断服务程序的结尾部分，在退出程序之前，将原程序中断时的现场恢复到原来的寄存器之中。</p>
+<p>中断返回：返回原程序的断电之处</p>
+<p>DMA 方式：</p>
+<p>DMA 接口又叫做 DMA 控制器，数据的传输过程完全由 DMA
+接口电路控制。</p>
+<p>主存和 DMA
+接口之间有一个数据通路。此时主存和设备交换信息的时候，不需要经过
+CPU，也不需要 CPU 暂停现行程序去为设备服务。适合 <strong>高速 IO
+或者辅存与主存之间的信息交换</strong>。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209224832903.png" class="" title="image-20231209224832903">
+<p>课本 P204</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209231605543.png" class="" title="image-20231209231605543">
+<p><strong>了解 DMA 方式的工作过程。</strong></p>
+<h5 id="dma-小结">DMA 小结：</h5>
+<ol type="1">
+<li>从数据传送来看，程序<strong>中断方式靠程序传送</strong>，DMA
+方式靠硬件传送。</li>
+<li>从 CPU 响应时间来看，程序中断方式是在一条指令执行结束的时候响应，而
+DMA 方式可以在指令周期内任意存取周期结束时响应。</li>
+<li>程序中断方式有着处理异常的能力，而 DMA
+方式没有这种能力，主要用于大批数据的传送。</li>
+<li>DMA 不中断现行程序，所以不需要保护。</li>
+<li>DMA 的优先级比程序中断的优先级高。</li>
+</ol>
+<h5 id="dma-接口的类型">DMA 接口的类型</h5>
+<p>现代的集成电路技术已经将 DMA
+接口制造成芯片，通常有选择型和多路型两类。</p>
+<h5 id="三种方式的-cpu-工作效率比较">三种方式的 CPU 工作效率比较</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225120237653.png" class="" title="image-20231225120237653">
+<h3 id="第六章-计算机的运算方法">第六章 计算机的运算方法</h3>
+<p>计算机中的数均放在寄存器中，<strong>通常称寄存器的位数为机器字长</strong></p>
+<p>把符号数字化的数称为机器数，把带有「+」或者「-」符号的数字称为真值。</p>
+<h4 id="原码">原码</h4>
+<p>原码是机器数中最简单的一种表示形式。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092251645.png" class="" title="image-20231210092251645">
+<p>对于小数原码的定义： <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092420098.png" class="" title="image-20231210092420098"></p>
+<p>此时，对于 0 的原码： <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092501731.png" class="" title="image-20231210092501731"></p>
+<p>可见 +0 和 -0 的原码表示不一样，<strong>所以原码中，零
+有两种表达形式。</strong></p>
+<h4 id="补码">补码</h4>
+<p>其实就是<strong>模意义下的</strong>一种编码方式。</p>
+<p>对于整数的补码编码：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092651747.png" class="" title="image-20231210092651747">
+<p>小数的补码定义：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210092744349.png" class="" title="image-20231210092744349">
+<p>其实和原码相比，就是前面的数 2 的幂次加了 1，但是由 -x 统一变为了
++x</p>
+<p>此时的
+0，只有一种编码形式。所以它可以比原码能多表示一个数字，如果是小数，可以多表示一个
+-1。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210102402739.png" class="" title="image-20231210102402739">
+<h4 id="反码">反码</h4>
+<p>反码通常用作原码求补码或者补码求原码的<strong>中间过渡</strong>。</p>
+<p>整数反码的定义如下： <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210093343619.png" class="" title="image-20231210093343619"></p>
+<p>小数的反码定义如下： <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210093737400.png" class="" title="image-20231210093737400"></p>
+<h4 id="移码">移码</h4>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210101826008.png" class="" title="image-20231210101826008">
+<p>当浮点数的阶码用移码表示的时候，我们可以很方便地判断阶码的大小。、</p>
+<p>同一个真值的补码和移码仅仅差一个符号位，所以移码就是对于原码，连带符号位取反加一。</p>
+<h4 id="浮点数和定点数">浮点数和定点数</h4>
+<p>在计算机中，小数点不用专门的器件表示，而是按照约定的方式标出。</p>
+<p>定点数与浮点数的比较：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224123722644.png" class="" title="image-20231224123722644">
+<h4 id="定点运算">定点运算</h4>
+<h5 id="移位运算">移位运算</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224130156929.png" class="" title="image-20231224130156929">
+<h5 id="加法与减法">加法与减法</h5>
+<p>对于补码意义下的加法与减法，其实就是模意义下的运算。</p>
+<h6 id="溢出判断">溢出判断</h6>
+<p>补码定点加减运算判断溢出有两种方式。</p>
+<ol type="1">
+<li><p>一位符号位判断溢出 <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210104008118.png" class="" title="image-20231210104008118"></p></li>
+<li><p>两位符号位判断 <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210104136558.png" class="" title="image-20231210104136558"> <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210104411999.png" class="" title="image-20231210104411999"></p></li>
+</ol>
+<h5 id="乘法运算">乘法运算</h5>
+<p>分为原码乘法和补码乘法</p>
+<h6 id="原码乘法">原码乘法</h6>
+<p>其中对于原码乘法，符号位需要单独判断。然后让绝对值相乘。</p>
+<h6 id="补码乘法">补码乘法</h6>
+<p>对于补码乘法，分两种情况：</p>
+<ol type="1">
+<li>被乘数 x 符号任意，乘数 y 符号为正。 <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210105259734.png" class="" title="image-20231210105259734"></li>
+<li>被乘数 x 符号任意，乘数 y 为负。</li>
+</ol>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210105317158.png" class="" title="image-20231210105317158">
+<p>乘积的符号在过程中自然形成，这是补码乘法和原码乘法的重要区别。</p>
+<h6 id="比较法">比较法</h6>
+<p>比较法是 Booth 夫妇首先提出来的，又叫做 Booth 算法。</p>
+<h5 id="乘法运算-1">乘法运算</h5>
+<h6 id="原码除法">原码除法</h6>
+<p>符号位是单独处理的。</p>
+<p>原码除法中，对于余数的不同处理，又可以分为恢复余数法和不恢复余数法（加减交替法）两种。</p>
+<h6 id="补码除法">补码除法</h6>
+<h4 id="浮点四则运算">浮点四则运算</h4>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210113358606.png" class="" title="image-20231210113358606">
+<p>对阶的时候是小阶向大阶看齐，阶小的尾数向右移位，次数为阶差。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210113638785.png" class="" title="image-20231210113638785">
+<p>步骤：</p>
+<ol type="1">
+<li>对阶</li>
+<li>求和（尾数）</li>
+<li>规格化</li>
+<li>舍入处理</li>
+<li>溢出判断</li>
+</ol>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231224172227948.png" class="" title="image-20231224172227948">
+<h3 id="第七章-指令系统">第七章 指令系统</h3>
+<h4 id="指令的一般格式">指令的一般格式</h4>
+<p>指令是由操作码和地址码组成的。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210122712315.png" class="" title="image-20231210122712315">
+<p>操作码：用来反应该指令要完成的操作。</p>
+<p>地址码：用来指出该指令的源操作数的地址（一个或者两个）、结果的地址以及下一条指令的地址。这里的「地址」可以是主存的地址，也可以是寄存器的地址，甚至可以是
+IO 设备的地址。</p>
+<h5 id="扩展操作码">扩展操作码</h5>
+<p>操作码的长度可以是固定的，也可以是变化的。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210123749614.png" class="" title="image-20231210123749614">
+<p>注意最后一句话，点明了 <strong>扩展操作码</strong> 的应用场景。</p>
+<p>一种设计方法举例：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210124222991.png" class="" title="image-20231210124222991">
+<p>设计扩展操作码时需要注意：</p>
+<ol type="1">
+<li>不允许短码是长码的前缀</li>
+<li>各个指令的操作码一定不能重复</li>
+</ol>
+<p>参考：https://blog.51cto.com/yang/2892195</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210125621267.png" class="" title="image-20231210125621267">
+<p>这个例题还是很有代表性的</p>
+<h5 id="指令字长">指令字长</h5>
+<p>指令字长取决于操作码的长度、操作数地址的长度和操作数地址的个数。</p>
+<h5 id="操作数类型">操作数类型</h5>
+<p>操作数地址就是指令中的地址码字段。</p>
+<p>常见的操作数类型有：地址、数字、字符、逻辑数</p>
+<h4 id="寻址方式">寻址方式</h4>
+<p>寻址方式分为<strong>指令寻址和数据寻址</strong>两大类</p>
+<h5 id="指令寻址">指令寻址</h5>
+<p>指令寻址较为简单，分为 <strong>顺序寻址和跳跃寻址</strong> 两种。</p>
+<p>顺序寻址就是 PC 自动 +1 跳跃寻址则是通过转移类指令实现</p>
+<h5 id="数据寻址">数据寻址</h5>
+<p>数据寻址的种类比较多，必须设置一字段来表明属于哪一种寻址方式。</p>
+<p>指令的 <strong>地址码</strong>
+字段通常不代表操作数的真实地址，故把他称为 <strong>形式地址</strong></p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210131113003.png" class="" title="image-20231210131113003">
+<h6 id="立即寻址">1. 立即寻址</h6>
+<p>形式地址 A 表示的不是地址，而是就是
+<strong>操作数本身</strong>，采用补码的形式存放</p>
+<p>一般 <code>#</code> 表示立即数寻址的特征</p>
+<p><strong>但是此时 A 的位数限制了所能表述的立即数的范围</strong></p>
+<h6 id="直接寻址">2. 直接寻址</h6>
+<p>形式地址 A 就是操作数的真实地址 EA(Effective Address)，即 EA = A</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210132039459.png" class="" title="image-20231210132039459">
+<p>特点：</p>
+<ol type="1">
+<li>寻找操作数比较简单，执行的时候只是对于主存访问一次</li>
+<li><strong>但是 A 的位数限制了操作数的寻址范围</strong></li>
+</ol>
+<h6 id="隐含寻址">3. 隐含寻址</h6>
+<h6 id="间接寻址">4. 间接寻址</h6>
+<p>形式地址不直接指出操作数的地址，而是指出操作数有效地址所在的存储单元地址（感觉很像指针）。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210164425122.png" class="" title="image-20231210164425122">
+<p>这种方式与直接寻址相比，扩大了操作数的寻址范围。同时，易于编制程序，例如，利用间接寻址可以很方便地完成子程序返回。</p>
+<p>间接寻址的缺点在于指令的执行阶段需要
+<strong>访存两次或者多次</strong>，致使指令 <strong>执行时间</strong>
+延长。</p>
+<h6 id="寄存器寻址">5. 寄存器寻址</h6>
+<p>地址码字段直接给出了寄存器的编号。由于操作数不在主存之中，所以寄存器寻址在执行阶段无需访存，减少了执行时间。</p>
+<p>又由于地址字段只需指明寄存器编号，所以指令字较短，因此寄存器寻址在计算机中应用广泛。</p>
+<h6 id="寄存器间接寻址">6. 寄存器间接寻址</h6>
+<p>寄存器 <span class="math inline">\(R_i\)</span>
+中的内容不是操作数，<strong>而是操作数所在的主存单元地址号</strong>。所以仍需访问主存，但是比间接寻址少访问一次主存。</p>
+<h6 id="基址寻址">7. 基址寻址</h6>
+<p>基址寻址需设有基址寄存器 BR，<strong>操作数的有效地址 EA
+等于指令字中的形式地址与基址寄存器中的内容相加</strong>，也就是 EA = A +
+(BR)</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210165321513.png" class="" title="image-20231210165321513">
+<p>基址寻址<strong>可以扩大操作数的寻址范围</strong> <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210165520480.png" class="" title="image-20231210165520480"></p>
+<h6 id="变址寻址">8. 变址寻址</h6>
+<p>变址寻址和基址寻址极为相似。有效地址 EA 等于指令字中的形式地址 A
+与变址寄存器 IX 的内容相加之和，EA = A + (IX)</p>
+<h6 id="相对寻址">9. 相对寻址</h6>
+<p>相对寻址的有效地址是将程序计数器 PC
+的内容（即当前指令的地址）与指令字中的形式地址 A 相加，即 EA = (PC) +
+A</p>
+<p>相对寻址常用于转移类指令，其中<strong>位移量 A
+可正可负</strong>，采用补码表示。</p>
+<h6 id="堆栈寻址">10. 堆栈寻址</h6>
+<p>要求计算机中设有堆栈，既可以使用寄存器组来实现，也可以利用主存的一部分空间作为堆栈。</p>
+<p>其中，SP (Stack Point) 始终指向栈顶地址。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210183444176.png" class="" title="image-20231210183444176">
+<h5 id="指令格式举例">指令格式举例</h5>
+<h5 id="指令设计举例">指令设计举例</h5>
+<h4 id="rsic-技术">RSIC 技术</h4>
+<p>RSIC(Reduced Instruction Set Computer)</p>
+<p>CISC(Complex Instruction Set Computer)</p>
+<p><strong>RSIC 的主要特征：</strong></p>
+<ol type="1">
+<li>选用使用频度较高的一些
+<strong>简单指令</strong>，复杂指令的功能使用简单指令来组合</li>
+<li>指令长度固定、指令格式种类少、寻址方式少</li>
+<li>访存指令只有 LOAD 和 STORE</li>
+<li>CPU 中有多个通用寄存器</li>
+<li>采用流水技术 一个时钟周期内完成一条指令</li>
+<li>采用组合逻辑实现控制器</li>
+<li>采用优化的编译程序</li>
+</ol>
+<h3 id="第八章-cpu-结构和功能">第八章 CPU 结构和功能</h3>
+<h4 id="指令周期">指令周期</h4>
+<p>CPU 每<strong>取出并且执行一条指令的时间叫做指令周期</strong>，也即
+CPU 完成一条指令的时间。</p>
+<p>指令周期的组成如下（一般来说）：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210193320109.png" class="" title="image-20231210193320109">
+<p>但是如果是间址寻址，还需访存一次主存，取出操作数，所以指令周期就是：</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210193519753.png" class="" title="image-20231210193519753">
+<p>此外，如果在每条指令结束前，发送中断查询，如果进入中断相应阶段，则又包括中断周期。<strong>这样就包括
+取值、间址、执行、中断 四个部分。</strong></p>
+<p>上面四个部分都有访存操作，但是目的不同。取指是为了取出指令，间址是为了取出有效地址，执行是为了取出操作数，中断时为了保存程序断点。这四个周期又可以称为
+CPU 的<strong>工作周期</strong>。</p>
+<h4 id="指令周期的数据流">指令周期的数据流</h4>
+<h5 id="取值周期的数据流">取值周期的数据流</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194510392.png" class="" title="image-20231210194510392">
+<h5 id="间址周期的数据流">间址周期的数据流</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194628952.png" class="" title="image-20231210194628952">
+<h5 id="执行周期的数据流">执行周期的数据流</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194806418.png" class="" title="image-20231210194806418">
+<h5 id="中断周期的数据流">中断周期的数据流</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210194822716.png" class="" title="image-20231210194822716">
+<p><strong>注意：</strong>有保存断点操作并且有中断服务程序的入口送入 PC
+的操作。</p>
+<h4 id="指令流水">指令流水</h4>
+<p>指令流水大概是类似于一种并行吧。</p>
+<h5 id="流水线性能">流水线性能</h5>
+<p>感觉光看看这里的题目就足够了。</p>
+<h4 id="中断系统">中断系统</h4>
+<h5 id="中断服务程序入口地址的寻找">中断服务程序入口地址的寻找</h5>
+<p>通常有两种方法寻找入口地址：<strong>硬件向量法和软件查询法</strong>。</p>
+<h6 id="硬件向量法">硬件向量法</h6>
+<p>硬件向量法寻找入口地址速度快，在现代计算机中被普遍采用。</p>
+<h6 id="软件查询法">软件查询法</h6>
+<h5 id="中断响应">中断响应</h5>
+<p>与响应 IO 中断一样，CPU
+总是在指令执行周期结束后，响应任何中断源的请求。</p>
+<p>之所以 CPU 在指令的执行后期进入中断周期，是因为 CPU
+在执行周期的结束时刻统一向所有的中断源发送中断查询信号，只有此时，CPU
+才可以知道哪一个中断源有请求。</p>
+<p>但是计算机中某一些指令的执行时间都很长，如果查询信号还是统一安排在执行周期的结束时刻，则有可能因为
+CPU
+发现中断请求过迟而发生差错。所以，我们可以在指令执行过程中设置若干查询断点。</p>
+<p>保护现场、寻找入口地址、关中断这些操作都是在中断周期内由一条中断隐指令完成的。所谓中断隐指令，即在机器指令系统中没有的指令，是
+CPU 在中断周期内由硬件自动完成的一条指令。</p>
+<h5 id="保护现场和恢复现场">保护现场和恢复现场</h5>
+<p>保护程序断点和保护 CPU 内部的寄存器两个方面。</p>
+<p>其中，保护程序断点由中断隐指令完成，各个寄存器内的现场可以在中断服务程序中由用户（或者系统）由机器指令编程实现。</p>
+<h5 id="中断隐指令">中断隐指令</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225190340372.png" class="" title="image-20231225190340372">
+<h5 id="中断屏蔽技术">中断屏蔽技术</h5>
+<p>主要用于多重中断。</p>
+<p><strong>屏蔽触发器与屏蔽字</strong></p>
+<p>屏蔽技术可以改变优先等级</p>
+<p>每一个中断请求触发器就有一个屏蔽触发器，将所有的屏蔽触发器组合在一起，便构成了一个屏蔽寄存器，屏蔽寄存器中的内容就是<strong>屏蔽字</strong>。</p>
+<h3 id="第九章-控制单元的功能">第九章 控制单元的功能</h3>
+<p>将结合指令周期的<strong>四个阶段</strong>，着重分析控制单元为了完成不同指令所发出的各种操作命令（又称控制信号）。</p>
+<h4 id="微操作命令的分析">微操作命令的分析</h4>
+<p>控制单元具有发出各种<strong>微操作命令</strong>（<strong>即控制信号</strong>）序列的功能。</p>
+<p>下面按照指令周期的四个阶段进一步分析其对应的微操作命令。</p>
+<h5 id="取指周期">取指周期</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210204743514.png" class="" title="image-20231210204743514">
+<h5 id="间址周期">间址周期</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210204754320.png" class="" title="image-20231210204754320">
+<h5 id="执行周期">执行周期</h5>
+<p>不同指令的执行周期的微操作是不同的，下面分别讨论<strong>非访存指令、访存指令和转移类指令</strong>的微操作。</p>
+<h6 id="非访存指令">非访存指令</h6>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210204858927.png" class="" title="image-20231210204858927">
+<h6 id="访存指令">访存指令</h6>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205036659.png" class="" title="image-20231210205036659">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205132900.png" class="" title="image-20231210205132900">
+<h6 id="转移类指令">转移类指令</h6>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205232859.png" class="" title="image-20231210205232859">
+<h5 id="中断周期">中断周期</h5>
+<p>在中断周期中，中断隐指令自动完成保护断点、寻找中断服务程序入口地址以及硬件关中断的操作。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210205423361.png" class="" title="image-20231210205423361">
+<h4 id="控制单元的功能">控制单元的功能</h4>
+<h5 id="控制单元的外特性">控制单元的外特性</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210213457033.png" class="" title="image-20231210213457033">
+<h6 id="输入信号">输入信号</h6>
+<ol type="1">
+<li>时钟
+为了使控制单元按照一定的先后顺序、一定的节奏发出各个控制信号，控制单元必须受时钟控制。<strong>即每一个时钟脉冲使控制单元发出一个操作命令或者发出一组需要同时执行的命令。</strong></li>
+<li>指令寄存器
+现行指令的操作码决定了不同指令在执行周期所需完成的不同操作，所以<strong>指令的操作码字段</strong>是控制单元的输入信号，它与时钟配合可以产生不同的控制信号。</li>
+<li>标志 控制单元<strong>有时候依赖于 CPU 的状态</strong>（如 ALU
+操作的结果）产生控制信号（如 BAN
+指令，控制信号要根据上一条指令的结果是否为负产生不同的控制信号）</li>
+<li>来自系统总线（控制总线）的控制信号 例如，中断请求，DMA 请求</li>
+</ol>
+<h6 id="输出信号">输出信号</h6>
+<ol type="1">
+<li>CPU 内的控制信号</li>
+<li>送至系统总线的控制信号</li>
+</ol>
+<h5 id="控制信号举例">控制信号举例</h5>
+<p>控制单元就是发出各种不同的控制信号，下面以间接寻址的加法指令
+<code>Add @ X</code>
+为例，进一步理解控制信号在完成一条指令过程中所起到的作用。</p>
+<ol type="1">
+<li>不采用 CPU 内部总线方式（就是 CPU 中的各个相关部件都是相连的）
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210215852624.png" class="" title="image-20231210215852624"> <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210215924367.png" class="" title="image-20231210215924367"> <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210215944658.png" class="" title="image-20231210215944658"></li>
+<li>采用 CPU 内部总线的方式 。。。。课本 P 382</li>
+</ol>
+<h5 id="多级时序系统">多级时序系统</h5>
+<h6 id="机器周期">机器周期</h6>
+<p><strong>机器周期可以看作是所有指令执行的一个基准时间。</strong></p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210220809562.png" class="" title="image-20231210220809562">
+<h6 id="时钟周期节拍状态">时钟周期（节拍、状态）</h6>
+<p>一个机器周期里面可以完成若干个微操作，每一个微操作都需要一定的时间，可以使用
+<strong>时钟信号</strong> 来控制产生每一个微操作命令。</p>
+<p><strong>时钟信号的频率就是 CPU 的主频</strong>。</p>
+<p><strong>用时钟信号控制节拍发生器，就可以产生节拍。每一个节拍的宽度正好对应一个时钟周期。</strong></p>
+<p><strong>在每一个节拍周期里面机器可以完成一个或者几个需要同时执行的操作，是控制计算机执行的最小单位。</strong></p>
+<p><strong>也就是
+机器周期包含若干个时钟周期（节拍周期）。</strong>机器周期又是所有指令执行的一个基准时间。</p>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210221728323.png" class="" title="image-20231210221728323">
+<h6 id="多级时序系统-1">多级时序系统</h6>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210221934965.png" class="" title="image-20231210221934965">
+<h5 id="控制方式">控制方式</h5>
+<p>通常将如何形成控制不同微操作序列所采用的<strong>时序控制方式</strong>称为
+CU 控制方式。</p>
+<p>常见的控制方式有：同步控制、异步控制、联合控制和人工控制。</p>
+<p>。。。</p>
+<h5 id="多级时序系统实例分析">多级时序系统实例分析</h5>
+<p>。。。</p>
+<h3 id="第十章-控制单元的设计">第十章 控制单元的设计</h3>
+<p>本章将<strong>介绍控制单元的两种设计方法</strong>。</p>
+<h4 id="组合逻辑设计">组合逻辑设计</h4>
+<h5 id="组合逻辑控制框图">组合逻辑控制框图</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210224337586.png" class="" title="image-20231210224337586">
+<h5 id="微操作的节拍安排">微操作的节拍安排</h5>
+<p>参见课本 P396</p>
+<p>感觉还是很重点的这一块</p>
+<h5 id="组合逻辑设计步骤">组合逻辑设计步骤</h5>
+<ol type="1">
+<li>列出微操作命令的操作时间表</li>
+<li>写出微操作命令的最简逻辑表达式</li>
+<li>画出微操作命令的逻辑图</li>
+</ol>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231211153050821.png" class="" title="image-20231211153050821">
+<p>如图，由各个微操作命令和逻辑运算组成的微操作设计电路图。</p>
+<p>这样设计思路清晰，但是设计完毕以后就会发现控制单元的线路十分复杂，并且不规范。所以<strong>为了克服这些缺点，我们可以采用微程序设计方案</strong>。</p>
+<p>但是，随着 RSIC
+的出现，组合逻辑设计仍然是设计计算机的一种重要方法。</p>
+<h4 id="微程序设计">微程序设计</h4>
+<h5 id="微程序设计思想的产生">微程序设计思想的产生</h5>
+<p>为了克服组合逻辑控制单元线路庞杂的缺点，他大胆设想采用与存储程序相类似的方法，来解决微操作命令序列的形成。</p>
+<p>微程序控制单元的核心部件是一个控制存储器。由于执行一条机器指令必须多次访问存储器，以取出多条微指令来控制执行各个操作，因此需要控制存储器的速度较高。</p>
+<h5 id="微程序控制单元框图及工作原理">微程序控制单元框图及工作原理</h5>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231211160557847.png" class="" title="image-20231211160557847">
+<p>控制单元的内部结构。</p>
+<p>其中，控制存储器（简称存控）是微程序控制单元的核心部件，用来存放全部微程序。</p>
+<p>CMAR 是控存地址寄存器，用来存放欲读出的微指令地址</p>
+<p>CMDR 是控存数据寄存器，用来存放从存控读出的微指令</p>
+<p>顺序逻辑是用来控制微指令序列的，具体就是控制形成下一条微指令（即后续微指令）的地址</p>
+<h5 id="微指令的编码方式">微指令的编码方式</h5>
+<h5 id="微指令序列地址的形成">微指令序列地址的形成</h5>
+<h5 id="微指令格式">微指令格式</h5>
+<h3 id="杂记">杂记</h3>
+<ol type="1">
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207153912299.png" class="" title="image-20231207153912299"></li>
+<li><p>周期窃取又叫做周期挪用，是指利用 CPU 不访问存储器的那些周期来实现
+DMA 操作。</p></li>
+<li><p>I/O设备要求DMA传送会遇到三种情况，一种是此时CPU不需访问主存(如CPU正在执行乘法指令，由于乘法指令执行时间较长，此时CPU不需访问主存)，故I/O设备访存与CPU不发生冲突。第二种情况是I/O设备要求DMA传送时，CPU正在访存，此时必须待
+存取周期结束时刻，CPU才能将总线占有权让出。第三种情况是I/O设备要求访存时，CPU也要求访存，这就出现了访存冲突。此刻，I/O访存优先于CPU访存，因为I/O不立即访存就可能丢失数据，这时I/O要窃取一二个存取周期，意味着CPU在执行访存指令过程中插入了DMA请求，并挪用了一二个存取周期，使CPU延缓了一二个存取周期再访存。</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207162859023.png" class="" title="image-20231207162859023"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207163257678.png" class="" title="image-20231207163257678"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207163551737.png" class="" title="image-20231207163551737"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207165814006.png" class="" title="image-20231207165814006"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231207170831367.png" class="" title="image-20231207170831367"></li>
+<li><p>https://zhuanlan.zhihu.com/p/633191759</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209150515503.png" class="" title="image-20231209150515503"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231209151825169.png" class="" title="image-20231209151825169"></li>
+<li><p>指令字长、存储字长、机器字长</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210131953000.png" class="" title="image-20231210131953000"></li>
+<li><p>32位的计算机中：32位(bit)=4字节(byte)=1字(word)</p>
+<p>64位的计算机中：64位(bit)=8字节(byte)=1字(word)</p>
+<p>由此可见，<strong>在不同位数的计算机中，一个字的大小也是不同的，所以一个字等于多少字节，是多少位，与计算机的系统硬件有关,不可以错误的对一个字是几字节下固定的判断</strong>。</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210190332080.png" class="" title="image-20231210190332080">
+<p>存储字？</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231210191311320.png" class="" title="image-20231210191311320">
+<p>对于扩展码的实际应用</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219220620549.png" class="" title="image-20231219220620549"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219221118811.png" class="" title="image-20231219221118811"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219222624866.png" class="" title="image-20231219222624866"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219230323825.png" class="" title="image-20231219230323825"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219230847814.png" class="" title="image-20231219230847814"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219232243387.png" class="" title="image-20231219232243387"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219232703307.png" class="" title="image-20231219232703307"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219232740920.png" class="" title="image-20231219232740920"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233045969.png" class="" title="image-20231219233045969"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233240243.png" class="" title="image-20231219233240243"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233333311.png" class="" title="image-20231219233333311"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233516247.png" class="" title="image-20231219233516247"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231219233536291.png" class="" title="image-20231219233536291"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225115337794.png" class="" title="image-20231225115337794"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225145004473.png" class="" title="image-20231225145004473"></li>
+<li><p>边界对齐</p></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20231225161305743.png" class="" title="image-20231225161305743">
+<p>P328 题目</p></li>
+<li><p>P331 例题7.7</p></li>
+<li><p>指令和数据都存储在存储器中，计算机如何区分它们？</p>
+<ol type="1">
+<li>通过不同的时间段来区分指令和数据，即在取指令阶段(或取指微程序)取出的为指令，在执行指令阶段(或相应微程序)取出的即为数据。</li>
+<li>通过地址来源区分，由PC提供存储单元地址的取出的是指令，由指令地址码部分提供存储单元地址的取出的是操作数。</li>
+</ol></li>
+</ol>
+<h4 id="考试">考试</h4>
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/667609db17d80704fe232e8ef19f826c.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/cccef010812373902fde3be31e189adc.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/7710574e7af5829abbc252d691bb0080.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/b465c7d6061ae5d82834cabbd72dff06.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/bc3728b92a12a15b74ea5a14b48472b3.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/7187d9bd9aa1a0e0811f4005ec5bec91.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/6c9f70143858cb4e068830def67d501e.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/49a8bf2117a7aabdfea9d261780a5ecf.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/96316c64856c85cf3804e6768a8de882.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/967e29c0f18fad417cc936d3992e0b61.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/b141b7bc5df573bdbda7e787e81e2aca.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/fc54f0bf384954397959709c0fbabf86.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/07fd9368093a312caef6c3cd9bcd28c2.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/3c17a277fc4eda6dcd91e079a96a4bf5.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/7384cc2ff89b011332e0469c15602da5.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/f16bd578014a5d651c4e3950b639ee69.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/eb41d77d372dec03bccc87188917b54d.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/8bef6054fe23d8b6d8b94926e2cc712b.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/dc9e47f79f59ba830e9014643d7b56bc.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/1b9d52ad9a61a0a0e216f3d0de4679f8.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/a8fc17935532fbec8bf36ebbe7548ee8.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/39278e7fbc20b1c91ce303b67281f0f3.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/9840b944602de7aac2d855fc6d79e0bd.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/05fd0d0e38d667b6d212b81c01f30d4b.png" class="" title="img">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/98964ab63df1512f262c081b9245f7ca.png" class="" title="img">
+<p>提高带宽，减小存储体？
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/32521ce1ee826878033acd08a026e4b3.png" class="" title="img">通道方式没学？<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/494ab01e2a6c2503821e78e323ec02b9.png" class="" title="img"></p>
+<ul>
+<li>决定计算机计算精度的主要指标是计算机的字长。</li>
+<li>边界对齐方式虽然会浪费一些空间，但是可以提高取指令和取数的速度。</li>
+<li>多少位的机器，这里的多少位一般指的是「机器字长」</li>
+<li>每一个 Cache 块都要有一个标记项，来指明是哪一块的副本，所以在计算
+Cache 容量的时候，需要同时分析标记项和 Cache 数据块的位数</li>
+<li>Cache 的标记项，包括有效位、脏位、替换控制位、标记位 有效位是指
+一个块是否在 Cache 中 修改位（脏位）是指
+这个块是否被处理及修改（采用写回法的时候）</li>
+<li>注意区分 Cache 地址和 Cache 行内的内容 Cache
+行内，前部分是标记，后面是数据，标记并不参与编址，后面的内容参与编址。地址就是
+Cache 行数 + 块内地址</li>
+<li>注意 CPU 中，运算器和控制器的寄存器区分。 运算器有
+ACC、PSW、MQ（乘商寄存器）、X（操作数寄存器）、变址寄存器（IX）、基址寄存器（BR）
+控制器有 PC、IR、MAR、MDR（关于指令的一些寄存器都在控制器中）</li>
+<li>计算机软件按照功能分类，可以分为系统软件和应用软件
+<strong>系统软件</strong>主要有（基本上最后都是 xxx
+系统）：OS（操作系统）、数据库管理系统（DBMS）、语言处理程序、分布式软件系统、网络软件系统、标准库程序、服务性程序
+应用软件主要有：科学计算类程序、网络软件程序</li>
+<li>汇编程序：将汇编语言程序翻译为机器语言程序
+解释程序：将原程序中的语句按执行顺序<strong>逐条翻译</strong>为机器指令并立即执行（直接到机器语言）
+编译程序：将高级语言翻译为<strong>汇编语言</strong>或者<strong>机器语言</strong>程序（都可以）</li>
+<li>冯诺依曼机最根本的特征是采用「存储程序」原理，基本工作方式是<strong>控制流驱动方式</strong>。</li>
+<li><strong>机器字长</strong>（字长）是指计算机<strong>一次整数运算</strong>（即定点整数运算）所能处理的二进制数据的位数。</li>
+<li>在计算机中，CPI
+和时钟频率无关，只是频率更快一些的话，可以加快运行速度。</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240103163951506.png" class="" title="image-20240103163951506">
+选 B</li>
+<li>机器语言和汇编语言与机器指令对应，而高级语言不与机器指令对应，所以有更好的
+<strong>可移植性</strong>。</li>
+<li>指令字长和存储字长都必须是字节的整数倍，所以如果我们计算
+<strong>位数</strong>，最后的结果应该变为 8 的倍数</li>
+<li>移码用来表示浮点数的阶码，只可以用来表示整数</li>
+<li>一个真值的移码和补码仅差一个符号位</li>
+<li>补码判断大小：对于正数，很容易判断；对于负数，<strong>数值部分越大</strong>，绝对值越小，<strong>真值越大</strong></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240103172730016.png" class="" title="image-20240103172730016">
+注意整数、小数十进制和二进制之间的转换</li>
+<li>[-x]补 是 [x]补 含符号位在内，全部取反，末位加一</li>
+<li>n 位二进制最大表示 <span class="math inline">\(2^{n} -
+1\)</span></li>
+<li>补码的情况下，左移高位丢 0 结果出错，右移低位丢 1 影响精度</li>
+<li>逻辑移位的时候，高位直接移丢，低位补 0</li>
+<li>溢出判断有三种方式：一位符号位、二位符号位、一位加上最高位进位</li>
+<li>浮点数运算中，数据一旦产生了上溢，计算机必须中断运算操作，进行溢出处理。当数据下溢的时候，因为绝对值过小，激素那几仅当成机器零来处理。
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104103339056.png" class="" title="image-20240104103339056"></li>
+<li>基数不同，浮点数的规格化形式也不同，当基数为 4
+的时候，原码规格化形式的尾数的最高两位<strong>不全为 0</strong>
+（规格化这里要注意，是对于原码规格化还是说对于补码规格化）</li>
+<li>浮点数的基数越大，表示的范围越大，但是精度越低。同时，因为对阶或者尾数溢出需右移以及规格化需左移的次数显著变少，因此运算速度可能提高。</li>
+<li>舍入是浮点数的概念，定点数中没有舍入的概念</li>
+<li>RAM 和 ROM 的存取方式都是随机存取，ROM 可以和 RAM
+共同作为主存的一部分，统一构成主存的地址域</li>
+<li>主存和 Cache
+之间的数据调动是由硬件自动完成的，对所有的程序员都是透明的；
+主存和辅存之间的数据调动则是由硬件和操作系统共同完成的，对应用程序员是透明的（如果使用汇编语言，就不是透明的）</li>
+<li>Cache 的效率：Cache 访问的时间 / 平均访问的时间</li>
+<li>DRAM 的刷新是透明的，刷新不依赖于外部的访问</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104110952404.png" class="" title="image-20240104110952404">
+10+8+2+1（最后的是两个读写控制信号线和一个片选线)，所以是 A</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104111408195.png" class="" title="image-20240104111408195">
+5+8+2+2
+片选线是两个，因为采用了地址复用技术，所以分为行通选信号和列通选信号</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104112417927.png" class="" title="image-20240104112417927">
+选 C，这一个题目还是比较有意思的</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104114044137.png" class="" title="image-20240104114044137">
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104114105035.png" class="" title="image-20240104114105035"></li>
+<li>高位交叉存储不符合程序运行的局部性原理</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104115436049.png" class="" title="image-20240104115436049"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104142057903.png" class="" title="image-20240104142057903">
+仔细计算一下会发现，其实只有位扩展，所以选 A</li>
+<li>算数移位的时候，只有低位的符号位参与移动</li>
+<li>IO
+设备统一编址的时候不需要单独设置指令，访存指令就可以，而单独编址的时候需要设定单独的访存指令。</li>
+<li>SRAM 不是破坏性读出，而 DRAM 是破坏性读出</li>
+<li>由于程序的转移的概率不是很低，数据分布的离散性较大，所以单纯依靠并行系统提高主存系统的频宽是有限的，这就必须从<strong>系统结构</strong>上进行改进，所以提出了
+Cache-主存 和 主存-辅存 层次。</li>
+<li>当 CPU 发出读请求时，若访存地址在 Cache 中命中，就将此地址转换成
+Cache 地址，直接对于 Cache 进行读操作。</li>
+<li>CPU 与 Cache 或者主存之间交互的单位是「字」，而 Cache
+与主存之间的信息交互单位是「字块」</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104161019509.png" class="" title="image-20240104161019509">
+根据直相联映射，直接选取地址的后 14 位（因为 Cache 的容量为
+16KB)，所以选 C</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104200609153.png" class="" title="image-20240104200609153"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104204219414.png" class="" title="image-20240104204219414"></li>
+<li>单重中断和多重中断之间的区别： <img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104211142752.png" class="" title="image-20240104211142752"></li>
+<li>中断处理的全过程：
+<ol type="1">
+<li>关中断</li>
+<li>保护断点</li>
+<li>中断服务程序寻址</li>
+<li>保护现场和屏蔽字</li>
+<li>开中断</li>
+<li>执行中断服务程序</li>
+<li>关中断</li>
+<li>恢复现场和屏蔽字</li>
+<li>开中断、中断返回，<strong>中断服务程序的最后一条指令通常是中断返回指令</strong>
+（整个进入）</li>
+</ol></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104214823019.png" class="" title="image-20240104214823019"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104215604992.png" class="" title="image-20240104215604992"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240104220215439.png" class="" title="image-20240104220215439"></li>
+<li>调用子程序的指令和转移指令的区别：
+<ol type="1">
+<li>执行调用指令时必须保存下一条指令的地址，当子程序结束的时候，根据返回地址回到主程序继续执行</li>
+<li>转移指令不返回执行</li>
+</ol></li>
+<li>程序控制类指令的功能是改变程序执行的顺序</li>
+<li>在指令格式中，采用扩展码设计方案的目的是：保持指令字长度不变而增加指令的数量</li>
+<li>立即数寻址的地址字段就是操作数本身，而不是地址，<strong>采用补码的形式</strong></li>
+<li>直接寻址的寻址方式，优点是简单，在执行阶段仅仅需要访存一次，但是<strong>操作数的地址不易修改</strong>（因为我们一般不能改变指令的格式）</li>
+<li>相对寻址广泛用于转移指令，<strong>便于实现多道程序</strong></li>
+<li>基址寻址中，基址寄存器的内容不变，形式地址可变，有利于多道程序设计，并且可以用于编制浮动程序，但是偏移量
+A 比较短</li>
+<li>变址寻址中，形式地址 A
+不变，所以利于编制循环程序（对于数组的应用）</li>
+<li>寄存器寻址，寄存器中的数字就是我们要取的操作数；寄存器间接寻址，寄存器中是我们要取的操作数的地址</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240105171237087.png" class="" title="image-20240105171237087">
+为 B，操作数地址</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240105175751192.png" class="" title="image-20240105175751192">
+A 对于 D，控制信号指的是 CU
+根据操作码发出的信号，所以对于单周期的处理器来说，一个时钟周期内指令不会变化，所以控制信号就不会发生变化</li>
+<li>控制存储器（CM, 存储微程序的）在 CPU 内部，使用 ROM
+实现，是微程序控制器的核心组成部分</li>
+<li>微指令编码中，<strong>直接编码方式</strong>简单、直观，执行速度快，操作并行性好；但是指令字长过长，造成存储器容量极大
+<strong>字段直接编码方式中</strong>，分为若干块，比直接编码方式慢</li>
+<li>因为指令无法直接读取 PC 和 PSW
+等，所以在关中断以后，先保护断点在栈或者特定的寄存器中；而对于现场信息，指令可以直接访问，所以通常在中断服务程序中通过指令把它们保存在栈中。</li>
+<li>DMA 控制器（又叫做 DMA 接口），功能是接受外设发出的 <strong>DMA
+请求</strong>，并且向 CPU
+发出<strong>总线请求</strong>。（注意区分两个请求和两个对象）</li>
+<li>DMA
+在数据传送的过程中，完全由硬件实现（预处理、数据传送、后处理三个过程）</li>
+<li>DMA 不中断现行程序，不需要保护现场，除了预处理和后处理，不占用任何
+CPU 资源</li>
+<li>中断向量是硬件方法</li>
+<li><strong>中断向量就是</strong>中断服务程序的入口</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003453047.png" class="" title="image-20240106003453047"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003504275.png" class="" title="image-20240106003504275"></li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003716629.png" class="" title="image-20240106003716629"></li>
+<li>在 DMA 方式下，主存和 IO 设备之间有一条物理通路相连吗？
+<img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240106003900192.png" class="" title="image-20240106003900192"></li>
+<li>寄存器由一个触发电路（触发器）构成</li>
+<li>决定计算机计算精度的主要指标是字长</li>
+<li>十进制数 137.5 的八进制是 211.4</li>
+<li>变形补码运算中，有着模 2
+的补码运算的全部优点，并且更加容易检测是否有溢出</li>
+<li>算数移位中，双符号位的移位操作只有低符号位需要参加移位操作</li>
+<li>浮点数运算中的对阶，只存在右移，不存在左移</li>
+<li>采用规格化主要是为了增加表示数的精度</li>
+<li>浮点数中，尾数是定点小数，也就是说只能是 0-1 绝对值的小数</li>
+<li>主存和 Cache
+之间的数据调动是由硬件自动完成的，对所有的程序员都是透明的；而主存和辅存之间的数据调动则是由硬件和操作系统共同完成的，对应用程序员是透明的。</li>
+<li>DRAM
+芯片容量较大，地址位数较多，为了减少芯片地址的引脚数，地址通常采用引脚复用的操作，行地址和列地址通过相同的引脚分先后两次输入。</li>
+<li>多模块存储器是一种空间并行技术，常用的有单体多字存储器和多体交叉存储器</li>
+<li>高位交叉又叫做顺序方式，低位交叉又叫做交叉方式</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240114111445525.png" class="" title="image-20240114111445525">
+画图画图画图！！！！</li>
+<li>访存控制信号 MREQ，只有 CPU 访存时，MREQ 才为低电平，当 CPU 访问 IO
+设备的时候，MREQ 为高电平，表示不需要存储器工作</li>
+<li><img src="/2023/12/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/image-20240114135921986.png" class="" title="image-20240114135921986">
+直接取 行数 + 块内地址数</li>
+<li>为了在指令字长有限的情况下仍然保持比较丰富的指令种类，可以采取可变长度操作码</li>
+<li>调用指令和转移指令的区别：执行调用指令时必须保存下一条指令的地址</li>
+<li>为了缩短指令中某个地址段的位数，通常采用寄存器寻址的方式，因为寄存器的位数不会太多</li>
+<li>指令译码指的是对于指令的操作码字段进行翻译</li>
+<li>间址周期取有效地址，执行周期取操作数</li>
+<li>取指操作时自动执行的，不需要控制器受到相应的指令</li>
+<li>CPU
+内有四个触发器，可以用来标识指令执行现在处于哪一个阶段，所以控制器可以区分存储单元中是存储的数据还是指令</li>
+<li>硬布线控制器 又叫做
+组合逻辑控制器，由复杂的组合逻辑门电路和一些触发器构成</li>
+<li>微程序控制器采用存储逻辑实现，也就是把微操作信号代码化，目前，大多数计算机都采用微程序控制器</li>
+<li>控制存储器 控制存储器 控制存储器</li>
+<li>控制存储器位于 CPU 内部，采用 ROM 实现</li>
+<li>地址寄存器(MAR) - 微地址寄存器(CMAR) 指令寄存器(IR) -
+微指令寄存器(CMDR)</li>
+<li>垂直型微指令一次只能完成一个操作</li>
+<li>采取独立编址的时候，IO 端口地址和主存地址可能相同</li>
+<li>IO 指令实现的数据传输是发生在 IO 端口和通用寄存器之间的</li>
+<li>关中断，否则断点或者现场保存不完整</li>
+<li>中断服务程序中保护现场</li>
+<li>返回之前，恢复现场；中断程序的最后一步是执行中断返回指令</li>
+<li>DMA 方式是一种由完全由硬件进行传输信息的控制方式</li>
+<li>预处理 数据传输 后处理</li>
+<li>预处理：初始化 DMA
+控制器中的有关寄存器、设置传送方向、启动该设备</li>
+<li>后处理：CPU 执行中断服务程序做 DMA 结束处理</li>
+<li>DMA 不中断先行程序，不需要保护现场</li>
+<li>存取时间和物理地址无关，叫做「随机存取」方法</li>
+<li>异步刷新也不会出现「死区」</li>
+<li>校验码中增加冗余位的目的是为了增大码距</li>
+<li>码距越大，抗干扰能力越强，纠错能力越强，数据冗余越大，编码效率越低，编码电路相对复杂</li>
+</ul>
+<h3 id="名词">名词</h3>
+<ol type="1">
+<li>主存储器 MM(Main Memory) 又叫做内存</li>
+<li>辅存 又叫做 外存</li>
+<li>指令集结构 ISA</li>
+<li>CPI Cycle Per Instruction</li>
+<li>MIPS Million Instructions Per Second</li>
+<li>MREQ 访存控制信号 Memory Request</li>
+<li></li>
+<li></li>
+</ol>
+<h3 id="复习课">复习课</h3>
+<h4 id="第一章">第一章</h4>
+<p>如何区分指令和数据？</p>
+<p>计算机硬件的主要指标（三个）：计算速度（CPI（不同情况下不同概念）、百万指令条数）、机器字长、？？</p>
+<p>关于计算时间的作业题，这里的计算大概是重点</p>
+<p>还有一个层次结构，理解了就行</p>
+<h4 id="第四章">第四章</h4>
+<p>两级存储体系：缓存（纯硬件实现，为了解决速度问题，自己设计一个
+Cache，设计一个流水的访存指令？）主存-为了提高访问主存速度，主存辅存-为了解决容量问题</p>
+<p>存储单元的属性（每一个都有自己的地址和内容），字节编址？字编址？大端小端？、命名字的地址（不管大端小端都是低地址）？</p>
+<p>C 语言变量在内存中分配字节数</p>
+<p>不管读写主存，CPU 都是送出地址，然后一个读写命令</p>
+<p><strong>重点：</strong> 存储体有一个
+<strong>地址锁存器</strong>，地址译码器，还有存储体，读写逻辑，读出来的信息放在数据缓冲器寄存器里面，然后送给数据总线</p>
+<p>动态存储的刷新（使用电容存储电荷来存储信息，不然会掉电丢失）三种刷新方式必须掌握（最好的刷新方式？）</p>
+<p><strong>重点难点：</strong>存储器设计、译码器、容量计算、每一个选中的芯片都有片内地址（无法参与外部的译码电路）、片外地址、小容量的芯片一定需要二次译码、二次译码差几倍就是几根地址线？选的不同芯片不要差别太大，不然电路设计麻烦</p>
+<p>汉明码（奇偶校验，看题干）</p>
+<p><strong>重点</strong>
+低位和高位交叉编址的带宽计算，与由多少存储体组成有关</p>
+<p><strong>重点</strong> Cache 命中率、效率、访问时间计算</p>
+<p><strong>重点</strong> Cache 主存地址映射，会出 大题</p>
+<p>几个片选信号写几个范围</p>
+<p>汉明码先纠错，再取有效信息</p>
+<p>低位存取周期？？？？</p>
+<h4 id="第三章">第三章</h4>
+<p>总线没讲，因为太老了，但是智慧树的习题上面有几道例题，讲的数据总线。</p>
+<p>涉及到的题目大部分是数据总线上的数据传输率的题目</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/computer/" rel="tag"># computer</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/04/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%862%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/" rel="prev" title="大学物理2关键记录">
+                  <i class="fa fa-angle-left"></i> 大学物理2关键记录
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/20/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E5%85%B3%E9%94%AE%E8%AE%B0%E5%BD%95/" rel="next" title="马克思主义基本原理关键记录">
+                  马克思主义基本原理关键记录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Miraclys</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+
+  <a href="https://github.com/Miraclys" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"miraclys","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
