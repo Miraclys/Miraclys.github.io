@@ -2,6 +2,8 @@
 title: shell
 date: 2024-02-11 17:21:03
 tags:
+- shell
+description: shell
 ---
 
 #### 定义
