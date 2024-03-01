@@ -100,3 +100,43 @@ SSH 在服务器端可以生成日志，记录当前服务器的情况。SSH 日
 
 #### 端口转发
 
+ssh 除了登陆服务器，其实还有一大用途，就是作为加密通信的中介，充当两台服务器之间的加密跳板，使得原本不加密的通信变成加密通信。这个功能称为端口转发（port forwarding），又称 SSH 隧道（tunnel）。
+
+端口转发主要有两个作用：
+
+1. 将不加密的数据放在 SSH 安全连接里面传输，使得原本不安全的网络服务增加了安全性，比如通过端口转发访问 Telnet、FTP 等明文服务，数据传输就都会加密。
+2. 作为数据通信的加密跳板，绕过网络防火墙。
+
+端口转发有三种使用方法（三种类型）：动态转发、本地转发和远程转发。
+
+1. local port forwarding
+
+    本地端口转发允许你将本地主机上的端口流量转发到远程主机上的另一个主机和端口。语法是 `ssh -L [local_port]:[remote_host]:[remote_port] [user]@[ssh_server]`
+2. remote port forwarding
+
+    远程端口转发允许你将远程主机上的端口流量转发到本地主机上的另一个主机和端口。语法是 `ssh -R [remote_port]:[local_host]:[local_port] [user]@[ssh_server]`
+3. Dynamic Port Forwarding
+
+    允许我们创建一个 SOCKS 代理，将代理服务器上的流量转发到远程主机上。
+
+#### SCP 命令
+
+SCP 是 secure copy 的缩写。相当于 cp 命令 + SSH。底层是 SSH 协议，默认端口是 22，相当于先使用 SSH 登陆，然后执行拷贝操作。
+
+和 cp 的命令使用方式一样。 `scp file1.txt user@example.com:~/backup/`，其中也可以加选项 -r -i -p -v的。
+
+其中，前一个地址是 source，后一个地址是 destination，但是远程主机文件地址要写为 user@host:xxx 的形式。
+
+#### rsync 命令
+
+更高级的一种文件同步命令。
+
+#### sftp 命令
+
+提供了一个交互式界面的文件传输方式
+
+#### Fail2ban
+
+Fail2Ban 是一个 Linux 系统的应用软件，用来防止系统入侵，主要是防止暴力破解系统密码。它是用 Python 开发的。
+
+Fail2Ban 可以防止有人反复尝试 SSH 密码登录，但是如果 SSH 采用的是密钥登录，禁止了密码登录，就不需要 Fail2Ban 来保护。
