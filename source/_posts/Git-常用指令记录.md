@@ -35,5 +35,6 @@ description: record some common git commands.
 17. `git log -S [keyword]` 根据关键词搜索提交历史
 18. `git fetch [remote]` 下载远程仓库的所有变动
 19. `git remote -v` 显示所有的远程仓库
-
-
+20. `git remote` 显示远程仓库的别名（没有 -v 的信息全）
+21. `git branch -m <old_branch_name> <new_branch_name>` 可以用来重命名分支
+22. `git config --global init.defaultBranch <branch-name>` 可以用来配置默认分支

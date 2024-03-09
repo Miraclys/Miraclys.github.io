@@ -43,4 +43,10 @@ description: 记录我的足迹
 
     update 杂记3
 
+6. 2024-03-04
 
+    update Git 常用指令记录
+
+    update 数值计算方法
+
+    
