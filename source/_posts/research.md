@@ -76,4 +76,20 @@ description:
 
 25. cushion n 垫子、缓冲、减震垫 v 减轻、缓冲、减轻...的影响
 
-26. 
+26. unprecedent a 前所未有的、没有先例的、不可预知的
+
+27. degradation n 退化、降解
+
+28. fluctuate v 变幻、变化、波动
+
+29. scheme n 计划、方案、计谋
+
+30. chunk n 块、区块、一块、大块
+
+31. discrepancy n 差异、差距
+
+32. ramp n 坡道、斜坡 ramp up 加大、增强
+
+33. preceding a 前面的、前一的
+
+34. 
